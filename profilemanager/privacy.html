@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">Profile Manager — Privacy Policy</title>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013; --surface: #14171c; --text: #e7eaed; --text-dim: #99a3b0;
+      --text-dimmer: #69707c; --border: #262b33; --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12); --accent-line: rgba(77, 163, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  header.masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sitenav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .sitenav a { color: var(--text-dim); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+  .langnav { display: flex; gap: 4px; }
+  .langnav a {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 7px;
+    border-radius: 6px; color: var(--text-dim); background: var(--accent-soft);
+    text-decoration: none; cursor: pointer;
+  }
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 100px; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(26px, 5vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; }
+  .lede { font-size: 17px; color: var(--text-dim); max-width: 62ch; margin: 0 0 8px; }
+  .meta { font-size: 12px; color: var(--text-dimmer); margin: 0 0 28px; }
+
+  section { margin: 0 0 36px; }
+  h2 {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 0 0 16px;
+  }
+  section p { margin: 0 0 14px; max-width: 66ch; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  section li { margin-bottom: 6px; }
+  strong { color: var(--text); }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px;
+    background: var(--accent-soft); padding: 1px 5px; border-radius: 4px;
+  }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--surface); min-width: 480px; }
+  thead th {
+    text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-dimmer); background: var(--accent-soft); padding: 10px 14px; border-bottom: 1px solid var(--border);
+  }
+  tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.perm-name {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; color: var(--text); white-space: nowrap;
+  }
+
+  footer {
+    max-width: 720px; margin: 0 auto; padding: 0 20px 60px; font-size: 13px; color: var(--text-dimmer);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+  .footer-coffee {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+    font-weight: 700; text-decoration: none; color: var(--text-dim);
+  }
+  .footer-coffee:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{
+"en":{"pageTitle":"Profile Manager — Privacy Policy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Privacy Policy","h1":"What Profile Manager does with your data — in plain terms.","updated":"Last updated 29 July 2026","lede":"Profile Manager is a Chrome extension for Salesforce admins who need to view, compare, and edit Profile permissions. It has no server of its own: everything happens inside your browser, either on local files you pick or against the Salesforce org you're already logged into.","s1H2":"Summary","s1P":"<strong>No server, no account, no tracking.</strong> Profile Manager doesn't collect, store, or transmit your data to us or anyone else. The only network traffic it generates goes directly from your browser to your own Salesforce org, using an org session you already have.","s2H2":"Local files (local mode)","s2P":"When you open a folder of <code>.profile-meta.xml</code> files, Profile Manager uses the browser's File System Access API. It only reads and writes the files inside the folder you explicitly chose, entirely on your device — no network request is involved in this mode.","s3H2":"Salesforce connection (Salesforce mode)","s3P1":"To fetch and apply Profile permissions from an org, Profile Manager needs a Session ID. You can either paste one in manually, or let the extension detect orgs you're already logged into by reading the <code>sid</code> session cookie on Salesforce domains.","s3P2":"That session ID is used only to call Salesforce's own Metadata and REST APIs, directly from your browser to your org's servers. It is never sent to any third-party server, never stored by the extension (each connection re-scans cookies fresh), and disappears as soon as you close the tab or remove the connected source.","s4H2":"What is stored locally","s4P":"Profile Manager saves a few preferences on your device via the browser's <code>localStorage</code>: your light/dark theme, your chosen language, and which permission categories are shown. That's it — no credentials, no session IDs, and no profile data are ever persisted.","s5H2":"What we don't do","s5l1":"No analytics, telemetry, or usage tracking of any kind.","s5l2":"No ads, and no data ever sold or shared with anyone.","s5l3":"No third-party servers in the loop — there is no backend at all.","s5l4":"No access to your Salesforce data beyond the actions you explicitly trigger (viewing, comparing, or applying permissions).","permH2":"Permissions, explained","permTh1":"Permission","permTh2":"What it's for","perm1d":"Read the Salesforce session cookie (<code>sid</code>) of orgs you're already logged into, so you can pick one instead of pasting a Session ID by hand. Restricted to the Salesforce domains listed below.","perm2d":"Call the Salesforce Metadata/REST APIs and read the session cookie only on salesforce.com, force.com, cloudforce.com, and visualforce.com and their subdomains.","retH2":"Deleting your data","retP":"Uninstalling Profile Manager removes the few preferences stored locally. There is nothing else to delete: no credentials or session data are ever kept beyond the current browser tab.","chH2":"Changes to this policy","chP":"If what Profile Manager collects or does changes, this page will be updated and the date above will reflect it.","contactH2":"Contact","contactP":"Questions about this policy? <a href=\"#\" id=\"contactLink\">Contact us</a>.","footer1":"Profile Manager — a lightweight tool for Salesforce Profile permissions.","footer2":"This policy applies only to the Profile Manager Chrome extension.","footer3":"Profile Manager is an independent, third-party project and is not affiliated with, endorsed by, or sponsored by Salesforce, Inc. \"Salesforce\" is a trademark of Salesforce, Inc."},
+"it":{"pageTitle":"Gestione Profili — Informativa sulla Privacy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Informativa sulla Privacy","h1":"Cosa fa Gestione Profili con i tuoi dati — in termini semplici.","updated":"Ultimo aggiornamento: 29 luglio 2026","lede":"Gestione Profili è un'estensione Chrome per amministratori Salesforce che devono visualizzare, confrontare e modificare i permessi dei Profili. Non ha un server proprio: tutto avviene dentro il tuo browser, sui file locali che scegli tu oppure sulla org Salesforce in cui hai già effettuato l'accesso.","s1H2":"Riepilogo","s1P":"<strong>Nessun server, nessun account, nessun tracciamento.</strong> Gestione Profili non raccoglie, salva o trasmette i tuoi dati a noi o a chiunque altro. L'unico traffico di rete generato va direttamente dal tuo browser alla tua org Salesforce, usando una sessione che hai già.","s2H2":"File locali (modalità locale)","s2P":"Quando apri una cartella di file <code>.profile-meta.xml</code>, Gestione Profili usa la File System Access API del browser. Legge e scrive solo i file dentro la cartella che hai scelto esplicitamente, interamente sul tuo dispositivo — in questa modalità non è coinvolta alcuna richiesta di rete.","s3H2":"Connessione a Salesforce (modalità Salesforce)","s3P1":"Per recuperare e applicare i permessi di un Profilo da una org, Gestione Profili ha bisogno di un Session ID. Puoi incollarne uno a mano, oppure lasciare che l'estensione rilevi le org in cui hai già effettuato l'accesso leggendo il cookie di sessione <code>sid</code> sui domini Salesforce.","s3P2":"Quel session ID viene usato solo per chiamare le API Metadata e REST di Salesforce, direttamente dal tuo browser ai server della tua org. Non viene mai inviato a server di terze parti, non viene mai salvato dall'estensione (ogni connessione riparte da una scansione fresca dei cookie), e scompare non appena chiudi la scheda o rimuovi la sorgente collegata.","s4H2":"Cosa viene salvato in locale","s4P":"Gestione Profili salva alcune preferenze sul tuo dispositivo tramite il <code>localStorage</code> del browser: il tema chiaro/scuro, la lingua scelta e quali categorie di permessi mostrare. Tutto qui — nessuna credenziale, nessun session ID e nessun dato di profilo viene mai conservato.","s5H2":"Cosa non facciamo","s5l1":"Nessun analytics, telemetria o tracciamento dell'utilizzo di alcun tipo.","s5l2":"Nessuna pubblicità, e nessun dato mai venduto o condiviso con chiunque.","s5l3":"Nessun server di terze parti nel processo — non esiste alcun backend.","s5l4":"Nessun accesso ai tuoi dati Salesforce al di fuori delle azioni che attivi esplicitamente (visualizzare, confrontare o applicare permessi).","permH2":"I permessi, spiegati","permTh1":"Permesso","permTh2":"A cosa serve","perm1d":"Leggere il cookie di sessione Salesforce (<code>sid</code>) delle org in cui hai già effettuato l'accesso, così puoi sceglierne una invece di incollare a mano un Session ID. Limitato ai domini Salesforce elencati sotto.","perm2d":"Chiamare le API Metadata/REST di Salesforce e leggere il cookie di sessione solo su salesforce.com, force.com, cloudforce.com e visualforce.com e i loro sottodomini.","retH2":"Eliminare i tuoi dati","retP":"Disinstallare Gestione Profili rimuove le poche preferenze salvate in locale. Non c'è altro da eliminare: nessuna credenziale o dato di sessione viene mai conservato oltre la scheda del browser attualmente aperta.","chH2":"Modifiche a questa informativa","chP":"Se ciò che Gestione Profili raccoglie o fa cambia, questa pagina verrà aggiornata e la data sopra lo rifletterà.","contactH2":"Contatti","contactP":"Domande su questa informativa? <a href=\"#\" id=\"contactLink\">Contattaci</a>.","footer1":"Gestione Profili — uno strumento leggero per i permessi dei Profili Salesforce.","footer2":"Questa informativa si applica solo all'estensione Chrome Gestione Profili.","footer3":"Gestione Profili è un progetto indipendente di terze parti e non è affiliato, approvato o sponsorizzato da Salesforce, Inc. \"Salesforce\" è un marchio di Salesforce, Inc."},
+"fr":{"pageTitle":"Gestion des Profils — Politique de confidentialité","navHome":"Accueil","navPrivacy":"Confidentialité","eyebrow":"Politique de confidentialité","h1":"Ce que Gestion des Profils fait de vos données — en termes simples.","updated":"Dernière mise à jour : 29 juillet 2026","lede":"Gestion des Profils est une extension Chrome pour les administrateurs Salesforce qui doivent visualiser, comparer et modifier les permissions des Profils. Elle n'a pas de serveur propre : tout se passe dans votre navigateur, sur des fichiers locaux que vous choisissez ou sur l'org Salesforce à laquelle vous êtes déjà connecté.","s1H2":"Résumé","s1P":"<strong>Aucun serveur, aucun compte, aucun suivi.</strong> Gestion des Profils ne collecte, ne stocke ni ne transmet vos données à nous ou à qui que ce soit. Le seul trafic réseau généré va directement de votre navigateur à votre propre org Salesforce, en utilisant une session que vous avez déjà.","s2H2":"Fichiers locaux (mode local)","s2P":"Lorsque vous ouvrez un dossier de fichiers <code>.profile-meta.xml</code>, Gestion des Profils utilise la File System Access API du navigateur. Elle ne lit et n'écrit que les fichiers du dossier que vous avez explicitement choisi, entièrement sur votre appareil — aucune requête réseau n'est impliquée dans ce mode.","s3H2":"Connexion à Salesforce (mode Salesforce)","s3P1":"Pour récupérer et appliquer les permissions d'un Profil depuis une org, Gestion des Profils a besoin d'un Session ID. Vous pouvez en coller un manuellement, ou laisser l'extension détecter les orgs auxquelles vous êtes déjà connecté en lisant le cookie de session <code>sid</code> sur les domaines Salesforce.","s3P2":"Ce Session ID est utilisé uniquement pour appeler les API Metadata et REST de Salesforce, directement depuis votre navigateur vers les serveurs de votre org. Il n'est jamais envoyé à un serveur tiers, jamais stocké par l'extension (chaque connexion relit les cookies à zéro), et disparaît dès que vous fermez l'onglet ou retirez la source connectée.","s4H2":"Ce qui est stocké localement","s4P":"Gestion des Profils enregistre quelques préférences sur votre appareil via le <code>localStorage</code> du navigateur : votre thème clair/sombre, la langue choisie, et quelles catégories de permissions afficher. Rien de plus — aucun identifiant, aucun Session ID et aucune donnée de profil n'est jamais conservé.","s5H2":"Ce que nous ne faisons pas","s5l1":"Aucun analytics, télémétrie ou suivi d'utilisation, quel qu'il soit.","s5l2":"Aucune publicité, et aucune donnée jamais vendue ou partagée avec qui que ce soit.","s5l3":"Aucun serveur tiers dans la boucle — il n'y a aucun backend.","s5l4":"Aucun accès à vos données Salesforce en dehors des actions que vous déclenchez explicitement (visualiser, comparer ou appliquer des permissions).","permH2":"Les permissions, expliquées","permTh1":"Permission","permTh2":"À quoi ça sert","perm1d":"Lire le cookie de session Salesforce (<code>sid</code>) des orgs auxquelles vous êtes déjà connecté, pour en choisir une au lieu de coller un Session ID à la main. Limité aux domaines Salesforce listés ci-dessous.","perm2d":"Appeler les API Metadata/REST de Salesforce et lire le cookie de session uniquement sur salesforce.com, force.com, cloudforce.com et visualforce.com et leurs sous-domaines.","retH2":"Suppression de vos données","retP":"Désinstaller Gestion des Profils supprime les quelques préférences stockées localement. Il n'y a rien d'autre à supprimer : aucun identifiant ni donnée de session n'est jamais conservé au-delà de l'onglet actuellement ouvert.","chH2":"Modifications de cette politique","chP":"Si ce que Gestion des Profils collecte ou fait change, cette page sera mise à jour et la date ci-dessus le reflétera.","contactH2":"Contact","contactP":"Des questions sur cette politique ? <a href=\"#\" id=\"contactLink\">Contactez-nous</a>.","footer1":"Gestion des Profils — un outil léger pour les permissions des Profils Salesforce.","footer2":"Cette politique s'applique uniquement à l'extension Chrome Gestion des Profils.","footer3":"Gestion des Profils est un projet indépendant et tiers, non affilié, approuvé ou sponsorisé par Salesforce, Inc. « Salesforce » est une marque déposée de Salesforce, Inc."},
+"de":{"pageTitle":"Profilverwaltung — Datenschutzerklärung","navHome":"Start","navPrivacy":"Datenschutz","eyebrow":"Datenschutzerklärung","h1":"Was Profilverwaltung mit deinen Daten macht — einfach erklärt.","updated":"Zuletzt aktualisiert: 29. Juli 2026","lede":"Profilverwaltung ist eine Chrome-Erweiterung für Salesforce-Administratoren, die Profil-Berechtigungen ansehen, vergleichen und bearbeiten müssen. Sie hat keinen eigenen Server: Alles geschieht in deinem Browser, entweder mit lokalen Dateien, die du auswählst, oder mit der Salesforce-Org, bei der du bereits angemeldet bist.","s1H2":"Zusammenfassung","s1P":"<strong>Kein Server, kein Konto, kein Tracking.</strong> Profilverwaltung sammelt, speichert oder überträgt deine Daten nicht an uns oder irgendjemand sonst. Der einzige erzeugte Netzwerkverkehr geht direkt von deinem Browser zu deiner eigenen Salesforce-Org, unter Verwendung einer Sitzung, die du bereits hast.","s2H2":"Lokale Dateien (lokaler Modus)","s2P":"Wenn du einen Ordner mit <code>.profile-meta.xml</code>-Dateien öffnest, nutzt Profilverwaltung die File System Access API des Browsers. Sie liest und schreibt nur Dateien in dem Ordner, den du ausdrücklich ausgewählt hast, vollständig auf deinem Gerät — in diesem Modus ist keine Netzwerkanfrage beteiligt.","s3H2":"Salesforce-Verbindung (Salesforce-Modus)","s3P1":"Um Profil-Berechtigungen aus einer Org abzurufen und anzuwenden, benötigt Profilverwaltung eine Session-ID. Du kannst sie manuell einfügen oder die Erweiterung Orgs erkennen lassen, bei denen du bereits angemeldet bist, indem sie das Sitzungscookie <code>sid</code> auf Salesforce-Domains liest.","s3P2":"Diese Session-ID wird nur verwendet, um die eigenen Metadata- und REST-APIs von Salesforce aufzurufen, direkt von deinem Browser zu den Servern deiner Org. Sie wird nie an einen Server eines Drittanbieters gesendet, nie von der Erweiterung gespeichert (jede Verbindung liest Cookies neu ein), und verschwindet, sobald du den Tab schließt oder die verbundene Quelle entfernst.","s4H2":"Was lokal gespeichert wird","s4P":"Profilverwaltung speichert einige Einstellungen auf deinem Gerät über das <code>localStorage</code> des Browsers: dein helles/dunkles Design, die gewählte Sprache und welche Berechtigungskategorien angezeigt werden. Das war's — keine Anmeldedaten, keine Session-IDs und keine Profildaten werden jemals gespeichert.","s5H2":"Was wir nicht tun","s5l1":"Keinerlei Analytics, Telemetrie oder Nutzungs-Tracking.","s5l2":"Keine Werbung, und niemals werden Daten an irgendjemanden verkauft oder weitergegeben.","s5l3":"Kein Drittanbieter-Server im Spiel — es gibt überhaupt kein Backend.","s5l4":"Kein Zugriff auf deine Salesforce-Daten außerhalb der Aktionen, die du ausdrücklich auslöst (Berechtigungen ansehen, vergleichen oder anwenden).","permH2":"Die Berechtigungen, erklärt","permTh1":"Berechtigung","permTh2":"Wofür sie verwendet wird","perm1d":"Das Salesforce-Sitzungscookie (<code>sid</code>) von Orgs lesen, bei denen du bereits angemeldet bist, damit du eine auswählen kannst, statt eine Session-ID von Hand einzufügen. Beschränkt auf die unten aufgeführten Salesforce-Domains.","perm2d":"Die Metadata-/REST-APIs von Salesforce aufrufen und das Sitzungscookie nur auf salesforce.com, force.com, cloudforce.com und visualforce.com sowie deren Subdomains lesen.","retH2":"Deine Daten löschen","retP":"Das Deinstallieren von Profilverwaltung entfernt die wenigen lokal gespeicherten Einstellungen. Es gibt sonst nichts zu löschen: Es werden nie Anmeldedaten oder Sitzungsdaten über den aktuell geöffneten Tab hinaus aufbewahrt.","chH2":"Änderungen dieser Erklärung","chP":"Wenn sich ändert, was Profilverwaltung erfasst oder tut, wird diese Seite aktualisiert und das Datum oben spiegelt dies wider.","contactH2":"Kontakt","contactP":"Fragen zu dieser Erklärung? <a href=\"#\" id=\"contactLink\">Kontaktiere uns</a>.","footer1":"Profilverwaltung — ein leichtgewichtiges Tool für Salesforce-Profil-Berechtigungen.","footer2":"Diese Erklärung gilt ausschließlich für die Chrome-Erweiterung Profilverwaltung.","footer3":"Profilverwaltung ist ein unabhängiges Drittanbieterprojekt und steht in keiner Verbindung zu Salesforce, Inc., wird nicht von Salesforce unterstützt oder gesponsert. „Salesforce“ ist eine Marke von Salesforce, Inc."},
+"es":{"pageTitle":"Gestión de Perfiles — Política de Privacidad","navHome":"Inicio","navPrivacy":"Privacidad","eyebrow":"Política de Privacidad","h1":"Qué hace Gestión de Perfiles con tus datos — en términos sencillos.","updated":"Última actualización: 29 de julio de 2026","lede":"Gestión de Perfiles es una extensión de Chrome para administradores de Salesforce que necesitan ver, comparar y editar los permisos de los Perfiles. No tiene servidor propio: todo ocurre dentro de tu navegador, en archivos locales que tú eliges o en la org de Salesforce en la que ya has iniciado sesión.","s1H2":"Resumen","s1P":"<strong>Sin servidor, sin cuenta, sin seguimiento.</strong> Gestión de Perfiles no recopila, guarda ni transmite tus datos a nosotros ni a nadie más. El único tráfico de red que genera va directamente desde tu navegador a tu propia org de Salesforce, usando una sesión que ya tienes.","s2H2":"Archivos locales (modo local)","s2P":"Cuando abres una carpeta de archivos <code>.profile-meta.xml</code>, Gestión de Perfiles usa la File System Access API del navegador. Solo lee y escribe los archivos dentro de la carpeta que elegiste explícitamente, enteramente en tu dispositivo — en este modo no interviene ninguna solicitud de red.","s3H2":"Conexión con Salesforce (modo Salesforce)","s3P1":"Para obtener y aplicar los permisos de un Perfil desde una org, Gestión de Perfiles necesita un Session ID. Puedes pegarlo manualmente, o dejar que la extensión detecte las orgs en las que ya has iniciado sesión leyendo la cookie de sesión <code>sid</code> en dominios de Salesforce.","s3P2":"Ese Session ID se usa solo para llamar a las API de Metadata y REST propias de Salesforce, directamente desde tu navegador a los servidores de tu org. Nunca se envía a ningún servidor de terceros, nunca lo guarda la extensión (cada conexión vuelve a leer las cookies desde cero), y desaparece en cuanto cierras la pestaña o quitas la fuente conectada.","s4H2":"Qué se guarda localmente","s4P":"Gestión de Perfiles guarda algunas preferencias en tu dispositivo mediante el <code>localStorage</code> del navegador: tu tema claro/oscuro, el idioma elegido y qué categorías de permisos se muestran. Eso es todo — nunca se guardan credenciales, Session IDs ni datos de perfil.","s5H2":"Qué no hacemos","s5l1":"Ningún analytics, telemetría ni seguimiento de uso de ningún tipo.","s5l2":"Ninguna publicidad, y ningún dato se vende o comparte jamás con nadie.","s5l3":"Ningún servidor de terceros en el proceso — no existe ningún backend.","s5l4":"Ningún acceso a tus datos de Salesforce fuera de las acciones que activas explícitamente (ver, comparar o aplicar permisos).","permH2":"Los permisos, explicados","permTh1":"Permiso","permTh2":"Para qué sirve","perm1d":"Leer la cookie de sesión de Salesforce (<code>sid</code>) de las orgs en las que ya has iniciado sesión, para que puedas elegir una en lugar de pegar un Session ID a mano. Limitado a los dominios de Salesforce listados abajo.","perm2d":"Llamar a las API Metadata/REST de Salesforce y leer la cookie de sesión solo en salesforce.com, force.com, cloudforce.com y visualforce.com y sus subdominios.","retH2":"Eliminar tus datos","retP":"Desinstalar Gestión de Perfiles elimina las pocas preferencias guardadas localmente. No hay nada más que eliminar: nunca se conservan credenciales ni datos de sesión más allá de la pestaña actualmente abierta.","chH2":"Cambios en esta política","chP":"Si lo que Gestión de Perfiles recopila o hace cambia, esta página se actualizará y la fecha de arriba lo reflejará.","contactH2":"Contacto","contactP":"¿Preguntas sobre esta política? <a href=\"#\" id=\"contactLink\">Contáctanos</a>.","footer1":"Gestión de Perfiles — una herramienta ligera para los permisos de los Perfiles de Salesforce.","footer2":"Esta política se aplica únicamente a la extensión de Chrome Gestión de Perfiles.","footer3":"Gestión de Perfiles es un proyecto independiente de terceros y no está afiliado, respaldado ni patrocinado por Salesforce, Inc. «Salesforce» es una marca registrada de Salesforce, Inc."}
+}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/icons/icon128.png" alt="" />
+    <span class="brand-name">Profile Manager</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="privacy.html" class="active" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+      <a href="#" data-lang="fr">FR</a>
+      <a href="#" data-lang="de">DE</a>
+      <a href="#" data-lang="es">ES</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow" data-i18n="eyebrow">Privacy Policy</p>
+  <h1 data-i18n="h1">What Profile Manager does with your data — in plain terms.</h1>
+  <p class="lede" data-i18n="lede">Profile Manager is a Chrome extension for Salesforce admins who need to view, compare, and edit Profile permissions. It has no server of its own: everything happens inside your browser, either on local files you pick or against the Salesforce org you're already logged into.</p>
+  <p class="meta" data-i18n="updated">Last updated 29 July 2026</p>
+
+  <section id="summary">
+    <h2 data-i18n="s1H2">Summary</h2>
+    <p data-i18n="s1P"></p>
+  </section>
+
+  <section id="local">
+    <h2 data-i18n="s2H2">Local files (local mode)</h2>
+    <p data-i18n="s2P"></p>
+  </section>
+
+  <section id="salesforce">
+    <h2 data-i18n="s3H2">Salesforce connection (Salesforce mode)</h2>
+    <p data-i18n="s3P1"></p>
+    <p data-i18n="s3P2"></p>
+  </section>
+
+  <section id="stored">
+    <h2 data-i18n="s4H2">What is stored locally</h2>
+    <p data-i18n="s4P"></p>
+  </section>
+
+  <section id="not">
+    <h2 data-i18n="s5H2">What we don't do</h2>
+    <ul>
+      <li data-i18n="s5l1"></li>
+      <li data-i18n="s5l2"></li>
+      <li data-i18n="s5l3"></li>
+      <li data-i18n="s5l4"></li>
+    </ul>
+  </section>
+
+  <section id="permissions">
+    <h2 data-i18n="permH2">Permissions, explained</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th data-i18n="permTh1">Permission</th><th data-i18n="permTh2">What it's for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="perm-name">cookies</td><td data-i18n="perm1d"></td></tr>
+          <tr><td class="perm-name">host_permissions<br>*.salesforce.com, *.force.com,<br>*.cloudforce.com, *.visualforce.com</td><td data-i18n="perm2d"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="retention">
+    <h2 data-i18n="retH2">Deleting your data</h2>
+    <p data-i18n="retP"></p>
+  </section>
+
+  <section id="changes">
+    <h2 data-i18n="chH2">Changes to this policy</h2>
+    <p data-i18n="chP"></p>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contactH2">Contact</h2>
+    <p data-i18n="contactP"></p>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1"></span>
+  <span data-i18n="footer2"></span>
+  <span data-i18n="footer3"></span>
+  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+</footer>
+
+<script>
+(function () {
+  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
+  var supported = Object.keys(i18n);
+
+  function resolveLang() {
+    var saved = localStorage.getItem('profileManager.privacyLang');
+    if (saved && i18n[saved]) return saved;
+    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return i18n[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.langnav a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.langnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var lang = a.getAttribute('data-lang');
+      localStorage.setItem('profileManager.privacyLang', lang);
+      applyLang(lang);
+    });
+  });
+
+  // indirizzo di contatto mai scritto come testo leggibile nell'HTML/JS
+  // (né come stringa intera né come frammenti riconoscibili): i codici
+  // carattere vengono ricomposti solo al momento del click, per non finire
+  // negli scraper che leggono la pagina statica
+  function fromCodes(codes) { return codes.map(function (c) { return String.fromCharCode(c); }).join(''); }
+  var mailUser = fromCodes([108,117,105,103,105,112,101,108,108,101,103,114,105,110,111,46,106,111,98]);
+  var mailDomain = fromCodes([103,109,97,105,108,46,99,111,109]);
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('#contactLink');
+    if (!link) return;
+    e.preventDefault();
+    window.location.href = fromCodes([109,97,105,108,116,111,58]) + mailUser + '@' + mailDomain;
+  });
+
+  applyLang(resolveLang());
+})();
+</script>
+
+</body>
+</html>

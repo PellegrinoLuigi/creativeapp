@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">ForceKIT — Support</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="apple-touch-icon" href="assets/icons/icon128.png" />
+<style>
+  @font-face {
+    font-family: "ForceKIT Mono";
+    src: local("SF Mono"), local("Menlo"), local("Consolas");
+  }
+
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013;
+      --surface: #14171c;
+      --surface-raised: #191d23;
+      --text: #e7eaed;
+      --text-dim: #99a3b0;
+      --text-dimmer: #69707c;
+      --border: #262b33;
+      --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12);
+      --accent-line: rgba(77, 163, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1013;
+    --surface: #14171c;
+    --surface-raised: #191d23;
+    --text: #e7eaed;
+    --text-dim: #99a3b0;
+    --text-dimmer: #69707c;
+    --border: #262b33;
+    --accent: #4da3ff;
+    --accent-soft: rgba(77, 163, 255, 0.12);
+    --accent-line: rgba(77, 163, 255, 0.4);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sans {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .mono {
+    font-family: "ForceKIT Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  header.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 20px;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+
+  .brand-name {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .sitenav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 13px;
+  }
+
+  .sitenav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  .langnav { display: flex; gap: 4px; }
+
+  .langnav a {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 3px 7px;
+    border-radius: 6px;
+    color: var(--text-dim);
+    background: var(--accent-soft);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 100px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 62ch;
+    margin: 0 0 28px;
+  }
+
+  section { margin: 0 0 40px; scroll-margin-top: 70px; }
+
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin: 0 0 16px;
+  }
+
+  section p { margin: 0 0 14px; max-width: 66ch; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  section li { margin-bottom: 6px; }
+
+  strong { color: var(--text); }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+
+  .callout strong { color: var(--text); }
+
+  .coffee-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+  }
+
+  .coffee-card p { margin: 0; color: var(--text-dim); max-width: 56ch; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    color: #1b1f24;
+    background: #ffdd00;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+
+  .btn:hover { filter: brightness(0.96); }
+
+  .ways ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .ways li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+  .ways li strong { display: block; color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; margin-bottom: 2px; }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+  }
+
+  .cf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .cf-field input,
+  .cf-field select,
+  .cf-field textarea {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .cf-field textarea { resize: vertical; min-height: 110px; }
+
+  .cf-field input:focus,
+  .cf-field select:focus,
+  .cf-field textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+
+  .btn-cf {
+    align-self: flex-start;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-cf:hover { filter: brightness(1.06); }
+  .btn-cf:disabled { opacity: 0.6; cursor: default; }
+
+  .cf-status {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    color: var(--text-dimmer);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{"it":{"pageTitle":"ForceKIT — Supporto","navHome":"Home","navPrivacy":"Privacy","navTerms":"Termini","navSupport":"Supporto","navDocs":"Guida","eyebrow":"Supporto","h1":"ForceKIT è gratis. Senza trucchi.","lede":"Non c'è nessun livello premium, nessuna funzionalità a pagamento, nessun upsell \"pro\" dietro l'angolo. Se ForceKIT ti fa risparmiare tempo in una sessione di debug del martedì pomeriggio, puoi ringraziare con un caffè — del tutto facoltativo, sempre apprezzato.","coffeeH2":"Sostieni il progetto","coffeeP":"ForceKIT è costruita e mantenuta in modo indipendente, nel tempo libero, da una sola persona che passa troppo tempo nelle org di sviluppo Salesforce. Ogni sostegno torna direttamente nell'estensione — nessun investitore, nessun team da finanziare, solo tempo.","coffeeBtn":"☕ Sostieni il progetto","waysH2":"Altri modi per aiutare","way1t":"Lascia una recensione","way1d":"Una valutazione veloce sul Chrome Web Store aiuta altri amministratori e sviluppatori Salesforce a trovare ForceKIT.","way2t":"Segnala un bug","way2d":"Qualcosa non funziona? Usa il <a href=\"#contact\">modulo di contatto qui sotto</a> descrivendo cosa hai visto e il tipo di org (Lightning/Classic) — aiuta molto.","way3t":"Suggerisci una funzionalità","way3d":"Se c'è un flusso di lavoro Salesforce ancora troppo lento, raccontamelo. La maggior parte delle funzionalità di ForceKIT è nata proprio da quel tipo di segnalazione.","contactH2":"Contatti","contactP":"Domande su quanto sopra? Usa il modulo qui sotto — nessuna email necessaria.","formType":"Tipo di segnalazione","formTypeBug":"Segnalazione di un bug","formTypeFeature":"Richiesta di una nuova funzionalità","formTypeOther":"Altro","formTitle":"Titolo","formDesc":"Descrizione","formEmail":"Email (facoltativa, per essere ricontattato)","formSubmit":"Invia segnalazione","statusMissing":"Compila almeno titolo e descrizione.","statusSuccess":"Segnalazione inviata, grazie!","statusError":"Invio non riuscito, riprova.","footer1":"ForceKIT — costruita per rendere il lavoro su Salesforce un po' più veloce.","footer2":"© 2026 ForceKIT. ForceKIT non è affiliato, approvato o sponsorizzato da Salesforce, Inc. \"Salesforce\" è un marchio di Salesforce, Inc."},
+"fr":{"pageTitle":"ForceKIT — Assistance","navHome":"Accueil","navPrivacy":"Confidentialité","navTerms":"Conditions","navSupport":"Assistance","navDocs":"Guide","eyebrow":"Assistance","h1":"ForceKIT est gratuite. Sans piège.","lede":"Pas de niveau premium, pas de fonctionnalités payantes, pas d'offre « pro » qui vous attend au tournant. Si ForceKIT vous fait gagner du temps lors d'une session de débogage un mardi après-midi, vous pouvez dire merci avec un café — entièrement facultatif, toujours apprécié.","coffeeH2":"Soutenir le projet","coffeeP":"ForceKIT est développée et maintenue de façon indépendante, sur mon temps libre, par une seule personne qui passe trop de temps dans des orgs de développement Salesforce. Chaque soutien revient directement dans l'extension — pas d'investisseurs, pas d'équipe à financer, juste du temps.","coffeeBtn":"☕ Soutenir le projet","waysH2":"Autres façons d'aider","way1t":"Laissez un avis","way1d":"Une note rapide sur le Chrome Web Store aide d'autres administrateurs et développeurs Salesforce à trouver ForceKIT.","way2t":"Signalez un bug","way2d":"Quelque chose ne fonctionne pas ? Utilisez le <a href=\"#contact\">formulaire de contact ci-dessous</a> en décrivant ce que vous avez observé et le type d'org (Lightning/Classic) — ça aide beaucoup.","way3t":"Suggérez une fonctionnalité","way3d":"S'il y a un flux de travail Salesforce encore trop lent, parlez-m'en. La plupart des fonctionnalités de ForceKIT sont nées de ce genre de signalement.","contactH2":"Contact","contactP":"Des questions sur ce qui précède ? Utilisez le formulaire ci-dessous — aucun e-mail nécessaire.","formType":"Type de signalement","formTypeBug":"Signalement de bug","formTypeFeature":"Demande de fonctionnalité","formTypeOther":"Autre","formTitle":"Titre","formDesc":"Description","formEmail":"E-mail (facultatif, pour être recontacté)","formSubmit":"Envoyer le signalement","statusMissing":"Veuillez renseigner au moins le titre et la description.","statusSuccess":"Signalement envoyé, merci !","statusError":"Échec de l'envoi — veuillez réessayer.","footer1":"ForceKIT — conçue pour rendre le travail sur Salesforce un peu plus rapide.","footer2":"© 2026 ForceKIT. ForceKIT n'est pas affilié, approuvé ou sponsorisé par Salesforce, Inc. « Salesforce » est une marque déposée de Salesforce, Inc."},
+"es":{"pageTitle":"ForceKIT — Soporte","navHome":"Inicio","navPrivacy":"Privacidad","navTerms":"Términos","navSupport":"Soporte","navDocs":"Guía","eyebrow":"Soporte","h1":"ForceKIT es gratis. Sin trampa.","lede":"No hay nivel premium, ni funciones de pago, ni una oferta «pro» esperando a la vuelta de la esquina. Si ForceKIT te ahorra tiempo en una sesión de depuración un martes por la tarde, puedes dar las gracias con un café — totalmente opcional, siempre agradecido.","coffeeH2":"Apoya el proyecto","coffeeP":"ForceKIT se desarrolla y mantiene de forma independiente, en tiempo libre, por una sola persona que pasa demasiado tiempo en orgs de desarrollo de Salesforce. Cada aportación vuelve directamente a la extensión — sin inversores, sin equipo que financiar, solo tiempo.","coffeeBtn":"☕ Apoya el proyecto","waysH2":"Otras formas de ayudar","way1t":"Deja una reseña","way1d":"Una valoración rápida en la Chrome Web Store ayuda a que otros administradores y desarrolladores de Salesforce encuentren ForceKIT.","way2t":"Reporta un error","way2d":"¿Algo no funciona? Usa el <a href=\"#contact\">formulario de contacto de abajo</a> describiendo qué viste y el tipo de org (Lightning/Classic) — ayuda mucho.","way3t":"Sugiere una función","way3d":"Si hay un flujo de trabajo de Salesforce que sigue siendo demasiado lento, cuéntamelo. La mayoría de las funciones de ForceKIT nacieron de ese tipo de reporte.","contactH2":"Contacto","contactP":"¿Preguntas sobre algo de lo anterior? Usa el formulario de abajo — no hace falta email.","formType":"Tipo de reporte","formTypeBug":"Reporte de error","formTypeFeature":"Solicitud de función","formTypeOther":"Otro","formTitle":"Título","formDesc":"Descripción","formEmail":"Email (opcional, para poder responderte)","formSubmit":"Enviar reporte","statusMissing":"Completa al menos el título y la descripción.","statusSuccess":"¡Reporte enviado, gracias!","statusError":"No se pudo enviar — inténtalo de nuevo.","footer1":"ForceKIT — creada para hacer el trabajo en Salesforce un poco más rápido.","footer2":"© 2026 ForceKIT. ForceKIT no está afiliado, respaldado ni patrocinado por Salesforce, Inc. «Salesforce» es una marca registrada de Salesforce, Inc."},
+"de":{"pageTitle":"ForceKIT — Support","navHome":"Start","navPrivacy":"Datenschutz","navTerms":"Bedingungen","navSupport":"Support","navDocs":"Anleitung","eyebrow":"Support","h1":"ForceKIT ist kostenlos. Ohne Haken.","lede":"Keine Premium-Stufe, keine kostenpflichtigen Funktionen, kein „Pro“-Upsell, der um die Ecke wartet. Wenn ForceKIT dir an einem Dienstagnachmittag beim Debuggen Zeit spart, kannst du dich mit einem Kaffee bedanken — völlig freiwillig, immer willkommen.","coffeeH2":"Projekt unterstützen","coffeeP":"ForceKIT wird unabhängig, in der Freizeit, von einer einzigen Person entwickelt und gepflegt, die zu viel Zeit in Salesforce-Entwicklungsorgs verbringt. Jede Unterstützung fließt direkt zurück in die Erweiterung — keine Investoren, kein Team zu finanzieren, nur Zeit.","coffeeBtn":"☕ Projekt unterstützen","waysH2":"Andere Wege zu helfen","way1t":"Hinterlasse eine Bewertung","way1d":"Eine kurze Bewertung im Chrome Web Store hilft anderen Salesforce-Administratoren und -Entwicklern, ForceKIT zu finden.","way2t":"Melde einen Fehler","way2d":"Etwas funktioniert nicht? Nutze das <a href=\"#contact\">Kontaktformular unten</a> und beschreibe, was du gesehen hast und welchen Org-Typ (Lightning/Classic) — das hilft sehr.","way3t":"Schlage eine Funktion vor","way3d":"Wenn es einen Salesforce-Arbeitsablauf gibt, der immer noch zu langsam ist, erzähl mir davon. Die meisten Funktionen von ForceKIT sind aus genau dieser Art von Meldung entstanden.","contactH2":"Kontakt","contactP":"Fragen zu etwas oben Genanntem? Nutze das Formular unten — keine E-Mail nötig.","formType":"Art der Meldung","formTypeBug":"Fehlermeldung","formTypeFeature":"Funktionswunsch","formTypeOther":"Sonstiges","formTitle":"Titel","formDesc":"Beschreibung","formEmail":"E-Mail (optional, für eine Antwort)","formSubmit":"Meldung senden","statusMissing":"Bitte mindestens Titel und Beschreibung ausfüllen.","statusSuccess":"Meldung gesendet, danke!","statusError":"Senden fehlgeschlagen — bitte versuche es erneut.","footer1":"ForceKIT — entwickelt, um die Arbeit mit Salesforce ein bisschen schneller zu machen.","footer2":"© 2026 ForceKIT. ForceKIT steht in keiner Verbindung zu Salesforce, Inc., wird nicht von Salesforce unterstützt oder gesponsert. „Salesforce“ ist eine Marke von Salesforce, Inc."}}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="" />
+    <span class="brand-name sans">ForceKIT</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav sans" aria-label="Site">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="terms.html" data-i18n="navTerms">Terms</a>
+      <a href="support.html" class="active" data-i18n="navSupport">Support</a>
+      <a href="docs.html" data-i18n="navDocs">Docs</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+      <a href="#" data-lang="fr">FR</a>
+      <a href="#" data-lang="es">ES</a>
+      <a href="#" data-lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow sans" data-i18n="eyebrow">Support</p>
+  <h1 data-i18n="h1">ForceKIT is free. No catch.</h1>
+  <p class="lede" data-i18n="lede">There's no premium tier, no paywalled features, no "pro" upsell waiting around the corner. If ForceKIT saves you time on a Tuesday afternoon debugging session, you can say thanks with a coffee — entirely optional, entirely appreciated.</p>
+
+  <section id="coffee">
+    <h2 data-i18n="coffeeH2">Support the project</h2>
+    <div class="coffee-card">
+      <p data-i18n="coffeeP">ForceKIT is built and maintained independently, on the side, by one person who spends too much time in Salesforce dev orgs. Every bit of support goes straight back into the extension — no investors, no team to fund, just time.</p>
+      <a class="btn" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer" data-i18n="coffeeBtn">
+        ☕ Support the project
+      </a>
+    </div>
+  </section>
+
+  <section id="other-ways" class="ways">
+    <h2 data-i18n="waysH2">Other ways to help</h2>
+    <ul>
+      <li><strong data-i18n="way1t">Leave a review</strong><span data-i18n="way1d">A quick rating on the Chrome Web Store helps other Salesforce admins and devs find ForceKIT.</span></li>
+      <li><strong data-i18n="way2t">Report bugs</strong><span data-i18n="way2d" data-i18n-html>Found something broken? Use the <a href="#contact">contact form below</a> with what you saw and which org type (Lightning/Classic) — it helps a lot.</span></li>
+      <li><strong data-i18n="way3t">Suggest a feature</strong><span data-i18n="way3d">If there's a Salesforce workflow that's still too slow, tell me about it. Most of ForceKIT's features started as exactly that kind of report.</span></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contactH2">Contact</h2>
+    <p data-i18n="contactP">Questions about anything above? Use the form below — no email needed.</p>
+    <form id="contactForm" class="contact-form">
+      <label class="cf-field">
+        <span data-i18n="formType">Report type</span>
+        <select id="contactType" name="type">
+          <option value="Segnalazione di un bug" data-i18n="formTypeBug">Bug report</option>
+          <option value="Richiesta di una nuova funzionalità" data-i18n="formTypeFeature">Feature request</option>
+          <option value="Altro" data-i18n="formTypeOther">Other</option>
+        </select>
+      </label>
+      <label class="cf-field">
+        <span data-i18n="formTitle">Title</span>
+        <input type="text" id="contactTitle" maxlength="150" required />
+      </label>
+      <label class="cf-field">
+        <span data-i18n="formDesc">Description</span>
+        <textarea id="contactDescription" rows="6" required></textarea>
+      </label>
+      <label class="cf-field">
+        <span data-i18n="formEmail">Email (optional, so I can reply)</span>
+        <input type="email" id="contactEmail" />
+      </label>
+      <button type="submit" id="contactSubmitBtn" class="btn btn-cf sans" data-i18n="formSubmit">Send report</button>
+      <p id="contactStatus" class="cf-status" hidden data-i18n-attr="data-msg-missing:statusMissing,data-msg-success:statusSuccess,data-msg-error:statusError" data-msg-missing="Please fill in at least the title and description." data-msg-success="Report sent, thank you!" data-msg-error="Couldn't send it — please try again."></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1">ForceKIT — built to make Salesforce work a little faster.</span>
+  <span data-i18n="footer2">&copy; 2026 ForceKIT. ForceKIT is not affiliated with, endorsed by, or sponsored by Salesforce, Inc. "Salesforce" is a trademark of Salesforce, Inc.</span>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/contact-form.js"></script>
+</body>
+</html>

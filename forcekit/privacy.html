@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">ForceKIT — Privacy Policy</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="apple-touch-icon" href="assets/icons/icon128.png" />
+<style>
+  @font-face {
+    font-family: "ForceKIT Mono";
+    src: local("SF Mono"), local("Menlo"), local("Consolas");
+  }
+
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013;
+      --surface: #14171c;
+      --surface-raised: #191d23;
+      --text: #e7eaed;
+      --text-dim: #99a3b0;
+      --text-dimmer: #69707c;
+      --border: #262b33;
+      --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12);
+      --accent-line: rgba(77, 163, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1013;
+    --surface: #14171c;
+    --surface-raised: #191d23;
+    --text: #e7eaed;
+    --text-dim: #99a3b0;
+    --text-dimmer: #69707c;
+    --border: #262b33;
+    --accent: #4da3ff;
+    --accent-soft: rgba(77, 163, 255, 0.12);
+    --accent-line: rgba(77, 163, 255, 0.4);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sans {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .mono {
+    font-family: "ForceKIT Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  header.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 20px;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+
+  .brand-name {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .sitenav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 13px;
+  }
+
+  .sitenav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  .langnav { display: flex; gap: 4px; }
+
+  .langnav a {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 3px 7px;
+    border-radius: 6px;
+    color: var(--text-dim);
+    background: var(--accent-soft);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 100px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 62ch;
+    margin: 0 0 28px;
+  }
+
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 0 40px;
+    padding: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  nav.toc a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-dim);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 5px 11px;
+    white-space: nowrap;
+  }
+
+  nav.toc a:hover { color: var(--accent); }
+
+  section { margin: 0 0 40px; scroll-margin-top: 70px; }
+
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin: 0 0 16px;
+  }
+
+  section p { margin: 0 0 14px; max-width: 66ch; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  section li { margin-bottom: 6px; }
+
+  strong { color: var(--text); }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+
+  .callout strong { color: var(--text); }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    background: var(--surface);
+    min-width: 560px;
+  }
+
+  thead th {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dimmer);
+    background: var(--accent-soft);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+  }
+
+  tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  td.perm-name {
+    font-family: "ForceKIT Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    color: var(--text-dimmer);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{"it":{"pageTitle":"ForceKIT — Informativa sulla Privacy","navHome":"Home","navPrivacy":"Privacy","navTerms":"Termini","navSupport":"Supporto","navDocs":"Guida","eyebrow":"Informativa sulla Privacy","h1":"Cosa fa ForceKIT con i tuoi dati — in termini semplici.","updated":"Ultimo aggiornamento: 19 luglio 2026","lede":"ForceKIT è un'estensione Chrome per amministratori e sviluppatori Salesforce. Non ha un server proprio: tutto ciò che fa avviene dentro il tuo browser, contro la org Salesforce in cui hai già effettuato l'accesso. Questa pagina spiega esattamente cosa significa per i tuoi dati.","disclaimer":"ForceKIT è un progetto indipendente di terze parti e non è affiliato, approvato o sponsorizzato da Salesforce, Inc.","toc1":"Riepilogo","toc2":"Dati locali","toc3":"Sync su cloud","toc4":"Accesso a Salesforce","toc5":"Login OAuth","toc6":"Sulle pagine Salesforce","toc7":"Cosa non facciamo","toc8":"Permessi","toc9":"Eliminare i tuoi dati","toc10":"Modifiche","toc11":"Contatti","summaryH2":"Riepilogo","summaryBody":"<strong>Nessun server, nessun account, nessun tracciamento.</strong> ForceKIT salva le tue query, le org salvate e le credenziali sul tuo dispositivo (crittografate, se imposti una password principale o una passkey). Nulla viene inviato a noi, perché non esiste alcun \"noi\" a cui inviarlo — l'unico traffico di rete generato da ForceKIT va direttamente dal tuo browser alla tua org Salesforce, oppure a Google Chrome Sync o al tuo Google Drive se attivi tu stesso una di queste opzioni.","localH2":"Cosa viene salvato in locale","localP":"ForceKIT conserva quanto segue sul tuo dispositivo, usando lo <code>storage.local</code> integrato di Chrome:","local1":"<strong>Storico e query SOQL salvate</strong> — il testo delle query che hai eseguito o salvato esplicitamente.","local2":"<strong>Connessioni org salvate</strong> — URL di login, username e una password oppure un refresh token OAuth, così puoi riaprire una sessione senza effettuare di nuovo l'accesso.","local3":"<strong>Segreti TOTP</strong> — se colleghi codici a due fattori a una org salvata, il segreto usato per generarli.","local4":"<strong>Preferenze</strong> — tema, lingua, colonne nascoste, policy di blocco automatico e impostazioni simili.","localP2":"Username, password, refresh token e segreti TOTP vengono <strong>crittografati</strong> nel momento in cui imposti una password principale (o uno sblocco con passkey/biometria, che a sua volta si limita a proteggere quella stessa password principale — non viene mai salvata da sola). Se scegli di non impostarne una, ForceKIT ti avvisa chiaramente che questi campi resteranno non crittografati sul tuo dispositivo.","syncH2":"Sync su cloud (opzionale, disattivata per impostazione predefinita)","syncP1":"ForceKIT può sincronizzare le tue query, preferenze, org salvate e (se scegli di attivarlo separatamente) le credenziali tra i tuoi dispositivi. È <strong>disattivata finché non la attivi tu</strong>, e scegli esattamente quali categorie sincronizzare tramite le caselle nel pannello. Puoi scegliere quale dei due backend indipendenti usare — entrambi interamente sotto il tuo controllo:","sync1":"<strong>Chrome Sync</strong> — usa <code>chrome.storage.sync</code>, l'infrastruttura di Chrome Sync di Google, legata a qualsiasi account Google con cui hai effettuato l'accesso a Chrome.","sync2":"<strong>Google Drive</strong> — salva gli stessi dati in una cartella nascosta, specifica per l'app, nel tuo Google Drive (Google la chiama cartella \"Dati applicazione\"), visibile e apribile solo da ForceKIT. Per usarla, colleghi un account Google tramite OAuth e concedi un unico scope, <code>drive.appdata</code> — ForceKIT non richiede mai, e non può mai vedere, il resto dei tuoi file o cartelle su Drive.","syncP2":"Puoi cancellare i dati sincronizzati in qualsiasi momento con il pulsante \"Elimina dati sincronizzati\", per qualsiasi backend tu stia usando, senza toccare quanto salvato in locale. In entrambi i casi non vediamo mai questi dati — si spostano direttamente tra i tuoi dispositivi e i server di Google, allo stesso modo dei tuoi segnalibri o della cronologia di navigazione.","sfH2":"Comunicazione con Salesforce","sfP":"Per eseguire query, descrivere oggetti o gestire record, ForceKIT legge il cookie di sessione di una scheda Salesforce che hai già aperto e lo usa per chiamare le API REST, Tooling e Metadata di Salesforce — direttamente dal tuo browser ai server della tua org. ForceKIT non vede mai la tua password Salesforce durante un login normale, e non instrada mai questo traffico attraverso alcun server di terze parti.","oauthH2":"Connessione tramite OAuth","oauthP1":"ForceKIT usa <code>identity.launchWebAuthFlow</code> di Chrome, con il flusso standard di settore PKCE, per due scopi distinti — i due non vengono mai mescolati:","oauth1":"<strong>Login nella org Salesforce</strong> — se connetti una org usando \"Accedi con OAuth\" invece di username/password salvati, ForceKIT apre la schermata di consenso di Salesforce stessa. Il token risultante viene scambiato direttamente con la tua org e salvato, crittografato, sul tuo dispositivo.","oauth2":"<strong>Sync su Google Drive</strong> — se attivi Google Drive come backend di sincronizzazione, ForceKIT apre la schermata di consenso di Google richiedendo solo lo scope <code>drive.appdata</code>, che concede l'accesso esclusivamente alla cartella dati nascosta che ForceKIT crea per sé stesso — mai ai tuoi file o cartelle Drive esistenti. Il token Google risultante viene salvato, crittografato, sul tuo dispositivo, come un token di org.","oauthP2":"In entrambi i casi, il token non viene mai inviato altrove se non direttamente tra il tuo dispositivo e Salesforce o Google.","pagesH2":"Cosa viene eseguito sulle pagine Salesforce (e oltre)","pagesP1":"Con il tuo permesso, ForceKIT può iniettare piccole aggiunte all'interfaccia direttamente nelle pagine Salesforce: nomi API inline sotto i campi, un foglio di stile dark mode e un'icona ForceKIT opzionale (accanto al tuo profilo o flottante) per riaprire il pannello. Questi elementi funzionano interamente nel tuo browser e non trasmettono il contenuto della pagina da nessuna parte.","pagesP2":"Una funzione — mostrare i risultati delle query come overlay a schermo intero invece che compressi nel pannello laterale — può iniettare quell'overlay in qualsiasi scheda del browser attualmente attiva, Salesforce o meno, solo quando clicchi sul pulsante \"schermo intero\". Si tratta di una visualizzazione una tantum, in sola lettura, dei risultati che hai già recuperato; non legge né raccoglie nient'altro da quella pagina.","notH2":"Cosa non facciamo","not1":"Nessun analytics, telemetria o tracciamento dell'utilizzo di alcun tipo.","not2":"Nessuna pubblicità, e nessun dato mai venduto o condiviso con inserzionisti.","not3":"Nessun server di terze parti nel processo — ForceKIT non ne ha nemmeno uno proprio.","not4":"Nessun accesso ai tuoi dati Salesforce al di fuori delle azioni che attivi esplicitamente (eseguire una query, aprire un record, ecc.).","not5":"Nessun accesso ai tuoi file o cartelle Google Drive — solo alla cartella dati nascosta, specifica per l'app, che ForceKIT crea per i propri dati di sync, tramite lo scope <code>drive.appdata</code>.","permH2":"I permessi, spiegati in modo chiaro","permTh1":"Permesso","permTh2":"A cosa serve","perm1d":"Salvare le tue query, org salvate e preferenze localmente sul tuo dispositivo.","perm2d":"Leggere il cookie di sessione di una scheda Salesforce che hai aperto, così ForceKIT può chiamare le API come te, senza un login separato.","perm3d":"Rilevare quale scheda è una org Salesforce, passare tra sessioni salvate, e aprire/ricaricare la scheda giusta per azioni come \"Cambia interfaccia\" o \"Svuota cache\".","perm4d":"Iniettare nelle pagine le piccole aggiunte all'interfaccia descritte sopra (nomi API, dark mode, l'icona ForceKIT, l'overlay dei risultati).","perm5d":"Mostrare ForceKIT come pannello laterale di Chrome invece che come popup classico.","perm6d":"Eseguire il flusso di consenso OAuth quando connetti una org in quel modo, mostrare quale account Google sta usando Chrome Sync, e collegare un account Google per la sync su Google Drive.","perm7d":"Se attivi Google Drive come backend di sync, leggere e scrivere la cartella dati nascosta di ForceKIT nel tuo Google Drive — nessun accesso a qualsiasi altro file o cartella nel tuo Drive.","perm8d":"Rilevare quando il tuo computer è inattivo o bloccato, per bloccare automaticamente le tue credenziali salvate come misura di sicurezza.","perm9d":"Chiamare le API REST/Tooling/Metadata di Salesforce e iniettare le aggiunte all'interfaccia sopra descritte su salesforce.com, force.com e domini correlati.","perm10d":"Usato solo per l'overlay opzionale \"risultati a schermo intero\", così può comparire su qualsiasi scheda tu stia guardando, non solo Salesforce — non viene eseguito nulla su altri siti a meno che tu non clicchi quel pulsante.","retH2":"Eliminare i tuoi dati","retP":"Disinstallare ForceKIT rimuove tutto quanto salvato in locale. I dati sincronizzati (se li hai attivati) possono essere eliminati separatamente in qualsiasi momento dal pannello Sync, e sono altrimenti regolati dalle impostazioni del tuo account Google/Chrome Sync.","chH2":"Modifiche a questa informativa","chP":"Se ciò che ForceKIT raccoglie o fa cambia, questa pagina verrà aggiornata e la data \"ultimo aggiornamento\" sopra lo rifletterà. Le modifiche significative saranno indicate anche nel changelog dell'estensione, nella scheda Info del pannello.","contactH2":"Contatti","contactP":"Domande su questa informativa o su come ForceKIT gestisce i dati? Usa il <a href=\"support.html#contact\">modulo di contatto</a> nella pagina Supporto.","footer1":"ForceKIT — costruita per rendere il lavoro su Salesforce un po' più veloce.","footer2":"© 2026 ForceKIT. Questa informativa si applica solo all'estensione Chrome ForceKIT.","footer3":"ForceKIT non è affiliato, approvato o sponsorizzato da Salesforce, Inc. \"Salesforce\" è un marchio di Salesforce, Inc."},
+"fr":{"pageTitle":"ForceKIT — Politique de confidentialité","navHome":"Accueil","navPrivacy":"Confidentialité","navTerms":"Conditions","navSupport":"Assistance","navDocs":"Guide","eyebrow":"Politique de confidentialité","h1":"Ce que ForceKIT fait de vos données — en termes simples.","updated":"Dernière mise à jour : 19 juillet 2026","lede":"ForceKIT est une extension Chrome pour les administrateurs et développeurs Salesforce. Elle n'a pas de serveur propre : tout ce qu'elle fait se passe dans votre navigateur, avec l'org Salesforce à laquelle vous êtes déjà connecté. Cette page explique exactement ce que cela signifie pour vos données.","disclaimer":"ForceKIT est un projet indépendant et tiers, non affilié, approuvé ou sponsorisé par Salesforce, Inc.","toc1":"Résumé","toc2":"Données locales","toc3":"Synchronisation cloud","toc4":"Accès à Salesforce","toc5":"Connexion OAuth","toc6":"Sur les pages Salesforce","toc7":"Ce que nous ne faisons pas","toc8":"Permissions","toc9":"Suppression de vos données","toc10":"Modifications","toc11":"Contact","summaryH2":"Résumé","summaryBody":"<strong>Aucun serveur, aucun compte, aucun suivi.</strong> ForceKIT enregistre vos requêtes, orgs enregistrées et identifiants sur votre propre appareil (chiffrés, si vous définissez un mot de passe principal ou une clé d'accès). Rien ne nous est envoyé, car il n'y a pas de « nous » à qui l'envoyer — le seul trafic réseau généré par ForceKIT va directement de votre navigateur à votre propre org Salesforce, ou à Google Chrome Sync ou à votre propre Google Drive si vous activez l'un de ces services vous-même.","localH2":"Ce qui est stocké localement","localP":"ForceKIT conserve les éléments suivants sur votre appareil, via le <code>storage.local</code> intégré de Chrome :","local1":"<strong>Historique et requêtes SOQL enregistrées</strong> — le texte des requêtes que vous avez exécutées ou explicitement enregistrées.","local2":"<strong>Connexions d'org enregistrées</strong> — URL de connexion, nom d'utilisateur, et soit un mot de passe soit un refresh token OAuth, pour rouvrir une session sans vous reconnecter.","local3":"<strong>Secrets TOTP</strong> — si vous liez des codes à deux facteurs à une org enregistrée, le secret utilisé pour les générer.","local4":"<strong>Préférences</strong> — thème, langue, colonnes masquées, politique de verrouillage automatique et paramètres similaires.","localP2":"Les noms d'utilisateur, mots de passe, refresh tokens et secrets TOTP sont <strong>chiffrés</strong> dès que vous définissez un mot de passe principal (ou un déverrouillage par clé d'accès/biométrie, qui ne fait que protéger ce même mot de passe principal — il n'est jamais stocké seul). Si vous choisissez de ne pas en définir un, ForceKIT vous indique clairement que ces champs resteront non chiffrés sur votre appareil.","syncH2":"Synchronisation cloud (optionnelle, désactivée par défaut)","syncP1":"ForceKIT peut synchroniser vos requêtes, préférences, orgs enregistrées et (si vous l'activez séparément) vos identifiants entre vos appareils. Elle est <strong>désactivée jusqu'à ce que vous l'activiez</strong>, et vous choisissez exactement quelles catégories synchroniser via des cases à cocher dans le panneau. Vous choisissez lequel des deux backends indépendants utiliser — tous deux entièrement sous votre contrôle :","sync1":"<strong>Chrome Sync</strong> — utilise <code>chrome.storage.sync</code>, l'infrastructure Chrome Sync propre à Google, liée au compte Google avec lequel vous êtes connecté à Chrome.","sync2":"<strong>Google Drive</strong> — stocke les mêmes données dans un dossier caché, spécifique à l'application, dans votre propre Google Drive (Google l'appelle le dossier « Données d'application »), que seul ForceKIT peut voir ou ouvrir. Pour l'utiliser, vous connectez un compte Google via OAuth et accordez une seule autorisation, <code>drive.appdata</code> — ForceKIT ne demande jamais, et ne peut jamais voir, le reste de vos fichiers ou dossiers Drive.","syncP2":"Vous pouvez effacer les données synchronisées à tout moment avec le bouton « Supprimer les données synchronisées », quel que soit le backend utilisé, sans toucher à ce qui est stocké localement. Nous ne voyons jamais ces données non plus — elles circulent directement entre vos propres appareils et les serveurs de Google, de la même manière que vos favoris ou votre historique de navigation.","sfH2":"Communication avec Salesforce","sfP":"Pour exécuter des requêtes, décrire des objets ou gérer des enregistrements, ForceKIT lit le cookie de session d'un onglet Salesforce que vous avez déjà ouvert et l'utilise pour appeler les API REST, Tooling et Metadata de Salesforce — directement depuis votre navigateur vers les serveurs de votre org. ForceKIT ne voit jamais votre mot de passe Salesforce lors d'une connexion normale, et n'achemine jamais ce trafic via un serveur tiers.","oauthH2":"Connexion via OAuth","oauthP1":"ForceKIT utilise <code>identity.launchWebAuthFlow</code> de Chrome, avec le flux standard PKCE, pour deux usages distincts — jamais mélangés :","oauth1":"<strong>Connexion à l'org Salesforce</strong> — si vous connectez une org via « Connexion avec OAuth » au lieu d'un identifiant/mot de passe enregistré, ForceKIT ouvre l'écran de consentement propre à Salesforce. Le token résultant est échangé directement avec votre org et stocké, chiffré, sur votre appareil.","oauth2":"<strong>Synchronisation Google Drive</strong> — si vous activez Google Drive comme backend de synchronisation, ForceKIT ouvre l'écran de consentement de Google en demandant uniquement l'autorisation <code>drive.appdata</code>, qui donne accès uniquement au dossier de données caché que ForceKIT crée pour lui-même — jamais à vos fichiers ou dossiers Drive existants. Le token Google résultant est stocké, chiffré, sur votre appareil, comme un token d'org.","oauthP2":"Dans les deux cas, le token n'est jamais envoyé ailleurs qu'entre votre appareil et Salesforce ou Google, directement.","pagesH2":"Ce qui s'exécute sur les pages Salesforce (et au-delà)","pagesP1":"Avec votre permission, ForceKIT peut injecter de petits ajouts d'interface directement dans les pages Salesforce : noms d'API en ligne sous les champs, une feuille de style en mode sombre, et une icône ForceKIT optionnelle (à côté de votre profil ou flottante) pour rouvrir le panneau. Ces éléments fonctionnent entièrement dans votre navigateur et ne transmettent le contenu de la page nulle part.","pagesP2":"Une fonctionnalité — afficher les résultats de requête en superposition plein écran plutôt que compressés dans le panneau latéral — peut injecter cette superposition dans n'importe quel onglet actif du navigateur, Salesforce ou non, uniquement lorsque vous cliquez sur le bouton « plein écran ». Il s'agit d'un affichage ponctuel, en lecture seule, des résultats déjà récupérés ; rien d'autre n'est lu ni collecté sur cette page.","notH2":"Ce que nous ne faisons pas","not1":"Aucun analytics, télémétrie ou suivi d'utilisation, quel qu'il soit.","not2":"Aucune publicité, et aucune donnée jamais vendue ou partagée avec des annonceurs.","not3":"Aucun serveur tiers dans la boucle — ForceKIT n'en a d'ailleurs pas non plus.","not4":"Aucun accès à vos données Salesforce en dehors des actions que vous déclenchez explicitement (exécuter une requête, ouvrir un enregistrement, etc.).","not5":"Aucun accès à vos fichiers ou dossiers Google Drive — uniquement au dossier de données caché, spécifique à l'application, que ForceKIT crée pour ses propres données de synchronisation, via l'autorisation <code>drive.appdata</code>.","permH2":"Les permissions, expliquées simplement","permTh1":"Permission","permTh2":"À quoi ça sert","perm1d":"Enregistrer vos requêtes, orgs enregistrées et préférences localement sur votre appareil.","perm2d":"Lire le cookie de session d'un onglet Salesforce que vous avez ouvert, pour que ForceKIT puisse appeler l'API en votre nom, sans connexion séparée.","perm3d":"Détecter quel onglet correspond à une org Salesforce, basculer entre sessions enregistrées, et ouvrir/recharger le bon onglet pour des actions comme « Changer d'interface » ou « Vider le cache ».","perm4d":"Injecter dans les pages les petits ajouts d'interface décrits ci-dessus (noms d'API, mode sombre, icône ForceKIT, superposition des résultats).","perm5d":"Afficher ForceKIT en tant que panneau latéral Chrome plutôt qu'en pop-up classique.","perm6d":"Exécuter le flux de consentement OAuth lorsque vous connectez une org de cette façon, indiquer quel compte Google est utilisé par Chrome Sync, et connecter un compte Google pour la synchronisation Google Drive.","perm7d":"Si vous activez Google Drive comme backend de synchronisation, lire et écrire le dossier de données caché de ForceKIT dans votre Google Drive — aucun accès à tout autre fichier ou dossier de votre Drive.","perm8d":"Détecter quand votre ordinateur est inactif ou verrouillé, pour verrouiller automatiquement vos identifiants enregistrés par mesure de sécurité.","perm9d":"Appeler les API REST/Tooling/Metadata de Salesforce et injecter les ajouts d'interface décrits ci-dessus sur salesforce.com, force.com et domaines associés.","perm10d":"Utilisé uniquement pour la superposition optionnelle « résultats plein écran », afin qu'elle puisse apparaître sur l'onglet que vous consultez, pas seulement Salesforce — rien ne s'exécute sur d'autres sites sauf si vous cliquez sur ce bouton.","retH2":"Suppression de vos données","retP":"Désinstaller ForceKIT supprime tout ce qui est stocké localement. Les données synchronisées (si vous les avez activées) peuvent être supprimées séparément à tout moment depuis le panneau Synchronisation, et sont sinon régies par les paramètres de votre propre compte Google/Chrome Sync.","chH2":"Modifications de cette politique","chP":"Si ce que ForceKIT collecte ou fait change, cette page sera mise à jour et la date « dernière mise à jour » ci-dessus le reflétera. Les changements significatifs seront également mentionnés dans le journal des modifications de l'extension, dans l'onglet Info du panneau.","contactH2":"Contact","contactP":"Des questions sur cette politique ou sur la façon dont ForceKIT traite les données ? Utilisez le <a href=\"support.html#contact\">formulaire de contact</a> sur la page Assistance.","footer1":"ForceKIT — conçue pour rendre le travail sur Salesforce un peu plus rapide.","footer2":"© 2026 ForceKIT. Cette politique s'applique uniquement à l'extension Chrome ForceKIT.","footer3":"ForceKIT n'est pas affilié, approuvé ou sponsorisé par Salesforce, Inc. « Salesforce » est une marque déposée de Salesforce, Inc."},
+"es":{"pageTitle":"ForceKIT — Política de Privacidad","navHome":"Inicio","navPrivacy":"Privacidad","navTerms":"Términos","navSupport":"Soporte","navDocs":"Guía","eyebrow":"Política de Privacidad","h1":"Qué hace ForceKIT con tus datos — en términos sencillos.","updated":"Última actualización: 19 de julio de 2026","lede":"ForceKIT es una extensión de Chrome para administradores y desarrolladores de Salesforce. No tiene servidor propio: todo lo que hace ocurre dentro de tu navegador, contra la org de Salesforce en la que ya has iniciado sesión. Esta página explica exactamente qué significa eso para tus datos.","disclaimer":"ForceKIT es un proyecto independiente de terceros y no está afiliado, respaldado ni patrocinado por Salesforce, Inc.","toc1":"Resumen","toc2":"Datos locales","toc3":"Sincronización en la nube","toc4":"Acceso a Salesforce","toc5":"Inicio de sesión OAuth","toc6":"En las páginas de Salesforce","toc7":"Qué no hacemos","toc8":"Permisos","toc9":"Eliminar tus datos","toc10":"Cambios","toc11":"Contacto","summaryH2":"Resumen","summaryBody":"<strong>Sin servidor, sin cuentas, sin seguimiento.</strong> ForceKIT guarda tus consultas, orgs guardadas y credenciales en tu propio dispositivo (cifradas, si configuras una contraseña maestra o una clave de acceso). No se nos envía nada, porque no existe ningún «nosotros» al que enviarlo — el único tráfico de red que genera ForceKIT va directamente desde tu navegador a tu propia org de Salesforce, o a Google Chrome Sync o a tu propio Google Drive si activas tú mismo alguna de esas opciones.","localH2":"Qué se guarda localmente","localP":"ForceKIT conserva lo siguiente en tu dispositivo, usando el <code>storage.local</code> integrado de Chrome:","local1":"<strong>Historial y consultas SOQL guardadas</strong> — el texto de las consultas que has ejecutado o guardado explícitamente.","local2":"<strong>Conexiones de org guardadas</strong> — URL de inicio de sesión, nombre de usuario, y una contraseña o un refresh token de OAuth, para que puedas reabrir una sesión sin volver a iniciar sesión.","local3":"<strong>Secretos TOTP</strong> — si vinculas códigos de doble factor a una org guardada, el secreto usado para generarlos.","local4":"<strong>Preferencias</strong> — tema, idioma, columnas ocultas, política de bloqueo automático y ajustes similares.","localP2":"Los nombres de usuario, contraseñas, refresh tokens y secretos TOTP se <strong>cifran</strong> en el momento en que configuras una contraseña maestra (o un desbloqueo por clave de acceso/biometría, que a su vez solo protege esa misma contraseña maestra — nunca se guarda por sí sola). Si eliges no configurar una, ForceKIT te avisa claramente de que esos campos permanecerán sin cifrar en tu dispositivo.","syncH2":"Sincronización en la nube (opcional, desactivada de forma predeterminada)","syncP1":"ForceKIT puede sincronizar tus consultas, preferencias, orgs guardadas y (si lo activas por separado) tus credenciales entre tus dispositivos. Está <strong>desactivada hasta que tú la actives</strong>, y eliges exactamente qué categorías sincronizar mediante casillas en el panel. Puedes elegir cuál de los dos backends independientes usar — ambos totalmente bajo tu control:","sync1":"<strong>Chrome Sync</strong> — usa <code>chrome.storage.sync</code>, la infraestructura propia de Chrome Sync de Google, ligada a la cuenta de Google con la que hayas iniciado sesión en Chrome.","sync2":"<strong>Google Drive</strong> — guarda los mismos datos en una carpeta oculta específica de la aplicación en tu propio Google Drive (Google la llama la carpeta «Datos de la aplicación»), que solo ForceKIT puede ver o abrir. Para usarla, conectas una cuenta de Google mediante OAuth y concedes un único permiso, <code>drive.appdata</code> — ForceKIT nunca solicita, ni puede ver, el resto de tus archivos o carpetas de Drive.","syncP2":"Puedes borrar los datos sincronizados en cualquier momento con el botón «Eliminar datos sincronizados», sea cual sea el backend que uses, sin afectar a lo guardado localmente. Nosotros tampoco vemos nunca estos datos — se mueven directamente entre tus propios dispositivos y los servidores de Google, igual que tus marcadores o tu historial de navegación.","sfH2":"Comunicación con Salesforce","sfP":"Para ejecutar consultas, describir objetos o gestionar registros, ForceKIT lee la cookie de sesión de una pestaña de Salesforce que ya tienes abierta y la usa para llamar a las API REST, Tooling y Metadata de Salesforce — directamente desde tu navegador a los servidores de tu org. ForceKIT nunca ve tu contraseña de Salesforce durante un inicio de sesión normal, y nunca enruta este tráfico a través de ningún servidor de terceros.","oauthH2":"Conexión mediante OAuth","oauthP1":"ForceKIT usa <code>identity.launchWebAuthFlow</code> de Chrome, con el flujo estándar del sector PKCE, para dos fines distintos — que nunca se mezclan:","oauth1":"<strong>Inicio de sesión en la org de Salesforce</strong> — si conectas una org usando «Iniciar sesión con OAuth» en lugar de un usuario/contraseña guardado, ForceKIT abre la propia pantalla de consentimiento de Salesforce. El token resultante se intercambia directamente con tu org y se guarda, cifrado, en tu dispositivo.","oauth2":"<strong>Sincronización con Google Drive</strong> — si activas Google Drive como backend de sincronización, ForceKIT abre la pantalla de consentimiento de Google solicitando solo el permiso <code>drive.appdata</code>, que concede acceso únicamente a la carpeta de datos oculta que ForceKIT crea para sí misma — nunca a tus archivos o carpetas de Drive existentes. El token de Google resultante se guarda, cifrado, en tu dispositivo, igual que un token de org.","oauthP2":"En ambos casos, el token nunca se envía a ningún otro sitio que no sea directamente entre tu dispositivo y Salesforce o Google.","pagesH2":"Qué se ejecuta en las páginas de Salesforce (y más allá)","pagesP1":"Con tu permiso, ForceKIT puede inyectar pequeños añadidos de interfaz directamente en las páginas de Salesforce: nombres de API en línea bajo los campos, una hoja de estilos de modo oscuro, y un icono opcional de ForceKIT (junto a tu perfil o flotante) para reabrir el panel. Estos elementos funcionan enteramente en tu navegador y no transmiten el contenido de la página a ningún sitio.","pagesP2":"Una función — mostrar los resultados de las consultas como una superposición a pantalla completa en lugar de comprimidos en el panel lateral — puede inyectar esa superposición en cualquier pestaña del navegador que esté activa en ese momento, sea de Salesforce o no, solo cuando haces clic en el botón «pantalla completa». Se trata de una visualización puntual, de solo lectura, de los resultados que ya has obtenido; no lee ni recopila nada más de esa página.","notH2":"Qué no hacemos","not1":"Ningún analytics, telemetría ni seguimiento de uso de ningún tipo.","not2":"Ninguna publicidad, y ningún dato se vende o comparte jamás con anunciantes.","not3":"Ningún servidor de terceros en el proceso — ForceKIT tampoco tiene uno propio.","not4":"Ningún acceso a tus datos de Salesforce fuera de las acciones que activas explícitamente (ejecutar una consulta, abrir un registro, etc.).","not5":"Ningún acceso a tus archivos o carpetas de Google Drive — solo a la carpeta de datos oculta, específica de la aplicación, que ForceKIT crea para sus propios datos de sincronización, mediante el permiso <code>drive.appdata</code>.","permH2":"Los permisos, explicados con claridad","permTh1":"Permiso","permTh2":"Para qué sirve","perm1d":"Guardar tus consultas, orgs guardadas y preferencias localmente en tu dispositivo.","perm2d":"Leer la cookie de sesión de una pestaña de Salesforce que tengas abierta, para que ForceKIT pueda llamar a la API en tu nombre, sin un inicio de sesión aparte.","perm3d":"Detectar qué pestaña corresponde a una org de Salesforce, cambiar entre sesiones guardadas, y abrir/recargar la pestaña correcta para acciones como «Cambiar interfaz» o «Vaciar caché».","perm4d":"Inyectar en las páginas los pequeños añadidos de interfaz descritos arriba (nombres de API, modo oscuro, el icono de ForceKIT, la superposición de resultados).","perm5d":"Mostrar ForceKIT como panel lateral de Chrome en lugar de como una ventana emergente clásica.","perm6d":"Ejecutar el flujo de consentimiento de OAuth cuando conectas una org de esa forma, mostrar qué cuenta de Google está usando Chrome Sync, y conectar una cuenta de Google para la sincronización con Google Drive.","perm7d":"Si activas Google Drive como backend de sincronización, leer y escribir la carpeta de datos oculta de ForceKIT en tu Google Drive — sin acceso a ningún otro archivo o carpeta de tu Drive.","perm8d":"Detectar cuándo tu ordenador está inactivo o bloqueado, para bloquear automáticamente tus credenciales guardadas como medida de seguridad.","perm9d":"Llamar a las API REST/Tooling/Metadata de Salesforce e inyectar los añadidos de interfaz descritos arriba en salesforce.com, force.com y dominios relacionados.","perm10d":"Se usa solo para la superposición opcional de «resultados a pantalla completa», para que pueda aparecer en cualquier pestaña que estés viendo, no solo en Salesforce — no se ejecuta nada en otros sitios a menos que hagas clic en ese botón.","retH2":"Eliminar tus datos","retP":"Desinstalar ForceKIT elimina todo lo guardado localmente. Los datos sincronizados (si los has activado) se pueden eliminar por separado en cualquier momento desde el panel de Sincronización, y por lo demás se rigen por los ajustes de tu propia cuenta de Google/Chrome Sync.","chH2":"Cambios en esta política","chP":"Si lo que ForceKIT recopila o hace cambia, esta página se actualizará y la fecha de «última actualización» de arriba lo reflejará. Los cambios significativos también se indicarán en el registro de cambios de la extensión, en la pestaña Info del panel.","contactH2":"Contacto","contactP":"¿Preguntas sobre esta política o sobre cómo maneja ForceKIT los datos? Usa el <a href=\"support.html#contact\">formulario de contacto</a> en la página de Soporte.","footer1":"ForceKIT — creada para hacer el trabajo en Salesforce un poco más rápido.","footer2":"© 2026 ForceKIT. Esta política se aplica únicamente a la extensión de Chrome ForceKIT.","footer3":"ForceKIT no está afiliado, respaldado ni patrocinado por Salesforce, Inc. «Salesforce» es una marca registrada de Salesforce, Inc."},
+"de":{"pageTitle":"ForceKIT — Datenschutzerklärung","navHome":"Start","navPrivacy":"Datenschutz","navTerms":"Bedingungen","navSupport":"Support","navDocs":"Anleitung","eyebrow":"Datenschutzerklärung","h1":"Was ForceKIT mit deinen Daten macht — einfach erklärt.","updated":"Zuletzt aktualisiert: 19. Juli 2026","lede":"ForceKIT ist eine Chrome-Erweiterung für Salesforce-Administratoren und -Entwickler. Sie hat keinen eigenen Server: Alles, was sie tut, geschieht in deinem Browser, gegenüber der Salesforce-Org, bei der du bereits angemeldet bist. Diese Seite erklärt genau, was das für deine Daten bedeutet.","disclaimer":"ForceKIT ist ein unabhängiges Drittanbieterprojekt und steht in keiner Verbindung zu Salesforce, Inc., wird nicht von Salesforce unterstützt oder gesponsert.","toc1":"Zusammenfassung","toc2":"Lokale Daten","toc3":"Cloud-Synchronisierung","toc4":"Salesforce-Zugriff","toc5":"OAuth-Anmeldung","toc6":"Auf Salesforce-Seiten","toc7":"Was wir nicht tun","toc8":"Berechtigungen","toc9":"Deine Daten löschen","toc10":"Änderungen","toc11":"Kontakt","summaryH2":"Zusammenfassung","summaryBody":"<strong>Kein Server, keine Konten, kein Tracking.</strong> ForceKIT speichert deine Abfragen, gespeicherten Orgs und Anmeldedaten auf deinem eigenen Gerät (verschlüsselt, wenn du ein Master-Passwort oder einen Passkey festlegst). Es wird nichts an uns gesendet, weil es kein „uns“ gibt, an das man etwas senden könnte — der einzige Netzwerkverkehr, den ForceKIT erzeugt, geht direkt von deinem Browser zu deiner eigenen Salesforce-Org oder zu Google Chrome Sync bzw. deinem eigenen Google Drive, falls du eines dieser Angebote selbst aktivierst.","localH2":"Was lokal gespeichert wird","localP":"ForceKIT speichert Folgendes auf deinem Gerät, über das integrierte <code>storage.local</code> von Chrome:","local1":"<strong>SOQL-Abfrageverlauf und gespeicherte Abfragen</strong> — der Text der Abfragen, die du ausgeführt oder explizit gespeichert hast.","local2":"<strong>Gespeicherte Org-Verbindungen</strong> — Anmelde-URL, Benutzername und entweder ein Passwort oder ein OAuth-Refresh-Token, damit du eine Sitzung wieder öffnen kannst, ohne dich erneut anzumelden.","local3":"<strong>TOTP-Geheimnisse</strong> — wenn du Zwei-Faktor-Codes mit einer gespeicherten Org verknüpfst, das zu ihrer Generierung verwendete Geheimnis.","local4":"<strong>Einstellungen</strong> — Design, Sprache, ausgeblendete Spalten, Auto-Sperr-Richtlinie und ähnliche Einstellungen.","localP2":"Benutzernamen, Passwörter, Refresh-Tokens und TOTP-Geheimnisse werden <strong>verschlüsselt</strong>, sobald du ein Master-Passwort festlegst (oder eine Entsperrung per Passkey/Biometrie, die selbst nur dieses Master-Passwort schützt — es wird nie allein gespeichert). Wenn du dich entscheidest, keines festzulegen, weist ForceKIT dich deutlich darauf hin, dass diese Felder unverschlüsselt auf deinem Gerät verbleiben.","syncH2":"Cloud-Synchronisierung (optional, standardmäßig deaktiviert)","syncP1":"ForceKIT kann deine Abfragen, Einstellungen, gespeicherten Orgs und (falls du dies separat aktivierst) Anmeldedaten zwischen deinen Geräten synchronisieren. Sie ist <strong>deaktiviert, bis du sie aktivierst</strong>, und du wählst über Kontrollkästchen im Panel genau, welche Kategorien synchronisiert werden. Du entscheidest, welches der beiden unabhängigen Backends du nutzt — beide liegen vollständig in deiner Kontrolle:","sync1":"<strong>Chrome Sync</strong> — nutzt <code>chrome.storage.sync</code>, Googles eigene Chrome-Sync-Infrastruktur, verknüpft mit dem Google-Konto, mit dem du in Chrome angemeldet bist.","sync2":"<strong>Google Drive</strong> — speichert dieselben Daten in einem versteckten, app-spezifischen Ordner in deinem eigenen Google Drive (Google nennt diesen den „App-Datenordner“), den nur ForceKIT sehen oder öffnen kann. Um ihn zu nutzen, verbindest du ein Google-Konto per OAuth und gewährst genau einen Berechtigungsbereich, <code>drive.appdata</code> — ForceKIT fordert nie den Rest deiner Drive-Dateien oder -Ordner an und kann ihn auch nie sehen.","syncP2":"Du kannst synchronisierte Daten jederzeit mit der Schaltfläche „Synchronisierte Daten löschen“ entfernen, unabhängig davon, welches Backend du nutzt, ohne die lokal gespeicherten Daten zu berühren. Auch diese Daten sehen wir nie — sie bewegen sich direkt zwischen deinen eigenen Geräten und den Servern von Google, genau wie deine Lesezeichen oder dein Browserverlauf.","sfH2":"Kommunikation mit Salesforce","sfP":"Um Abfragen auszuführen, Objekte zu beschreiben oder Datensätze zu verwalten, liest ForceKIT das Sitzungscookie eines bereits geöffneten Salesforce-Tabs und verwendet es, um die REST-, Tooling- und Metadata-APIs von Salesforce aufzurufen — direkt von deinem Browser zu den Servern deiner Org. ForceKIT sieht dein Salesforce-Passwort bei einer normalen Anmeldung niemals, und leitet diesen Datenverkehr niemals über einen Server eines Drittanbieters.","oauthH2":"Verbindung über OAuth","oauthP1":"ForceKIT nutzt <code>identity.launchWebAuthFlow</code> von Chrome, mit dem branchenüblichen PKCE-Flow, für zwei getrennte Zwecke — die beiden werden nie vermischt:","oauth1":"<strong>Anmeldung bei der Salesforce-Org</strong> — wenn du eine Org über „Mit OAuth anmelden“ statt mit gespeichertem Benutzernamen/Passwort verbindest, öffnet ForceKIT den eigenen Zustimmungsbildschirm von Salesforce. Das resultierende Token wird direkt mit deiner Org ausgetauscht und verschlüsselt auf deinem Gerät gespeichert.","oauth2":"<strong>Google-Drive-Synchronisierung</strong> — wenn du Google Drive als Sync-Backend aktivierst, öffnet ForceKIT den Zustimmungsbildschirm von Google und fordert nur den Berechtigungsbereich <code>drive.appdata</code> an, der ausschließlich Zugriff auf den versteckten Datenordner gewährt, den ForceKIT für sich selbst erstellt — niemals auf deine vorhandenen Drive-Dateien oder -Ordner. Das resultierende Google-Token wird, wie ein Org-Token, verschlüsselt auf deinem Gerät gespeichert.","oauthP2":"In beiden Fällen wird das Token nie irgendwohin gesendet außer direkt zwischen deinem Gerät und Salesforce oder Google.","pagesH2":"Was auf Salesforce-Seiten (und darüber hinaus) ausgeführt wird","pagesP1":"Mit deiner Erlaubnis kann ForceKIT kleine Oberflächenerweiterungen direkt in Salesforce-Seiten einfügen: Inline-API-Namen unter Feldern, ein Dark-Mode-Stylesheet und ein optionales ForceKIT-Symbol (neben deinem Profil oder frei schwebend), um das Panel wieder zu öffnen. Diese Elemente laufen vollständig in deinem Browser und übertragen den Seiteninhalt nirgendwohin.","pagesP2":"Eine Funktion — das Anzeigen von Abfrageergebnissen als Vollbild-Overlay statt zusammengedrängt im Seitenpanel — kann dieses Overlay in jeden aktuell aktiven Browser-Tab einfügen, ob Salesforce oder nicht, aber nur, wenn du auf die Schaltfläche „Vollbild“ klickst. Es handelt sich um eine einmalige, schreibgeschützte Anzeige der Ergebnisse, die du bereits abgerufen hast; von dieser Seite wird sonst nichts gelesen oder gesammelt.","notH2":"Was wir nicht tun","not1":"Keinerlei Analytics, Telemetrie oder Nutzungs-Tracking.","not2":"Keine Werbung, und niemals werden Daten an Werbetreibende verkauft oder weitergegeben.","not3":"Kein Drittanbieter-Server im Spiel — ForceKIT hat ohnehin keinen eigenen.","not4":"Kein Zugriff auf deine Salesforce-Daten außerhalb der Aktionen, die du ausdrücklich auslöst (eine Abfrage ausführen, einen Datensatz öffnen usw.).","not5":"Kein Zugriff auf deine Google-Drive-Dateien oder -Ordner — nur auf den versteckten, app-spezifischen Datenordner, den ForceKIT für seine eigenen Sync-Daten über den Berechtigungsbereich <code>drive.appdata</code> erstellt.","permH2":"Die Berechtigungen, einfach erklärt","permTh1":"Berechtigung","permTh2":"Wofür sie verwendet wird","perm1d":"Deine Abfragen, gespeicherten Orgs und Einstellungen lokal auf deinem Gerät speichern.","perm2d":"Das Sitzungscookie eines geöffneten Salesforce-Tabs lesen, damit ForceKIT die API in deinem Namen aufrufen kann, ohne separate Anmeldung.","perm3d":"Erkennen, welcher Tab eine Salesforce-Org ist, zwischen gespeicherten Sitzungen wechseln und den richtigen Tab für Aktionen wie „Oberfläche wechseln“ oder „Cache leeren“ öffnen/neu laden.","perm4d":"Die oben beschriebenen kleinen Oberflächenerweiterungen (API-Namen, Dark Mode, das ForceKIT-Symbol, das Ergebnis-Overlay) in Seiten einfügen.","perm5d":"ForceKIT als Chrome-Seitenpanel statt als klassisches Popup anzeigen.","perm6d":"Den OAuth-Zustimmungsablauf ausführen, wenn du eine Org auf diese Weise verbindest, anzeigen, welches Google-Konto Chrome Sync verwendet, und ein Google-Konto für die Google-Drive-Synchronisierung verbinden.","perm7d":"Wenn du Google Drive als Sync-Backend aktivierst, den versteckten Datenordner von ForceKIT in deinem Google Drive lesen und beschreiben — kein Zugriff auf andere Dateien oder Ordner in deinem Drive.","perm8d":"Erkennen, wann dein Computer inaktiv oder gesperrt ist, um deine gespeicherten Anmeldedaten als Sicherheitsmaßnahme automatisch zu sperren.","perm9d":"Die REST-/Tooling-/Metadata-APIs von Salesforce aufrufen und die oben beschriebenen Oberflächenerweiterungen auf salesforce.com, force.com und verwandten Domains einfügen.","perm10d":"Wird nur für das optionale „Vollbild-Ergebnisse“-Overlay verwendet, damit es auf jedem Tab erscheinen kann, den du gerade ansiehst, nicht nur auf Salesforce — auf anderen Websites läuft nichts, es sei denn, du klickst auf diese Schaltfläche.","retH2":"Deine Daten löschen","retP":"Das Deinstallieren von ForceKIT entfernt alles, was lokal gespeichert ist. Synchronisierte Daten (falls aktiviert) können jederzeit separat über das Sync-Panel gelöscht werden und unterliegen ansonsten den Einstellungen deines eigenen Google-/Chrome-Sync-Kontos.","chH2":"Änderungen dieser Erklärung","chP":"Wenn sich ändert, was ForceKIT erfasst oder tut, wird diese Seite aktualisiert und das Datum „zuletzt aktualisiert“ oben spiegelt dies wider. Wesentliche Änderungen werden außerdem im Änderungsprotokoll der Erweiterung, im Info-Tab des Panels, vermerkt.","contactH2":"Kontakt","contactP":"Fragen zu dieser Erklärung oder dazu, wie ForceKIT Daten verarbeitet? Nutze das <a href=\"support.html#contact\">Kontaktformular</a> auf der Support-Seite.","footer1":"ForceKIT — entwickelt, um die Arbeit mit Salesforce ein bisschen schneller zu machen.","footer2":"© 2026 ForceKIT. Diese Erklärung gilt ausschließlich für die Chrome-Erweiterung ForceKIT.","footer3":"ForceKIT steht in keiner Verbindung zu Salesforce, Inc., wird nicht von Salesforce unterstützt oder gesponsert. „Salesforce“ ist eine Marke von Salesforce, Inc."}}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="" />
+    <span class="brand-name sans">ForceKIT</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav sans" aria-label="Site">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="privacy.html" class="active" data-i18n="navPrivacy">Privacy</a>
+      <a href="terms.html" data-i18n="navTerms">Terms</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="docs.html" data-i18n="navDocs">Docs</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+      <a href="#" data-lang="fr">FR</a>
+      <a href="#" data-lang="es">ES</a>
+      <a href="#" data-lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow sans" data-i18n="eyebrow">Privacy Policy</p>
+  <h1 data-i18n="h1">What ForceKIT does with your data — in plain terms.</h1>
+  <p class="sans" style="font-size: 12px; color: var(--text-dimmer); margin: -8px 0 20px;" data-i18n="updated">Last updated 19 July 2026</p>
+  <p class="lede" data-i18n="lede">ForceKIT is a Chrome extension for Salesforce admins and developers. It has no server of its own: everything it does happens inside your browser, against the Salesforce org you're already logged into. This page explains exactly what that means for your data.</p>
+  <p class="sans" style="font-size: 12px; color: var(--text-dimmer); margin: -18px 0 28px;" data-i18n="disclaimer">ForceKIT is an independent, third-party project and is not affiliated with, endorsed by, or sponsored by Salesforce, Inc.</p>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#summary" data-i18n="toc1">Summary</a>
+    <a href="#local-data" data-i18n="toc2">Local data</a>
+    <a href="#sync" data-i18n="toc3">Cloud sync</a>
+    <a href="#salesforce" data-i18n="toc4">Salesforce access</a>
+    <a href="#oauth" data-i18n="toc5">OAuth login</a>
+    <a href="#pages" data-i18n="toc6">On Salesforce pages</a>
+    <a href="#not" data-i18n="toc7">What we don't do</a>
+    <a href="#permissions" data-i18n="toc8">Permissions</a>
+    <a href="#retention" data-i18n="toc9">Deleting your data</a>
+    <a href="#changes" data-i18n="toc10">Changes</a>
+    <a href="#contact" data-i18n="toc11">Contact</a>
+  </nav>
+
+  <section id="summary">
+    <h2 data-i18n="summaryH2">Summary</h2>
+    <div class="callout" data-i18n="summaryBody" data-i18n-html>
+      <strong>No server, no accounts, no tracking.</strong> ForceKIT stores your queries, saved orgs, and credentials on your own device (encrypted, if you set a master password or passkey). Nothing is sent to us, because there is no "us" to send it to — the only network traffic ForceKIT makes goes directly from your browser to your own Salesforce org, or to Google's Chrome Sync or your own Google Drive if you turn one of those on yourself.
+    </div>
+  </section>
+
+  <section id="local-data">
+    <h2 data-i18n="localH2">What's stored locally</h2>
+    <p data-i18n="localP" data-i18n-html>ForceKIT keeps the following on your device, using Chrome's built-in <code>storage.local</code>:</p>
+    <ul>
+      <li data-i18n="local1" data-i18n-html><strong>SOQL query history and saved queries</strong> — the text of queries you've run or explicitly saved.</li>
+      <li data-i18n="local2" data-i18n-html><strong>Saved org connections</strong> — login URL, username, and either a password or an OAuth refresh token, so you can reopen a session without logging in again.</li>
+      <li data-i18n="local3" data-i18n-html><strong>TOTP secrets</strong> — if you link two-factor codes to a saved org, the secret used to generate them.</li>
+      <li data-i18n="local4" data-i18n-html><strong>Preferences</strong> — theme, language, which columns you've hidden, autolock policy, and similar settings.</li>
+    </ul>
+    <p data-i18n="localP2" data-i18n-html>Usernames, passwords, refresh tokens, and TOTP secrets are <strong>encrypted</strong> the moment you set a master password (or a passkey/biometric unlock, which itself only wraps that same master password — it's never stored on its own). If you choose not to set one, ForceKIT tells you plainly that those fields will stay unencrypted on your device.</p>
+  </section>
+
+  <section id="sync">
+    <h2 data-i18n="syncH2">Cloud sync (optional, off by default)</h2>
+    <p data-i18n="syncP1" data-i18n-html>ForceKIT can sync your queries, preferences, saved orgs, and (if you opt in separately) credentials across your own devices. This is <strong>off until you turn it on</strong>, and you choose exactly which categories sync via checkboxes in the panel. You pick which of two independent backends to use — both entirely under your control:</p>
+    <ul>
+      <li data-i18n="sync1" data-i18n-html><strong>Chrome Sync</strong> — uses <code>chrome.storage.sync</code>, Google's own Chrome Sync infrastructure, tied to whichever Google account you're signed into Chrome with.</li>
+      <li data-i18n="sync2" data-i18n-html><strong>Google Drive</strong> — stores the same data in a hidden, app-specific folder in your own Google Drive (Google calls this the "Application Data" folder), which only ForceKIT can see or open. To use it, you connect a Google account via OAuth and grant a single scope, <code>drive.appdata</code> — ForceKIT never requests, and can never see, the rest of your Drive files or folders.</li>
+    </ul>
+    <p data-i18n="syncP2">You can wipe synced data at any time with the "Delete synced data" button, for whichever backend you're using, without touching what's stored locally. We never see this data either way — it moves directly between your own devices and Google's servers, the same way your bookmarks or browsing history would.</p>
+  </section>
+
+  <section id="salesforce">
+    <h2 data-i18n="sfH2">Talking to Salesforce</h2>
+    <p data-i18n="sfP">To run queries, describe objects, or manage records, ForceKIT reads the session cookie of a Salesforce tab you already have open and uses it to call Salesforce's own REST, Tooling, and Metadata APIs — directly from your browser to your org's servers. ForceKIT never sees your Salesforce password during a normal login, and never routes this traffic through any third-party server.</p>
+  </section>
+
+  <section id="oauth">
+    <h2 data-i18n="oauthH2">Connecting via OAuth</h2>
+    <p data-i18n="oauthP1" data-i18n-html>ForceKIT uses Chrome's <code>identity.launchWebAuthFlow</code>, with the industry-standard PKCE flow, for two separate purposes — the two are never mixed:</p>
+    <ul>
+      <li data-i18n="oauth1" data-i18n-html><strong>Salesforce org login</strong> — if you connect an org using "Login with OAuth" instead of a stored username/password, ForceKIT opens Salesforce's own consent screen. The resulting token is exchanged directly with your org and stored, encrypted, on your device.</li>
+      <li data-i18n="oauth2" data-i18n-html><strong>Google Drive sync</strong> — if you turn on Google Drive as your sync backend, ForceKIT opens Google's own consent screen requesting only the <code>drive.appdata</code> scope, which grants access solely to the hidden app-data folder ForceKIT creates for itself — never your existing Drive files or folders. The resulting Google token is stored, encrypted, on your device, the same as an org token.</li>
+    </ul>
+    <p data-i18n="oauthP2">In both cases, the token is never sent anywhere except directly between your device and Salesforce or Google.</p>
+  </section>
+
+  <section id="pages">
+    <h2 data-i18n="pagesH2">What runs on Salesforce pages (and beyond)</h2>
+    <p data-i18n="pagesP1">With your permission, ForceKIT can inject small UI additions directly into Salesforce pages: inline API names under fields, a dark mode stylesheet, and an optional ForceKIT icon (next to your profile or floating) to reopen the panel. These run entirely in your browser and don't transmit page content anywhere.</p>
+    <p data-i18n="pagesP2">One feature — showing query results as a full-size overlay instead of squeezed into the side panel — can inject that overlay into whichever browser tab is currently active, Salesforce or not, only when you click the "full screen" button. This is a one-time, read-only display of the results you already fetched; it doesn't read or collect anything else from that page.</p>
+  </section>
+
+  <section id="not">
+    <h2 data-i18n="notH2">What we don't do</h2>
+    <ul>
+      <li data-i18n="not1">No analytics, telemetry, or usage tracking of any kind.</li>
+      <li data-i18n="not2">No advertising, and no data ever sold or shared with advertisers.</li>
+      <li data-i18n="not3">No third-party servers in the loop — ForceKIT has none of its own either.</li>
+      <li data-i18n="not4">No access to your Salesforce data outside of the actions you explicitly trigger (running a query, opening a record, etc.).</li>
+      <li data-i18n="not5" data-i18n-html>No access to your Google Drive files or folders — only the hidden, app-specific data folder ForceKIT creates for its own sync data, via the <code>drive.appdata</code> scope.</li>
+    </ul>
+  </section>
+
+  <section id="permissions">
+    <h2 data-i18n="permH2">Permissions, plainly explained</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th data-i18n="permTh1">Permission</th><th data-i18n="permTh2">What it's for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="perm-name">storage</td><td data-i18n="perm1d">Save your queries, saved orgs, and preferences locally on your device.</td></tr>
+          <tr><td class="perm-name">cookies</td><td data-i18n="perm2d">Read the Salesforce session cookie of a tab you have open, so ForceKIT can call the API as you, without a separate login.</td></tr>
+          <tr><td class="perm-name">activeTab / tabs</td><td data-i18n="perm3d">Detect which tab is a Salesforce org, switch between saved sessions, and open/reload the right tab for actions like "Switch UI" or "Clear cache."</td></tr>
+          <tr><td class="perm-name">scripting</td><td data-i18n="perm4d">Inject the small UI additions described above (API names, dark mode, the ForceKIT icon, the results overlay) into pages.</td></tr>
+          <tr><td class="perm-name">sidePanel</td><td data-i18n="perm5d">Show ForceKIT as a Chrome side panel instead of a classic popup.</td></tr>
+          <tr><td class="perm-name">identity</td><td data-i18n="perm6d">Run the OAuth consent flow when you connect an org that way, show which Google account Chrome Sync is using, and connect a Google account for Google Drive sync.</td></tr>
+          <tr><td class="perm-name">drive.appdata (OAuth scope)</td><td data-i18n="perm7d">If you enable Google Drive as your sync backend, read and write ForceKIT's own hidden app-data folder in your Google Drive — no access to any other file or folder in your Drive.</td></tr>
+          <tr><td class="perm-name">idle</td><td data-i18n="perm8d">Detect when your computer is idle or locked, to automatically lock your saved credentials as a security measure.</td></tr>
+          <tr><td class="perm-name">host_permissions (Salesforce domains)</td><td data-i18n="perm9d">Call the Salesforce REST/Tooling/Metadata APIs and inject the UI additions above on salesforce.com, force.com, and related domains.</td></tr>
+          <tr><td class="perm-name">host_permissions (&lt;all_urls&gt;)</td><td data-i18n="perm10d">Only used for the optional "full screen results" overlay, so it can appear on whichever tab you're looking at, not just Salesforce — nothing runs on other sites unless you click that button.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="retention">
+    <h2 data-i18n="retH2">Deleting your data</h2>
+    <p data-i18n="retP">Uninstalling ForceKIT removes everything stored locally. Synced data (if you turned that on) can be deleted separately at any time from the Sync panel, and is otherwise governed by your own Google/Chrome Sync account settings.</p>
+  </section>
+
+  <section id="changes">
+    <h2 data-i18n="chH2">Changes to this policy</h2>
+    <p data-i18n="chP">If what ForceKIT collects or does changes, this page will be updated and the "last updated" date above will reflect it. Significant changes will also be noted in the extension's changelog, in the Info tab of the panel.</p>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contactH2">Contact</h2>
+    <p data-i18n="contactP" data-i18n-html>Questions about this policy or how ForceKIT handles data? Use the <a href="support.html#contact">contact form</a> on the Support page.</p>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1">ForceKIT — built to make Salesforce work a little faster.</span>
+  <span data-i18n="footer2">&copy; 2026 ForceKIT. This policy applies to the ForceKIT Chrome extension only.</span>
+  <span data-i18n="footer3">ForceKIT is not affiliated with, endorsed by, or sponsored by Salesforce, Inc. "Salesforce" is a trademark of Salesforce, Inc.</span>
+</footer>
+
+<script src="assets/i18n.js"></script>
+</body>
+</html>

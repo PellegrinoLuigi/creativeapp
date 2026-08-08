@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google-site-verification" content="ylKeWDk4cEMRdqbA56zG4f6BopDP_HE7MPNBg9Ineyk" />
+<title data-i18n="pageTitle">Profile Manager — Salesforce Profile permissions, without the XML headache</title>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013; --surface: #14171c; --text: #e7eaed; --text-dim: #99a3b0;
+      --text-dimmer: #69707c; --border: #262b33; --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12); --accent-line: rgba(77, 163, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  header.masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sitenav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .sitenav a { color: var(--text-dim); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+  .langnav { display: flex; gap: 4px; }
+  .langnav a {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 7px;
+    border-radius: 6px; color: var(--text-dim); background: var(--accent-soft);
+    text-decoration: none; cursor: pointer;
+  }
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { max-width: 720px; margin: 56px auto 8px; text-align: center; padding: 0 20px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); margin: 0 0 12px;
+  }
+  h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+  .lede { font-size: 18px; color: var(--text-dim); max-width: 60ch; margin: 0 auto 28px; }
+
+  .cta-row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 0 0 56px; }
+  .cta-badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;
+    color: var(--text-dim); background: var(--accent-soft); border: 1px solid var(--accent-line);
+    border-radius: 999px; padding: 10px 20px; text-decoration: none;
+  }
+  .cta-secondary { font-size: 13px; font-weight: 600; color: var(--text-dim); text-decoration: none; }
+  .cta-secondary:hover { color: var(--accent); }
+  .cta-coffee {
+    color: #402a06; background: #ffdd00; border-color: #ffdd00;
+  }
+  .cta-coffee:hover { background: #ffe93d; border-color: #ffe93d; }
+  .footer-coffee {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+    font-weight: 700; text-decoration: none; color: var(--text-dim);
+  }
+  .footer-coffee:hover { color: var(--accent); }
+
+  .shot-wrap {
+    max-width: 900px; margin: 0 auto 64px; border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; box-shadow: var(--shadow); background: var(--surface);
+  }
+  .shot-wrap img { display: block; width: 100%; height: auto; }
+
+  section.block { margin: 0 0 64px; }
+  h2.section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent); text-align: center; margin: 0 0 36px;
+  }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; box-shadow: var(--shadow);
+  }
+  .feature-card h3 { font-size: 15px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .feature-card p { font-size: 13.5px; color: var(--text-dim); margin: 0; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .gallery figure { margin: 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .gallery img { display: block; width: 100%; height: auto; }
+  .gallery figcaption { padding: 12px 14px; font-size: 12.5px; color: var(--text-dim); border-top: 1px solid var(--border); }
+
+  .privacy-callout {
+    max-width: 640px; margin: 0 auto; text-align: center; background: var(--accent-soft);
+    border: 1px solid var(--accent-line); border-radius: 14px; padding: 24px 28px;
+  }
+  .privacy-callout p { margin: 0 0 10px; font-size: 14.5px; color: var(--text-dim); }
+  .privacy-callout p:last-child { margin-bottom: 0; }
+  .privacy-callout a { font-weight: 700; }
+
+  footer {
+    max-width: 980px; margin: 0 auto; padding: 0 20px 60px; font-size: 13px; color: var(--text-dimmer);
+    display: flex; flex-direction: column; gap: 6px; text-align: center;
+  }
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{
+"en":{"pageTitle":"Profile Manager — Salesforce Profile permissions, without the XML headache","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Chrome Extension","h1":"Salesforce Profile permissions, without the XML headache.","lede":"View, compare, and edit Salesforce Profile permissions — locally on .profile-meta.xml files, or connected directly to your org. No server, no account, entirely in your browser.","ctaBadge":"Get it on the Chrome Web Store","ctaPrivacy":"Read the privacy policy","featuresTitle":"Features","f1t":"Local or Salesforce","f1d":"Edit .profile-meta.xml files straight from a folder on disk, or connect to an org using an already-open browser session or a pasted Session ID — no separate login required.","f2t":"Visual compare","f2d":"Compare two profiles side by side, grouped by category in collapsible sections — or fall back to a raw XML diff when you need the exact text.","f3t":"Full profile viewer","f3d":"Open any single profile and browse its entire permission set — objects, fields, Apex classes, tabs, and more — organized into the same collapsible categories.","f4t":"Granular categories","f4d":"23 permission categories across 6 sections, each with its own switch. Turning one off hides it — and when possible, skips fetching it from the org, speeding up retrieval.","f5t":"Bulk apply & groups","f5d":"Apply a permission change to many profiles at once, and save frequently used profile sets as reusable groups.","f6t":"Smart formatting","f6d":"Choose between a minimal patch of just the block you changed, or a full reformat that reorders and tidies the entire file.","f7t":"Download from Salesforce","f7d":"Pull any profile's XML straight from a connected org and save it to disk — no separate metadata retrieve needed.","f8t":"Five languages","f8d":"Italian, English, French, German, and Spanish, detected automatically from your browser or chosen manually in Settings.","f9t":"Light & dark theme","f9d":"Matches your preference, switchable any time from Settings.","f10t":"Privacy-first","f10d":"No server, no account, no tracking. Everything runs in your browser, talking only to the Salesforce org you're already logged into.","galleryTitle":"See it in action","shot1":"The main workflow: pick a source, choose profiles, edit permissions.","shot2":"Fine-tune exactly which categories to show — and speed up retrieval by skipping the rest.","shot3":"Light theme, for when you prefer it.","privacyP1":"Profile Manager has no server of its own. Your Salesforce session is only ever used to talk directly to your own org.","privacyP2":"Read the full <a href=\"privacy.html\">privacy policy</a> for the details.","footer1":"Profile Manager — a lightweight tool for Salesforce Profile permissions.","footer2":"Profile Manager is an independent, third-party project and is not affiliated with, endorsed by, or sponsored by Salesforce, Inc. \"Salesforce\" is a trademark of Salesforce, Inc."},
+"it":{"pageTitle":"Gestione Profili — I permessi dei Profili Salesforce, senza il mal di testa dell'XML","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Estensione Chrome","h1":"I permessi dei Profili Salesforce, senza il mal di testa dell'XML.","lede":"Visualizza, confronta e modifica i permessi dei Profili Salesforce — in locale sui file .profile-meta.xml, oppure connesso direttamente alla tua org. Nessun server, nessun account, tutto nel tuo browser.","ctaBadge":"Disponibile sul Chrome Web Store","ctaPrivacy":"Leggi l'informativa sulla privacy","featuresTitle":"Caratteristiche","f1t":"Locale o Salesforce","f1d":"Modifica i file .profile-meta.xml direttamente da una cartella sul disco, oppure connettiti a una org usando una sessione del browser già aperta o un Session ID incollato — nessun login separato richiesto.","f2t":"Confronto visivo","f2d":"Confronta due profili fianco a fianco, raggruppati per categoria in sezioni comprimibili — oppure passa al diff XML grezzo quando ti serve il testo esatto.","f3t":"Visualizzatore completo","f3d":"Apri un singolo profilo e sfoglia l'intero set di permessi — oggetti, campi, classi Apex, tab e altro — organizzato nelle stesse categorie comprimibili.","f4t":"Categorie granulari","f4d":"23 categorie di permessi in 6 sezioni, ciascuna con il proprio interruttore. Disattivarne una la nasconde — e quando possibile evita anche di recuperarla dall'org, velocizzando il recupero.","f5t":"Applicazione multipla e gruppi","f5d":"Applica una modifica di permesso a più profili contemporaneamente, e salva insiemi di profili usati di frequente come gruppi riutilizzabili.","f6t":"Formattazione intelligente","f6d":"Scegli tra una patch minima del solo blocco modificato, oppure una riformattazione completa che riordina e sistema l'intero file.","f7t":"Download da Salesforce","f7d":"Scarica l'XML di qualunque profilo direttamente da una org connessa e salvalo su disco — nessun retrieve separato necessario.","f8t":"Cinque lingue","f8d":"Italiano, inglese, francese, tedesco e spagnolo, rilevate automaticamente dal browser oppure scelte manualmente in Impostazioni.","f9t":"Tema chiaro e scuro","f9d":"Si adatta alla tua preferenza, cambiabile in qualsiasi momento da Impostazioni.","f10t":"Privacy prima di tutto","f10d":"Nessun server, nessun account, nessun tracciamento. Tutto gira nel tuo browser, parlando solo con la org Salesforce in cui hai già effettuato l'accesso.","galleryTitle":"Guardala in azione","shot1":"Il flusso principale: scegli una sorgente, seleziona i profili, modifica i permessi.","shot2":"Scegli esattamente quali categorie mostrare — e velocizza il recupero saltando le altre.","shot3":"Tema chiaro, per quando lo preferisci.","privacyP1":"Gestione Profili non ha un server proprio. La tua sessione Salesforce viene usata solo per parlare direttamente con la tua org.","privacyP2":"Leggi l'<a href=\"privacy.html\">informativa sulla privacy</a> completa per i dettagli.","footer1":"Gestione Profili — uno strumento leggero per i permessi dei Profili Salesforce.","footer2":"Gestione Profili è un progetto indipendente di terze parti e non è affiliato, approvato o sponsorizzato da Salesforce, Inc. \"Salesforce\" è un marchio di Salesforce, Inc."},
+"fr":{"pageTitle":"Gestion des Profils — Les permissions des Profils Salesforce, sans le casse-tête du XML","navHome":"Accueil","navPrivacy":"Confidentialité","eyebrow":"Extension Chrome","h1":"Les permissions des Profils Salesforce, sans le casse-tête du XML.","lede":"Visualisez, comparez et modifiez les permissions des Profils Salesforce — en local sur des fichiers .profile-meta.xml, ou connecté directement à votre org. Aucun serveur, aucun compte, tout dans votre navigateur.","ctaBadge":"Disponible sur le Chrome Web Store","ctaPrivacy":"Lire la politique de confidentialité","featuresTitle":"Fonctionnalités","f1t":"Local ou Salesforce","f1d":"Modifiez des fichiers .profile-meta.xml directement depuis un dossier sur le disque, ou connectez-vous à une org via une session de navigateur déjà ouverte ou un Session ID collé — aucune connexion séparée requise.","f2t":"Comparaison visuelle","f2d":"Comparez deux profils côte à côte, regroupés par catégorie dans des sections repliables — ou basculez vers un diff XML brut quand vous avez besoin du texte exact.","f3t":"Visualiseur complet","f3d":"Ouvrez un profil et parcourez tout son ensemble de permissions — objets, champs, classes Apex, onglets et plus — organisé dans les mêmes catégories repliables.","f4t":"Catégories granulaires","f4d":"23 catégories de permissions réparties en 6 sections, chacune avec son propre interrupteur. En désactiver une la masque — et, quand c'est possible, évite aussi de la récupérer depuis l'org, accélérant la récupération.","f5t":"Application groupée et groupes","f5d":"Appliquez une modification de permission à plusieurs profils à la fois, et enregistrez des ensembles de profils fréquemment utilisés comme groupes réutilisables.","f6t":"Formatage intelligent","f6d":"Choisissez entre un correctif minimal du seul bloc modifié, ou un reformatage complet qui réorganise et nettoie tout le fichier.","f7t":"Téléchargement depuis Salesforce","f7d":"Récupérez le XML de n'importe quel profil directement depuis une org connectée et enregistrez-le sur le disque — aucune récupération de métadonnées séparée nécessaire.","f8t":"Cinq langues","f8d":"Italien, anglais, français, allemand et espagnol, détectées automatiquement depuis votre navigateur ou choisies manuellement dans les Paramètres.","f9t":"Thème clair et sombre","f9d":"S'adapte à votre préférence, modifiable à tout moment depuis les Paramètres.","f10t":"La confidentialité d'abord","f10d":"Aucun serveur, aucun compte, aucun suivi. Tout s'exécute dans votre navigateur, en ne parlant qu'à l'org Salesforce à laquelle vous êtes déjà connecté.","galleryTitle":"En action","shot1":"Le flux principal : choisissez une source, sélectionnez les profils, modifiez les permissions.","shot2":"Choisissez exactement quelles catégories afficher — et accélérez la récupération en ignorant les autres.","shot3":"Thème clair, pour quand vous le préférez.","privacyP1":"Gestion des Profils n'a pas de serveur propre. Votre session Salesforce n'est utilisée que pour parler directement à votre propre org.","privacyP2":"Lisez la <a href=\"privacy.html\">politique de confidentialité</a> complète pour les détails.","footer1":"Gestion des Profils — un outil léger pour les permissions des Profils Salesforce.","footer2":"Gestion des Profils est un projet indépendant et tiers, non affilié, approuvé ou sponsorisé par Salesforce, Inc. « Salesforce » est une marque déposée de Salesforce, Inc."},
+"de":{"pageTitle":"Profilverwaltung — Salesforce-Profilberechtigungen ohne XML-Kopfschmerzen","navHome":"Start","navPrivacy":"Datenschutz","eyebrow":"Chrome-Erweiterung","h1":"Salesforce-Profilberechtigungen, ohne XML-Kopfschmerzen.","lede":"Salesforce-Profilberechtigungen ansehen, vergleichen und bearbeiten — lokal in .profile-meta.xml-Dateien oder direkt mit deiner Org verbunden. Kein Server, kein Konto, alles in deinem Browser.","ctaBadge":"Jetzt im Chrome Web Store","ctaPrivacy":"Datenschutzerklärung lesen","featuresTitle":"Funktionen","f1t":"Lokal oder Salesforce","f1d":"Bearbeite .profile-meta.xml-Dateien direkt aus einem Ordner auf der Festplatte, oder verbinde dich mit einer Org über eine bereits geöffnete Browsersitzung oder eine eingefügte Session-ID — keine separate Anmeldung nötig.","f2t":"Visueller Vergleich","f2d":"Vergleiche zwei Profile nebeneinander, gruppiert nach Kategorie in einklappbaren Abschnitten — oder wechsle zu einem rohen XML-Diff, wenn du den genauen Text brauchst.","f3t":"Vollständige Profilansicht","f3d":"Öffne ein einzelnes Profil und durchsuche seinen gesamten Berechtigungssatz — Objekte, Felder, Apex-Klassen, Tabs und mehr — organisiert in denselben einklappbaren Kategorien.","f4t":"Granulare Kategorien","f4d":"23 Berechtigungskategorien in 6 Abschnitten, jede mit eigenem Schalter. Eine auszuschalten blendet sie aus — und wenn möglich wird sie auch nicht mehr von der Org abgerufen, was den Abruf beschleunigt.","f5t":"Massenanwendung & Gruppen","f5d":"Wende eine Berechtigungsänderung auf viele Profile gleichzeitig an und speichere häufig genutzte Profilgruppen zur Wiederverwendung.","f6t":"Intelligente Formatierung","f6d":"Wähle zwischen einem minimalen Patch nur des geänderten Blocks oder einer vollständigen Neuformatierung, die die ganze Datei neu ordnet und aufräumt.","f7t":"Download von Salesforce","f7d":"Lade das XML eines beliebigen Profils direkt von einer verbundenen Org herunter und speichere es auf der Festplatte — kein separater Metadaten-Abruf nötig.","f8t":"Fünf Sprachen","f8d":"Italienisch, Englisch, Französisch, Deutsch und Spanisch, automatisch anhand deines Browsers erkannt oder manuell in den Einstellungen gewählt.","f9t":"Helles & dunkles Design","f9d":"Passt sich deiner Vorliebe an, jederzeit in den Einstellungen umschaltbar.","f10t":"Datenschutz zuerst","f10d":"Kein Server, kein Konto, kein Tracking. Alles läuft in deinem Browser und spricht nur mit der Salesforce-Org, bei der du bereits angemeldet bist.","galleryTitle":"So sieht's aus","shot1":"Der Hauptablauf: Quelle wählen, Profile auswählen, Berechtigungen bearbeiten.","shot2":"Wähle genau, welche Kategorien angezeigt werden — und beschleunige den Abruf, indem du die restlichen überspringst.","shot3":"Helles Design, für wenn du es bevorzugst.","privacyP1":"Profilverwaltung hat keinen eigenen Server. Deine Salesforce-Sitzung wird nur verwendet, um direkt mit deiner eigenen Org zu sprechen.","privacyP2":"Lies die vollständige <a href=\"privacy.html\">Datenschutzerklärung</a> für die Details.","footer1":"Profilverwaltung — ein leichtgewichtiges Tool für Salesforce-Profilberechtigungen.","footer2":"Profilverwaltung ist ein unabhängiges Drittanbieterprojekt und steht in keiner Verbindung zu Salesforce, Inc., wird nicht von Salesforce unterstützt oder gesponsert. „Salesforce“ ist eine Marke von Salesforce, Inc."},
+"es":{"pageTitle":"Gestión de Perfiles — Los permisos de los Perfiles de Salesforce, sin el dolor de cabeza del XML","navHome":"Inicio","navPrivacy":"Privacidad","eyebrow":"Extensión de Chrome","h1":"Los permisos de los Perfiles de Salesforce, sin el dolor de cabeza del XML.","lede":"Ve, compara y edita los permisos de los Perfiles de Salesforce — en local con archivos .profile-meta.xml, o conectado directamente a tu org. Sin servidor, sin cuenta, todo en tu navegador.","ctaBadge":"Disponible en la Chrome Web Store","ctaPrivacy":"Leer la política de privacidad","featuresTitle":"Características","f1t":"Local o Salesforce","f1d":"Edita archivos .profile-meta.xml directamente desde una carpeta en el disco, o conéctate a una org usando una sesión del navegador ya abierta o un Session ID pegado — sin necesidad de un inicio de sesión aparte.","f2t":"Comparación visual","f2d":"Compara dos perfiles lado a lado, agrupados por categoría en secciones plegables — o cambia a un diff XML sin procesar cuando necesites el texto exacto.","f3t":"Visor de perfil completo","f3d":"Abre un solo perfil y explora todo su conjunto de permisos — objetos, campos, clases Apex, pestañas y más — organizado en las mismas categorías plegables.","f4t":"Categorías granulares","f4d":"23 categorías de permisos en 6 secciones, cada una con su propio interruptor. Desactivar una la oculta — y cuando es posible, también evita obtenerla de la org, acelerando la recuperación.","f5t":"Aplicación masiva y grupos","f5d":"Aplica un cambio de permiso a muchos perfiles a la vez, y guarda conjuntos de perfiles usados con frecuencia como grupos reutilizables.","f6t":"Formato inteligente","f6d":"Elige entre un parche mínimo solo del bloque modificado, o un reformateo completo que reordena y ordena todo el archivo.","f7t":"Descarga desde Salesforce","f7d":"Descarga el XML de cualquier perfil directamente desde una org conectada y guárdalo en el disco — sin necesidad de una recuperación de metadatos aparte.","f8t":"Cinco idiomas","f8d":"Italiano, inglés, francés, alemán y español, detectados automáticamente desde tu navegador o elegidos manualmente en Configuración.","f9t":"Tema claro y oscuro","f9d":"Se adapta a tu preferencia, cambiable en cualquier momento desde Configuración.","f10t":"La privacidad ante todo","f10d":"Sin servidor, sin cuenta, sin seguimiento. Todo se ejecuta en tu navegador, hablando solo con la org de Salesforce en la que ya has iniciado sesión.","galleryTitle":"Véla en acción","shot1":"El flujo principal: elige una fuente, selecciona los perfiles, edita los permisos.","shot2":"Elige exactamente qué categorías mostrar — y acelera la recuperación omitiendo el resto.","shot3":"Tema claro, para cuando lo prefieras.","privacyP1":"Gestión de Perfiles no tiene servidor propio. Tu sesión de Salesforce solo se usa para hablar directamente con tu propia org.","privacyP2":"Lee la <a href=\"privacy.html\">política de privacidad</a> completa para más detalles.","footer1":"Gestión de Perfiles — una herramienta ligera para los permisos de los Perfiles de Salesforce.","footer2":"Gestión de Perfiles es un proyecto independiente de terceros y no está afiliado, respaldado ni patrocinado por Salesforce, Inc. «Salesforce» es una marca registrada de Salesforce, Inc."}
+}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/icons/icon128.png" alt="" />
+    <span class="brand-name">Profile Manager</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" class="active" data-i18n="navHome">Home</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+      <a href="#" data-lang="fr">FR</a>
+      <a href="#" data-lang="de">DE</a>
+      <a href="#" data-lang="es">ES</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="eyebrow" data-i18n="eyebrow">Chrome Extension</p>
+  <h1 data-i18n="h1">Salesforce Profile permissions, without the XML headache.</h1>
+  <p class="lede" data-i18n="lede">View, compare, and edit Salesforce Profile permissions — locally on .profile-meta.xml files, or connected directly to your org. No server, no account, entirely in your browser.</p>
+</div>
+
+<div class="cta-row">
+  <a class="cta-badge" data-i18n="ctaBadge" href="https://chromewebstore.google.com/detail/profile-manager/ckfnbebenilgjfcengjhaibbbcgoplgi?authuser=0" target="_blank" rel="noopener noreferrer">Get it on the Chrome Web Store</a>
+  <a class="cta-badge cta-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+  <a class="cta-secondary" href="privacy.html" data-i18n="ctaPrivacy">Read the privacy policy</a>
+</div>
+
+<div class="shot-wrap">
+  <img src="assets/screenshots/main-dark.png" alt="Profile Manager main screen" />
+</div>
+
+<main>
+  <section class="block">
+    <h2 class="section-title" data-i18n="featuresTitle">Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f5t"></h3><p data-i18n="f5d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f6t"></h3><p data-i18n="f6d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f7t"></h3><p data-i18n="f7d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f8t"></h3><p data-i18n="f8d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f9t"></h3><p data-i18n="f9d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f10t"></h3><p data-i18n="f10d"></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title" data-i18n="galleryTitle">See it in action</h2>
+    <div class="gallery">
+      <figure>
+        <img src="assets/screenshots/main-dark.png" alt="Main screen, dark theme" />
+        <figcaption data-i18n="shot1"></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/screenshots/settings-dark.png" alt="Settings: categories and language" />
+        <figcaption data-i18n="shot2"></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/screenshots/main-light.png" alt="Main screen, light theme" />
+        <figcaption data-i18n="shot3"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="privacy-callout">
+      <p data-i18n="privacyP1"></p>
+      <p data-i18n="privacyP2"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1"></span>
+  <span data-i18n="footer2"></span>
+  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+</footer>
+
+<script>
+(function () {
+  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
+
+  function resolveLang() {
+    var saved = localStorage.getItem('profileManager.privacyLang');
+    if (saved && i18n[saved]) return saved;
+    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return i18n[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.langnav a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.langnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var lang = a.getAttribute('data-lang');
+      localStorage.setItem('profileManager.privacyLang', lang);
+      applyLang(lang);
+    });
+  });
+
+  applyLang(resolveLang());
+})();
+</script>
+
+</body>
+</html>

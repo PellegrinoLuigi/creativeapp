@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">ForceKIT — The Salesforce toolkit for your browser</title>
+<meta name="description" content="ForceKIT is a free Chrome extension for Salesforce admins and developers: SOQL console, inline API names, profile/permission set comparator, dark mode, cache refresh, and more — all local, no server." data-i18n-attr="content:metaDesc" />
+<meta name="google-site-verification" content="ylKeWDk4cEMRdqbA56zG4f6BopDP_HE7MPNBg9Ineyk" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="apple-touch-icon" href="assets/icons/icon128.png" />
+<style>
+  @font-face {
+    font-family: "ForceKIT Mono";
+    src: local("SF Mono"), local("Menlo"), local("Consolas");
+  }
+
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013;
+      --surface: #14171c;
+      --surface-raised: #191d23;
+      --text: #e7eaed;
+      --text-dim: #99a3b0;
+      --text-dimmer: #69707c;
+      --border: #262b33;
+      --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12);
+      --accent-line: rgba(77, 163, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1013;
+    --surface: #14171c;
+    --surface-raised: #191d23;
+    --text: #e7eaed;
+    --text-dim: #99a3b0;
+    --text-dimmer: #69707c;
+    --border: #262b33;
+    --accent: #4da3ff;
+    --accent-soft: rgba(77, 163, 255, 0.12);
+    --accent-line: rgba(77, 163, 255, 0.4);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --accent-soft: rgba(0, 113, 227, 0.08);
+    --accent-line: rgba(0, 113, 227, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  }
+
+  .mono {
+    font-family: "ForceKIT Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  header.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 20px;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+
+  .brand-name {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .sitenav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 13px;
+  }
+
+  .sitenav a {
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  .langnav { display: flex; gap: 4px; }
+
+  .langnav a {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 3px 7px;
+    border-radius: 6px;
+    color: var(--text-dim);
+    background: var(--accent-soft);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 72px 0 56px;
+  }
+
+  .hero img.logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: var(--shadow); }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 20ch;
+  }
+
+  .lede {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-size: 19px;
+    color: var(--text-dim);
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 22px;
+    border-radius: 11px;
+    box-shadow: var(--shadow);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover { filter: brightness(1.06); }
+
+  .btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover { border-color: var(--accent-line); color: var(--accent); }
+
+  .free-note {
+    font-size: 12.5px;
+    color: var(--text-dimmer);
+    margin: 2px 0 0;
+  }
+
+  section.block { padding: 56px 0; border-top: 1px solid var(--border); }
+  section.block:first-of-type { border-top: none; }
+
+  .block-head { text-align: center; max-width: 60ch; margin: 0 auto 40px; }
+  .block-head .eyebrow { display: block; margin-bottom: 10px; }
+  .block-head h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+  .block-head p {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    color: var(--text-dim);
+    font-size: 17px;
+    margin: 0;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+  }
+
+  .feature .icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  .feature h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .feature p {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .trust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 40px 24px;
+  }
+
+  .trust h2 {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .trust p {
+    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .trust-links { display: flex; gap: 18px; font-size: 13px; font-weight: 600; margin-top: 4px; }
+
+  footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    font-size: 13px;
+    color: var(--text-dimmer);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+
+  footer .links { display: flex; gap: 16px; }
+  footer a { color: var(--text-dim); }
+  footer a:hover { color: var(--accent); }
+
+  .gallery-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 4px 4px 16px;
+    scroll-snap-type: x proximity;
+  }
+
+  .gallery-scroll::-webkit-scrollbar { height: 8px; }
+  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+  .shot {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 260px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .shot .frame {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+  .shot.wide { width: 380px; }
+  .shot.wide .frame { background: var(--bg); }
+  .shot.wide img { object-fit: contain; }
+
+  .shot p {
+    margin: 0;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{"it":{"pageTitle":"ForceKIT — Il toolkit Salesforce per il tuo browser","metaDesc":"ForceKIT è un'estensione Chrome gratuita per amministratori e sviluppatori Salesforce: console SOQL, nomi API inline, comparatore Profile/Permission Set, dark mode, refresh della cache e altro — tutto in locale, senza server.","navHome":"Home","navPrivacy":"Privacy","navTerms":"Termini","navSupport":"Supporto","navDocs":"Guida","heroEyebrow":"Estensione Chrome per Salesforce","heroH1":"Il toolkit Salesforce pensato per il tuo browser.","heroLede":"Console SOQL, nomi API inline, un comparatore di Profile e Permission Set, dark mode, refresh della cache e cambio sessione — tutto in locale, senza alcun server di ForceKIT nel mezzo.","ctaPrimary":"Aggiungi a Chrome — è gratis","ctaSecondary":"☕ Sostieni il progetto","freeNote":"Gratis, nessun account richiesto. Niente pubblicità, niente tracciamento.","featuresEyebrow":"Funzionalità","featuresH2":"Tutto quello che cerchi in Setup, a un pannello di distanza.","featuresP":"ForceKIT vive nel pannello laterale di Chrome e sulle pagine Salesforce che hai già aperte — nessuna app separata, nessun login aggiuntivo.","f1t":"Console SOQL &amp; SOSL","f1d":"Scrivi, esegui e salva query SOQL o SOSL su qualsiasi org connessa — per gli oggetti disponibili solo via Tooling l'API cambia da sola, con uno storico da rivedere in seguito.","f2t":"Nomi API inline","f2d":"Vedi i nomi API di campi e oggetti direttamente sulle pagine record e Setup — niente più deviazioni con tasto destro → ispeziona.","f3t":"Comparatore Profile &amp; Permission Set","f3d":"Confronta due Profile o Permission Set fianco a fianco e individua le differenze di accesso in pochi secondi.","f4t":"Refresh cache con un click","f4d":"Svuota la cache di Lightning e Setup senza un reload completo né perdere il punto in cui eri arrivato.","f5t":"Dark mode per Salesforce","f5d":"Un foglio di stile scuro iniettato direttamente nelle pagine Setup e Lightning, per gli occhi che se lo meritano.","f6t":"Switch Lightning ⇄ Classic","f6d":"Passa da un'interfaccia all'altra all'istante, senza cercare il toggle sepolto nel menu profilo.","f7t":"Org salvate e sessioni","f7d":"Riapri una sessione org salvata all'istante, incluse le org connesse via OAuth — niente login ripetuti.","f8t":"Sync su cloud opzionale","f8d":"Mantieni query, org salvate e preferenze sincronizzate tra i tuoi dispositivi tramite Chrome Sync o il tuo Google Drive — disattivata per impostazione predefinita.","f9t":"Crittografia locale","f9d":"Imposta una password principale o usa una passkey per crittografare le credenziali salvate e i segreti TOTP sul tuo dispositivo.","f10t":"Naviga tra i record correlati","f10d":"Clicca un lookup per aprire il record collegato, torna indietro con le briciole di pane, oppure gira la scheda per vedere tutti i correlati raggruppati per oggetto — senza mai lasciare la pagina.","f11t":"Esplora i Debug Log","f11d":"Cerca nel log grezzo per arrivare subito al punto che ti interessa, ed espandi o riduci l'albero di esecuzione Apex per seguire lo stack di chiamate senza perderti.","f12t":"Trasferimento dati in massa","f12d":"Incolla un CSV ed esegui insert, update, upsert, delete o undelete su REST, Tooling o Metadata API — con batch size configurabile e un click per ritentare solo le righe fallite.","f13t":"Authenticator TOTP integrato","f13d":"Genera codici 2FA senza uscire dal browser — aggiungi account a mano, importa un'immagine QR, oppure catturala direttamente dallo schermo.","shotsEyebrow":"Guardalo in azione","shotsH2":"Un vero toolkit, non un'altra scheda da tenere d'occhio.","shotsP":"Uno sguardo al pannello laterale — dall'esecuzione delle query al confronto dei permessi.","s1alt":"Confronto tra un Profile e un Permission Set fianco a fianco in ForceKIT","s1cap":"Confronta Profile e Permission Set fianco a fianco","s2alt":"Esecuzione di una query SOQL con i risultati in ForceKIT","s2cap":"Esegui query SOQL e sfoglia i risultati all'istante","s3alt":"Lettura di un debug log Salesforce con categorie in ForceKIT","s3cap":"Leggi i debug log con categorie colorate","s4alt":"Credenziali org Salesforce salvate in ForceKIT","s4cap":"Salva le org e passa da una sessione all'altra all'istante","s5alt":"Visualizzazione dei campi di un record e dei nomi API in ForceKIT","s5cap":"Ispeziona i campi dei record e i nomi API inline","s6alt":"Authenticator TOTP integrato in ForceKIT","s6cap":"Genera codici 2FA con l'authenticator integrato","s7alt":"Pannello impostazioni di ForceKIT con opzioni di sync e sessione, layout a larghezza intera","s7cap":"Personalizza pannello, sync e comportamento della sessione","s8alt":"Gestione dei livelli di log e consultazione dell'elenco Debug Log in ForceKIT","s8cap":"Gestisci i livelli di log e consulta l'elenco","s9alt":"Filtro dei campi record per tipo nella vista Dettaglio di ForceKIT","s9cap":"Filtra i campi del record per tipo in Dettaglio","s10alt":"Query SOQL recenti e salvate in ForceKIT","s10cap":"Ritrova le query recenti e quelle salvate","s11alt":"Visualizzazione di tutti i correlati raggruppati per oggetto in ForceKIT","s11cap":"Vedi tutti i correlati raggruppati per oggetto","s12alt":"Pannello impostazioni di ForceKIT con opzioni di sync nel side panel","s12cap":"Configura sync e impostazioni del pannello","s13alt":"Ricerca utenti dell'org Salesforce con colonne configurabili in ForceKIT","s13cap":"Cerca gli utenti dell'org, scegli quali colonne mostrare","trustEyebrow":"Nessun server, nessun account, nessun tracciamento","trustH2":"La tua org, il tuo browser, i tuoi dati.","trustP":"ForceKIT non ha un server proprio. L'unico traffico di rete che genera va direttamente dal tuo browser alla tua org Salesforce, oppure a Google Chrome Sync o al tuo Google Drive se attivi tu stesso una di queste opzioni. Non viene inviato nulla a noi, perché non esiste alcun \"noi\" a cui inviarlo.","trustLink1":"Leggi l'Informativa sulla Privacy →","trustLink2":"Leggi i Termini →","footerCopyright":"© 2026 ForceKIT. Non affiliato, approvato o sponsorizzato da Salesforce, Inc.","footerContact":"Contatti"},
+"fr":{"pageTitle":"ForceKIT — La boîte à outils Salesforce pour votre navigateur","metaDesc":"ForceKIT est une extension Chrome gratuite pour les administrateurs et développeurs Salesforce : console SOQL, noms d'API en ligne, comparateur de Profils/Permission Sets, mode sombre, actualisation du cache, et plus — tout en local, sans serveur.","navHome":"Accueil","navPrivacy":"Confidentialité","navTerms":"Conditions","navSupport":"Assistance","navDocs":"Guide","heroEyebrow":"Extension Chrome pour Salesforce","heroH1":"La boîte à outils Salesforce conçue pour votre navigateur.","heroLede":"Console SOQL, noms d'API en ligne, un comparateur de Profils et Permission Sets, mode sombre, actualisation du cache et changement de session — le tout en local, sans aucun serveur propre à ForceKIT entre les deux.","ctaPrimary":"Ajouter à Chrome — c'est gratuit","ctaSecondary":"☕ Soutenir le projet","freeNote":"Gratuit, aucun compte requis. Pas de publicité, pas de suivi.","featuresEyebrow":"Fonctionnalités","featuresH2":"Tout ce que vous cherchez dans Setup, à un panneau de distance.","featuresP":"ForceKIT vit dans le panneau latéral de Chrome et sur les pages Salesforce que vous avez déjà ouvertes — pas d'application séparée, pas de connexion supplémentaire.","f1t":"Console SOQL &amp; SOSL","f1d":"Écrivez, exécutez et enregistrez des requêtes SOQL ou SOSL sur n'importe quelle org connectée — les objets réservés à la Tooling API basculent automatiquement, avec un historique consultable plus tard.","f2t":"Noms d'API en ligne","f2d":"Affichez les noms d'API des champs et objets directement sur les pages d'enregistrement et de Setup — plus besoin de détour par clic droit → inspecter.","f3t":"Comparateur Profil &amp; Permission Set","f3d":"Comparez deux Profils ou Permission Sets côte à côte et repérez les différences d'accès en quelques secondes.","f4t":"Actualisation du cache en un clic","f4d":"Videz le cache Lightning et Setup obsolète sans rechargement complet ni perdre votre place.","f5t":"Mode sombre pour Salesforce","f5d":"Une feuille de style sombre injectée directement dans les pages Setup et Lightning, pour les yeux qui le méritent.","f6t":"Bascule Lightning ⇄ Classic","f6d":"Passez d'une interface à l'autre instantanément, sans chercher le bouton caché dans le menu de profil.","f7t":"Orgs enregistrées &amp; sessions","f7d":"Rouvrez une session d'org enregistrée instantanément, y compris les orgs connectées via OAuth — plus de connexions répétées.","f8t":"Synchronisation cloud optionnelle","f8d":"Gardez vos requêtes, orgs enregistrées et préférences synchronisées entre vos appareils via Chrome Sync ou votre propre Google Drive — désactivée par défaut.","f9t":"Chiffrement local","f9d":"Définissez un mot de passe principal ou utilisez une clé d'accès (passkey) pour chiffrer les identifiants enregistrés et les secrets TOTP sur votre appareil.","f10t":"Explorez les enregistrements liés","f10d":"Cliquez sur un lookup pour ouvrir son enregistrement, revenez en arrière grâce au fil d'Ariane, ou retournez la carte pour voir tous les enregistrements liés regroupés par objet — sans jamais quitter la page.","f11t":"Explorateur de Debug Logs","f11d":"Recherchez dans le log brut pour aller droit à ce qui compte, et développez ou réduisez l'arbre d'exécution Apex pour suivre la pile d'appels sans vous perdre.","f12t":"Transfert de données en masse","f12d":"Collez un CSV et effectuez insert, update, upsert, delete ou undelete sur l'API REST, Tooling ou Metadata — avec une taille de lot configurable et une relance en un clic pour les seules lignes échouées.","f13t":"Authentificateur TOTP intégré","f13d":"Générez des codes 2FA sans quitter le navigateur — ajoutez des comptes manuellement, importez une image QR, ou capturez-la directement à l'écran.","shotsEyebrow":"En action","shotsH2":"Une vraie boîte à outils, pas un onglet de plus à surveiller.","shotsP":"Un aperçu du panneau latéral — de l'exécution de requêtes à la comparaison des permissions.","s1alt":"Comparaison d'un Profil et d'un Permission Set côte à côte dans ForceKIT","s1cap":"Comparez des Profils et Permission Sets côte à côte","s2alt":"Exécution d'une requête SOQL et affichage des résultats dans ForceKIT","s2cap":"Exécutez des requêtes SOQL et parcourez les résultats instantanément","s3alt":"Lecture d'un journal de débogage Salesforce catégorisé dans ForceKIT","s3cap":"Lisez les journaux de débogage avec des catégories colorées","s4alt":"Identifiants d'org Salesforce enregistrés dans ForceKIT","s4cap":"Enregistrez des orgs et changez de session instantanément","s5alt":"Affichage des champs d'un enregistrement et des noms d'API dans ForceKIT","s5cap":"Inspectez les champs d'enregistrement et les noms d'API en ligne","s6alt":"Authentificateur TOTP intégré dans ForceKIT","s6cap":"Générez des codes 2FA avec l'authentificateur intégré","s7alt":"Panneau de paramètres ForceKIT avec options de synchronisation et de session, en pleine largeur","s7cap":"Ajustez le panneau, la synchronisation et le comportement de session","s8alt":"Gestion des niveaux de log et consultation de la liste des Debug Logs dans ForceKIT","s8cap":"Gérez les niveaux de log et parcourez la liste","s9alt":"Filtrage des champs d'un enregistrement par type dans la vue Détail de ForceKIT","s9cap":"Filtrez les champs de l'enregistrement par type dans Détail","s10alt":"Requêtes SOQL récentes et enregistrées dans ForceKIT","s10cap":"Retrouvez vos requêtes récentes et enregistrées","s11alt":"Affichage de tous les enregistrements liés regroupés par objet dans ForceKIT","s11cap":"Voyez tous les enregistrements liés regroupés par objet","s12alt":"Panneau de paramètres ForceKIT avec les options de synchronisation dans le panneau latéral","s12cap":"Configurez la synchronisation et les paramètres du panneau","s13alt":"Recherche des utilisateurs de l'org Salesforce avec des colonnes configurables dans ForceKIT","s13cap":"Recherchez les utilisateurs de l'org, choisissez les colonnes à afficher","trustEyebrow":"Aucun serveur, aucun compte, aucun suivi","trustH2":"Votre org, votre navigateur, vos données.","trustP":"ForceKIT n'a pas de serveur propre. Le seul trafic réseau qu'elle génère va directement de votre navigateur à votre propre org Salesforce, ou à Google Chrome Sync ou à votre propre Google Drive si vous activez l'un de ces services vous-même. Rien n'est envoyé chez nous, car il n'y a pas de « nous » à qui l'envoyer.","trustLink1":"Lire la politique de confidentialité →","trustLink2":"Lire les conditions →","footerCopyright":"© 2026 ForceKIT. Non affilié, approuvé ou sponsorisé par Salesforce, Inc.","footerContact":"Contact"},
+"es":{"pageTitle":"ForceKIT — El kit de herramientas de Salesforce para tu navegador","metaDesc":"ForceKIT es una extensión gratuita de Chrome para administradores y desarrolladores de Salesforce: consola SOQL, nombres de API en línea, comparador de Profiles/Permission Sets, modo oscuro, actualización de caché y más — todo en local, sin servidor.","navHome":"Inicio","navPrivacy":"Privacidad","navTerms":"Términos","navSupport":"Soporte","navDocs":"Guía","heroEyebrow":"Extensión de Chrome para Salesforce","heroH1":"El kit de herramientas de Salesforce pensado para tu navegador.","heroLede":"Consola SOQL, nombres de API en línea, un comparador de Profiles y Permission Sets, modo oscuro, actualización de caché y cambio de sesión — todo en local, sin ningún servidor propio de ForceKIT de por medio.","ctaPrimary":"Añadir a Chrome — es gratis","ctaSecondary":"☕ Apoya el proyecto","freeNote":"Gratis, sin necesidad de cuenta. Sin anuncios, sin seguimiento.","featuresEyebrow":"Funciones","featuresH2":"Todo lo que buscas en Setup, a un panel de distancia.","featuresP":"ForceKIT vive en el panel lateral de Chrome y en las páginas de Salesforce que ya tienes abiertas — sin aplicación aparte, sin inicio de sesión adicional.","f1t":"Consola SOQL &amp; SOSL","f1d":"Escribe, ejecuta y guarda consultas SOQL o SOSL en cualquier org conectada — los objetos exclusivos de la Tooling API cambian de API automáticamente, con un historial que puedes revisar más tarde.","f2t":"Nombres de API en línea","f2d":"Ve los nombres de API de campos y objetos directamente en las páginas de registros y Setup — sin más desvíos de clic derecho → inspeccionar.","f3t":"Comparador de Profile &amp; Permission Set","f3d":"Compara dos Profiles o Permission Sets uno al lado del otro y detecta diferencias de acceso en segundos.","f4t":"Actualización de caché con un clic","f4d":"Vacía la caché desactualizada de Lightning y Setup sin una recarga completa ni perder el punto en el que estabas.","f5t":"Modo oscuro para Salesforce","f5d":"Una hoja de estilos oscura inyectada directamente en las páginas de Setup y Lightning, para los ojos que se lo merecen.","f6t":"Cambio Lightning ⇄ Classic","f6d":"Cambia entre interfaces al instante, sin buscar el interruptor escondido en el menú de perfil.","f7t":"Orgs guardadas y sesiones","f7d":"Reabre una sesión de org guardada al instante, incluidas las orgs conectadas mediante OAuth — sin inicios de sesión repetidos.","f8t":"Sincronización en la nube opcional","f8d":"Mantén tus consultas, orgs guardadas y preferencias sincronizadas entre tus dispositivos mediante Chrome Sync o tu propio Google Drive — desactivada de forma predeterminada.","f9t":"Cifrado local","f9d":"Configura una contraseña maestra o usa una clave de acceso (passkey) para cifrar las credenciales guardadas y los secretos TOTP en tu dispositivo.","f10t":"Explora los registros relacionados","f10d":"Haz clic en un lookup para abrir su registro, vuelve atrás con las migas de pan, o gira la tarjeta para ver todos los relacionados agrupados por objeto — sin salir nunca de la página.","f11t":"Explorador de Debug Logs","f11d":"Busca dentro del log en bruto para ir directo a lo que importa, y expande o contrae el árbol de ejecución de Apex para seguir la pila de llamadas sin perderte.","f12t":"Transferencia masiva de datos","f12d":"Pega un CSV y realiza insert, update, upsert, delete o undelete en la API REST, Tooling o Metadata — con tamaño de lote configurable y un clic para reintentar solo las filas fallidas.","f13t":"Autenticador TOTP integrado","f13d":"Genera códigos 2FA sin salir del navegador — añade cuentas manualmente, importa una imagen QR, o captúrala directamente desde la pantalla.","shotsEyebrow":"Míralo en acción","shotsH2":"Un kit de herramientas de verdad, no otra pestaña que vigilar.","shotsP":"Un vistazo al panel lateral — desde ejecutar consultas hasta comparar permisos.","s1alt":"Comparación de un Profile y un Permission Set uno al lado del otro en ForceKIT","s1cap":"Compara Profiles y Permission Sets uno al lado del otro","s2alt":"Ejecución de una consulta SOQL con resultados en ForceKIT","s2cap":"Ejecuta consultas SOQL y explora los resultados al instante","s3alt":"Lectura de un debug log de Salesforce con categorías en ForceKIT","s3cap":"Lee los debug logs con categorías codificadas por color","s4alt":"Credenciales de org de Salesforce guardadas en ForceKIT","s4cap":"Guarda orgs y cambia de sesión al instante","s5alt":"Visualización de los campos de un registro y nombres de API en ForceKIT","s5cap":"Inspecciona los campos de un registro y los nombres de API en línea","s6alt":"Autenticador TOTP integrado en ForceKIT","s6cap":"Genera códigos 2FA con el autenticador integrado","s7alt":"Panel de ajustes de ForceKIT con opciones de sincronización y sesión, en diseño de ancho completo","s7cap":"Ajusta el panel, la sincronización y el comportamiento de la sesión","s8alt":"Gestión de los niveles de log y navegación por la lista de Debug Logs en ForceKIT","s8cap":"Gestiona los niveles de log y consulta la lista","s9alt":"Filtrado de campos de un registro por tipo en la vista Detalle de ForceKIT","s9cap":"Filtra los campos del registro por tipo en Detalle","s10alt":"Consultas SOQL recientes y guardadas en ForceKIT","s10cap":"Encuentra tus consultas recientes y guardadas","s11alt":"Visualización de todos los registros relacionados agrupados por objeto en ForceKIT","s11cap":"Ve todos los relacionados agrupados por objeto","s12alt":"Panel de ajustes de ForceKIT con opciones de sincronización en el panel lateral","s12cap":"Configura la sincronización y los ajustes del panel","s13alt":"Búsqueda de usuarios de la org de Salesforce con columnas configurables en ForceKIT","s13cap":"Busca usuarios de la org, elige qué columnas mostrar","trustEyebrow":"Sin servidor, sin cuentas, sin seguimiento","trustH2":"Tu org, tu navegador, tus datos.","trustP":"ForceKIT no tiene servidor propio. El único tráfico de red que genera va directamente desde tu navegador a tu propia org de Salesforce, o a Google Chrome Sync o a tu propio Google Drive si activas tú mismo alguna de esas opciones. No se nos envía nada, porque no existe ningún «nosotros» al que enviarlo.","trustLink1":"Lee la Política de Privacidad →","trustLink2":"Lee los Términos →","footerCopyright":"© 2026 ForceKIT. No afiliado, respaldado ni patrocinado por Salesforce, Inc.","footerContact":"Contacto"},
+"de":{"pageTitle":"ForceKIT — Das Salesforce-Toolkit für deinen Browser","metaDesc":"ForceKIT ist eine kostenlose Chrome-Erweiterung für Salesforce-Administratoren und -Entwickler: SOQL-Konsole, Inline-API-Namen, Profile/Permission-Set-Vergleich, Dark Mode, Cache-Aktualisierung und mehr — alles lokal, ohne Server.","navHome":"Start","navPrivacy":"Datenschutz","navTerms":"Bedingungen","navSupport":"Support","navDocs":"Anleitung","heroEyebrow":"Chrome-Erweiterung für Salesforce","heroH1":"Das Salesforce-Toolkit für deinen Browser.","heroLede":"SOQL-Konsole, Inline-API-Namen, ein Profile- und Permission-Set-Vergleich, Dark Mode, Cache-Aktualisierung und Sitzungswechsel — alles lokal, ohne eigenen Server von ForceKIT dazwischen.","ctaPrimary":"Zu Chrome hinzufügen — kostenlos","ctaSecondary":"☕ Projekt unterstützen","freeNote":"Kostenlos, kein Konto erforderlich. Keine Werbung, kein Tracking.","featuresEyebrow":"Funktionen","featuresH2":"Alles, was du in Setup suchst, nur ein Panel entfernt.","featuresP":"ForceKIT lebt im Seitenleisten-Panel von Chrome und auf den Salesforce-Seiten, die du bereits geöffnet hast — keine separate App, keine zusätzliche Anmeldung.","f1t":"SOQL- &amp; SOSL-Konsole","f1d":"Schreibe, führe aus und speichere SOQL- oder SOSL-Abfragen für jede verbundene Org — Objekte, die nur über die Tooling API laufen, wechseln automatisch die API, mit einem Verlauf, den du später erneut aufrufen kannst.","f2t":"Inline-API-Namen","f2d":"Sieh API-Namen von Feldern und Objekten direkt auf Datensatz- und Setup-Seiten — kein Umweg mehr über Rechtsklick → Untersuchen.","f3t":"Profile- &amp; Permission-Set-Vergleich","f3d":"Vergleiche zwei Profile oder Permission Sets nebeneinander und erkenne Zugriffsunterschiede in Sekunden.","f4t":"Cache-Aktualisierung mit einem Klick","f4d":"Leere veralteten Lightning- und Setup-Cache ohne kompletten Neuladevorgang und ohne deine Position zu verlieren.","f5t":"Dark Mode für Salesforce","f5d":"Ein dunkles Stylesheet, direkt in Setup- und Lightning-Seiten injiziert, für Augen, die es verdient haben.","f6t":"Lightning ⇄ Classic wechseln","f6d":"Wechsle sofort zwischen den Oberflächen, ohne den versteckten Schalter im Profilmenü zu suchen.","f7t":"Gespeicherte Orgs &amp; Sitzungen","f7d":"Öffne eine gespeicherte Org-Sitzung sofort erneut, auch für über OAuth verbundene Orgs — keine wiederholten Anmeldungen.","f8t":"Optionale Cloud-Synchronisierung","f8d":"Halte deine Abfragen, gespeicherten Orgs und Einstellungen über Chrome Sync oder dein eigenes Google Drive zwischen deinen Geräten synchron — standardmäßig deaktiviert.","f9t":"Lokale Verschlüsselung","f9d":"Lege ein Master-Passwort fest oder nutze einen Passkey, um gespeicherte Anmeldedaten und TOTP-Geheimnisse auf deinem Gerät zu verschlüsseln.","f10t":"Verknüpfte Datensätze erkunden","f10d":"Klicke auf ein Lookup-Feld, um den verknüpften Datensatz zu öffnen, kehre über die Breadcrumbs zurück, oder drehe die Karte um, um alle verknüpften Datensätze nach Objekt gruppiert zu sehen — ganz ohne die Seite zu verlassen.","f11t":"Debug-Log-Explorer","f11d":"Durchsuche das Rohprotokoll, um direkt zum Wichtigen zu springen, und klappe den Apex-Ausführungsbaum auf oder zu, um dem Call-Stack zu folgen, ohne den Überblick zu verlieren.","f12t":"Massen-Datenübertragung","f12d":"Füge ein CSV ein und führe Insert, Update, Upsert, Delete oder Undelete über die REST-, Tooling- oder Metadata-API aus — mit einstellbarer Batch-Größe und einem Klick, um nur die fehlgeschlagenen Zeilen erneut zu versuchen.","f13t":"Integrierter TOTP-Authenticator","f13d":"Erzeuge 2FA-Codes, ohne den Browser zu verlassen — füge Konten manuell hinzu, importiere ein QR-Bild, oder scanne es direkt vom Bildschirm.","shotsEyebrow":"In Aktion","shotsH2":"Ein echtes Toolkit, kein weiterer Tab zum Überwachen.","shotsP":"Ein Blick in das Seitenleisten-Panel — vom Ausführen von Abfragen bis zum Vergleichen von Berechtigungen.","s1alt":"Vergleich eines Profile und eines Permission Set nebeneinander in ForceKIT","s1cap":"Vergleiche Profile und Permission Sets nebeneinander","s2alt":"Ausführung einer SOQL-Abfrage mit Ergebnissen in ForceKIT","s2cap":"Führe SOQL-Abfragen aus und durchsuche die Ergebnisse sofort","s3alt":"Lesen eines kategorisierten Salesforce-Debug-Logs in ForceKIT","s3cap":"Lies Debug-Logs mit farblich codierten Kategorien","s4alt":"Gespeicherte Salesforce-Org-Anmeldedaten in ForceKIT","s4cap":"Speichere Orgs und wechsle sofort zwischen Sitzungen","s5alt":"Anzeige von Datensatzfeldern und API-Namen in ForceKIT","s5cap":"Untersuche Datensatzfelder und Inline-API-Namen","s6alt":"Integrierter TOTP-Authenticator in ForceKIT","s6cap":"Erzeuge 2FA-Codes mit dem integrierten Authenticator","s7alt":"ForceKIT-Einstellungspanel mit Sync- und Sitzungsoptionen im Vollbreiten-Layout","s7cap":"Passe Panel-, Sync- und Sitzungsverhalten an","s8alt":"Verwaltung der Log-Level und Durchsuchen der Debug-Log-Liste in ForceKIT","s8cap":"Verwalte Log-Level und durchsuche die Liste","s9alt":"Filtern von Datensatzfeldern nach Typ in der Detailansicht von ForceKIT","s9cap":"Filtere Datensatzfelder nach Typ in Details","s10alt":"Zuletzt ausgeführte und gespeicherte SOQL-Abfragen in ForceKIT","s10cap":"Finde zuletzt ausgeführte und gespeicherte Abfragen wieder","s11alt":"Anzeige aller verknüpften Datensätze gruppiert nach Objekt in ForceKIT","s11cap":"Sieh alle verknüpften Datensätze gruppiert nach Objekt","s12alt":"ForceKIT-Einstellungspanel mit Sync-Optionen in der Seitenleiste","s12cap":"Konfiguriere Sync- und Panel-Einstellungen","s13alt":"Suche nach Org-Benutzern mit einstellbaren Spalten in ForceKIT","s13cap":"Suche Org-Benutzer, wähle die anzuzeigenden Spalten","trustEyebrow":"Kein Server, keine Konten, kein Tracking","trustH2":"Deine Org, dein Browser, deine Daten.","trustP":"ForceKIT hat keinen eigenen Server. Der einzige Netzwerkverkehr, den es erzeugt, geht direkt von deinem Browser zu deiner eigenen Salesforce-Org oder zu Google Chrome Sync bzw. deinem eigenen Google Drive, falls du eines dieser Angebote selbst aktivierst. Es wird nichts an uns gesendet, weil es kein „uns“ gibt, an das man etwas senden könnte.","trustLink1":"Datenschutzerklärung lesen →","trustLink2":"Nutzungsbedingungen lesen →","footerCopyright":"© 2026 ForceKIT. Nicht mit Salesforce, Inc. verbunden, von ihr unterstützt oder gesponsert.","footerContact":"Kontakt"}}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="" />
+    <span class="brand-name">ForceKIT</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" class="active" data-i18n="navHome">Home</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="terms.html" data-i18n="navTerms">Terms</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="docs.html" data-i18n="navDocs">Docs</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+      <a href="#" data-lang="fr">FR</a>
+      <a href="#" data-lang="es">ES</a>
+      <a href="#" data-lang="de">DE</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img class="logo" src="assets/logo.png" alt="ForceKIT logo" />
+    <p class="eyebrow" data-i18n="heroEyebrow">Chrome extension for Salesforce</p>
+    <h1 data-i18n="heroH1">The Salesforce toolkit built for your browser.</h1>
+    <p class="lede serif" data-i18n="heroLede">SOQL console, inline API names, a profile &amp; permission set comparator, dark mode, cache refresh, and session switching — all running locally, with no server of ForceKIT's own in between.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="ctaPrimary">Add to Chrome — it's free</a>
+      <a class="btn btn-secondary" href="support.html" data-i18n="ctaSecondary">☕ Support the project</a>
+    </div>
+    <p class="free-note" data-i18n="freeNote">Free, no account required. No ads, no tracking.</p>
+  </section>
+
+  <section class="block" id="features">
+    <div class="block-head">
+      <span class="eyebrow" data-i18n="featuresEyebrow">Features</span>
+      <h2 data-i18n="featuresH2">Everything you reach for in Setup, one panel away.</h2>
+      <p data-i18n="featuresP">ForceKIT lives in Chrome's side panel and on the Salesforce pages you're already on — no separate app, no extra login.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon">⌘</div>
+        <h3 data-i18n="f1t" data-i18n-html>SOQL &amp; SOSL Console</h3>
+        <p data-i18n="f1d">Write, run, and save SOQL or SOSL queries against any connected org — Tooling-only objects switch API automatically, with history you can revisit later.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🏷</div>
+        <h3 data-i18n="f2t">Inline API Names</h3>
+        <p data-i18n="f2d">See field and object API names directly on record and Setup pages — no more right-click-inspect detours.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⇄</div>
+        <h3 data-i18n="f3t" data-i18n-html>Profile &amp; Permission Set Comparator</h3>
+        <p data-i18n="f3d">Diff two profiles or permission sets side by side and spot access differences in seconds.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">↻</div>
+        <h3 data-i18n="f4t">One-Click Cache Refresh</h3>
+        <p data-i18n="f4d">Clear stale Lightning and Setup cache without a full reload or a lost place in what you were doing.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🌙</div>
+        <h3 data-i18n="f5t">Dark Mode for Salesforce</h3>
+        <p data-i18n="f5d">A dark stylesheet injected straight into Setup and Lightning pages, for the eyes that deserve it.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⇆</div>
+        <h3 data-i18n="f6t">Lightning ⇄ Classic Switch</h3>
+        <p data-i18n="f6d">Jump between UIs instantly, without hunting for the toggle buried in your profile menu.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔑</div>
+        <h3 data-i18n="f7t" data-i18n-html>Saved Orgs &amp; Sessions</h3>
+        <p data-i18n="f7d">Reopen a saved org session instantly, including orgs connected via OAuth — no repeated logins.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">☁</div>
+        <h3 data-i18n="f8t">Optional Cloud Sync</h3>
+        <p data-i18n="f8d">Keep queries, saved orgs, and preferences in sync across your own devices via Chrome Sync or your own Google Drive — off by default.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔒</div>
+        <h3 data-i18n="f9t">Local Encryption</h3>
+        <p data-i18n="f9d">Set a master password or use a passkey to encrypt saved credentials and TOTP secrets on your device.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔗</div>
+        <h3 data-i18n="f10t">Drill Into Related Records</h3>
+        <p data-i18n="f10d">Click a lookup to open its record, jump back with breadcrumbs, or flip the card to see every related record grouped by object — all without leaving the page.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🪵</div>
+        <h3 data-i18n="f11t">Debug Log Explorer</h3>
+        <p data-i18n="f11d">Search inside the raw log to jump straight to what matters, and expand or collapse the Apex execution tree to follow the call stack without getting lost.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📤</div>
+        <h3 data-i18n="f12t">Bulk Data Transfer</h3>
+        <p data-i18n="f12d">Paste a CSV and insert, update, upsert, delete, or undelete records against the REST, Tooling, or Metadata API — with configurable batch size and one-click retry for failed rows.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">⏱</div>
+        <h3 data-i18n="f13t">Built-in TOTP Authenticator</h3>
+        <p data-i18n="f13d">Generate 2FA codes without leaving the browser — add accounts manually, import a QR image, or capture one straight off your screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="screenshots">
+    <div class="block-head">
+      <span class="eyebrow" data-i18n="shotsEyebrow">See it in action</span>
+      <h2 data-i18n="shotsH2">A real toolkit, not another tab to babysit.</h2>
+      <p data-i18n="shotsP">A look at the side panel — from running queries to comparing permissions.</p>
+    </div>
+    <div class="gallery-scroll">
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/profile-compare.png" alt="Comparing a Profile and a Permission Set side by side in ForceKIT" data-i18n-attr="alt:s1alt" /></div>
+        <p data-i18n="s1cap">Compare Profiles &amp; Permission Sets side by side</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/soql-console.png" alt="Running a SOQL query and browsing results in ForceKIT" data-i18n-attr="alt:s2alt" /></div>
+        <p data-i18n="s2cap">Run SOQL queries and browse results instantly</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/debug-logs.png" alt="Reading a categorized Salesforce debug log in ForceKIT" data-i18n-attr="alt:s3alt" /></div>
+        <p data-i18n="s3cap">Read debug logs with color-coded categories</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/saved-orgs.png" alt="Saved Salesforce org credentials in ForceKIT" data-i18n-attr="alt:s4alt" /></div>
+        <p data-i18n="s4cap">Save orgs and switch between sessions instantly</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/record-details.png" alt="Viewing record field details and API names in ForceKIT" data-i18n-attr="alt:s5alt" /></div>
+        <p data-i18n="s5cap">Inspect record fields and API names inline</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/authenticator.png" alt="Built-in TOTP authenticator in ForceKIT" data-i18n-attr="alt:s6alt" /></div>
+        <p data-i18n="s6cap">Generate 2FA codes with the built-in authenticator</p>
+      </figure>
+      <figure class="shot wide">
+        <div class="frame"><img src="assets/screenshots/settings-wide.png" alt="ForceKIT settings panel showing sync and session options in full-width layout" data-i18n-attr="alt:s7alt" /></div>
+        <p data-i18n="s7cap">Fine-tune panel, sync, and session behavior</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/debug_list.png" alt="Managing debug log levels and browsing the debug log list in ForceKIT" data-i18n-attr="alt:s8alt" /></div>
+        <p data-i18n="s8cap">Manage debug log levels and browse the log list</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/detail_filter.png" alt="Filtering record fields by type in ForceKIT's Detail view" data-i18n-attr="alt:s9alt" /></div>
+        <p data-i18n="s9cap">Filter record fields by type in Detail</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/query-history.png" alt="Recently run and saved SOQL queries in ForceKIT" data-i18n-attr="alt:s10alt" /></div>
+        <p data-i18n="s10cap">Revisit recent and saved queries anytime</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/record-related_list.png" alt="Viewing every related record grouped by object in ForceKIT" data-i18n-attr="alt:s11alt" /></div>
+        <p data-i18n="s11cap">See every related record grouped by object</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/settings-narrow.png" alt="ForceKIT settings panel with sync options in the side panel" data-i18n-attr="alt:s12alt" /></div>
+        <p data-i18n="s12cap">Configure sync and panel settings</p>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="assets/screenshots/users.png" alt="Searching Salesforce org users with configurable columns in ForceKIT" data-i18n-attr="alt:s13alt" /></div>
+        <p data-i18n="s13cap">Search org users, pick which columns to show</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="privacy-trust">
+    <div class="trust">
+      <span class="eyebrow" data-i18n="trustEyebrow">No server, no accounts, no tracking</span>
+      <h2 data-i18n="trustH2">Your org, your browser, your data.</h2>
+      <p class="serif" data-i18n="trustP">ForceKIT has no server of its own. The only network traffic it makes goes directly from your browser to your own Salesforce org, or to Google's Chrome Sync or your own Google Drive if you turn one of those on yourself. Nothing is sent to us, because there is no "us" to send it to.</p>
+      <div class="trust-links">
+        <a href="privacy.html" data-i18n="trustLink1">Read the Privacy Policy →</a>
+        <a href="terms.html" data-i18n="trustLink2">Read the Terms →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footerCopyright">&copy; 2026 ForceKIT. Not affiliated with, endorsed by, or sponsored by Salesforce, Inc.</span>
+  <div class="links">
+    <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    <a href="terms.html" data-i18n="navTerms">Terms</a>
+    <a href="support.html" data-i18n="navSupport">Support</a>
+    <a href="docs.html" data-i18n="navDocs">Docs</a>
+    <a href="support.html#contact" data-i18n="footerContact">Contact</a>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+</body>
+</html>
