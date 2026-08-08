@@ -91,12 +91,31 @@
     box-shadow: 0 0 0 4px var(--accent-soft);
   }
 
+  .masthead-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .masthead a.github {
     color: var(--text-dim);
     font-size: 14px;
     font-weight: 500;
   }
   .masthead a.github:hover { color: var(--text); }
+
+  .masthead a.coffee {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #402a06;
+    background: #ffdd00;
+    border-radius: 999px;
+    padding: 6px 14px;
+  }
+  .masthead a.coffee:hover { background: #ffe93d; }
 
   main { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
@@ -215,7 +234,10 @@
 
 <header class="masthead">
   <span class="brand"><span class="dot"></span> CreativeApp</span>
-  <a class="github" href="https://github.com/PellegrinoLuigi" target="_blank" rel="noopener">GitHub ↗</a>
+  <div class="masthead-links">
+    <a class="coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+    <a class="github" href="https://github.com/PellegrinoLuigi" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
 </header>
 
 <main>
