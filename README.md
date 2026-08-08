@@ -1,6 +1,6 @@
-# creativeapp
+# CreativeApp
 
-Marketing sites for the Chrome extensions published under the **creativeapp** developer account.
+Marketing sites for the Chrome extensions published under the **CreativeApp** developer account.
 
 - [`/`](index.html) — home page, links to every extension
 - [`/forcekit/`](forcekit/index.html) — [ForceKIT](https://github.com/PellegrinoLuigi) site (Salesforce toolkit)
