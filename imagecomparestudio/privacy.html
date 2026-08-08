@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">Image Compare Studio — Privacy Policy</title>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #7c3aed;
+    --accent-soft: rgba(124, 58, 237, 0.08);
+    --accent-line: rgba(124, 58, 237, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #100f1a; --surface: #1b1a29; --text: #f4f3fb; --text-dim: #b6b4cc;
+      --text-dimmer: #817fa0; --border: #2a2839; --accent: #a78bfa;
+      --accent-soft: rgba(167, 139, 250, 0.12); --accent-line: rgba(167, 139, 250, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  header.masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sitenav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .sitenav a { color: var(--text-dim); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+  .langnav { display: flex; gap: 4px; }
+  .langnav a {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 7px;
+    border-radius: 6px; color: var(--text-dim); background: var(--accent-soft);
+    text-decoration: none; cursor: pointer;
+  }
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 100px; }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: clamp(26px, 5vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; }
+  .lede { font-size: 17px; color: var(--text-dim); max-width: 62ch; margin: 0 0 8px; }
+  .meta { font-size: 12px; color: var(--text-dimmer); margin: 0 0 28px; }
+
+  section { margin: 0 0 36px; }
+  h2 {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 0 0 16px;
+  }
+  section p { margin: 0 0 14px; max-width: 66ch; }
+  section p:last-child { margin-bottom: 0; }
+  section ul { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  section li { margin-bottom: 6px; }
+  strong { color: var(--text); }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px;
+    background: var(--accent-soft); padding: 1px 5px; border-radius: 4px;
+  }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--surface); min-width: 420px; }
+  thead th {
+    text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-dimmer); background: var(--accent-soft); padding: 10px 14px; border-bottom: 1px solid var(--border);
+  }
+  tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.perm-name {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; color: var(--text); white-space: nowrap;
+  }
+
+  footer {
+    max-width: 720px; margin: 0 auto; padding: 0 20px 60px; font-size: 13px; color: var(--text-dimmer);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+  .footer-coffee {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+    font-weight: 700; text-decoration: none; color: var(--text-dim);
+  }
+  .footer-coffee:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{
+"en":{"pageTitle":"Image Compare Studio — Privacy Policy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Privacy Policy","h1":"What Image Compare Studio does with your data — in plain terms.","updated":"Last updated 8 August 2026","lede":"Image Compare Studio is a Chrome extension for aligning and comparing before/after photos. It has no server of its own: every image, every project, and every setting stays inside your browser, on your device.","s1H2":"Summary","s1P":"<strong>No server, no account, no tracking.</strong> Image Compare Studio doesn't collect, store, or transmit your data to us or anyone else. The extension requests no network permissions at all — it is technically incapable of sending anything anywhere.","s2H2":"Your images","s2P":"The before/after images you load are processed entirely in memory, inside your browser tab, to align and render the comparison. They are never uploaded, never sent to any server, and never seen by anyone but you.","s3H2":"What is stored locally","s3P":"If you choose to save a project, Image Compare Studio stores it — the images, their alignment, and the comparison settings — in IndexedDB, a database built into your browser. App preferences (theme, language, grid, autosave, export quality) are saved separately via <code>chrome.storage.local</code>. Both live only on your device.","s4H2":"What we don't do","s4l1":"No analytics, telemetry, or usage tracking of any kind.","s4l2":"No ads, and no data ever sold or shared with anyone.","s4l3":"No third-party servers in the loop — there is no backend at all.","s4l4":"No account, sign-in, or personal information requested or required.","permH2":"Permissions, explained","permTh1":"Permission","permTh2":"What it's for","perm1d":"Save your preferences (theme, language, grid, autosave, export quality) locally via <code>chrome.storage.local</code> — small key/value data only.","perm2d":"Save projects (images, alignment, and settings) locally in IndexedDB. Images can be large (up to 10000×10000px) and several projects can be saved at once, so the extension requests this to avoid hitting the browser's default storage quota.","retH2":"Deleting your data","retP":"Deleting a project from the sidebar removes it immediately. Uninstalling the extension removes everything else — all saved projects and preferences — since nothing exists outside your browser's local storage.","chH2":"Changes to this policy","chP":"If what Image Compare Studio collects or does ever changes, this page will be updated and the date above will reflect it.","contactH2":"Contact","contactP":"Questions about this policy? <a href=\"#\" id=\"contactLink\">Contact us</a>.","footer1":"Image Compare Studio — a focused tool for before/after image comparisons.","footer2":"This policy applies only to the Image Compare Studio Chrome extension."},
+"it":{"pageTitle":"Image Compare Studio — Informativa sulla Privacy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Informativa sulla Privacy","h1":"Cosa fa Image Compare Studio con i tuoi dati — in termini semplici.","updated":"Ultimo aggiornamento: 8 agosto 2026","lede":"Image Compare Studio è un'estensione Chrome per allineare e confrontare foto prima/dopo. Non ha un server proprio: ogni immagine, ogni progetto e ogni impostazione restano dentro il tuo browser, sul tuo dispositivo.","s1H2":"Riepilogo","s1P":"<strong>Nessun server, nessun account, nessun tracciamento.</strong> Image Compare Studio non raccoglie, salva o trasmette i tuoi dati a noi o a chiunque altro. L'estensione non richiede alcun permesso di rete — è tecnicamente incapace di inviare qualsiasi cosa da qualche parte.","s2H2":"Le tue immagini","s2P":"Le immagini prima/dopo che carichi vengono elaborate interamente in memoria, dentro la scheda del tuo browser, per allineare e visualizzare il confronto. Non vengono mai caricate su un server, né viste da nessuno tranne te.","s3H2":"Cosa viene salvato in locale","s3P":"Se scegli di salvare un progetto, Image Compare Studio lo memorizza — le immagini, il loro allineamento e le impostazioni di confronto — in IndexedDB, un database integrato nel browser. Le preferenze dell'app (tema, lingua, griglia, salvataggio automatico, qualità di esportazione) sono salvate separatamente tramite <code>chrome.storage.local</code>. Entrambi restano solo sul tuo dispositivo.","s4H2":"Cosa non facciamo","s4l1":"Nessun analytics, telemetria o tracciamento dell'utilizzo di alcun tipo.","s4l2":"Nessuna pubblicità, e nessun dato mai venduto o condiviso con chiunque.","s4l3":"Nessun server di terze parti nel processo — non esiste alcun backend.","s4l4":"Nessun account, accesso o informazione personale richiesti.","permH2":"I permessi, spiegati","permTh1":"Permesso","permTh2":"A cosa serve","perm1d":"Salvare le tue preferenze (tema, lingua, griglia, salvataggio automatico, qualità di esportazione) in locale tramite <code>chrome.storage.local</code> — solo piccoli dati chiave/valore.","perm2d":"Salvare i progetti (immagini, allineamento e impostazioni) in locale in IndexedDB. Le immagini possono essere grandi (fino a 10000×10000px) e si possono salvare più progetti contemporaneamente, quindi l'estensione richiede questo permesso per evitare di superare il limite di storage predefinito del browser.","retH2":"Eliminare i tuoi dati","retP":"Eliminare un progetto dalla barra laterale lo rimuove immediatamente. Disinstallare l'estensione rimuove tutto il resto — tutti i progetti e le preferenze salvate — perché nulla esiste al di fuori dello storage locale del tuo browser.","chH2":"Modifiche a questa informativa","chP":"Se ciò che Image Compare Studio raccoglie o fa dovesse cambiare, questa pagina verrà aggiornata e la data sopra lo rifletterà.","contactH2":"Contatti","contactP":"Domande su questa informativa? <a href=\"#\" id=\"contactLink\">Contattaci</a>.","footer1":"Image Compare Studio — uno strumento dedicato ai confronti prima/dopo tra immagini.","footer2":"Questa informativa si applica solo all'estensione Chrome Image Compare Studio."}
+}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/icons/icon128.png" alt="" />
+    <span class="brand-name">Image Compare Studio</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="privacy.html" class="active" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow" data-i18n="eyebrow">Privacy Policy</p>
+  <h1 data-i18n="h1">What Image Compare Studio does with your data — in plain terms.</h1>
+  <p class="lede" data-i18n="lede">Image Compare Studio is a Chrome extension for aligning and comparing before/after photos. It has no server of its own: every image, every project, and every setting stays inside your browser, on your device.</p>
+  <p class="meta" data-i18n="updated">Last updated 8 August 2026</p>
+
+  <section id="summary">
+    <h2 data-i18n="s1H2">Summary</h2>
+    <p data-i18n="s1P"></p>
+  </section>
+
+  <section id="images">
+    <h2 data-i18n="s2H2">Your images</h2>
+    <p data-i18n="s2P"></p>
+  </section>
+
+  <section id="stored">
+    <h2 data-i18n="s3H2">What is stored locally</h2>
+    <p data-i18n="s3P"></p>
+  </section>
+
+  <section id="not">
+    <h2 data-i18n="s4H2">What we don't do</h2>
+    <ul>
+      <li data-i18n="s4l1"></li>
+      <li data-i18n="s4l2"></li>
+      <li data-i18n="s4l3"></li>
+      <li data-i18n="s4l4"></li>
+    </ul>
+  </section>
+
+  <section id="permissions">
+    <h2 data-i18n="permH2">Permissions, explained</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th data-i18n="permTh1">Permission</th><th data-i18n="permTh2">What it's for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="perm-name">storage</td><td data-i18n="perm1d"></td></tr>
+          <tr><td class="perm-name">unlimitedStorage</td><td data-i18n="perm2d"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="retention">
+    <h2 data-i18n="retH2">Deleting your data</h2>
+    <p data-i18n="retP"></p>
+  </section>
+
+  <section id="changes">
+    <h2 data-i18n="chH2">Changes to this policy</h2>
+    <p data-i18n="chP"></p>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contactH2">Contact</h2>
+    <p data-i18n="contactP"></p>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1"></span>
+  <span data-i18n="footer2"></span>
+  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+</footer>
+
+<script>
+(function () {
+  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
+
+  function resolveLang() {
+    var saved = localStorage.getItem('imageCompareStudio.lang');
+    if (saved && i18n[saved]) return saved;
+    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return i18n[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.langnav a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.langnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var lang = a.getAttribute('data-lang');
+      localStorage.setItem('imageCompareStudio.lang', lang);
+      applyLang(lang);
+    });
+  });
+
+  // Contact address is never written as readable text in the HTML/JS (not as a whole
+  // string, nor as recognizable fragments): the character codes are only reassembled at
+  // click time, to avoid it ending up in scrapers that read the static page.
+  function fromCodes(codes) { return codes.map(function (c) { return String.fromCharCode(c); }).join(''); }
+  var mailUser = fromCodes([108, 117, 105, 103, 105, 112, 101, 108, 108, 101, 103, 114, 105, 110, 111]);
+  var mailDomain = fromCodes([103, 109, 97, 105, 108, 46, 99, 111, 109]);
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('#contactLink');
+    if (!link) return;
+    e.preventDefault();
+    window.location.href = fromCodes([109, 97, 105, 108, 116, 111, 58]) + mailUser + '@' + mailDomain;
+  });
+
+  applyLang(resolveLang());
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">Image Compare Studio — Before/after image comparisons, done right</title>
+<meta name="description" data-i18n-attr="content:metaDesc" content="Align two photos by hand with precision controls, then compare them with a smooth draggable slider. Export as an image or a standalone interactive page — entirely in your browser, no account, no server." />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #7c3aed;
+    --accent-soft: rgba(124, 58, 237, 0.08);
+    --accent-line: rgba(124, 58, 237, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #100f1a; --surface: #1b1a29; --text: #f4f3fb; --text-dim: #b6b4cc;
+      --text-dimmer: #817fa0; --border: #2a2839; --accent: #a78bfa;
+      --accent-soft: rgba(167, 139, 250, 0.12); --accent-line: rgba(167, 139, 250, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  header.masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sitenav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .sitenav a { color: var(--text-dim); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+  .langnav { display: flex; gap: 4px; }
+  .langnav a {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 7px;
+    border-radius: 6px; color: var(--text-dim); background: var(--accent-soft);
+    text-decoration: none; cursor: pointer;
+  }
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { max-width: 720px; margin: 56px auto 8px; text-align: center; padding: 0 20px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); margin: 0 0 12px;
+  }
+  h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+  .lede { font-size: 18px; color: var(--text-dim); max-width: 60ch; margin: 0 auto 28px; }
+
+  .cta-row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 0 0 56px; }
+  .cta-badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;
+    color: var(--text-dim); background: var(--accent-soft); border: 1px solid var(--accent-line);
+    border-radius: 999px; padding: 10px 20px; text-decoration: none;
+  }
+  .cta-secondary { font-size: 13px; font-weight: 600; color: var(--text-dim); text-decoration: none; }
+  .cta-secondary:hover { color: var(--accent); }
+  .cta-coffee { color: #402a06; background: #ffdd00; border-color: #ffdd00; }
+  .cta-coffee:hover { background: #ffe93d; border-color: #ffe93d; }
+  .footer-coffee {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+    font-weight: 700; text-decoration: none; color: var(--text-dim);
+  }
+  .footer-coffee:hover { color: var(--accent); }
+
+  .hero-visual {
+    max-width: 820px; margin: 0 auto 64px;
+  }
+
+  /* Live before/after slider demo — the exact same clip-path technique the extension
+     itself uses for its standalone interactive HTML export. */
+  .demo-compare {
+    position: relative; width: 100%; aspect-ratio: 1100 / 1116; overflow: hidden;
+    border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow);
+    background: var(--surface); user-select: none; touch-action: none; cursor: ew-resize;
+  }
+  .demo-compare img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    display: block; pointer-events: none;
+  }
+  .demo-clip { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }
+  .demo-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 0; }
+  .demo-handle::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: -1px; width: 2px;
+    background: #fff; box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  }
+  .demo-knob {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 42px; height: 42px; border-radius: 50%; background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: center;
+  }
+  .demo-label {
+    position: absolute; top: 16px; padding: 5px 12px; border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55); color: #fff; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; backdrop-filter: blur(6px); pointer-events: none;
+  }
+  .demo-label--before { left: 16px; }
+  .demo-label--after { right: 16px; }
+  .demo-hint {
+    text-align: center; font-size: 12.5px; color: var(--text-dimmer); margin: 10px 0 0;
+  }
+
+  section.block { margin: 0 0 64px; }
+  h2.section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent); text-align: center; margin: 0 0 36px;
+  }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .feature-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; box-shadow: var(--shadow);
+  }
+  .feature-card h3 { font-size: 15px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .feature-card p { font-size: 13.5px; color: var(--text-dim); margin: 0; }
+
+  .privacy-callout {
+    max-width: 640px; margin: 0 auto; text-align: center; background: var(--accent-soft);
+    border: 1px solid var(--accent-line); border-radius: 14px; padding: 24px 28px;
+  }
+  .privacy-callout p { margin: 0 0 10px; font-size: 14.5px; color: var(--text-dim); }
+  .privacy-callout p:last-child { margin-bottom: 0; }
+  .privacy-callout a { font-weight: 700; }
+
+  footer {
+    max-width: 980px; margin: 0 auto; padding: 0 20px 60px; font-size: 13px; color: var(--text-dimmer);
+    display: flex; flex-direction: column; gap: 6px; text-align: center;
+  }
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{
+"en":{"pageTitle":"Image Compare Studio — Before/after image comparisons, done right","metaDesc":"Align two photos by hand with precision controls, then compare them with a smooth draggable slider. Export as an image or a standalone interactive page — entirely in your browser, no account, no server.","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Chrome Extension","h1":"Before &amp; after image comparisons, done right.","lede":"Align two photos by hand with precision controls, then compare them with a smooth draggable slider. Export as an image or a standalone interactive page — entirely in your browser, no account, no server.","ctaBadge":"Get it on the Chrome Web Store","ctaPrivacy":"Read the privacy policy","demoBefore":"Before","demoAfter":"After","demoHint":"Drag the slider — this is Image Compare Studio's actual comparison view.","featuresTitle":"Features","f1t":"Precise manual alignment","f1d":"Drag to move, scroll to zoom in 15% steps, fine rotation controls, and horizontal/vertical flip — everything you need to line up two photos exactly.","f2t":"Opacity overlay while aligning","f2d":"Blend the after image over the before image at any opacity while you align, so you can see both at once.","f3t":"Grid, guides &amp; snapping","f3d":"A toggleable grid overlay, center guides, and snap-to-center make precise, repeatable positioning effortless.","f4t":"Draggable comparison slider","f4d":"Reveal the after image with a smooth horizontal or vertical slider — keyboard-accessible, with an animated handle.","f5t":"Side-by-side &amp; onion skin","f5d":"Switch to a side-by-side view, or blend both images together in onion-skin mode, whenever a slider isn't what you need.","f6t":"Pixel-inspection magnifier","f6d":"Zoom into individual pixels with a built-in magnifier lens to check fine detail and alignment accuracy.","f7t":"Full-resolution export","f7d":"Export as PNG or JPEG at full resolution (up to 10000×10000px), or as a standalone interactive HTML page you can share or embed anywhere.","f8t":"Save &amp; reopen projects","f8d":"Every comparison — images, alignment, and viewer settings — can be saved as a project and reopened later, with autosave built in.","f9t":"Private by design","f9d":"No server, no account, no tracking. Every image and every setting stays on your device — the extension has no network permissions at all.","privacyP1":"Image Compare Studio has no server of its own — everything happens locally, inside your browser.","privacyP2":"Read the full <a href=\"privacy.html\">privacy policy</a> for the details.","footer1":"Image Compare Studio — a focused tool for before/after image comparisons."},
+"it":{"pageTitle":"Image Compare Studio — Confronti prima/dopo, fatti bene","metaDesc":"Allinea due foto a mano con controlli di precisione, poi confrontale con un cursore trascinabile fluido. Esporta come immagine o pagina interattiva autonoma — interamente nel tuo browser, senza account, senza server.","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Estensione Chrome","h1":"Confronti prima/dopo, fatti bene.","lede":"Allinea due foto a mano con controlli di precisione, poi confrontale con un cursore trascinabile fluido. Esporta come immagine o pagina interattiva autonoma — interamente nel tuo browser, senza account, senza server.","ctaBadge":"Disponibile sul Chrome Web Store","ctaPrivacy":"Leggi l'informativa sulla privacy","demoBefore":"Prima","demoAfter":"Dopo","demoHint":"Trascina il cursore — questa è la vera vista di confronto di Image Compare Studio.","featuresTitle":"Caratteristiche","f1t":"Allineamento manuale di precisione","f1d":"Trascina per spostare, scorri per ingrandire con scatti del 15%, controlli di rotazione fine e ribaltamento orizzontale/verticale — tutto ciò che serve per allineare due foto con precisione.","f2t":"Sovrapposizione con opacità","f2d":"Sovrapponi l'immagine dopo a quella prima con l'opacità che preferisci mentre allinei, per vederle entrambe insieme.","f3t":"Griglia, guide e aggancio","f3d":"Griglia attivabile, guide centrali e aggancio al centro rendono il posizionamento preciso e ripetibile senza sforzo.","f4t":"Cursore di confronto trascinabile","f4d":"Rivela l'immagine dopo con un cursore fluido orizzontale o verticale — accessibile da tastiera, con maniglia animata.","f5t":"Affiancate e sovrapposizione","f5d":"Passa alla vista affiancata, oppure fondi le due immagini in modalità onion skin, quando il cursore non è ciò che ti serve.","f6t":"Lente per l'ispezione dei pixel","f6d":"Ingrandisci i singoli pixel con una lente integrata per verificare i dettagli e la precisione dell'allineamento.","f7t":"Esportazione a piena risoluzione","f7d":"Esporta in PNG o JPEG a piena risoluzione (fino a 10000×10000px), oppure come pagina HTML interattiva autonoma da condividere o incorporare ovunque.","f8t":"Salva e riapri i progetti","f8d":"Ogni confronto — immagini, allineamento e impostazioni del visualizzatore — può essere salvato come progetto e riaperto in seguito, con salvataggio automatico integrato.","f9t":"Privata per progettazione","f9d":"Nessun server, nessun account, nessun tracciamento. Ogni immagine e ogni impostazione resta sul tuo dispositivo — l'estensione non ha alcun permesso di rete.","privacyP1":"Image Compare Studio non ha un server proprio — tutto avviene in locale, dentro il tuo browser.","privacyP2":"Leggi l'<a href=\"privacy.html\">informativa sulla privacy</a> completa per i dettagli.","footer1":"Image Compare Studio — uno strumento dedicato ai confronti prima/dopo tra immagini."}
+}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/icons/icon128.png" alt="" />
+    <span class="brand-name">Image Compare Studio</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" class="active" data-i18n="navHome">Home</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="eyebrow" data-i18n="eyebrow">Chrome Extension</p>
+  <h1 data-i18n="h1">Before &amp; after image comparisons, done right.</h1>
+  <p class="lede" data-i18n="lede">Align two photos by hand with precision controls, then compare them with a smooth draggable slider. Export as an image or a standalone interactive page — entirely in your browser, no account, no server.</p>
+</div>
+
+<div class="cta-row">
+  <!-- TODO: replace with the real Chrome Web Store item URL once published -->
+  <a class="cta-badge" data-i18n="ctaBadge" href="https://chromewebstore.google.com/detail/image-compare-studio" target="_blank" rel="noopener noreferrer">Get it on the Chrome Web Store</a>
+  <a class="cta-badge cta-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+  <a class="cta-secondary" href="privacy.html" data-i18n="ctaPrivacy">Read the privacy policy</a>
+</div>
+
+<div class="hero-visual">
+  <div class="demo-compare" id="demoCompare">
+    <img src="assets/imgs/before.jpg" alt="Before: a worn, unrenovated room" draggable="false" />
+    <div class="demo-clip" id="demoClip">
+      <img src="assets/imgs/after.jpg" alt="After: the same room, renovated" draggable="false" />
+    </div>
+    <div class="demo-handle" id="demoHandle" role="slider" tabindex="0" aria-label="Comparison position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="demo-knob">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6 3 12l6 6M15 6l6 6-6 6" stroke="#17162b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </div>
+    </div>
+    <span class="demo-label demo-label--before" data-i18n="demoBefore">Before</span>
+    <span class="demo-label demo-label--after" data-i18n="demoAfter">After</span>
+  </div>
+  <p class="demo-hint" data-i18n="demoHint">Drag the slider — this is Image Compare Studio's actual comparison view.</p>
+</div>
+
+<main>
+  <section class="block">
+    <h2 class="section-title" data-i18n="featuresTitle">Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f5t"></h3><p data-i18n="f5d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f6t"></h3><p data-i18n="f6d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f7t"></h3><p data-i18n="f7d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f8t"></h3><p data-i18n="f8d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f9t"></h3><p data-i18n="f9d"></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="privacy-callout">
+      <p data-i18n="privacyP1"></p>
+      <p data-i18n="privacyP2"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1"></span>
+  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+</footer>
+
+<script>
+(function () {
+  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
+
+  function resolveLang() {
+    var saved = localStorage.getItem('imageCompareStudio.lang');
+    if (saved && i18n[saved]) return saved;
+    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return i18n[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+      el.getAttribute('data-i18n-attr').split(',').forEach(function (pair) {
+        var parts = pair.split(':');
+        var attr = parts[0], key = parts[1];
+        if (dict[key] !== undefined) el.setAttribute(attr, dict[key]);
+      });
+    });
+    document.querySelectorAll('.langnav a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.langnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var lang = a.getAttribute('data-lang');
+      localStorage.setItem('imageCompareStudio.lang', lang);
+      applyLang(lang);
+    });
+  });
+
+  applyLang(resolveLang());
+})();
+</script>
+
+<script>
+(function () {
+  var compare = document.getElementById('demoCompare');
+  var clip = document.getElementById('demoClip');
+  var handle = document.getElementById('demoHandle');
+  if (!compare) return;
+  var dragging = false;
+
+  function setPosition(pct) {
+    pct = Math.max(0, Math.min(100, pct));
+    clip.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+    handle.style.left = pct + '%';
+    handle.setAttribute('aria-valuenow', Math.round(pct));
+  }
+
+  function pointerToPct(e) {
+    var rect = compare.getBoundingClientRect();
+    return ((e.clientX - rect.left) / rect.width) * 100;
+  }
+
+  compare.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    setPosition(pointerToPct(e));
+    compare.setPointerCapture(e.pointerId);
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (dragging) setPosition(pointerToPct(e));
+  });
+  window.addEventListener('pointerup', function () {
+    dragging = false;
+  });
+  compare.addEventListener('dblclick', function () {
+    setPosition(50);
+  });
+  handle.addEventListener('keydown', function (e) {
+    var step = e.shiftKey ? 10 : 2;
+    var current = parseFloat(handle.getAttribute('aria-valuenow'));
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setPosition(current - step); e.preventDefault(); }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setPosition(current + step); e.preventDefault(); }
+  });
+})();
+</script>
+
+</body>
+</html>
