@@ -6,6 +6,7 @@ Marketing sites for the Chrome extensions published under the **CreativeApp** de
 - [`/forcekit/`](forcekit/index.html) — [ForceKIT](https://github.com/PellegrinoLuigi) site (Salesforce toolkit)
 - [`/profilemanager/`](profilemanager/index.html) — Profile Manager site (Salesforce profile/permission set comparator)
 - [`/imagecomparestudio/`](imagecomparestudio/index.html) — Image Compare Studio site (before/after image comparison tool)
+- [`/omnikit/`](omnikit/index.html) — OmniKit site (side-panel toolbox of 34 developer/text/converter/browser utilities)
 
 ## Adding a new extension
 

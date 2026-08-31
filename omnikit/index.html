@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="pageTitle">OmniKit — one extension, every tool you need</title>
+<meta name="description" data-i18n-attr="content:metaDesc" content="OmniKit puts 34 fast, local-first utilities — calculator, JSON, Base64, QR, converters, password generator and more — in Chrome's side panel. No account, no tracking." />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --text-dimmer: #87909c;
+    --border: #e1e4ea;
+    --accent: #5b53f0;
+    --accent-soft: rgba(91, 83, 240, 0.08);
+    --accent-line: rgba(91, 83, 240, 0.35);
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+    --panel: #181a24; --panel2: #20222f; --panel-border: #2b2d3d; --panel-text: #edeef4; --panel-muted: #9a9cb0;
+    --panel-accent: #7c74ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0e16; --surface: #171826; --text: #eceef6; --text-dim: #a9adc6;
+      --text-dimmer: #7b7f9c; --border: #262838; --accent: #8b83ff;
+      --accent-soft: rgba(139, 131, 255, 0.13); --accent-line: rgba(139, 131, 255, 0.4);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  header.masthead {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .brand-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text); }
+  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .sitenav { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .sitenav a { color: var(--text-dim); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--accent); }
+  .sitenav a.active { color: var(--accent); }
+  .langnav { display: flex; gap: 4px; }
+  .langnav a {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 7px;
+    border-radius: 6px; color: var(--text-dim); background: var(--accent-soft);
+    text-decoration: none; cursor: pointer;
+  }
+  .langnav a:hover:not(.active) { color: var(--accent); }
+  .langnav a.active { color: #fff; background: var(--accent); }
+
+  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+  .hero { max-width: 720px; margin: 56px auto 8px; text-align: center; padding: 0 20px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); margin: 0 0 12px;
+  }
+  h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 16px; text-wrap: balance; }
+  .lede { font-size: 18px; color: var(--text-dim); max-width: 60ch; margin: 0 auto 28px; }
+
+  .cta-row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin: 0 0 56px; }
+  .cta-badge {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700;
+    color: #fff; background: linear-gradient(135deg, #6a63f5, #5b53f0); border: 1px solid transparent;
+    border-radius: 999px; padding: 11px 22px; text-decoration: none;
+  }
+  .cta-badge:hover { filter: brightness(1.07); }
+  .cta-secondary { font-size: 13px; font-weight: 600; color: var(--text-dim); text-decoration: none; }
+  .cta-secondary:hover { color: var(--accent); }
+  .cta-coffee { color: #402a06; background: #ffdd00; border-color: #ffdd00; }
+  .cta-coffee:hover { background: #ffe93d; border-color: #ffe93d; }
+
+  .hero-visual { max-width: 560px; margin: 0 auto 64px; }
+  .device {
+    width: 100%; border-radius: 26px; background: #0e0f18; border: 1px solid #2a2c3c;
+    box-shadow: 0 40px 90px -34px rgba(20, 24, 60, 0.45), var(--shadow);
+    padding: 12px; overflow: hidden;
+  }
+  .panel { background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px; overflow: hidden; color: var(--panel-text); }
+  .p-head { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; border-bottom: 1px solid var(--panel-border); background: rgba(20,22,33,.7); }
+  .p-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; }
+  .p-brand i { width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; font-style: normal; font-size: 12px; background: linear-gradient(135deg, var(--panel-accent), #5b53f0); color: #fff; }
+  .p-head em { color: var(--panel-muted); font-style: normal; letter-spacing: 3px; }
+  .p-search { margin: 12px 14px 6px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--panel-border); background: #12131c; border-radius: 999px; padding: 8px 13px; color: var(--panel-muted); font-size: 12px; }
+  .p-tabs { display: flex; border-top: 1px solid var(--panel-border); border-bottom: 1px solid var(--panel-border); }
+  .p-tabs span { flex: 1; text-align: center; padding: 9px 0; color: var(--panel-muted); border-right: 1px solid var(--panel-border); font-size: 13px; }
+  .p-tabs span.on { color: var(--panel-accent); border-bottom: 2px solid var(--panel-accent); background: rgba(124,116,255,.09); }
+  .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 14px 16px; }
+  .p-card { border: 1px solid var(--panel-border); border-radius: 11px; background: var(--panel); padding: 10px; }
+  .p-card b { display: flex; width: 30px; height: 30px; border-radius: 9px; align-items: center; justify-content: center; font-size: 15px; background: #232244; border: 1px solid rgba(124,116,255,.25); margin-bottom: 6px; font-style: normal; }
+  .p-card u { display: block; font-weight: 600; font-size: 11.5px; text-decoration: none; }
+  .p-card i { display: block; font-style: normal; color: var(--panel-muted); font-size: 10px; line-height: 1.35; margin-top: 2px; }
+  .hero-hint { text-align: center; font-size: 12.5px; color: var(--text-dimmer); margin: 12px 0 0; }
+
+  section.block { margin: 0 0 64px; }
+  h2.section-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    color: var(--accent); text-align: center; margin: 0 0 36px;
+  }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
+  .feature-card h3 { font-size: 15px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .feature-card p { font-size: 13.5px; color: var(--text-dim); margin: 0; }
+
+  .privacy-callout {
+    max-width: 640px; margin: 0 auto; text-align: center; background: var(--accent-soft);
+    border: 1px solid var(--accent-line); border-radius: 14px; padding: 24px 28px;
+  }
+  .privacy-callout p { margin: 0 0 10px; font-size: 14.5px; color: var(--text-dim); }
+  .privacy-callout p:last-child { margin-bottom: 0; }
+  .privacy-callout a { font-weight: 700; }
+
+  footer {
+    max-width: 980px; margin: 0 auto; padding: 0 20px 60px; font-size: 13px; color: var(--text-dimmer);
+    display: flex; flex-direction: column; gap: 6px; text-align: center;
+  }
+  footer a { color: var(--text-dim); text-decoration-color: var(--border); }
+  .footer-coffee { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-weight: 700; text-decoration: none; color: var(--text-dim); }
+  .footer-coffee:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<script type="application/json" id="i18n-data">
+{
+"en":{
+  "pageTitle":"OmniKit — one extension, every tool you need",
+  "metaDesc":"OmniKit puts 34 fast, local-first utilities — calculator, JSON, Base64, QR, converters, password generator and more — in Chrome's side panel. No account, no tracking.",
+  "navHome":"Home","navPrivacy":"Privacy","eyebrow":"Chrome Extension",
+  "h1":"One extension. Every tool you need.",
+  "lede":"34 focused developer, text, converter and browser utilities — one keystroke away in Chrome's side panel. No account, no server, no tracking.",
+  "ctaBadge":"Get OmniKit","ctaPrivacy":"Read the privacy policy",
+  "pSearch":"Search tools…",
+  "c1":"Calculator","c1d":"Maths with history","c2":"JSON","c2d":"Format · validate · repair",
+  "c3":"Base64","c3d":"Text & files ⇄ Base64","c4":"Regex","c4d":"Live test + templates",
+  "c5":"QR Code","c5d":"Text · URL · Wi-Fi","c6":"Password","c6d":"Secure generator",
+  "c7":"Auto Refresh","c7d":"Reload a tab on a timer","c8":"Symbols","c8d":"Click to copy",
+  "heroHint":"OmniKit lives in Chrome's side panel — searchable, favouritable, always one click away.",
+  "featuresTitle":"What's inside",
+  "f1t":"Calculator & productivity","f1d":"A safe expression calculator (no eval) with history and a scientific mode, plus Timer, Stopwatch, Notes and a Clipboard Manager.",
+  "f2t":"JSON toolkit","f2d":"Format, minify and validate — and repair broken JSON: missing quotes and commas, trailing commas, comments, single quotes.",
+  "f3t":"Encoders & decoders","f3d":"Base64 with file import/export, URL encoding, a local JWT decoder, UUID v4 generator and a Unix timestamp converter.",
+  "f4t":"Regex tester","f4d":"Live match highlighting and one-click templates for email, URL, IPv4, UUID, dates and more.",
+  "f5t":"Text tools","f5d":"Word and character counts, case conversion, deduplicate and sort lines, Lorem Ipsum by paragraph or exact character count.",
+  "f6t":"Keyboard symbols","f6d":"Click to copy ⌘ ⌥ ⇧ → — … € ± ≠ and 150+ more special characters and Greek letters.",
+  "f7t":"Converters","f7d":"Length, weight, temperature, data size, time, speed and area — all computed offline.",
+  "f8t":"QR & web","f8d":"QR codes for text, URLs and Wi-Fi; URL parser; page information; HTTP header viewer.",
+  "f9t":"Private by design","f9d":"Everything runs and is stored locally. The only network request is the one you trigger yourself in the HTTP Header Viewer. Light / dark themes, 6 languages, Manifest V3.",
+  "privacyP1":"OmniKit has no server of its own — every tool runs inside your browser, and everything you create stays on your device.",
+  "privacyP2":"Read the full <a href=\"privacy.html\">privacy policy</a> for the details.",
+  "footer1":"OmniKit — a Swiss-army knife of small, local-first utilities for Chrome.",
+  "madeBy":"Made by <a href=\"../index.html\">CreativeApp</a>"
+},
+"it":{
+  "pageTitle":"OmniKit — un'estensione, tutti gli strumenti che ti servono",
+  "metaDesc":"OmniKit mette 34 utility rapide e locali — calcolatrice, JSON, Base64, QR, convertitori, generatore di password e altro — nel pannello laterale di Chrome. Senza account, senza tracciamento.",
+  "navHome":"Home","navPrivacy":"Privacy","eyebrow":"Estensione Chrome",
+  "h1":"Un'estensione. Tutti gli strumenti che ti servono.",
+  "lede":"34 utility mirate per sviluppo, testo, conversioni e browser — a un tasto di distanza nel pannello laterale di Chrome. Senza account, senza server, senza tracciamento.",
+  "ctaBadge":"Ottieni OmniKit","ctaPrivacy":"Leggi l'informativa sulla privacy",
+  "pSearch":"Cerca strumenti…",
+  "c1":"Calcolatrice","c1d":"Calcoli con cronologia","c2":"JSON","c2d":"Formatta · valida · ripara",
+  "c3":"Base64","c3d":"Testo e file ⇄ Base64","c4":"Regex","c4d":"Test live + modelli",
+  "c5":"QR Code","c5d":"Testo · URL · Wi-Fi","c6":"Password","c6d":"Generatore sicuro",
+  "c7":"Auto Refresh","c7d":"Ricarica una scheda a intervalli","c8":"Simboli","c8d":"Clic per copiare",
+  "heroHint":"OmniKit vive nel pannello laterale di Chrome — con ricerca, preferiti, sempre a un clic.",
+  "featuresTitle":"Cosa contiene",
+  "f1t":"Calcolatrice e produttività","f1d":"Una calcolatrice con parser di espressioni sicuro (niente eval), cronologia e modalità scientifica, più Timer, Cronometro, Note e Gestore appunti.",
+  "f2t":"Kit JSON","f2d":"Formatta, minimizza e valida — e ripara il JSON rotto: apici e virgole mancanti, trailing comma, commenti, apici singoli.",
+  "f3t":"Codificatori e decodificatori","f3d":"Base64 con import/export di file, codifica URL, decoder JWT in locale, generatore UUID v4 e convertitore di timestamp Unix.",
+  "f4t":"Tester Regex","f4d":"Evidenziazione live delle corrispondenze e modelli con un clic per email, URL, IPv4, UUID, date e altro.",
+  "f5t":"Strumenti di testo","f5d":"Conteggio parole e caratteri, conversione maiuscole, rimozione duplicati e ordinamento righe, Lorem Ipsum per paragrafi o per numero esatto di caratteri.",
+  "f6t":"Simboli tastiera","f6d":"Clic per copiare ⌘ ⌥ ⇧ → — … € ± ≠ e oltre 150 altri caratteri speciali e lettere greche.",
+  "f7t":"Convertitori","f7d":"Lunghezza, peso, temperatura, dimensione dati, tempo, velocità e area — tutto calcolato offline.",
+  "f8t":"QR e web","f8d":"QR code per testo, URL e Wi-Fi; analizzatore URL; informazioni pagina; visualizzatore header HTTP.",
+  "f9t":"Privata per progettazione","f9d":"Tutto viene eseguito e salvato in locale. L'unica richiesta di rete è quella che avvii tu nel Visualizzatore header HTTP. Temi chiaro/scuro, 6 lingue, Manifest V3.",
+  "privacyP1":"OmniKit non ha un server proprio — ogni strumento funziona dentro il tuo browser e tutto ciò che crei resta sul tuo dispositivo.",
+  "privacyP2":"Leggi l'<a href=\"privacy.html\">informativa sulla privacy</a> completa per i dettagli.",
+  "footer1":"OmniKit — un coltellino svizzero di piccole utility locali per Chrome.",
+  "madeBy":"Realizzato da <a href=\"../index.html\">CreativeApp</a>"
+}
+}
+</script>
+
+<header class="masthead">
+  <a class="brand" href="index.html">
+    <img src="assets/icons/icon128.png" alt="" />
+    <span class="brand-name">OmniKit</span>
+  </a>
+  <div class="nav-group">
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html" class="active" data-i18n="navHome">Home</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+    </nav>
+    <nav class="langnav" aria-label="Language">
+      <a href="#" data-lang="en" class="active">EN</a>
+      <a href="#" data-lang="it">IT</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="eyebrow" data-i18n="eyebrow">Chrome Extension</p>
+  <h1 data-i18n="h1">One extension. Every tool you need.</h1>
+  <p class="lede" data-i18n="lede">34 focused developer, text, converter and browser utilities — one keystroke away in Chrome's side panel. No account, no server, no tracking.</p>
+</div>
+
+<div class="cta-row">
+  <!-- TODO: swap for the Chrome Web Store URL once OmniKit is published -->
+  <a class="cta-badge" data-i18n="ctaBadge" href="https://github.com/lpellegrino/omnikit" target="_blank" rel="noopener noreferrer">Get OmniKit</a>
+  <a class="cta-badge cta-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+  <a class="cta-secondary" href="privacy.html" data-i18n="ctaPrivacy">Read the privacy policy</a>
+</div>
+
+<div class="hero-visual">
+  <div class="device">
+    <div class="panel">
+      <div class="p-head">
+        <span class="p-brand"><i>▦</i> OmniKit</span>
+        <em>◐ ⛶ ⚙</em>
+      </div>
+      <div class="p-search">🔍 <span data-i18n="pSearch">Search tools…</span></div>
+      <div class="p-tabs"><span>▦</span><span class="on">⚡</span><span>🌐</span><span>⟨⟩</span><span>✎</span><span>⚙</span></div>
+      <div class="p-grid">
+        <div class="p-card"><b>🧮</b><u data-i18n="c1">Calculator</u><i data-i18n="c1d">Maths with history</i></div>
+        <div class="p-card"><b>{ }</b><u data-i18n="c2">JSON</u><i data-i18n="c2d">Format · validate · repair</i></div>
+        <div class="p-card"><b>🔡</b><u data-i18n="c3">Base64</u><i data-i18n="c3d">Text &amp; files ⇄ Base64</i></div>
+        <div class="p-card"><b>.*</b><u data-i18n="c4">Regex</u><i data-i18n="c4d">Live test + templates</i></div>
+        <div class="p-card"><b>▦</b><u data-i18n="c5">QR Code</u><i data-i18n="c5d">Text · URL · Wi-Fi</i></div>
+        <div class="p-card"><b>🔐</b><u data-i18n="c6">Password</u><i data-i18n="c6d">Secure generator</i></div>
+        <div class="p-card"><b>🔄</b><u data-i18n="c7">Auto Refresh</u><i data-i18n="c7d">Reload a tab on a timer</i></div>
+        <div class="p-card"><b>⌘</b><u data-i18n="c8">Symbols</u><i data-i18n="c8d">Click to copy</i></div>
+      </div>
+    </div>
+  </div>
+  <p class="hero-hint" data-i18n="heroHint">OmniKit lives in Chrome's side panel — searchable, favouritable, always one click away.</p>
+</div>
+
+<main>
+  <section class="block">
+    <h2 class="section-title" data-i18n="featuresTitle">What's inside</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f5t"></h3><p data-i18n="f5d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f6t"></h3><p data-i18n="f6d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f7t"></h3><p data-i18n="f7d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f8t"></h3><p data-i18n="f8d"></p></div>
+      <div class="feature-card"><h3 data-i18n="f9t"></h3><p data-i18n="f9d"></p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="privacy-callout">
+      <p data-i18n="privacyP1"></p>
+      <p data-i18n="privacyP2"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer1"></span>
+  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
+  <span data-i18n="madeBy"></span>
+</footer>
+
+<script>
+(function () {
+  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
+
+  function resolveLang() {
+    var saved = localStorage.getItem('omnikit.lang');
+    if (saved && i18n[saved]) return saved;
+    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return i18n[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang] || i18n.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+      el.getAttribute('data-i18n-attr').split(',').forEach(function (pair) {
+        var parts = pair.split(':');
+        if (dict[parts[1]] !== undefined) el.setAttribute(parts[0], dict[parts[1]]);
+      });
+    });
+    document.querySelectorAll('.langnav a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.langnav a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var lang = a.getAttribute('data-lang');
+      localStorage.setItem('omnikit.lang', lang);
+      applyLang(lang);
+    });
+  });
+
+  applyLang(resolveLang());
+})();
+</script>
+
+</body>
+</html>
