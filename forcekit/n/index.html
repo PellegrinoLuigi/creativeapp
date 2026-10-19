@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="no-referrer" />
+<meta name="robots" content="noindex" />
+<title>ForceKIT — Nota condivisa</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/icon32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/icon16.png" />
+<!-- Pagina statica, senza script: la nota sta nel link dopo "#" e non arriva
+     mai al sito. Con ForceKIT installato, il suo content script
+     (content/note-share.js) la legge e propone di aggiungerla alle note. -->
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1b1f24;
+    --text-dim: #5b6472;
+    --border: #e1e4ea;
+    --accent: #0071e3;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1013;
+      --surface: #14171c;
+      --text: #e7eaed;
+      --text-dim: #99a3b0;
+      --border: #262b33;
+      --accent: #4da3ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--text); font: 15px/1.55 -apple-system, "Segoe UI", system-ui, sans-serif; }
+  header { display: flex; align-items: center; gap: 10px; max-width: 640px; margin: 8px auto 0; }
+  header a { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; text-decoration: none; }
+  header img { width: 28px; height: 28px; border-radius: 7px; }
+  .noext { max-width: 640px; margin: 20px auto; padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+  .noext h1 { margin: 0 0 8px; font-size: 19px; }
+  .noext p { margin: 8px 0; color: var(--text-dim); }
+  .noext .cta { display: inline-block; margin-top: 8px; padding: 9px 16px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 650; text-decoration: none; }
+  html[data-forcekit] .noext { display: none; }
+</style>
+</head>
+<body>
+<header><a href="../index.html"><img src="../assets/logo.png" alt="" />ForceKIT</a></header>
+<div id="fk-root"></div>
+<div class="noext">
+  <h1>Nota condivisa con ForceKIT</h1>
+  <p>Per aprirla serve l'estensione ForceKIT per Chrome: installala e riapri questo link.</p>
+  <p>Se ForceKIT è già installato, copia questo link e incollalo nella palette di ForceKIT (Ctrl+K in una pagina Salesforce).</p>
+  <p lang="en">This note was shared with ForceKIT. Install the ForceKIT Chrome extension and open this link again, or paste the link into the ForceKIT palette.</p>
+  <a class="cta" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" rel="noopener">Installa ForceKIT</a>
+</div>
+</body>
+</html>
