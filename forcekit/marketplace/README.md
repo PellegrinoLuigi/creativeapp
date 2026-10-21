@@ -64,7 +64,7 @@ Il codice usa le stesse regole degli script di ForceKIT: campi `{{Nome}}`, `{{No
 4. Apri la pagina in locale (`python3 -m http.server` nella radice del repo, poi `http://localhost:8000/forcekit/marketplace/`): il dettaglio mostra "integrità verificata".
 5. Commit e push su `master` (il ramo pubblicato da GitHub Pages). L'Action **Marketplace catalog** (`.github/workflows/marketplace.yml`) ripete il controllo; GitHub Pages pubblica in pochi minuti.
 
-L'estensione controlla il catalogo ogni 6 ore (se ci sono script del Marketplace installati) o quando si apre la scheda Marketplace. Gli aggiornamenti non si installano mai da soli: l'utente li vede e li conferma.
+L'estensione controlla il catalogo ogni 6 ore (se ci sono script del Marketplace installati) o quando si apre il Marketplace (Scripts › + Nuovo › Marketplace). Gli aggiornamenti non si installano mai da soli: l'utente li vede e li conferma.
 
 ## Sicurezza
 
@@ -74,4 +74,4 @@ L'estensione controlla il catalogo ogni 6 ore (se ci sono script del Marketplace
 
 ## Rimuovere uno script
 
-Togli la voce da `catalog.json` (i file possono restare per lo storico). Chi l'ha già installato lo tiene, ma non riceve più aggiornamenti; può rimuoverlo dalla scheda Marketplace o da Scripts.
+Togli la voce da `catalog.json` (i file possono restare per lo storico). Chi l'ha già installato lo tiene, ma non riceve più aggiornamenti; può rimuoverlo dal Marketplace o da Scripts.
