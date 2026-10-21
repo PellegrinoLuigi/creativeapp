@@ -4,6 +4,30 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title data-i18n="pageTitle">OmniKit — Privacy Policy</title>
+<!-- seo -->
+<meta name="description" content="OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything…" data-i18n-attr="content:metaDesc" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#5b53f0" />
+<link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html" />
+<link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html?lang=it" />
+<link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="OmniKit" />
+<meta property="og:title" content="OmniKit — Privacy Policy" />
+<meta property="og:description" content="OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything…" />
+<meta property="og:url" content="https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html" />
+<meta property="og:image" content="https://pellegrinoluigi.github.io/creativeapp/omnikit/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="OmniKit" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="OmniKit — Privacy Policy" />
+<meta name="twitter:description" content="OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything…" />
+<meta name="twitter:image" content="https://pellegrinoluigi.github.io/creativeapp/omnikit/assets/og-image.jpg" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html#page","url":"https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html","name":"OmniKit — Privacy Policy","isPartOf":{"@id":"https://pellegrinoluigi.github.io/creativeapp/omnikit/#website"},"inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"OmniKit","item":"https://pellegrinoluigi.github.io/creativeapp/omnikit/"},{"@type":"ListItem","position":2,"name":"Privacy","item":"https://pellegrinoluigi.github.io/creativeapp/omnikit/privacy.html"}]}]}</script>
+<!-- /seo -->
 <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
 <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/icon128.png" />
 <style>
@@ -101,210 +125,131 @@
   .footer-coffee { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-weight: 700; text-decoration: none; color: var(--text-dim); }
   .footer-coffee:hover { color: var(--accent); }
 </style>
+<link rel="apple-touch-icon" href="assets/icons/icon128.png" />
+<link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
 
-<script type="application/json" id="i18n-data">
-{
-"en":{
-  "pageTitle":"OmniKit — Privacy Policy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Privacy Policy",
-  "h1":"What OmniKit does with your data — in plain terms.",
-  "updated":"Last updated 31 August 2026",
-  "lede":"OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything you create stays on your device.",
-  "s1H2":"Summary",
-  "s1P":"<strong>No account, no backend, no analytics, no tracking, no ads.</strong> OmniKit does not collect, store on a server, or transmit your data to us or anyone else. Nothing leaves your device unless you explicitly ask a tool to fetch a URL.",
-  "s2H2":"What is stored locally",
-  "s2P":"Preferences and the content you create in the tools are saved on your device via <code>chrome.storage.local</code> (and <code>chrome.storage.session</code> for Auto Refresh runtime state): favourites and tool order, theme and language, notes, clipboard snippets you add yourself, calculator history, and per-site Auto Refresh settings if you tick \"remember\". OmniKit does not use <code>chrome.storage.sync</code>, so this data is not even synced across your own devices.",
-  "s3H2":"Network activity",
-  "s3P":"OmniKit makes <strong>no background network requests</strong>. The only request it can make is the one you trigger yourself in the <strong>HTTP Header Viewer</strong>: when you enter a URL and press \"Fetch headers\", your browser performs an ordinary <code>fetch()</code> so the response headers can be displayed. The result is shown to you and discarded — never logged or sent anywhere. QR codes, conversions, formatting, password generation, JWT decoding and everything else run entirely on-device.",
-  "s4H2":"What OmniKit does not do",
-  "s4l1":"No analytics, telemetry, or crash reporting of any kind.",
-  "s4l2":"No advertising, and no data ever sold or shared with anyone.",
-  "s4l3":"No third-party servers — there is no backend at all.",
-  "s4l4":"No account, sign-in, or personal information requested or required.",
-  "s4l5":"No remote code: all scripts ship in the package; the calculator uses a hand-written safe parser, never <code>eval</code>.",
-  "permH2":"Permissions, explained",
-  "permTh1":"Permission","permTh2":"What it's for",
-  "p_storage":"Save the local preferences and content listed above via <code>chrome.storage</code>. Nothing is transmitted.",
-  "p_activeTab":"The Page Information tool reads metadata about the tab you are viewing (title, URL, counts of links/images/scripts, charset, viewport, user agent) — only after you open that tool. The snapshot is shown to you and not stored.",
-  "p_tabs":"Show the title, favicon and hostname of the tab Auto Refresh targets, and pre-fill the current URL in URL Parser and HTTP Header Viewer. Tab metadata is only rendered in the panel — never stored, logged or transmitted.",
-  "p_scripting":"Inject the one-shot, read-only Page Information collector into the active tab on demand. No persistent content scripts.",
-  "p_browsingData":"The Clear Cache tool: delete the data categories (cache, cookies, history, downloads, form data, local storage) and time range you choose, after a confirmation.",
-  "p_alarms":"Schedule reloads for Auto Refresh (intervals of 30 s or more) plus a watchdog that revives the service worker.",
-  "p_sidePanel":"Display the OmniKit interface in Chrome's side panel when you click the toolbar icon.",
-  "p_clipboardRead":"Optional, requested only when you press \"Read clipboard\" in the Clipboard Manager, to copy the current clipboard text into a local snippet. No background clipboard monitoring.",
-  "retH2":"Deleting your data",
-  "retP":"Use <strong>Settings → Reset all OmniKit data</strong> to erase everything at once. Uninstalling the extension also removes all of it, since nothing exists outside your browser's local storage.",
-  "chH2":"Changes to this policy",
-  "chP":"If what OmniKit collects or does ever changes, this page will be updated and the date above will reflect it.",
-  "contactH2":"Contact","contactP":"Questions about this policy? Open an issue on the <a href=\"https://github.com/lpellegrino/omnikit\" target=\"_blank\" rel=\"noopener\">project repository</a>.",
-  "footer1":"OmniKit — a Swiss-army knife of small, local-first utilities for Chrome.",
-  "footer2":"This policy applies only to the OmniKit Chrome extension.",
-  "madeBy":"Made by <a href=\"../index.html\">CreativeApp</a>"
-},
-"it":{
-  "pageTitle":"OmniKit — Informativa sulla Privacy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Informativa sulla Privacy",
-  "h1":"Cosa fa OmniKit con i tuoi dati — in termini semplici.",
-  "updated":"Ultimo aggiornamento: 31 agosto 2026",
-  "lede":"OmniKit è un'estensione Chrome: una cassetta degli attrezzi nel pannello laterale con tante piccole utility. Non ha un server proprio — ogni strumento funziona dentro il tuo browser e tutto ciò che crei resta sul tuo dispositivo.",
-  "s1H2":"Riepilogo",
-  "s1P":"<strong>Nessun account, nessun backend, nessun analytics, nessun tracciamento, nessuna pubblicità.</strong> OmniKit non raccoglie, non salva su un server e non trasmette i tuoi dati a noi o a chiunque altro. Nulla lascia il tuo dispositivo, a meno che tu non chieda esplicitamente a uno strumento di recuperare un URL.",
-  "s2H2":"Cosa viene salvato in locale",
-  "s2P":"Le preferenze e i contenuti che crei negli strumenti sono salvati sul tuo dispositivo tramite <code>chrome.storage.local</code> (e <code>chrome.storage.session</code> per lo stato runtime di Auto Refresh): preferiti e ordine degli strumenti, tema e lingua, note, frammenti degli appunti aggiunti da te, cronologia della calcolatrice e impostazioni di Auto Refresh per sito se attivi \"ricorda\". OmniKit non usa <code>chrome.storage.sync</code>, quindi questi dati non vengono nemmeno sincronizzati tra i tuoi dispositivi.",
-  "s3H2":"Attività di rete",
-  "s3P":"OmniKit <strong>non effettua richieste di rete in background</strong>. L'unica richiesta possibile è quella che avvii tu nel <strong>Visualizzatore header HTTP</strong>: quando inserisci un URL e premi \"Recupera header\", il browser esegue una normale <code>fetch()</code> per mostrare gli header di risposta. Il risultato ti viene mostrato e poi scartato — mai registrato né inviato altrove. QR code, conversioni, formattazione, generazione di password, decodifica JWT e tutto il resto vengono eseguiti interamente sul dispositivo.",
-  "s4H2":"Cosa OmniKit non fa",
-  "s4l1":"Nessun analytics, telemetria o segnalazione di crash di alcun tipo.",
-  "s4l2":"Nessuna pubblicità, e nessun dato mai venduto o condiviso con chiunque.",
-  "s4l3":"Nessun server di terze parti — non esiste alcun backend.",
-  "s4l4":"Nessun account, accesso o informazione personale richiesti.",
-  "s4l5":"Nessun codice remoto: tutti gli script sono inclusi nel pacchetto; la calcolatrice usa un parser sicuro scritto a mano, mai <code>eval</code>.",
-  "permH2":"I permessi, spiegati",
-  "permTh1":"Permesso","permTh2":"A cosa serve",
-  "p_storage":"Salvare in locale le preferenze e i contenuti elencati sopra tramite <code>chrome.storage</code>. Nulla viene trasmesso.",
-  "p_activeTab":"Lo strumento \"Informazioni pagina\" legge i metadati della scheda che stai guardando (titolo, URL, conteggi di link/immagini/script, set di caratteri, viewport, user agent) — solo dopo che apri quello strumento. Il risultato ti viene mostrato e non salvato.",
-  "p_tabs":"Mostrare titolo, favicon e hostname della scheda su cui agisce Auto Refresh, e pre-compilare l'URL corrente in Analizzatore URL e Visualizzatore header HTTP. I metadati delle schede sono solo visualizzati nel pannello — mai salvati, registrati o trasmessi.",
-  "p_scripting":"Iniettare on-demand nella scheda attiva l'unica funzione di sola lettura di \"Informazioni pagina\". Nessun content script persistente.",
-  "p_browsingData":"Lo strumento \"Svuota cache\": eliminare le categorie di dati (cache, cookie, cronologia, download, dati dei moduli, storage locale) e l'intervallo di tempo scelti da te, previa conferma.",
-  "p_alarms":"Pianificare le ricariche di Auto Refresh (intervalli di 30 s o più) più un allarme di controllo che riattiva il service worker.",
-  "p_sidePanel":"Visualizzare l'interfaccia di OmniKit nel pannello laterale di Chrome quando fai clic sull'icona nella barra degli strumenti.",
-  "p_clipboardRead":"Facoltativo, richiesto solo quando premi \"Leggi appunti\" nel Gestore appunti, per copiare il testo corrente degli appunti in un frammento locale. Nessun monitoraggio degli appunti in background.",
-  "retH2":"Eliminare i tuoi dati",
-  "retP":"Usa <strong>Impostazioni → Reimposta tutti i dati di OmniKit</strong> per cancellare tutto in una volta. Anche disinstallare l'estensione rimuove tutto, perché nulla esiste al di fuori dello storage locale del browser.",
-  "chH2":"Modifiche a questa informativa",
-  "chP":"Se ciò che OmniKit raccoglie o fa dovesse cambiare, questa pagina verrà aggiornata e la data sopra lo rifletterà.",
-  "contactH2":"Contatti","contactP":"Domande su questa informativa? Apri una issue sul <a href=\"https://github.com/lpellegrino/omnikit\" target=\"_blank\" rel=\"noopener\">repository del progetto</a>.",
-  "footer1":"OmniKit — un coltellino svizzero di piccole utility locali per Chrome.",
-  "footer2":"Questa informativa si applica solo all'estensione Chrome OmniKit.",
-  "madeBy":"Realizzato da <a href=\"../index.html\">CreativeApp</a>"
-}
-}
-</script>
+<script type="application/json" id="i18n-data">{"en":{"pageTitle":"OmniKit — Privacy Policy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Privacy Policy","h1":"What OmniKit does with your data — in plain terms.","updated":"Last updated 31 August 2026","lede":"OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything you create stays on your device.","s1H2":"Summary","s1P":"<strong>No account, no backend, no analytics, no tracking, no ads.</strong> OmniKit does not collect, store on a server, or transmit your data to us or anyone else. Nothing leaves your device unless you explicitly ask a tool to fetch a URL.","s2H2":"What is stored locally","s2P":"Preferences and the content you create in the tools are saved on your device via <code>chrome.storage.local</code> (and <code>chrome.storage.session</code> for Auto Refresh runtime state): favourites and tool order, theme and language, notes, clipboard snippets you add yourself, calculator history, and per-site Auto Refresh settings if you tick \"remember\". OmniKit does not use <code>chrome.storage.sync</code>, so this data is not even synced across your own devices.","s3H2":"Network activity","s3P":"OmniKit makes <strong>no background network requests</strong>. The only request it can make is the one you trigger yourself in the <strong>HTTP Header Viewer</strong>: when you enter a URL and press \"Fetch headers\", your browser performs an ordinary <code>fetch()</code> so the response headers can be displayed. The result is shown to you and discarded — never logged or sent anywhere. QR codes, conversions, formatting, password generation, JWT decoding and everything else run entirely on-device.","s4H2":"What OmniKit does not do","s4l1":"No analytics, telemetry, or crash reporting of any kind.","s4l2":"No advertising, and no data ever sold or shared with anyone.","s4l3":"No third-party servers — there is no backend at all.","s4l4":"No account, sign-in, or personal information requested or required.","s4l5":"No remote code: all scripts ship in the package; the calculator uses a hand-written safe parser, never <code>eval</code>.","permH2":"Permissions, explained","permTh1":"Permission","permTh2":"What it's for","p_storage":"Save the local preferences and content listed above via <code>chrome.storage</code>. Nothing is transmitted.","p_activeTab":"The Page Information tool reads metadata about the tab you are viewing (title, URL, counts of links/images/scripts, charset, viewport, user agent) — only after you open that tool. The snapshot is shown to you and not stored.","p_tabs":"Show the title, favicon and hostname of the tab Auto Refresh targets, and pre-fill the current URL in URL Parser and HTTP Header Viewer. Tab metadata is only rendered in the panel — never stored, logged or transmitted.","p_scripting":"Inject the one-shot, read-only Page Information collector into the active tab on demand. No persistent content scripts.","p_browsingData":"The Clear Cache tool: delete the data categories (cache, cookies, history, downloads, form data, local storage) and time range you choose, after a confirmation.","p_alarms":"Schedule reloads for Auto Refresh (intervals of 30 s or more) plus a watchdog that revives the service worker.","p_sidePanel":"Display the OmniKit interface in Chrome's side panel when you click the toolbar icon.","p_clipboardRead":"Optional, requested only when you press \"Read clipboard\" in the Clipboard Manager, to copy the current clipboard text into a local snippet. No background clipboard monitoring.","retH2":"Deleting your data","retP":"Use <strong>Settings → Reset all OmniKit data</strong> to erase everything at once. Uninstalling the extension also removes all of it, since nothing exists outside your browser's local storage.","chH2":"Changes to this policy","chP":"If what OmniKit collects or does ever changes, this page will be updated and the date above will reflect it.","contactH2":"Contact","contactP":"Questions about this policy? Open an issue on the <a href=\"https://github.com/lpellegrino/omnikit\" target=\"_blank\" rel=\"noopener\">project repository</a>.","footer1":"OmniKit — a Swiss-army knife of small, local-first utilities for Chrome.","footer2":"This policy applies only to the OmniKit Chrome extension.","madeBy":"Made by CreativeApp","navFeatures":"Features","navShots":"Screenshots","navCta":"Add to Chrome","navMenu":"Menu","lbClose":"Close","makerBy":"made by","ctaSupport":"Support the project","freeNote":"Free, no account required. No ads, no tracking.","privacyH2":"Your data stays with you","bandH2":"Ready to try OmniKit?","bandP":"Free on the Chrome Web Store — installs in seconds and works entirely in your browser.","metaDesc":"OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything…"},"it":{"pageTitle":"OmniKit — Informativa sulla Privacy","navHome":"Home","navPrivacy":"Privacy","eyebrow":"Informativa sulla Privacy","h1":"Cosa fa OmniKit con i tuoi dati — in termini semplici.","updated":"Ultimo aggiornamento: 31 agosto 2026","lede":"OmniKit è un'estensione Chrome: una cassetta degli attrezzi nel pannello laterale con tante piccole utility. Non ha un server proprio — ogni strumento funziona dentro il tuo browser e tutto ciò che crei resta sul tuo dispositivo.","s1H2":"Riepilogo","s1P":"<strong>Nessun account, nessun backend, nessun analytics, nessun tracciamento, nessuna pubblicità.</strong> OmniKit non raccoglie, non salva su un server e non trasmette i tuoi dati a noi o a chiunque altro. Nulla lascia il tuo dispositivo, a meno che tu non chieda esplicitamente a uno strumento di recuperare un URL.","s2H2":"Cosa viene salvato in locale","s2P":"Le preferenze e i contenuti che crei negli strumenti sono salvati sul tuo dispositivo tramite <code>chrome.storage.local</code> (e <code>chrome.storage.session</code> per lo stato runtime di Auto Refresh): preferiti e ordine degli strumenti, tema e lingua, note, frammenti degli appunti aggiunti da te, cronologia della calcolatrice e impostazioni di Auto Refresh per sito se attivi \"ricorda\". OmniKit non usa <code>chrome.storage.sync</code>, quindi questi dati non vengono nemmeno sincronizzati tra i tuoi dispositivi.","s3H2":"Attività di rete","s3P":"OmniKit <strong>non effettua richieste di rete in background</strong>. L'unica richiesta possibile è quella che avvii tu nel <strong>Visualizzatore header HTTP</strong>: quando inserisci un URL e premi \"Recupera header\", il browser esegue una normale <code>fetch()</code> per mostrare gli header di risposta. Il risultato ti viene mostrato e poi scartato — mai registrato né inviato altrove. QR code, conversioni, formattazione, generazione di password, decodifica JWT e tutto il resto vengono eseguiti interamente sul dispositivo.","s4H2":"Cosa OmniKit non fa","s4l1":"Nessun analytics, telemetria o segnalazione di crash di alcun tipo.","s4l2":"Nessuna pubblicità, e nessun dato mai venduto o condiviso con chiunque.","s4l3":"Nessun server di terze parti — non esiste alcun backend.","s4l4":"Nessun account, accesso o informazione personale richiesti.","s4l5":"Nessun codice remoto: tutti gli script sono inclusi nel pacchetto; la calcolatrice usa un parser sicuro scritto a mano, mai <code>eval</code>.","permH2":"I permessi, spiegati","permTh1":"Permesso","permTh2":"A cosa serve","p_storage":"Salvare in locale le preferenze e i contenuti elencati sopra tramite <code>chrome.storage</code>. Nulla viene trasmesso.","p_activeTab":"Lo strumento \"Informazioni pagina\" legge i metadati della scheda che stai guardando (titolo, URL, conteggi di link/immagini/script, set di caratteri, viewport, user agent) — solo dopo che apri quello strumento. Il risultato ti viene mostrato e non salvato.","p_tabs":"Mostrare titolo, favicon e hostname della scheda su cui agisce Auto Refresh, e pre-compilare l'URL corrente in Analizzatore URL e Visualizzatore header HTTP. I metadati delle schede sono solo visualizzati nel pannello — mai salvati, registrati o trasmessi.","p_scripting":"Iniettare on-demand nella scheda attiva l'unica funzione di sola lettura di \"Informazioni pagina\". Nessun content script persistente.","p_browsingData":"Lo strumento \"Svuota cache\": eliminare le categorie di dati (cache, cookie, cronologia, download, dati dei moduli, storage locale) e l'intervallo di tempo scelti da te, previa conferma.","p_alarms":"Pianificare le ricariche di Auto Refresh (intervalli di 30 s o più) più un allarme di controllo che riattiva il service worker.","p_sidePanel":"Visualizzare l'interfaccia di OmniKit nel pannello laterale di Chrome quando fai clic sull'icona nella barra degli strumenti.","p_clipboardRead":"Facoltativo, richiesto solo quando premi \"Leggi appunti\" nel Gestore appunti, per copiare il testo corrente degli appunti in un frammento locale. Nessun monitoraggio degli appunti in background.","retH2":"Eliminare i tuoi dati","retP":"Usa <strong>Impostazioni → Reimposta tutti i dati di OmniKit</strong> per cancellare tutto in una volta. Anche disinstallare l'estensione rimuove tutto, perché nulla esiste al di fuori dello storage locale del browser.","chH2":"Modifiche a questa informativa","chP":"Se ciò che OmniKit raccoglie o fa dovesse cambiare, questa pagina verrà aggiornata e la data sopra lo rifletterà.","contactH2":"Contatti","contactP":"Domande su questa informativa? Apri una issue sul <a href=\"https://github.com/lpellegrino/omnikit\" target=\"_blank\" rel=\"noopener\">repository del progetto</a>.","footer1":"OmniKit — un coltellino svizzero di piccole utility locali per Chrome.","footer2":"Questa informativa si applica solo all'estensione Chrome OmniKit.","madeBy":"Realizzato da CreativeApp","navFeatures":"Funzionalità","navShots":"Screenshot","navCta":"Aggiungi a Chrome","navMenu":"Menu","lbClose":"Chiudi","makerBy":"fatto da","ctaSupport":"Sostieni il progetto","freeNote":"Gratis, nessun account richiesto. Niente pubblicità, niente tracciamento.","privacyH2":"I tuoi dati restano tuoi","bandH2":"Pronto a provare OmniKit?","bandP":"Gratis sul Chrome Web Store — si installa in pochi secondi e funziona tutto nel tuo browser.","metaDesc":"OmniKit è un'estensione Chrome: una cassetta degli attrezzi nel pannello laterale con tante piccole utility. Non ha un server proprio — ogni strumento…"}}</script>
 
-<header class="masthead">
-  <a class="brand" href="index.html">
-    <img src="assets/icons/icon128.png" alt="" />
-    <span class="brand-name">OmniKit</span>
-  </a>
-  <div class="nav-group">
-    <nav class="sitenav" aria-label="Site">
-      <a href="index.html" data-i18n="navHome">Home</a>
-      <a href="privacy.html" class="active" data-i18n="navPrivacy">Privacy</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html"><img src="assets/icons/icon128.png" alt="" />OmniKit</a>
+    <a class="maker" href="https://pellegrinoluigi.github.io/creativeapp/" title="CreativeApp"><span data-i18n="makerBy" data-i18n-html>made by</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.6 2.2 4.5 6.2 4.5c2.3 0 3.9 1.3 5.8 3.6 1.9-2.3 3.5-3.6 5.8-3.6 4 0 5.8 4.1 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg><b>CreativeApp</b></a>
+    <nav class="nav" aria-label="Site">
+        <a href="index.html#features" data-i18n="navFeatures" data-i18n-html>Features</a>
+        <a href="privacy.html" class="active" aria-current="page" data-i18n="navPrivacy" data-i18n-html>Privacy</a>
     </nav>
-    <nav class="langnav" aria-label="Language">
-      <a href="#" data-lang="en" class="active">EN</a>
-      <a href="#" data-lang="it">IT</a>
-    </nav>
+    <div class="top-right">
+      <nav class="langnav" aria-label="Language">
+        <a href="#" data-lang="en" class="active">EN</a><a href="#" data-lang="it">IT</a>
+      </nav>
+      <a class="btn btn-primary btn-sm cta-top" href="https://chromewebstore.google.com/detail/omnikit/aciicdnoaanhhpaepajnmchimhjggpgc" target="_blank" rel="noopener noreferrer" data-i18n="navCta" data-i18n-html>Add to Chrome</a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+        <div class="menu-list">
+        <a href="index.html#features" data-i18n="navFeatures" data-i18n-html>Features</a>
+        <a href="privacy.html" class="active" aria-current="page" data-i18n="navPrivacy" data-i18n-html>Privacy</a>
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/omnikit/aciicdnoaanhhpaepajnmchimhjggpgc" target="_blank" rel="noopener noreferrer" data-i18n="navCta" data-i18n-html>Add to Chrome</a>
+        </div>
+      </details>
+    </div>
   </div>
 </header>
 
 <main>
-  <p class="eyebrow" data-i18n="eyebrow">Privacy Policy</p>
-  <h1 data-i18n="h1">What OmniKit does with your data — in plain terms.</h1>
-  <p class="lede" data-i18n="lede"></p>
-  <p class="meta" data-i18n="updated">Last updated 31 August 2026</p>
+  <p class="eyebrow" data-i18n="eyebrow" data-i18n-html>Privacy Policy</p>
+  <h1 data-i18n="h1" data-i18n-html>What OmniKit does with your data — in plain terms.</h1>
+  <p class="lede" data-i18n="lede" data-i18n-html>OmniKit is a Chrome extension: a side-panel toolbox of small utilities. It has no server of its own — every tool runs inside your browser, and everything you create stays on your device.</p>
+  <p class="meta" data-i18n="updated" data-i18n-html>Last updated 31 August 2026</p>
+  <nav class="toc" aria-label="Contents">
+    <a href="#summary" data-i18n="s1H2" data-i18n-html>Summary</a>
+    <a href="#stored" data-i18n="s2H2" data-i18n-html>What is stored locally</a>
+    <a href="#network" data-i18n="s3H2" data-i18n-html>Network activity</a>
+    <a href="#not" data-i18n="s4H2" data-i18n-html>What OmniKit does not do</a>
+    <a href="#permissions" data-i18n="permH2" data-i18n-html>Permissions, explained</a>
+    <a href="#retention" data-i18n="retH2" data-i18n-html>Deleting your data</a>
+    <a href="#changes" data-i18n="chH2" data-i18n-html>Changes to this policy</a>
+    <a href="#contact" data-i18n="contactH2" data-i18n-html>Contact</a>
+  </nav>
 
   <section id="summary">
-    <h2 data-i18n="s1H2">Summary</h2>
-    <p data-i18n="s1P"></p>
+    <h2 data-i18n="s1H2" data-i18n-html>Summary</h2>
+    <p data-i18n="s1P" data-i18n-html><strong>No account, no backend, no analytics, no tracking, no ads.</strong> OmniKit does not collect, store on a server, or transmit your data to us or anyone else. Nothing leaves your device unless you explicitly ask a tool to fetch a URL.</p>
   </section>
 
   <section id="stored">
-    <h2 data-i18n="s2H2">What is stored locally</h2>
-    <p data-i18n="s2P"></p>
+    <h2 data-i18n="s2H2" data-i18n-html>What is stored locally</h2>
+    <p data-i18n="s2P" data-i18n-html>Preferences and the content you create in the tools are saved on your device via <code>chrome.storage.local</code> (and <code>chrome.storage.session</code> for Auto Refresh runtime state): favourites and tool order, theme and language, notes, clipboard snippets you add yourself, calculator history, and per-site Auto Refresh settings if you tick "remember". OmniKit does not use <code>chrome.storage.sync</code>, so this data is not even synced across your own devices.</p>
   </section>
 
   <section id="network">
-    <h2 data-i18n="s3H2">Network activity</h2>
-    <p data-i18n="s3P"></p>
+    <h2 data-i18n="s3H2" data-i18n-html>Network activity</h2>
+    <p data-i18n="s3P" data-i18n-html>OmniKit makes <strong>no background network requests</strong>. The only request it can make is the one you trigger yourself in the <strong>HTTP Header Viewer</strong>: when you enter a URL and press "Fetch headers", your browser performs an ordinary <code>fetch()</code> so the response headers can be displayed. The result is shown to you and discarded — never logged or sent anywhere. QR codes, conversions, formatting, password generation, JWT decoding and everything else run entirely on-device.</p>
   </section>
 
   <section id="not">
-    <h2 data-i18n="s4H2">What OmniKit does not do</h2>
+    <h2 data-i18n="s4H2" data-i18n-html>What OmniKit does not do</h2>
     <ul>
-      <li data-i18n="s4l1"></li>
-      <li data-i18n="s4l2"></li>
-      <li data-i18n="s4l3"></li>
-      <li data-i18n="s4l4"></li>
-      <li data-i18n="s4l5"></li>
+      <li data-i18n="s4l1" data-i18n-html>No analytics, telemetry, or crash reporting of any kind.</li>
+      <li data-i18n="s4l2" data-i18n-html>No advertising, and no data ever sold or shared with anyone.</li>
+      <li data-i18n="s4l3" data-i18n-html>No third-party servers — there is no backend at all.</li>
+      <li data-i18n="s4l4" data-i18n-html>No account, sign-in, or personal information requested or required.</li>
+      <li data-i18n="s4l5" data-i18n-html>No remote code: all scripts ship in the package; the calculator uses a hand-written safe parser, never <code>eval</code>.</li>
     </ul>
   </section>
 
   <section id="permissions">
-    <h2 data-i18n="permH2">Permissions, explained</h2>
+    <h2 data-i18n="permH2" data-i18n-html>Permissions, explained</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th data-i18n="permTh1">Permission</th><th data-i18n="permTh2">What it's for</th></tr>
+          <tr><th data-i18n="permTh1" data-i18n-html>Permission</th><th data-i18n="permTh2" data-i18n-html>What it's for</th></tr>
         </thead>
         <tbody>
-          <tr><td class="perm-name">storage</td><td data-i18n="p_storage"></td></tr>
-          <tr><td class="perm-name">activeTab</td><td data-i18n="p_activeTab"></td></tr>
-          <tr><td class="perm-name">tabs</td><td data-i18n="p_tabs"></td></tr>
-          <tr><td class="perm-name">scripting</td><td data-i18n="p_scripting"></td></tr>
-          <tr><td class="perm-name">browsingData</td><td data-i18n="p_browsingData"></td></tr>
-          <tr><td class="perm-name">alarms</td><td data-i18n="p_alarms"></td></tr>
-          <tr><td class="perm-name">sidePanel</td><td data-i18n="p_sidePanel"></td></tr>
-          <tr><td class="perm-name">clipboardRead</td><td data-i18n="p_clipboardRead"></td></tr>
+          <tr><td class="perm-name">storage</td><td data-i18n="p_storage" data-i18n-html>Save the local preferences and content listed above via <code>chrome.storage</code>. Nothing is transmitted.</td></tr>
+          <tr><td class="perm-name">activeTab</td><td data-i18n="p_activeTab" data-i18n-html>The Page Information tool reads metadata about the tab you are viewing (title, URL, counts of links/images/scripts, charset, viewport, user agent) — only after you open that tool. The snapshot is shown to you and not stored.</td></tr>
+          <tr><td class="perm-name">tabs</td><td data-i18n="p_tabs" data-i18n-html>Show the title, favicon and hostname of the tab Auto Refresh targets, and pre-fill the current URL in URL Parser and HTTP Header Viewer. Tab metadata is only rendered in the panel — never stored, logged or transmitted.</td></tr>
+          <tr><td class="perm-name">scripting</td><td data-i18n="p_scripting" data-i18n-html>Inject the one-shot, read-only Page Information collector into the active tab on demand. No persistent content scripts.</td></tr>
+          <tr><td class="perm-name">browsingData</td><td data-i18n="p_browsingData" data-i18n-html>The Clear Cache tool: delete the data categories (cache, cookies, history, downloads, form data, local storage) and time range you choose, after a confirmation.</td></tr>
+          <tr><td class="perm-name">alarms</td><td data-i18n="p_alarms" data-i18n-html>Schedule reloads for Auto Refresh (intervals of 30 s or more) plus a watchdog that revives the service worker.</td></tr>
+          <tr><td class="perm-name">sidePanel</td><td data-i18n="p_sidePanel" data-i18n-html>Display the OmniKit interface in Chrome's side panel when you click the toolbar icon.</td></tr>
+          <tr><td class="perm-name">clipboardRead</td><td data-i18n="p_clipboardRead" data-i18n-html>Optional, requested only when you press "Read clipboard" in the Clipboard Manager, to copy the current clipboard text into a local snippet. No background clipboard monitoring.</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="retention">
-    <h2 data-i18n="retH2">Deleting your data</h2>
-    <p data-i18n="retP"></p>
+    <h2 data-i18n="retH2" data-i18n-html>Deleting your data</h2>
+    <p data-i18n="retP" data-i18n-html>Use <strong>Settings → Reset all OmniKit data</strong> to erase everything at once. Uninstalling the extension also removes all of it, since nothing exists outside your browser's local storage.</p>
   </section>
 
   <section id="changes">
-    <h2 data-i18n="chH2">Changes to this policy</h2>
-    <p data-i18n="chP"></p>
+    <h2 data-i18n="chH2" data-i18n-html>Changes to this policy</h2>
+    <p data-i18n="chP" data-i18n-html>If what OmniKit collects or does ever changes, this page will be updated and the date above will reflect it.</p>
   </section>
 
   <section id="contact">
-    <h2 data-i18n="contactH2">Contact</h2>
-    <p data-i18n="contactP"></p>
+    <h2 data-i18n="contactH2" data-i18n-html>Contact</h2>
+    <p data-i18n="contactP" data-i18n-html>Questions about this policy? Open an issue on the <a href="https://github.com/lpellegrino/omnikit" target="_blank" rel="noopener">project repository</a>.</p>
   </section>
 </main>
 
 <footer>
-  <span data-i18n="footer1"></span>
-  <span data-i18n="footer2"></span>
-  <a class="footer-coffee" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer">☕ Support the project</a>
-  <span data-i18n="madeBy"></span>
+  <div class="fl">
+    <span data-i18n="footer1" data-i18n-html>OmniKit — a Swiss-army knife of small, local-first utilities for Chrome.</span>
+    <span data-i18n="footer2" data-i18n-html>This policy applies only to the OmniKit Chrome extension.</span>
+  </div>
+  <div class="links">
+    <a href="index.html" data-i18n="navHome" data-i18n-html>Home</a>
+    <a href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer" data-i18n="ctaSupport" data-i18n-html>Support the project</a>
+    <a href="https://pellegrinoluigi.github.io/creativeapp/" data-i18n="madeBy" data-i18n-html>Made by CreativeApp</a>
+  </div>
 </footer>
 
-<script>
-(function () {
-  var i18n = JSON.parse(document.getElementById('i18n-data').textContent);
-  function resolveLang() {
-    var saved = localStorage.getItem('omnikit.lang');
-    if (saved && i18n[saved]) return saved;
-    var browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
-    return i18n[browserLang] ? browserLang : 'en';
-  }
-  function applyLang(lang) {
-    var dict = i18n[lang] || i18n.en;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-    document.querySelectorAll('.langnav a').forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
-    });
-  }
-  document.querySelectorAll('.langnav a').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      var lang = a.getAttribute('data-lang');
-      localStorage.setItem('omnikit.lang', lang);
-      applyLang(lang);
-    });
-  });
-  applyLang(resolveLang());
-})();
-</script>
+<script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
 
 </body>
 </html>
