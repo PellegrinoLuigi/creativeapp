@@ -62,7 +62,7 @@ Il codice usa le stesse regole degli script di ForceKIT: campi `{{Nome}}`, `{{No
    node --test forcekit/marketplace/tools/*.test.mjs
    ```
 4. Apri la pagina in locale (`python3 -m http.server` nella radice del repo, poi `http://localhost:8000/forcekit/marketplace/`): il dettaglio mostra "integrità verificata".
-5. Commit e push su `main`. L'Action **Marketplace catalog** (`.github/workflows/marketplace.yml`) ripete il controllo; GitHub Pages pubblica in pochi minuti.
+5. Commit e push su `master` (il ramo pubblicato da GitHub Pages). L'Action **Marketplace catalog** (`.github/workflows/marketplace.yml`) ripete il controllo; GitHub Pages pubblica in pochi minuti.
 
 L'estensione controlla il catalogo ogni 6 ore (se ci sono script del Marketplace installati) o quando si apre la scheda Marketplace. Gli aggiornamenti non si installano mai da soli: l'utente li vede e li conferma.
 
