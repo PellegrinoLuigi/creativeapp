@@ -38,9 +38,20 @@
     });
   }
 
+  // Canonical della lingua mostrata (solo da qui, non nell'HTML): con ?lang=xx punta a se stessa,
+  // cosi' le versioni tradotte elencate negli hreflang restano indicizzabili.
+  function setCanonical(lang) {
+    if (!/^https?:$/.test(location.protocol)) return;
+    var link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement("link"); link.rel = "canonical"; document.head.appendChild(link); }
+    var base = location.origin + location.pathname.replace(/index\.html$/, "");
+    link.href = lang === "en" ? base : base + "?lang=" + lang;
+  }
+
   function apply(lang, data) {
     snapshotOriginal();
     document.documentElement.lang = lang;
+    setCanonical(lang);
     var dict = lang !== "en" ? data[lang] : null;
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {

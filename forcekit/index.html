@@ -3,612 +3,516 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-i18n="pageTitle">ForceKIT — The Salesforce toolkit for your browser</title>
-<meta name="description" content="ForceKIT is a free Chrome extension for Salesforce admins and developers: SOQL console, inline API names, profile/permission set comparator, dark mode, cache refresh, and more — all local, no server." data-i18n-attr="content:metaDesc" />
+<title data-i18n="pageTitle">ForceKIT — Free Chrome Extension for Salesforce Admins &amp; Devs</title>
+<!-- seo -->
+<meta name="description" content="Free Chrome extension for Salesforce admins and developers: command palette, notes with queries and logs, Apex scripts with forms, SOQL console, debug logs. All local." data-i18n-attr="content:metaDesc" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0176d3" />
+<link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/" />
+<link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/?lang=it" />
+<link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/?lang=fr" />
+<link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/?lang=es" />
+<link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/?lang=de" />
+<link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ForceKIT" />
+<meta property="og:title" content="ForceKIT — Free Chrome Extension for Salesforce Admins &amp; Devs" />
+<meta property="og:description" content="Free Chrome extension for Salesforce admins and developers: command palette, notes with queries and logs, Apex scripts with forms, SOQL console, debug logs. All local." />
+<meta property="og:url" content="https://pellegrinoluigi.github.io/creativeapp/forcekit/" />
+<meta property="og:image" content="https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="ForceKIT — the Salesforce toolkit for your browser" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="it_IT" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="de_DE" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ForceKIT — Free Chrome Extension for Salesforce Admins &amp; Devs" />
+<meta name="twitter:description" content="Free Chrome extension for Salesforce admins and developers: command palette, notes with queries and logs, Apex scripts with forms, SOQL console, debug logs. All local." />
+<meta name="twitter:image" content="https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/og-image.jpg" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://pellegrinoluigi.github.io/creativeapp/forcekit/#website","url":"https://pellegrinoluigi.github.io/creativeapp/forcekit/","name":"ForceKIT","inLanguage":["en","it","fr","es","de"]},{"@type":"SoftwareApplication","@id":"https://pellegrinoluigi.github.io/creativeapp/forcekit/#app","name":"ForceKIT","applicationCategory":"DeveloperApplication","applicationSubCategory":"Browser extension","operatingSystem":"Windows, macOS, Linux, ChromeOS","browserRequirements":"Requires Google Chrome","url":"https://pellegrinoluigi.github.io/creativeapp/forcekit/","downloadUrl":"https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna","installUrl":"https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna","image":"https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/logo.png","screenshot":["https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/palette.webp","https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/notes.webp","https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/script-runner.webp","https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/bubbles.webp","https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/soql-console.webp","https://pellegrinoluigi.github.io/creativeapp/forcekit/assets/screenshots/debug-log-list.webp"],"description":"Free Chrome extension for Salesforce admins and developers: command palette, notes with queries and logs, Apex scripts with forms, SOQL console, debug logs. All local.","featureList":["Command palette on every Salesforce page: shortcuts, records, apps and Setup","Notes with SOQL queries, debug logs, Apex scripts, org access and screenshots attached","Apex scripts with input forms, picklists and independent step actions","Floating bubbles that keep notes and scripts on top of any Salesforce page","Recorder that turns what you do on the page into a script","SOQL console with autocomplete and inline record editing","Debug log list with user, size and date filters, and a full log viewer","Data import, user search and profile and permission comparator","Sync through Chrome Sync or Google Drive, with optional encryption"],"inLanguage":["en","it","fr","es","de"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}]}</script>
+<!-- /seo -->
 <meta name="google-site-verification" content="ylKeWDk4cEMRdqbA56zG4f6BopDP_HE7MPNBg9Ineyk" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/icon16.png" />
 <link rel="apple-touch-icon" href="assets/icons/icon128.png" />
+<link rel="stylesheet" href="assets/site.css" />
 <style>
-  @font-face {
-    font-family: "ForceKIT Mono";
-    src: local("SF Mono"), local("Menlo"), local("Consolas");
-  }
 
-  :root {
-    --bg: #f7f8fa;
-    --surface: #ffffff;
-    --surface-raised: #ffffff;
-    --text: #1b1f24;
-    --text-dim: #5b6472;
-    --text-dimmer: #87909c;
-    --border: #e1e4ea;
-    --accent: #0071e3;
-    --accent-soft: rgba(0, 113, 227, 0.08);
-    --accent-line: rgba(0, 113, 227, 0.35);
-    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
-  }
+  /* hero */
+  .hero { position: relative; overflow: hidden; padding: 64px 0 40px; }
+  .hero::before { content: ""; position: absolute; inset: -30% -10% auto; height: 820px; background: radial-gradient(600px 360px at 18% 18%, rgba(1, 118, 211, 0.14), transparent 70%), radial-gradient(520px 340px at 82% 8%, rgba(27, 150, 255, 0.16), transparent 70%), radial-gradient(500px 320px at 60% 70%, rgba(11, 180, 232, 0.08), transparent 70%); pointer-events: none; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: center; gap: 48px; }
+  .pill { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px 6px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--text); font-size: 13px; font-weight: 700; }
+  .pill b { padding: 2px 8px; border-radius: 999px; background: var(--grad); color: #fff; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+  .eyebrow { margin: 22px 0 10px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  h1 { margin: 0; font-size: clamp(36px, 5.4vw, 60px); font-weight: 850; line-height: 1.04; letter-spacing: -0.035em; }
+  h1 .grad { display: block; padding-bottom: .14em; margin-bottom: -.14em; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { margin: 20px 0 0; max-width: 54ch; color: var(--text-dim); font-size: 18px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .free { margin: 14px 0 0; color: var(--text-dimmer); font-size: 13px; }
+  .stage { position: relative; }
+  .stage .main { display: block; width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); background: var(--surface); }
+  .stage .float { position: absolute; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow-lg); background: var(--surface); }
+  .stage .f1 { width: 42%; right: -4%; bottom: -14%; }
+  .stage .f2 { width: 30%; left: -6%; bottom: -8%; padding: 4px; }
+  @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; gap: 56px; } .stage { max-width: 720px; margin: 0 auto; } }
+  @media (max-width: 560px) { .stage .float { display: none; } .hero { padding-top: 40px; } }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0d1013;
-      --surface: #14171c;
-      --surface-raised: #191d23;
-      --text: #e7eaed;
-      --text-dim: #99a3b0;
-      --text-dimmer: #69707c;
-      --border: #262b33;
-      --accent: #4da3ff;
-      --accent-soft: rgba(77, 163, 255, 0.12);
-      --accent-line: rgba(77, 163, 255, 0.4);
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
-    }
-  }
+  /* novita' */
+  section { padding: 72px 0; }
+  .head { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+  .head .eyebrow { margin: 0 0 10px; }
+  h2 { margin: 0 0 12px; font-size: clamp(26px, 3.6vw, 40px); font-weight: 850; line-height: 1.1; letter-spacing: -0.03em; }
+  .head p { margin: 0; color: var(--text-dim); font-size: 17px; }
+  #new { padding-top: 96px; }
+  .new-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .new-card { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .new-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
+  .new-ic { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; margin-bottom: 8px; border-radius: 12px; background: var(--grad); color: #fff; }
+  .new-ic svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .new-tag { position: absolute; top: 18px; right: 18px; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+  .new-card h3 { margin: 0; font-size: 17px; letter-spacing: -0.01em; }
+  .new-card p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.5; }
+  .new-more { margin-top: auto; padding-top: 10px; color: var(--accent); font-size: 13.5px; font-weight: 700; }
+  @media (max-width: 960px) { .new-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .new-grid { grid-template-columns: 1fr; } }
 
-  :root[data-theme="dark"] {
-    --bg: #0d1013;
-    --surface: #14171c;
-    --surface-raised: #191d23;
-    --text: #e7eaed;
-    --text-dim: #99a3b0;
-    --text-dimmer: #69707c;
-    --border: #262b33;
-    --accent: #4da3ff;
-    --accent-soft: rgba(77, 163, 255, 0.12);
-    --accent-line: rgba(77, 163, 255, 0.4);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.35);
-  }
+  /* solo in ForceKIT */
+  .only { background: linear-gradient(180deg, transparent, var(--bg-2) 12%, var(--bg-2) 88%, transparent); }
+  .badge { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; background: var(--grad); color: #fff; font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  .spot { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; gap: 56px; padding: 44px 0; }
+  .spot.flip .spot-text { order: 2; }
+  .spot-num { display: block; margin-bottom: 8px; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 15px; font-weight: 900; letter-spacing: .08em; }
+  .spot h3 { margin: 0 0 12px; font-size: clamp(22px, 2.6vw, 30px); font-weight: 850; line-height: 1.15; letter-spacing: -0.025em; }
+  .spot p { margin: 0 0 18px; color: var(--text-dim); font-size: 16.5px; }
+  .spot ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+  .spot li { position: relative; padding-left: 28px; font-size: 15px; font-weight: 600; }
+  .spot li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent-soft) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230176d3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='m5 12 5 5L20 7'/></svg>") center / 11px no-repeat; }
+  .spot-media { display: flex; align-items: center; justify-content: center; min-height: 280px; padding: 26px; border-radius: 24px; background: radial-gradient(420px 260px at 30% 20%, var(--accent-soft), transparent 70%), var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); }
+  .stage .main, .spot-media img { cursor: zoom-in; }
+  .spot-media img { display: block; max-height: 470px; width: auto; border-radius: 14px; box-shadow: var(--shadow-lg); }
+  .spot-media img.small { max-width: 380px; }
+  .spot-media img.tall { max-height: 520px; }
+  .duo { display: flex; align-items: flex-start; gap: 16px; }
+  .duo img { width: 48%; height: auto; }
+  .rec-card { width: min(100%, 440px); border-radius: 16px; overflow: hidden; background: #0f172a; color: #cbd5e1; box-shadow: var(--shadow-lg); }
+  .rec-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #1e293b; color: #f8fafc; font-size: 13.5px; font-weight: 700; }
+  .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.2); animation: blink 1.6s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) { .rec-dot { animation: none; } }
+  .rec-card code { display: block; padding: 16px 18px 20px; font: 13px/1.85 ui-monospace, "SF Mono", Menlo, Consolas, monospace; white-space: pre-wrap; }
+  .rec-card .k { color: #7dd3fc; }
+  @media (max-width: 860px) { .spot { grid-template-columns: 1fr; gap: 26px; padding: 32px 0; } .spot.flip .spot-text { order: 0; } .duo { flex-direction: column; align-items: center; } .duo img { width: 100%; max-width: 420px; } }
 
-  :root[data-theme="light"] {
-    --bg: #f7f8fa;
-    --surface: #ffffff;
-    --surface-raised: #ffffff;
-    --text: #1b1f24;
-    --text-dim: #5b6472;
-    --text-dimmer: #87909c;
-    --border: #e1e4ea;
-    --accent: #0071e3;
-    --accent-soft: rgba(0, 113, 227, 0.08);
-    --accent-line: rgba(0, 113, 227, 0.35);
-    --shadow: 0 1px 2px rgba(20, 24, 30, 0.04), 0 8px 24px rgba(20, 24, 30, 0.05);
-  }
+  /* strumenti */
+  .tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .tool { display: flex; gap: 14px; padding: 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); }
+  .tool-ic { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: var(--accent-soft); font-size: 18px; }
+  .tool h3 { margin: 0 0 4px; font-size: 15px; letter-spacing: -0.01em; }
+  .tool p { margin: 0; color: var(--text-dim); font-size: 13.5px; line-height: 1.5; }
+  @media (max-width: 960px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .tools { grid-template-columns: 1fr; } }
 
-  * { box-sizing: border-box; }
+  /* galleria */
+  .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: dense; gap: 16px; }
+  .g { display: flex; flex-direction: column; gap: 10px; color: var(--text-dim); font-size: 13.5px; }
+  .g-frame { display: block; overflow: hidden; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease; }
+  .g:hover .g-frame { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .g img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .g-w { grid-column: span 2; } .g-w .g-frame { aspect-ratio: 16 / 10.5; }
+  .g-t .g-frame { aspect-ratio: 3 / 4.6; }
+  .g-p .g-frame { aspect-ratio: 3 / 4; }
+  .g-cap { padding: 0 4px; font-weight: 600; }
+  .hint { margin: 18px 0 0; text-align: center; color: var(--text-dimmer); font-size: 13px; }
+  @media (max-width: 960px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } .g-w { grid-column: auto; } }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
-    color: var(--text);
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .serif {
-    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-  }
-
-  .mono {
-    font-family: "ForceKIT Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  }
-
-  a { color: var(--accent); text-decoration: none; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-  header.masthead {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 20px;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-  }
-
-  .brand img { width: 24px; height: 24px; border-radius: 6px; display: block; }
-
-  .brand-name {
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-
-  .sitenav {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    font-size: 13px;
-  }
-
-  .sitenav a {
-    color: var(--text-dim);
-    font-weight: 600;
-  }
-
-  .sitenav a:hover { color: var(--accent); }
-  .sitenav a.active { color: var(--accent); }
-
-  .nav-group { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-
-  .langnav { display: flex; gap: 4px; }
-
-  .langnav a {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    padding: 3px 7px;
-    border-radius: 6px;
-    color: var(--text-dim);
-    background: var(--accent-soft);
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .langnav a:hover:not(.active) { color: var(--accent); }
-  .langnav a.active { color: #fff; background: var(--accent); }
-
-  main { max-width: 980px; margin: 0 auto; padding: 0 20px; }
-
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding: 72px 0 56px;
-  }
-
-  .hero img.logo { width: 72px; height: 72px; border-radius: 16px; box-shadow: var(--shadow); }
-
-  .eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin: 0;
-  }
-
-  h1 {
-    font-size: clamp(32px, 6vw, 52px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
-    margin: 0;
-    text-wrap: balance;
-    max-width: 20ch;
-  }
-
-  .lede {
-    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-    font-size: 19px;
-    color: var(--text-dim);
-    max-width: 56ch;
-    margin: 0;
-  }
-
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 13px 22px;
-    border-radius: 11px;
-    box-shadow: var(--shadow);
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-
-  .btn-primary:hover { filter: brightness(1.06); }
-
-  .btn-secondary {
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-secondary:hover { border-color: var(--accent-line); color: var(--accent); }
-
-  .free-note {
-    font-size: 12.5px;
-    color: var(--text-dimmer);
-    margin: 2px 0 0;
-  }
-
-  section.block { padding: 56px 0; border-top: 1px solid var(--border); }
-  section.block:first-of-type { border-top: none; }
-
-  .block-head { text-align: center; max-width: 60ch; margin: 0 auto 40px; }
-  .block-head .eyebrow { display: block; margin-bottom: 10px; }
-  .block-head h2 {
-    font-size: clamp(24px, 4vw, 32px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin: 0 0 10px;
-  }
-  .block-head p {
-    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-    color: var(--text-dim);
-    font-size: 17px;
-    margin: 0;
-  }
-
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-  }
-
-  .feature {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-    padding: 20px;
-  }
-
-  .feature .icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    background: var(--accent-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
-
-  .feature h3 {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0 0 6px;
-    letter-spacing: -0.01em;
-  }
-
-  .feature p {
-    font-size: 13.5px;
-    color: var(--text-dim);
-    margin: 0;
-    line-height: 1.55;
-  }
-
-  .trust {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: var(--shadow);
-    padding: 40px 24px;
-  }
-
-  .trust h2 {
-    font-size: clamp(22px, 4vw, 28px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-
-  .trust p {
-    font-family: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-    font-size: 17px;
-    color: var(--text-dim);
-    max-width: 56ch;
-    margin: 0;
-  }
-
-  .trust-links { display: flex; gap: 18px; font-size: 13px; font-weight: 600; margin-top: 4px; }
-
-  footer {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 40px 20px 60px;
-    font-size: 13px;
-    color: var(--text-dimmer);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px;
-    border-top: 1px solid var(--border);
-    margin-top: 16px;
-  }
-
-  footer .links { display: flex; gap: 16px; }
-  footer a { color: var(--text-dim); }
-  footer a:hover { color: var(--accent); }
-
-  .gallery-scroll {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding: 4px 4px 16px;
-    scroll-snap-type: x proximity;
-  }
-
-  .gallery-scroll::-webkit-scrollbar { height: 8px; }
-  .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
-
-  .shot {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    width: 260px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-
-  .shot .frame {
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-
-  .shot.wide { width: 380px; }
-  .shot.wide .frame { background: var(--bg); }
-  .shot.wide img { object-fit: contain; }
-
-  .shot p {
-    margin: 0;
-    padding: 12px 14px;
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
-  ::selection { background: var(--accent-soft); color: var(--text); }
+  /* fiducia e invito */
+  .trust { display: grid; gap: 12px; padding: 44px 32px; border-radius: 26px; text-align: center; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); }
+  .trust p { max-width: 64ch; margin: 0 auto; color: var(--text-dim); font-size: 16.5px; }
+  .trust-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 6px; font-size: 14px; font-weight: 700; }
+  .band { position: relative; overflow: hidden; padding: 52px 32px; border-radius: 28px; text-align: center; background: var(--grad); color: #fff; box-shadow: var(--shadow-lg); }
+  .band h2 { color: #fff; }
+  .band p { margin: 0 auto 24px; max-width: 54ch; color: rgba(255, 255, 255, 0.86); font-size: 17px; }
+  .band .btn-primary { background: #fff; color: #014486; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18); }
 </style>
 </head>
-<body>
+<body class="home">
 
-<script type="application/json" id="i18n-data">
-{"it":{"pageTitle":"ForceKIT — Il toolkit Salesforce per il tuo browser","metaDesc":"ForceKIT è un'estensione Chrome gratuita per amministratori e sviluppatori Salesforce: console SOQL, nomi API inline, comparatore Profile/Permission Set, dark mode, refresh della cache e altro — tutto in locale, senza server.","navHome":"Home","navPrivacy":"Privacy","navTerms":"Termini","navSupport":"Supporto","navDocs":"Guida","heroEyebrow":"Estensione Chrome per Salesforce","heroH1":"Il toolkit Salesforce pensato per il tuo browser.","heroLede":"Console SOQL, nomi API inline, un comparatore di Profile e Permission Set, dark mode, refresh della cache e cambio sessione — tutto in locale, senza alcun server di ForceKIT nel mezzo.","ctaPrimary":"Aggiungi a Chrome — è gratis","ctaSecondary":"Sostieni il progetto","freeNote":"Gratis, nessun account richiesto. Niente pubblicità, niente tracciamento.","featuresEyebrow":"Funzionalità","featuresH2":"Tutto quello che cerchi in Setup, a un pannello di distanza.","featuresP":"ForceKIT vive nel pannello laterale di Chrome e sulle pagine Salesforce che hai già aperte — nessuna app separata, nessun login aggiuntivo.","f1t":"Console SOQL &amp; SOSL","f1d":"Scrivi, esegui e salva query SOQL o SOSL su qualsiasi org connessa — per gli oggetti disponibili solo via Tooling l'API cambia da sola, con uno storico da rivedere in seguito.","f2t":"Nomi API inline","f2d":"Vedi i nomi API di campi e oggetti direttamente sulle pagine record e Setup — niente più deviazioni con tasto destro → ispeziona.","f3t":"Comparatore Profile &amp; Permission Set","f3d":"Confronta due Profile o Permission Set fianco a fianco e individua le differenze di accesso in pochi secondi.","f4t":"Refresh cache con un click","f4d":"Svuota la cache di Lightning e Setup senza un reload completo né perdere il punto in cui eri arrivato.","f5t":"Dark mode per Salesforce","f5d":"Un foglio di stile scuro iniettato direttamente nelle pagine Setup e Lightning, per gli occhi che se lo meritano.","f6t":"Switch Lightning ⇄ Classic","f6d":"Passa da un'interfaccia all'altra all'istante, senza cercare il toggle sepolto nel menu profilo.","f7t":"Org salvate e sessioni","f7d":"Riapri una sessione org salvata all'istante, incluse le org connesse via OAuth — niente login ripetuti.","f8t":"Sync su cloud opzionale","f8d":"Mantieni query, org salvate e preferenze sincronizzate tra i tuoi dispositivi tramite Chrome Sync o il tuo Google Drive — disattivata per impostazione predefinita.","f9t":"Crittografia locale","f9d":"Imposta una password principale o usa una passkey per crittografare le credenziali salvate e i segreti TOTP sul tuo dispositivo.","f10t":"Naviga tra i record correlati","f10d":"Clicca un lookup per aprire il record collegato, torna indietro con le briciole di pane, oppure gira la scheda per vedere tutti i correlati raggruppati per oggetto — senza mai lasciare la pagina.","f11t":"Esplora i Debug Log","f11d":"Cerca nel log grezzo per arrivare subito al punto che ti interessa, ed espandi o riduci l'albero di esecuzione Apex per seguire lo stack di chiamate senza perderti.","f12t":"Trasferimento dati in massa","f12d":"Incolla un CSV ed esegui insert, update, upsert, delete o undelete su REST, Tooling o Metadata API — con batch size configurabile e un click per ritentare solo le righe fallite.","f13t":"Authenticator TOTP integrato","f13d":"Genera codici 2FA senza uscire dal browser — aggiungi account a mano, importa un'immagine QR, oppure catturala direttamente dallo schermo.","f14t":"Colori d'accento personalizzabili","f14d":"Scegli tra una manciata di palette d'accento per rendere il pannello tuo — la modalità chiaro/scuro resta invariata, cambia solo l'accento.","shotsEyebrow":"Guardalo in azione","shotsH2":"Un vero toolkit, non un'altra scheda da tenere d'occhio.","shotsP":"Uno sguardo al pannello laterale — dall'esecuzione delle query al confronto dei permessi.","s1alt":"Confronto tra un Profile e un Permission Set fianco a fianco in ForceKIT","s1cap":"Confronta Profile e Permission Set fianco a fianco","s2alt":"Esecuzione di una query SOQL con i risultati in ForceKIT","s2cap":"Esegui query SOQL e sfoglia i risultati all'istante","s3alt":"Lettura di un debug log Salesforce con categorie in ForceKIT","s3cap":"Leggi i debug log con categorie colorate","s4alt":"Credenziali org Salesforce salvate in ForceKIT","s4cap":"Salva le org e passa da una sessione all'altra all'istante","s5alt":"Visualizzazione dei campi di un record e dei nomi API in ForceKIT","s5cap":"Ispeziona i campi dei record e i nomi API inline","s6alt":"Authenticator TOTP integrato in ForceKIT","s6cap":"Genera codici 2FA con l'authenticator integrato","s7alt":"Pannello impostazioni di ForceKIT con opzioni di sync e sessione, layout a larghezza intera","s7cap":"Personalizza pannello, sync e comportamento della sessione","s8alt":"Gestione dei livelli di log e consultazione dell'elenco Debug Log in ForceKIT","s8cap":"Gestisci i livelli di log e consulta l'elenco","s9alt":"Filtro dei campi record per tipo nella vista Dettaglio di ForceKIT","s9cap":"Filtra i campi del record per tipo in Dettaglio","s10alt":"Query SOQL recenti e salvate in ForceKIT","s10cap":"Ritrova le query recenti e quelle salvate","s11alt":"Visualizzazione di tutti i correlati raggruppati per oggetto in ForceKIT","s11cap":"Vedi tutti i correlati raggruppati per oggetto","s12alt":"Pannello impostazioni di ForceKIT con opzioni di sync nel side panel","s12cap":"Configura sync e impostazioni del pannello","s13alt":"Ricerca utenti dell'org Salesforce con colonne configurabili in ForceKIT","s13cap":"Cerca gli utenti dell'org, scegli quali colonne mostrare","trustEyebrow":"Nessun server, nessun account, nessun tracciamento","trustH2":"La tua org, il tuo browser, i tuoi dati.","trustP":"ForceKIT non ha un server proprio. L'unico traffico di rete che genera va direttamente dal tuo browser alla tua org Salesforce, oppure a Google Chrome Sync o al tuo Google Drive se attivi tu stesso una di queste opzioni. Non viene inviato nulla a noi, perché non esiste alcun \"noi\" a cui inviarlo.","trustLink1":"Leggi l'Informativa sulla Privacy →","trustLink2":"Leggi i Termini →","footerCopyright":"© 2026 ForceKIT. Non affiliato, approvato o sponsorizzato da Salesforce, Inc.","footerContact":"Contatti"},
-"fr":{"pageTitle":"ForceKIT — La boîte à outils Salesforce pour votre navigateur","metaDesc":"ForceKIT est une extension Chrome gratuite pour les administrateurs et développeurs Salesforce : console SOQL, noms d'API en ligne, comparateur de Profils/Permission Sets, mode sombre, actualisation du cache, et plus — tout en local, sans serveur.","navHome":"Accueil","navPrivacy":"Confidentialité","navTerms":"Conditions","navSupport":"Assistance","navDocs":"Guide","heroEyebrow":"Extension Chrome pour Salesforce","heroH1":"La boîte à outils Salesforce conçue pour votre navigateur.","heroLede":"Console SOQL, noms d'API en ligne, un comparateur de Profils et Permission Sets, mode sombre, actualisation du cache et changement de session — le tout en local, sans aucun serveur propre à ForceKIT entre les deux.","ctaPrimary":"Ajouter à Chrome — c'est gratuit","ctaSecondary":"Soutenir le projet","freeNote":"Gratuit, aucun compte requis. Pas de publicité, pas de suivi.","featuresEyebrow":"Fonctionnalités","featuresH2":"Tout ce que vous cherchez dans Setup, à un panneau de distance.","featuresP":"ForceKIT vit dans le panneau latéral de Chrome et sur les pages Salesforce que vous avez déjà ouvertes — pas d'application séparée, pas de connexion supplémentaire.","f1t":"Console SOQL &amp; SOSL","f1d":"Écrivez, exécutez et enregistrez des requêtes SOQL ou SOSL sur n'importe quelle org connectée — les objets réservés à la Tooling API basculent automatiquement, avec un historique consultable plus tard.","f2t":"Noms d'API en ligne","f2d":"Affichez les noms d'API des champs et objets directement sur les pages d'enregistrement et de Setup — plus besoin de détour par clic droit → inspecter.","f3t":"Comparateur Profil &amp; Permission Set","f3d":"Comparez deux Profils ou Permission Sets côte à côte et repérez les différences d'accès en quelques secondes.","f4t":"Actualisation du cache en un clic","f4d":"Videz le cache Lightning et Setup obsolète sans rechargement complet ni perdre votre place.","f5t":"Mode sombre pour Salesforce","f5d":"Une feuille de style sombre injectée directement dans les pages Setup et Lightning, pour les yeux qui le méritent.","f6t":"Bascule Lightning ⇄ Classic","f6d":"Passez d'une interface à l'autre instantanément, sans chercher le bouton caché dans le menu de profil.","f7t":"Orgs enregistrées &amp; sessions","f7d":"Rouvrez une session d'org enregistrée instantanément, y compris les orgs connectées via OAuth — plus de connexions répétées.","f8t":"Synchronisation cloud optionnelle","f8d":"Gardez vos requêtes, orgs enregistrées et préférences synchronisées entre vos appareils via Chrome Sync ou votre propre Google Drive — désactivée par défaut.","f9t":"Chiffrement local","f9d":"Définissez un mot de passe principal ou utilisez une clé d'accès (passkey) pour chiffrer les identifiants enregistrés et les secrets TOTP sur votre appareil.","f10t":"Explorez les enregistrements liés","f10d":"Cliquez sur un lookup pour ouvrir son enregistrement, revenez en arrière grâce au fil d'Ariane, ou retournez la carte pour voir tous les enregistrements liés regroupés par objet — sans jamais quitter la page.","f11t":"Explorateur de Debug Logs","f11d":"Recherchez dans le log brut pour aller droit à ce qui compte, et développez ou réduisez l'arbre d'exécution Apex pour suivre la pile d'appels sans vous perdre.","f12t":"Transfert de données en masse","f12d":"Collez un CSV et effectuez insert, update, upsert, delete ou undelete sur l'API REST, Tooling ou Metadata — avec une taille de lot configurable et une relance en un clic pour les seules lignes échouées.","f13t":"Authentificateur TOTP intégré","f13d":"Générez des codes 2FA sans quitter le navigateur — ajoutez des comptes manuellement, importez une image QR, ou capturez-la directement à l'écran.","f14t":"Couleurs d'accent personnalisables","f14d":"Choisissez parmi plusieurs palettes d'accent pour personnaliser le panneau — les modes clair et sombre restent inchangés, seul l'accent s'adapte.","shotsEyebrow":"En action","shotsH2":"Une vraie boîte à outils, pas un onglet de plus à surveiller.","shotsP":"Un aperçu du panneau latéral — de l'exécution de requêtes à la comparaison des permissions.","s1alt":"Comparaison d'un Profil et d'un Permission Set côte à côte dans ForceKIT","s1cap":"Comparez des Profils et Permission Sets côte à côte","s2alt":"Exécution d'une requête SOQL et affichage des résultats dans ForceKIT","s2cap":"Exécutez des requêtes SOQL et parcourez les résultats instantanément","s3alt":"Lecture d'un journal de débogage Salesforce catégorisé dans ForceKIT","s3cap":"Lisez les journaux de débogage avec des catégories colorées","s4alt":"Identifiants d'org Salesforce enregistrés dans ForceKIT","s4cap":"Enregistrez des orgs et changez de session instantanément","s5alt":"Affichage des champs d'un enregistrement et des noms d'API dans ForceKIT","s5cap":"Inspectez les champs d'enregistrement et les noms d'API en ligne","s6alt":"Authentificateur TOTP intégré dans ForceKIT","s6cap":"Générez des codes 2FA avec l'authentificateur intégré","s7alt":"Panneau de paramètres ForceKIT avec options de synchronisation et de session, en pleine largeur","s7cap":"Ajustez le panneau, la synchronisation et le comportement de session","s8alt":"Gestion des niveaux de log et consultation de la liste des Debug Logs dans ForceKIT","s8cap":"Gérez les niveaux de log et parcourez la liste","s9alt":"Filtrage des champs d'un enregistrement par type dans la vue Détail de ForceKIT","s9cap":"Filtrez les champs de l'enregistrement par type dans Détail","s10alt":"Requêtes SOQL récentes et enregistrées dans ForceKIT","s10cap":"Retrouvez vos requêtes récentes et enregistrées","s11alt":"Affichage de tous les enregistrements liés regroupés par objet dans ForceKIT","s11cap":"Voyez tous les enregistrements liés regroupés par objet","s12alt":"Panneau de paramètres ForceKIT avec les options de synchronisation dans le panneau latéral","s12cap":"Configurez la synchronisation et les paramètres du panneau","s13alt":"Recherche des utilisateurs de l'org Salesforce avec des colonnes configurables dans ForceKIT","s13cap":"Recherchez les utilisateurs de l'org, choisissez les colonnes à afficher","trustEyebrow":"Aucun serveur, aucun compte, aucun suivi","trustH2":"Votre org, votre navigateur, vos données.","trustP":"ForceKIT n'a pas de serveur propre. Le seul trafic réseau qu'elle génère va directement de votre navigateur à votre propre org Salesforce, ou à Google Chrome Sync ou à votre propre Google Drive si vous activez l'un de ces services vous-même. Rien n'est envoyé chez nous, car il n'y a pas de « nous » à qui l'envoyer.","trustLink1":"Lire la politique de confidentialité →","trustLink2":"Lire les conditions →","footerCopyright":"© 2026 ForceKIT. Non affilié, approuvé ou sponsorisé par Salesforce, Inc.","footerContact":"Contact"},
-"es":{"pageTitle":"ForceKIT — El kit de herramientas de Salesforce para tu navegador","metaDesc":"ForceKIT es una extensión gratuita de Chrome para administradores y desarrolladores de Salesforce: consola SOQL, nombres de API en línea, comparador de Profiles/Permission Sets, modo oscuro, actualización de caché y más — todo en local, sin servidor.","navHome":"Inicio","navPrivacy":"Privacidad","navTerms":"Términos","navSupport":"Soporte","navDocs":"Guía","heroEyebrow":"Extensión de Chrome para Salesforce","heroH1":"El kit de herramientas de Salesforce pensado para tu navegador.","heroLede":"Consola SOQL, nombres de API en línea, un comparador de Profiles y Permission Sets, modo oscuro, actualización de caché y cambio de sesión — todo en local, sin ningún servidor propio de ForceKIT de por medio.","ctaPrimary":"Añadir a Chrome — es gratis","ctaSecondary":"Apoya el proyecto","freeNote":"Gratis, sin necesidad de cuenta. Sin anuncios, sin seguimiento.","featuresEyebrow":"Funciones","featuresH2":"Todo lo que buscas en Setup, a un panel de distancia.","featuresP":"ForceKIT vive en el panel lateral de Chrome y en las páginas de Salesforce que ya tienes abiertas — sin aplicación aparte, sin inicio de sesión adicional.","f1t":"Consola SOQL &amp; SOSL","f1d":"Escribe, ejecuta y guarda consultas SOQL o SOSL en cualquier org conectada — los objetos exclusivos de la Tooling API cambian de API automáticamente, con un historial que puedes revisar más tarde.","f2t":"Nombres de API en línea","f2d":"Ve los nombres de API de campos y objetos directamente en las páginas de registros y Setup — sin más desvíos de clic derecho → inspeccionar.","f3t":"Comparador de Profile &amp; Permission Set","f3d":"Compara dos Profiles o Permission Sets uno al lado del otro y detecta diferencias de acceso en segundos.","f4t":"Actualización de caché con un clic","f4d":"Vacía la caché desactualizada de Lightning y Setup sin una recarga completa ni perder el punto en el que estabas.","f5t":"Modo oscuro para Salesforce","f5d":"Una hoja de estilos oscura inyectada directamente en las páginas de Setup y Lightning, para los ojos que se lo merecen.","f6t":"Cambio Lightning ⇄ Classic","f6d":"Cambia entre interfaces al instante, sin buscar el interruptor escondido en el menú de perfil.","f7t":"Orgs guardadas y sesiones","f7d":"Reabre una sesión de org guardada al instante, incluidas las orgs conectadas mediante OAuth — sin inicios de sesión repetidos.","f8t":"Sincronización en la nube opcional","f8d":"Mantén tus consultas, orgs guardadas y preferencias sincronizadas entre tus dispositivos mediante Chrome Sync o tu propio Google Drive — desactivada de forma predeterminada.","f9t":"Cifrado local","f9d":"Configura una contraseña maestra o usa una clave de acceso (passkey) para cifrar las credenciales guardadas y los secretos TOTP en tu dispositivo.","f10t":"Explora los registros relacionados","f10d":"Haz clic en un lookup para abrir su registro, vuelve atrás con las migas de pan, o gira la tarjeta para ver todos los relacionados agrupados por objeto — sin salir nunca de la página.","f11t":"Explorador de Debug Logs","f11d":"Busca dentro del log en bruto para ir directo a lo que importa, y expande o contrae el árbol de ejecución de Apex para seguir la pila de llamadas sin perderte.","f12t":"Transferencia masiva de datos","f12d":"Pega un CSV y realiza insert, update, upsert, delete o undelete en la API REST, Tooling o Metadata — con tamaño de lote configurable y un clic para reintentar solo las filas fallidas.","f13t":"Autenticador TOTP integrado","f13d":"Genera códigos 2FA sin salir del navegador — añade cuentas manualmente, importa una imagen QR, o captúrala directamente desde la pantalla.","f14t":"Colores de acento personalizables","f14d":"Elige entre varias paletas de acento para hacer tuyo el panel — el modo claro y oscuro no cambian, solo el acento se adapta.","shotsEyebrow":"Míralo en acción","shotsH2":"Un kit de herramientas de verdad, no otra pestaña que vigilar.","shotsP":"Un vistazo al panel lateral — desde ejecutar consultas hasta comparar permisos.","s1alt":"Comparación de un Profile y un Permission Set uno al lado del otro en ForceKIT","s1cap":"Compara Profiles y Permission Sets uno al lado del otro","s2alt":"Ejecución de una consulta SOQL con resultados en ForceKIT","s2cap":"Ejecuta consultas SOQL y explora los resultados al instante","s3alt":"Lectura de un debug log de Salesforce con categorías en ForceKIT","s3cap":"Lee los debug logs con categorías codificadas por color","s4alt":"Credenciales de org de Salesforce guardadas en ForceKIT","s4cap":"Guarda orgs y cambia de sesión al instante","s5alt":"Visualización de los campos de un registro y nombres de API en ForceKIT","s5cap":"Inspecciona los campos de un registro y los nombres de API en línea","s6alt":"Autenticador TOTP integrado en ForceKIT","s6cap":"Genera códigos 2FA con el autenticador integrado","s7alt":"Panel de ajustes de ForceKIT con opciones de sincronización y sesión, en diseño de ancho completo","s7cap":"Ajusta el panel, la sincronización y el comportamiento de la sesión","s8alt":"Gestión de los niveles de log y navegación por la lista de Debug Logs en ForceKIT","s8cap":"Gestiona los niveles de log y consulta la lista","s9alt":"Filtrado de campos de un registro por tipo en la vista Detalle de ForceKIT","s9cap":"Filtra los campos del registro por tipo en Detalle","s10alt":"Consultas SOQL recientes y guardadas en ForceKIT","s10cap":"Encuentra tus consultas recientes y guardadas","s11alt":"Visualización de todos los registros relacionados agrupados por objeto en ForceKIT","s11cap":"Ve todos los relacionados agrupados por objeto","s12alt":"Panel de ajustes de ForceKIT con opciones de sincronización en el panel lateral","s12cap":"Configura la sincronización y los ajustes del panel","s13alt":"Búsqueda de usuarios de la org de Salesforce con columnas configurables en ForceKIT","s13cap":"Busca usuarios de la org, elige qué columnas mostrar","trustEyebrow":"Sin servidor, sin cuentas, sin seguimiento","trustH2":"Tu org, tu navegador, tus datos.","trustP":"ForceKIT no tiene servidor propio. El único tráfico de red que genera va directamente desde tu navegador a tu propia org de Salesforce, o a Google Chrome Sync o a tu propio Google Drive si activas tú mismo alguna de esas opciones. No se nos envía nada, porque no existe ningún «nosotros» al que enviarlo.","trustLink1":"Lee la Política de Privacidad →","trustLink2":"Lee los Términos →","footerCopyright":"© 2026 ForceKIT. No afiliado, respaldado ni patrocinado por Salesforce, Inc.","footerContact":"Contacto"},
-"de":{"pageTitle":"ForceKIT — Das Salesforce-Toolkit für deinen Browser","metaDesc":"ForceKIT ist eine kostenlose Chrome-Erweiterung für Salesforce-Administratoren und -Entwickler: SOQL-Konsole, Inline-API-Namen, Profile/Permission-Set-Vergleich, Dark Mode, Cache-Aktualisierung und mehr — alles lokal, ohne Server.","navHome":"Start","navPrivacy":"Datenschutz","navTerms":"Bedingungen","navSupport":"Support","navDocs":"Anleitung","heroEyebrow":"Chrome-Erweiterung für Salesforce","heroH1":"Das Salesforce-Toolkit für deinen Browser.","heroLede":"SOQL-Konsole, Inline-API-Namen, ein Profile- und Permission-Set-Vergleich, Dark Mode, Cache-Aktualisierung und Sitzungswechsel — alles lokal, ohne eigenen Server von ForceKIT dazwischen.","ctaPrimary":"Zu Chrome hinzufügen — kostenlos","ctaSecondary":"Projekt unterstützen","freeNote":"Kostenlos, kein Konto erforderlich. Keine Werbung, kein Tracking.","featuresEyebrow":"Funktionen","featuresH2":"Alles, was du in Setup suchst, nur ein Panel entfernt.","featuresP":"ForceKIT lebt im Seitenleisten-Panel von Chrome und auf den Salesforce-Seiten, die du bereits geöffnet hast — keine separate App, keine zusätzliche Anmeldung.","f1t":"SOQL- &amp; SOSL-Konsole","f1d":"Schreibe, führe aus und speichere SOQL- oder SOSL-Abfragen für jede verbundene Org — Objekte, die nur über die Tooling API laufen, wechseln automatisch die API, mit einem Verlauf, den du später erneut aufrufen kannst.","f2t":"Inline-API-Namen","f2d":"Sieh API-Namen von Feldern und Objekten direkt auf Datensatz- und Setup-Seiten — kein Umweg mehr über Rechtsklick → Untersuchen.","f3t":"Profile- &amp; Permission-Set-Vergleich","f3d":"Vergleiche zwei Profile oder Permission Sets nebeneinander und erkenne Zugriffsunterschiede in Sekunden.","f4t":"Cache-Aktualisierung mit einem Klick","f4d":"Leere veralteten Lightning- und Setup-Cache ohne kompletten Neuladevorgang und ohne deine Position zu verlieren.","f5t":"Dark Mode für Salesforce","f5d":"Ein dunkles Stylesheet, direkt in Setup- und Lightning-Seiten injiziert, für Augen, die es verdient haben.","f6t":"Lightning ⇄ Classic wechseln","f6d":"Wechsle sofort zwischen den Oberflächen, ohne den versteckten Schalter im Profilmenü zu suchen.","f7t":"Gespeicherte Orgs &amp; Sitzungen","f7d":"Öffne eine gespeicherte Org-Sitzung sofort erneut, auch für über OAuth verbundene Orgs — keine wiederholten Anmeldungen.","f8t":"Optionale Cloud-Synchronisierung","f8d":"Halte deine Abfragen, gespeicherten Orgs und Einstellungen über Chrome Sync oder dein eigenes Google Drive zwischen deinen Geräten synchron — standardmäßig deaktiviert.","f9t":"Lokale Verschlüsselung","f9d":"Lege ein Master-Passwort fest oder nutze einen Passkey, um gespeicherte Anmeldedaten und TOTP-Geheimnisse auf deinem Gerät zu verschlüsseln.","f10t":"Verknüpfte Datensätze erkunden","f10d":"Klicke auf ein Lookup-Feld, um den verknüpften Datensatz zu öffnen, kehre über die Breadcrumbs zurück, oder drehe die Karte um, um alle verknüpften Datensätze nach Objekt gruppiert zu sehen — ganz ohne die Seite zu verlassen.","f11t":"Debug-Log-Explorer","f11d":"Durchsuche das Rohprotokoll, um direkt zum Wichtigen zu springen, und klappe den Apex-Ausführungsbaum auf oder zu, um dem Call-Stack zu folgen, ohne den Überblick zu verlieren.","f12t":"Massen-Datenübertragung","f12d":"Füge ein CSV ein und führe Insert, Update, Upsert, Delete oder Undelete über die REST-, Tooling- oder Metadata-API aus — mit einstellbarer Batch-Größe und einem Klick, um nur die fehlgeschlagenen Zeilen erneut zu versuchen.","f13t":"Integrierter TOTP-Authenticator","f13d":"Erzeuge 2FA-Codes, ohne den Browser zu verlassen — füge Konten manuell hinzu, importiere ein QR-Bild, oder scanne es direkt vom Bildschirm.","f14t":"Anpassbare Akzentfarben","f14d":"Wähle aus mehreren Akzentpaletten, um das Panel zu deinem zu machen — Hell- und Dunkelmodus bleiben unverändert, nur der Akzent passt sich an.","shotsEyebrow":"In Aktion","shotsH2":"Ein echtes Toolkit, kein weiterer Tab zum Überwachen.","shotsP":"Ein Blick in das Seitenleisten-Panel — vom Ausführen von Abfragen bis zum Vergleichen von Berechtigungen.","s1alt":"Vergleich eines Profile und eines Permission Set nebeneinander in ForceKIT","s1cap":"Vergleiche Profile und Permission Sets nebeneinander","s2alt":"Ausführung einer SOQL-Abfrage mit Ergebnissen in ForceKIT","s2cap":"Führe SOQL-Abfragen aus und durchsuche die Ergebnisse sofort","s3alt":"Lesen eines kategorisierten Salesforce-Debug-Logs in ForceKIT","s3cap":"Lies Debug-Logs mit farblich codierten Kategorien","s4alt":"Gespeicherte Salesforce-Org-Anmeldedaten in ForceKIT","s4cap":"Speichere Orgs und wechsle sofort zwischen Sitzungen","s5alt":"Anzeige von Datensatzfeldern und API-Namen in ForceKIT","s5cap":"Untersuche Datensatzfelder und Inline-API-Namen","s6alt":"Integrierter TOTP-Authenticator in ForceKIT","s6cap":"Erzeuge 2FA-Codes mit dem integrierten Authenticator","s7alt":"ForceKIT-Einstellungspanel mit Sync- und Sitzungsoptionen im Vollbreiten-Layout","s7cap":"Passe Panel-, Sync- und Sitzungsverhalten an","s8alt":"Verwaltung der Log-Level und Durchsuchen der Debug-Log-Liste in ForceKIT","s8cap":"Verwalte Log-Level und durchsuche die Liste","s9alt":"Filtern von Datensatzfeldern nach Typ in der Detailansicht von ForceKIT","s9cap":"Filtere Datensatzfelder nach Typ in Details","s10alt":"Zuletzt ausgeführte und gespeicherte SOQL-Abfragen in ForceKIT","s10cap":"Finde zuletzt ausgeführte und gespeicherte Abfragen wieder","s11alt":"Anzeige aller verknüpften Datensätze gruppiert nach Objekt in ForceKIT","s11cap":"Sieh alle verknüpften Datensätze gruppiert nach Objekt","s12alt":"ForceKIT-Einstellungspanel mit Sync-Optionen in der Seitenleiste","s12cap":"Konfiguriere Sync- und Panel-Einstellungen","s13alt":"Suche nach Org-Benutzern mit einstellbaren Spalten in ForceKIT","s13cap":"Suche Org-Benutzer, wähle die anzuzeigenden Spalten","trustEyebrow":"Kein Server, keine Konten, kein Tracking","trustH2":"Deine Org, dein Browser, deine Daten.","trustP":"ForceKIT hat keinen eigenen Server. Der einzige Netzwerkverkehr, den es erzeugt, geht direkt von deinem Browser zu deiner eigenen Salesforce-Org oder zu Google Chrome Sync bzw. deinem eigenen Google Drive, falls du eines dieser Angebote selbst aktivierst. Es wird nichts an uns gesendet, weil es kein „uns“ gibt, an das man etwas senden könnte.","trustLink1":"Datenschutzerklärung lesen →","trustLink2":"Nutzungsbedingungen lesen →","footerCopyright":"© 2026 ForceKIT. Nicht mit Salesforce, Inc. verbunden, von ihr unterstützt oder gesponsert.","footerContact":"Kontakt"}}
-</script>
+<script type="application/json" id="i18n-data">{"it":{"pageTitle":"ForceKIT — Estensione Chrome gratuita per Salesforce","metaDesc":"Estensione Chrome gratuita per admin e sviluppatori Salesforce: palette di comandi, note con query e log, script Apex con moduli, console SOQL, debug log. Tutto in locale.","navHome":"Home","navPrivacy":"Privacy","navTerms":"Termini","navSupport":"Supporto","navDocs":"Guida","heroEyebrow":"Estensione Chrome per Salesforce","heroH1":"Il toolkit Salesforce pensato per il tuo browser.","heroLede":"Una palette di comandi in ogni pagina Salesforce, note che tengono insieme query, log e screenshot, script Apex con veri moduli di input — e poi console SOQL, debug log, comparatore di profili e molto altro. Tutto in locale, senza nessun nostro server nel mezzo.","ctaPrimary":"Aggiungi a Chrome — è gratis","ctaSecondary":"Sostieni il progetto","freeNote":"Gratis, nessun account richiesto. Niente pubblicità, niente tracciamento.","featuresEyebrow":"Funzionalità","featuresH2":"Tutto quello che cerchi in Setup, a un pannello di distanza.","featuresP":"ForceKIT vive nel pannello laterale di Chrome e sulle pagine Salesforce che hai già aperte — nessuna app separata, nessun login aggiuntivo.","f1t":"Console SOQL &amp; SOSL","f1d":"Scrivi, esegui e salva query SOQL o SOSL su qualsiasi org connessa — per gli oggetti disponibili solo via Tooling l'API cambia da sola, con uno storico da rivedere in seguito.","f2t":"Nomi API inline","f2d":"Vedi i nomi API di campi e oggetti direttamente sulle pagine record e Setup — niente più deviazioni con tasto destro → ispeziona.","f3t":"Comparatore Profile &amp; Permission Set","f3d":"Confronta due Profile o Permission Set fianco a fianco e individua le differenze di accesso in pochi secondi.","f4t":"Refresh cache con un click","f4d":"Svuota la cache di Lightning e Setup senza un reload completo né perdere il punto in cui eri arrivato.","f5t":"Dark mode per Salesforce","f5d":"Un foglio di stile scuro iniettato direttamente nelle pagine Setup e Lightning, per gli occhi che se lo meritano.","f6t":"Switch Lightning ⇄ Classic","f6d":"Passa da un'interfaccia all'altra all'istante, senza cercare il toggle sepolto nel menu profilo.","f7t":"Org salvate e sessioni","f7d":"Riapri una sessione org salvata all'istante, incluse le org connesse via OAuth — niente login ripetuti.","f8t":"Sync su cloud opzionale","f8d":"Mantieni query, org salvate e preferenze sincronizzate tra i tuoi dispositivi tramite Chrome Sync o il tuo Google Drive — disattivata per impostazione predefinita.","f9t":"Crittografia locale","f9d":"Imposta una password principale o usa una passkey per crittografare le credenziali salvate e i segreti TOTP sul tuo dispositivo.","f10t":"Naviga tra i record correlati","f10d":"Clicca un lookup per aprire il record collegato, torna indietro con le briciole di pane, oppure gira la scheda per vedere tutti i correlati raggruppati per oggetto — senza mai lasciare la pagina.","f11t":"Esplora i Debug Log","f11d":"Cerca nel log grezzo per arrivare subito al punto che ti interessa, ed espandi o riduci l'albero di esecuzione Apex per seguire lo stack di chiamate senza perderti.","f12t":"Trasferimento dati in massa","f12d":"Incolla un CSV ed esegui insert, update, upsert, delete o undelete su REST, Tooling o Metadata API — con batch size configurabile e un click per ritentare solo le righe fallite.","f13t":"Authenticator TOTP integrato","f13d":"Genera codici 2FA senza uscire dal browser — aggiungi account a mano, importa un'immagine QR, oppure catturala direttamente dallo schermo.","f14t":"Colori d'accento personalizzabili","f14d":"Scegli tra una manciata di palette d'accento per rendere il pannello tuo — la modalità chiaro/scuro resta invariata, cambia solo l'accento.","shotsEyebrow":"Guardalo in azione","shotsH2":"Un vero toolkit, non un'altra scheda da tenere d'occhio.","shotsP":"Uno sguardo alla palette nella pagina e al pannello laterale — dalle scorciatoie e le note fino a script e log.","trustEyebrow":"Nessun server, nessun account, nessun tracciamento","trustH2":"La tua org, il tuo browser, i tuoi dati.","trustP":"ForceKIT non ha un server proprio. L'unico traffico di rete che genera va direttamente dal tuo browser alla tua org Salesforce, oppure a Google Chrome Sync o al tuo Google Drive se attivi tu stesso una di queste opzioni. Non viene inviato nulla a noi, perché non esiste alcun \"noi\" a cui inviarlo.","trustLink1":"Leggi l'Informativa sulla Privacy →","trustLink2":"Leggi i Termini →","footerCopyright":"© 2026 ForceKIT. Non affiliato, approvato o sponsorizzato da Salesforce, Inc.","footerContact":"Contatti","heroNew":"Novità: palette di comandi · note · script nella pagina · bolle","uniqEyebrow":"Solo in ForceKIT","uniqH2":"Quello che non trovi nelle altre estensioni per Salesforce.","uniqP":"Gli strumenti di tutti i giorni che non trovavamo da nessuna parte — così li abbiamo messi dentro le pagine che usi già.","u1t":"Una palette di comandi in ogni pagina Salesforce","u1d":"Premi Ctrl+K ovunque in Salesforce: vai alle pagine di Setup, alle app, ai record e ai link salvati, esegui i tuoi script, apri le tue note. Cerca i record mentre scrivi e tieni le destinazioni preferite in gruppi colorati.","u1b1":"Scorciatoie in gruppi, le stesse in tutte le tue org","u1b2":"Ricerca dei record con risultati immediati","u1b3":"Le app che mancano in un'org vengono segnalate, non si rompono","u2t":"Note che tengono insieme il tuo lavoro","u2d":"Scrivi note direttamente sulla pagina e allega quello su cui stai lavorando — query salvate, script Apex, debug log, accessi alle org e screenshot — ognuno al suo posto nel testo. Checklist, priorità, gruppi e promemoria inclusi.","u2b1":"Cattura un'area della pagina direttamente nella nota","u2b2":"Esporta in PDF o Word","u2b3":"Condividi con un link, anche protetto da password — senza server","u3t":"Script Apex con un vero modulo di input","u3d":"Trasforma l'Apex anonimo in uno strumento per tutto il team: i {{campi}} diventano caselle di testo, scelte e caselle sì/no, uno script può essere diviso in passi in ordine o in azioni indipendenti, e i valori di System.debug diventano risultati da copiare con un clic. Eseguili sul record che stai guardando, direttamente nella pagina.","u3b1":"Passi in ordine, oppure azioni da usare quando servono","u3b2":"Trova e sostituisci, indentazione e colori della sintassi nell'editor","u3b3":"{{$SessionId}} per le chiamate alla stessa org, mai salvato nello script","u4t":"Bolle che ti seguono","u4d":"Trascina uno script, una nota o una scorciatoia fuori dalla palette — o cliccala con la rotella — e diventa una bolla che resta mentre passi da una pagina all'altra. Le bolle si agganciano in colonna, si aprono a ventaglio al passaggio del mouse e se ne vanno insieme quando le lasci sul cestino.","u4b1":"Script, note e scorciatoie","u4b2":"Restano anche cambiando pagina nella stessa scheda","u4b3":"Doppio clic su una nota-bolla per riaprirla nella palette","u5t":"Registra quello che fai in una pagina","u5d":"Avvia Registra azioni, usa la pagina come al solito, e ForceKIT trasforma i tuoi clic e i valori inseriti in uno script da rieseguire, modificare e conservare — comodo per inserimenti ripetitivi e preparazione dei test.","u5b1":"Dal pannello laterale o come scorciatoia della palette","u5b2":"Rivedi i passi registrati prima di salvare","u5b3":"Si riesegue nella pagina, come ogni altro script","u6t":"Debug log, anche a migliaia","u6d":"Filtra i log per data, peso e utente, con conteggi veri anche con migliaia di log, elimina tutto ciò che corrisponde a un filtro con avanzamento e stop, allega un log a una nota e apri il log completo di qualsiasi script nel visualizzatore, con ricerca e albero di esecuzione.","u6b1":"Filtri per data e peso affiancati","u6b2":"Spazio pieno? ForceKIT propone di liberarlo e riprovare","u6b3":"Livelli di log e utenti sotto debug in un unico posto","f15t":"Le mie attività","f15d":"Vedi cosa hai creato, modificato o eliminato di recente nell'org, più le tue modifiche di Setup — e apri ognuno nel Dettaglio.","f16t":"Test Apex e copertura","f16d":"Esegui i test Apex da set salvati, seguili mentre girano e controlla la copertura del codice classe per classe.","f17t":"Stato dei rilasci","f17d":"Segui i rilasci con componenti, errori e risultati dei test, e filtrali con un clic.","g1":"Palette di comandi con scorciatoie in gruppi","g2":"Record, scorciatoie e note mentre scrivi","g3":"Note con gruppi, priorità, checklist e promemoria","g4":"Una nota con screenshot, query e debug log allegati","g5":"L'editor delle note: formattazione, cattura, allegati","g6":"Uno script sul record aperto, passo dopo passo","g7":"Azioni indipendenti con risultati da copiare","g8":"Script, note e scorciatoie come bolle","g9":"Gli script nel pannello laterale, in gruppi colorati","g10":"Editor degli script con trova e sostituisci e campi","g11":"Elenco dei debug log con filtri per data e peso","g12":"Console SOQL con risultati da modificare ed esportare","g13":"Tutti i campi di un record, con nomi API e tipi","trustP2":"I link delle note condivise contengono la nota nel link stesso, dopo il #, che i browser non inviano mai a nessun server.","navFeatures":"Funzionalità","navNew":"Novità","navShots":"Screenshot","navCta":"Aggiungi a Chrome","heroH1a":"Il toolkit Salesforce","heroH1b":"che vive nelle tue pagine.","newEyebrow":"Novità","newH2":"Quattro nuovi strumenti, direttamente in ogni pagina Salesforce.","newTag":"Nuovo","newMore":"Guarda come funziona →","n1t":"Palette di comandi","n1d":"Ctrl+K in ogni pagina: Setup, app, record, script e note in un'unica ricerca.","n2t":"Note","n2d":"Con query, log, accessi alle org e screenshot allegati. Esporta o condividi con un link.","n3t":"Script nella pagina","n3d":"Apex anonimo con moduli di input, passi o azioni, e risultati da copiare.","n4t":"Bolle","n4d":"Tieni script, note e scorciatoie sullo schermo mentre navighi.","toolEyebrow":"Tutti gli strumenti","toolH2":"Tutto il resto che usi, ogni giorno.","toolP":"Dalla console SOQL all'authenticator — nel pannello laterale di Chrome e nelle pagine Salesforce che hai già aperte.","bandH2":"Provalo sulla tua org in un minuto.","bandP":"Gratis, senza account, funziona con qualsiasi org Salesforce in cui sei già entrato.","shotOpen":"Clicca uno screenshot per vederlo a grandezza piena.","navMenu":"Menu","lbClose":"Chiudi","madeBy":"Realizzato da CreativeApp"},"fr":{"pageTitle":"ForceKIT — Extension Chrome gratuite pour Salesforce","metaDesc":"Extension Chrome gratuite pour admins et développeurs Salesforce : palette de commandes, notes avec requêtes et logs, scripts Apex avec formulaires, console SOQL, debug logs. Tout en local.","navHome":"Accueil","navPrivacy":"Confidentialité","navTerms":"Conditions","navSupport":"Assistance","navDocs":"Guide","heroEyebrow":"Extension Chrome pour Salesforce","heroH1":"La boîte à outils Salesforce conçue pour votre navigateur.","heroLede":"Une palette de commandes sur chaque page Salesforce, des notes qui réunissent requêtes, logs et captures d'écran, des scripts Apex avec de vrais formulaires — plus console SOQL, debug logs, comparateur de profils et bien plus. Tout en local, sans aucun serveur de notre part entre les deux.","ctaPrimary":"Ajouter à Chrome — c'est gratuit","ctaSecondary":"Soutenir le projet","freeNote":"Gratuit, aucun compte requis. Pas de publicité, pas de suivi.","featuresEyebrow":"Fonctionnalités","featuresH2":"Tout ce que vous cherchez dans Setup, à un panneau de distance.","featuresP":"ForceKIT vit dans le panneau latéral de Chrome et sur les pages Salesforce que vous avez déjà ouvertes — pas d'application séparée, pas de connexion supplémentaire.","f1t":"Console SOQL &amp; SOSL","f1d":"Écrivez, exécutez et enregistrez des requêtes SOQL ou SOSL sur n'importe quelle org connectée — les objets réservés à la Tooling API basculent automatiquement, avec un historique consultable plus tard.","f2t":"Noms d'API en ligne","f2d":"Affichez les noms d'API des champs et objets directement sur les pages d'enregistrement et de Setup — plus besoin de détour par clic droit → inspecter.","f3t":"Comparateur Profil &amp; Permission Set","f3d":"Comparez deux Profils ou Permission Sets côte à côte et repérez les différences d'accès en quelques secondes.","f4t":"Actualisation du cache en un clic","f4d":"Videz le cache Lightning et Setup obsolète sans rechargement complet ni perdre votre place.","f5t":"Mode sombre pour Salesforce","f5d":"Une feuille de style sombre injectée directement dans les pages Setup et Lightning, pour les yeux qui le méritent.","f6t":"Bascule Lightning ⇄ Classic","f6d":"Passez d'une interface à l'autre instantanément, sans chercher le bouton caché dans le menu de profil.","f7t":"Orgs enregistrées &amp; sessions","f7d":"Rouvrez une session d'org enregistrée instantanément, y compris les orgs connectées via OAuth — plus de connexions répétées.","f8t":"Synchronisation cloud optionnelle","f8d":"Gardez vos requêtes, orgs enregistrées et préférences synchronisées entre vos appareils via Chrome Sync ou votre propre Google Drive — désactivée par défaut.","f9t":"Chiffrement local","f9d":"Définissez un mot de passe principal ou utilisez une clé d'accès (passkey) pour chiffrer les identifiants enregistrés et les secrets TOTP sur votre appareil.","f10t":"Explorez les enregistrements liés","f10d":"Cliquez sur un lookup pour ouvrir son enregistrement, revenez en arrière grâce au fil d'Ariane, ou retournez la carte pour voir tous les enregistrements liés regroupés par objet — sans jamais quitter la page.","f11t":"Explorateur de Debug Logs","f11d":"Recherchez dans le log brut pour aller droit à ce qui compte, et développez ou réduisez l'arbre d'exécution Apex pour suivre la pile d'appels sans vous perdre.","f12t":"Transfert de données en masse","f12d":"Collez un CSV et effectuez insert, update, upsert, delete ou undelete sur l'API REST, Tooling ou Metadata — avec une taille de lot configurable et une relance en un clic pour les seules lignes échouées.","f13t":"Authentificateur TOTP intégré","f13d":"Générez des codes 2FA sans quitter le navigateur — ajoutez des comptes manuellement, importez une image QR, ou capturez-la directement à l'écran.","f14t":"Couleurs d'accent personnalisables","f14d":"Choisissez parmi plusieurs palettes d'accent pour personnaliser le panneau — les modes clair et sombre restent inchangés, seul l'accent s'adapte.","shotsEyebrow":"En action","shotsH2":"Une vraie boîte à outils, pas un onglet de plus à surveiller.","shotsP":"Un aperçu de la palette dans la page et du panneau latéral — des raccourcis et notes jusqu'aux scripts et logs.","trustEyebrow":"Aucun serveur, aucun compte, aucun suivi","trustH2":"Votre org, votre navigateur, vos données.","trustP":"ForceKIT n'a pas de serveur propre. Le seul trafic réseau qu'elle génère va directement de votre navigateur à votre propre org Salesforce, ou à Google Chrome Sync ou à votre propre Google Drive si vous activez l'un de ces services vous-même. Rien n'est envoyé chez nous, car il n'y a pas de « nous » à qui l'envoyer.","trustLink1":"Lire la politique de confidentialité →","trustLink2":"Lire les conditions →","footerCopyright":"© 2026 ForceKIT. Non affilié, approuvé ou sponsorisé par Salesforce, Inc.","footerContact":"Contact","heroNew":"Nouveau : palette de commandes · notes · scripts dans la page · bulles","uniqEyebrow":"Uniquement dans ForceKIT","uniqH2":"Ce que vous ne trouverez pas dans les autres extensions Salesforce.","uniqP":"Les outils du quotidien que nous ne trouvions nulle part — alors nous les avons intégrés aux pages que vous utilisez déjà.","u1t":"Une palette de commandes sur chaque page Salesforce","u1d":"Appuyez sur Ctrl+K n'importe où dans Salesforce : accédez aux pages de Setup, aux applications, aux enregistrements et aux liens enregistrés, lancez vos scripts, ouvrez vos notes. Recherchez des enregistrements en tapant et rangez vos destinations favorites dans des groupes colorés.","u1b1":"Raccourcis en groupes, les mêmes dans toutes vos orgs","u1b2":"Recherche d'enregistrements avec résultats instantanés","u1b3":"Les applications absentes d'une org sont signalées, pas cassées","u2t":"Des notes qui rassemblent votre travail","u2d":"Écrivez des notes directement sur la page et joignez ce sur quoi vous travaillez — requêtes enregistrées, scripts Apex, debug logs, accès aux orgs et captures d'écran — chacun à sa place dans le texte. Checklists, priorités, groupes et rappels inclus.","u2b1":"Capturez une zone de la page directement dans la note","u2b2":"Export en PDF ou Word","u2b3":"Partagez par lien, éventuellement protégé par mot de passe — sans serveur","u3t":"Des scripts Apex avec un vrai formulaire","u3d":"Transformez l'Apex anonyme en outil pour toute l'équipe : les {{champs}} deviennent des zones de texte, des choix et des cases à cocher, un script peut être découpé en étapes ordonnées ou en actions indépendantes, et les valeurs de System.debug apparaissent comme des résultats à copier en un clic. Exécutez-les sur l'enregistrement affiché, directement dans la page.","u3b1":"Des étapes dans l'ordre, ou des actions à utiliser au besoin","u3b2":"Rechercher-remplacer, mise en forme et coloration syntaxique dans l'éditeur","u3b3":"{{$SessionId}} pour les appels vers la même org, jamais enregistré dans le script","u4t":"Des bulles qui vous suivent","u4d":"Faites glisser un script, une note ou un raccourci hors de la palette — ou cliquez dessus avec la molette — et il devient une bulle flottante qui reste pendant que vous changez de page. Les bulles s'empilent en colonne, s'ouvrent en éventail au survol et partent ensemble quand vous les déposez dans la corbeille.","u4b1":"Scripts, notes et raccourcis","u4b2":"Elles restent d'une page à l'autre dans le même onglet","u4b3":"Double-cliquez sur une bulle de note pour la rouvrir dans la palette","u5t":"Enregistrez ce que vous faites sur une page","u5d":"Lancez Enregistrer des actions, utilisez la page comme d'habitude, et ForceKIT transforme vos clics et saisies en un script à rejouer, modifier et conserver — pratique pour les saisies répétitives et la préparation des tests.","u5b1":"Depuis le panneau latéral ou comme raccourci de la palette","u5b2":"Revoyez les étapes enregistrées avant de sauvegarder","u5b3":"Se rejoue dans la page, comme n'importe quel script","u6t":"Les debug logs, même par milliers","u6d":"Filtrez les logs par date, taille et utilisateur, avec des décomptes exacts même avec des milliers de logs, supprimez tout ce qui correspond à un filtre avec progression et arrêt, joignez un log à une note et ouvrez le log complet de n'importe quel script dans la visionneuse, avec recherche et arbre d'exécution.","u6b1":"Filtres par date et taille côte à côte","u6b2":"Stockage plein ? ForceKIT propose de libérer de l'espace et de réessayer","u6b3":"Niveaux de log et utilisateurs en debug au même endroit","f15t":"Mon activité","f15d":"Voyez ce que vous avez récemment créé, modifié ou supprimé dans l'org, ainsi que vos modifications de Setup — et ouvrez-les dans Détail.","f16t":"Tests Apex et couverture","f16d":"Lancez les tests Apex depuis des ensembles enregistrés, suivez-les pendant leur exécution et vérifiez la couverture de code classe par classe.","f17t":"Statut des déploiements","f17d":"Suivez les déploiements avec leurs composants, erreurs et résultats de tests, et filtrez-les en un clic.","g1":"Palette de commandes avec raccourcis groupés","g2":"Enregistrements, raccourcis et notes pendant la saisie","g3":"Notes avec groupes, priorités, checklists et rappels","g4":"Une note avec capture, requête et debug log joints","g5":"L'éditeur de notes : mise en forme, capture, pièces jointes","g6":"Un script sur l'enregistrement ouvert, étape par étape","g7":"Actions indépendantes avec résultats à copier","g8":"Scripts, notes et raccourcis en bulles flottantes","g9":"Les scripts dans le panneau latéral, groupés et colorés","g10":"Éditeur de scripts avec rechercher-remplacer et champs","g11":"Liste des debug logs avec filtres de date et taille","g12":"Console SOQL avec résultats modifiables et exportables","g13":"Tous les champs d'un enregistrement, avec noms d'API et types","trustP2":"Les liens de notes partagées contiennent la note dans le lien lui-même, après le #, que les navigateurs n'envoient jamais à aucun serveur.","navFeatures":"Fonctionnalités","navNew":"Nouveautés","navShots":"Captures","navCta":"Ajouter à Chrome","heroH1a":"La boîte à outils Salesforce","heroH1b":"qui vit dans vos pages.","newEyebrow":"Nouveautés","newH2":"Quatre nouveaux outils, directement sur chaque page Salesforce.","newTag":"Nouveau","newMore":"Voir comment ça marche →","n1t":"Palette de commandes","n1d":"Ctrl+K sur n'importe quelle page : Setup, applications, enregistrements, scripts et notes en une seule recherche.","n2t":"Notes","n2d":"Avec requêtes, logs, accès aux orgs et captures jointes. Export ou partage par lien.","n3t":"Scripts dans la page","n3d":"Apex anonyme avec formulaires, étapes ou actions, et résultats à copier.","n4t":"Bulles","n4d":"Gardez scripts, notes et raccourcis à l'écran pendant que vous naviguez.","toolEyebrow":"Toute la boîte à outils","toolH2":"Tout le reste dont vous vous servez, chaque jour.","toolP":"De la console SOQL à l'authentificateur — dans le panneau latéral de Chrome et sur les pages Salesforce déjà ouvertes.","bandH2":"Essayez-le sur votre org en une minute.","bandP":"Gratuit, sans compte, fonctionne avec toute org Salesforce où vous êtes déjà connecté.","shotOpen":"Cliquez sur une capture pour l'afficher en grand.","navMenu":"Menu","lbClose":"Fermer","madeBy":"Créé par CreativeApp"},"es":{"pageTitle":"ForceKIT — Extensión de Chrome gratuita para Salesforce","metaDesc":"Extensión de Chrome gratuita para admins y desarrolladores de Salesforce: paleta de comandos, notas con consultas y logs, scripts Apex con formularios, consola SOQL, debug logs. Todo en local.","navHome":"Inicio","navPrivacy":"Privacidad","navTerms":"Términos","navSupport":"Soporte","navDocs":"Guía","heroEyebrow":"Extensión de Chrome para Salesforce","heroH1":"El kit de herramientas de Salesforce pensado para tu navegador.","heroLede":"Una paleta de comandos en cada página de Salesforce, notas que reúnen consultas, logs y capturas, scripts Apex con formularios de verdad — además de consola SOQL, debug logs, comparador de perfiles y mucho más. Todo en local, sin ningún servidor nuestro de por medio.","ctaPrimary":"Añadir a Chrome — es gratis","ctaSecondary":"Apoya el proyecto","freeNote":"Gratis, sin necesidad de cuenta. Sin anuncios, sin seguimiento.","featuresEyebrow":"Funciones","featuresH2":"Todo lo que buscas en Setup, a un panel de distancia.","featuresP":"ForceKIT vive en el panel lateral de Chrome y en las páginas de Salesforce que ya tienes abiertas — sin aplicación aparte, sin inicio de sesión adicional.","f1t":"Consola SOQL &amp; SOSL","f1d":"Escribe, ejecuta y guarda consultas SOQL o SOSL en cualquier org conectada — los objetos exclusivos de la Tooling API cambian de API automáticamente, con un historial que puedes revisar más tarde.","f2t":"Nombres de API en línea","f2d":"Ve los nombres de API de campos y objetos directamente en las páginas de registros y Setup — sin más desvíos de clic derecho → inspeccionar.","f3t":"Comparador de Profile &amp; Permission Set","f3d":"Compara dos Profiles o Permission Sets uno al lado del otro y detecta diferencias de acceso en segundos.","f4t":"Actualización de caché con un clic","f4d":"Vacía la caché desactualizada de Lightning y Setup sin una recarga completa ni perder el punto en el que estabas.","f5t":"Modo oscuro para Salesforce","f5d":"Una hoja de estilos oscura inyectada directamente en las páginas de Setup y Lightning, para los ojos que se lo merecen.","f6t":"Cambio Lightning ⇄ Classic","f6d":"Cambia entre interfaces al instante, sin buscar el interruptor escondido en el menú de perfil.","f7t":"Orgs guardadas y sesiones","f7d":"Reabre una sesión de org guardada al instante, incluidas las orgs conectadas mediante OAuth — sin inicios de sesión repetidos.","f8t":"Sincronización en la nube opcional","f8d":"Mantén tus consultas, orgs guardadas y preferencias sincronizadas entre tus dispositivos mediante Chrome Sync o tu propio Google Drive — desactivada de forma predeterminada.","f9t":"Cifrado local","f9d":"Configura una contraseña maestra o usa una clave de acceso (passkey) para cifrar las credenciales guardadas y los secretos TOTP en tu dispositivo.","f10t":"Explora los registros relacionados","f10d":"Haz clic en un lookup para abrir su registro, vuelve atrás con las migas de pan, o gira la tarjeta para ver todos los relacionados agrupados por objeto — sin salir nunca de la página.","f11t":"Explorador de Debug Logs","f11d":"Busca dentro del log en bruto para ir directo a lo que importa, y expande o contrae el árbol de ejecución de Apex para seguir la pila de llamadas sin perderte.","f12t":"Transferencia masiva de datos","f12d":"Pega un CSV y realiza insert, update, upsert, delete o undelete en la API REST, Tooling o Metadata — con tamaño de lote configurable y un clic para reintentar solo las filas fallidas.","f13t":"Autenticador TOTP integrado","f13d":"Genera códigos 2FA sin salir del navegador — añade cuentas manualmente, importa una imagen QR, o captúrala directamente desde la pantalla.","f14t":"Colores de acento personalizables","f14d":"Elige entre varias paletas de acento para hacer tuyo el panel — el modo claro y oscuro no cambian, solo el acento se adapta.","shotsEyebrow":"Míralo en acción","shotsH2":"Un kit de herramientas de verdad, no otra pestaña que vigilar.","shotsP":"Un vistazo a la paleta en la página y al panel lateral — de los accesos directos y las notas a los scripts y los logs.","trustEyebrow":"Sin servidor, sin cuentas, sin seguimiento","trustH2":"Tu org, tu navegador, tus datos.","trustP":"ForceKIT no tiene servidor propio. El único tráfico de red que genera va directamente desde tu navegador a tu propia org de Salesforce, o a Google Chrome Sync o a tu propio Google Drive si activas tú mismo alguna de esas opciones. No se nos envía nada, porque no existe ningún «nosotros» al que enviarlo.","trustLink1":"Lee la Política de Privacidad →","trustLink2":"Lee los Términos →","footerCopyright":"© 2026 ForceKIT. No afiliado, respaldado ni patrocinado por Salesforce, Inc.","footerContact":"Contacto","heroNew":"Novedades: paleta de comandos · notas · scripts en la página · burbujas","uniqEyebrow":"Solo en ForceKIT","uniqH2":"Lo que no encontrarás en otras extensiones de Salesforce.","uniqP":"Las herramientas del día a día que no encontrábamos en ningún sitio — así que las pusimos dentro de las páginas que ya usas.","u1t":"Una paleta de comandos en cada página de Salesforce","u1d":"Pulsa Ctrl+K en cualquier lugar de Salesforce: ve a las páginas de Setup, a las apps, a los registros y a los enlaces guardados, ejecuta tus scripts, abre tus notas. Busca registros mientras escribes y guarda tus destinos favoritos en grupos de colores.","u1b1":"Accesos directos en grupos, los mismos en todas tus orgs","u1b2":"Búsqueda de registros con resultados al instante","u1b3":"Las apps que faltan en una org se señalan, no se rompen","u2t":"Notas que mantienen tu trabajo unido","u2d":"Escribe notas directamente en la página y adjunta aquello en lo que trabajas — consultas guardadas, scripts Apex, debug logs, accesos a orgs y capturas — cada uno en su sitio dentro del texto. Listas de control, prioridades, grupos y recordatorios incluidos.","u2b1":"Captura un área de la página directamente en la nota","u2b2":"Exporta a PDF o Word","u2b3":"Comparte con un enlace, opcionalmente con contraseña — sin servidor","u3t":"Scripts Apex con un formulario de verdad","u3d":"Convierte el Apex anónimo en una herramienta para todo el equipo: los {{campos}} se vuelven cuadros de texto, opciones y casillas, un script puede dividirse en pasos ordenados o en acciones independientes, y los valores de System.debug aparecen como resultados que copias con un clic. Ejecútalos sobre el registro que estás viendo, dentro de la página.","u3b1":"Pasos en orden, o acciones para usar cuando las necesites","u3b2":"Buscar y reemplazar, formato y colores de sintaxis en el editor","u3b3":"{{$SessionId}} para llamadas a la misma org, nunca guardado en el script","u4t":"Burbujas que te acompañan","u4d":"Arrastra un script, una nota o un acceso directo fuera de la paleta — o haz clic con la rueda — y se convierte en una burbuja flotante que se queda mientras cambias de página. Las burbujas se agrupan en columna, se abren en abanico al pasar el ratón y se van juntas cuando las sueltas en la papelera.","u4b1":"Scripts, notas y accesos directos","u4b2":"Se quedan al cambiar de página en la misma pestaña","u4b3":"Doble clic en una burbuja de nota para reabrirla en la paleta","u5t":"Graba lo que haces en una página","u5d":"Inicia Grabar acciones, usa la página como siempre, y ForceKIT convierte tus clics y datos introducidos en un script que puedes repetir, editar y guardar — útil para cargas de datos repetitivas y la preparación de pruebas.","u5b1":"Desde el panel lateral o como acceso directo de la paleta","u5b2":"Revisa los pasos grabados antes de guardar","u5b3":"Se vuelve a ejecutar en la página, como cualquier script","u6t":"Debug logs, incluso por miles","u6d":"Filtra los logs por fecha, tamaño y usuario, con recuentos reales incluso con miles de logs, elimina todo lo que coincide con un filtro con progreso y parada, adjunta un log a una nota y abre el log completo de cualquier script en el visor, con búsqueda y árbol de ejecución.","u6b1":"Filtros de fecha y tamaño uno al lado del otro","u6b2":"¿Almacenamiento lleno? ForceKIT propone liberar espacio y reintentar","u6b3":"Niveles de log y usuarios en depuración en un solo lugar","f15t":"Mi actividad","f15d":"Mira lo que has creado, modificado o eliminado recientemente en la org, además de tus cambios de Setup — y abre cualquiera en Detalle.","f16t":"Pruebas Apex y cobertura","f16d":"Ejecuta pruebas Apex desde conjuntos guardados, síguelas mientras corren y revisa la cobertura de código clase por clase.","f17t":"Estado de los despliegues","f17d":"Sigue los despliegues con sus componentes, errores y resultados de pruebas, y fíltralos con un clic.","g1":"Paleta de comandos con accesos directos agrupados","g2":"Registros, accesos directos y notas mientras escribes","g3":"Notas con grupos, prioridades, listas y recordatorios","g4":"Una nota con captura, consulta y debug log adjuntos","g5":"El editor de notas: formato, captura, adjuntos","g6":"Un script sobre el registro abierto, paso a paso","g7":"Acciones independientes con resultados para copiar","g8":"Scripts, notas y accesos directos como burbujas","g9":"Los scripts en el panel lateral, agrupados y con colores","g10":"Editor de scripts con buscar y reemplazar y campos","g11":"Lista de debug logs con filtros de fecha y tamaño","g12":"Consola SOQL con resultados editables y exportables","g13":"Todos los campos de un registro, con nombres de API y tipos","trustP2":"Los enlaces de notas compartidas llevan la nota dentro del propio enlace, después del #, que los navegadores nunca envían a ningún servidor.","navFeatures":"Funciones","navNew":"Novedades","navShots":"Capturas","navCta":"Añadir a Chrome","heroH1a":"El kit de herramientas de Salesforce","heroH1b":"que vive en tus páginas.","newEyebrow":"Novedades","newH2":"Cuatro herramientas nuevas, directamente en cada página de Salesforce.","newTag":"Nuevo","newMore":"Mira cómo funciona →","n1t":"Paleta de comandos","n1d":"Ctrl+K en cualquier página: Setup, apps, registros, scripts y notas en una sola búsqueda.","n2t":"Notas","n2d":"Con consultas, logs, accesos a orgs y capturas adjuntas. Exporta o comparte con un enlace.","n3t":"Scripts en la página","n3d":"Apex anónimo con formularios, pasos o acciones, y resultados para copiar.","n4t":"Burbujas","n4d":"Mantén scripts, notas y accesos directos en pantalla mientras navegas.","toolEyebrow":"Todas las herramientas","toolH2":"Todo lo demás que usas, cada día.","toolP":"De la consola SOQL al autenticador — en el panel lateral de Chrome y en las páginas de Salesforce que ya tienes abiertas.","bandH2":"Pruébalo en tu org en un minuto.","bandP":"Gratis, sin cuenta, funciona con cualquier org de Salesforce en la que ya hayas iniciado sesión.","shotOpen":"Haz clic en una captura para verla a tamaño completo.","navMenu":"Menú","lbClose":"Cerrar","madeBy":"Creado por CreativeApp"},"de":{"pageTitle":"ForceKIT — Kostenlose Chrome-Erweiterung für Salesforce","metaDesc":"Kostenlose Chrome-Erweiterung für Salesforce-Admins und -Entwickler: Befehlspalette, Notizen mit Abfragen und Logs, Apex-Skripte mit Formularen, SOQL-Konsole, Debug-Logs. Alles lokal.","navHome":"Start","navPrivacy":"Datenschutz","navTerms":"Bedingungen","navSupport":"Support","navDocs":"Anleitung","heroEyebrow":"Chrome-Erweiterung für Salesforce","heroH1":"Das Salesforce-Toolkit für deinen Browser.","heroLede":"Eine Befehlspalette auf jeder Salesforce-Seite, Notizen, die Abfragen, Logs und Screenshots zusammenhalten, Apex-Skripte mit echten Eingabeformularen — dazu SOQL-Konsole, Debug-Logs, Profilvergleich und vieles mehr. Alles lokal, ohne einen Server von uns dazwischen.","ctaPrimary":"Zu Chrome hinzufügen — kostenlos","ctaSecondary":"Projekt unterstützen","freeNote":"Kostenlos, kein Konto erforderlich. Keine Werbung, kein Tracking.","featuresEyebrow":"Funktionen","featuresH2":"Alles, was du in Setup suchst, nur ein Panel entfernt.","featuresP":"ForceKIT lebt im Seitenleisten-Panel von Chrome und auf den Salesforce-Seiten, die du bereits geöffnet hast — keine separate App, keine zusätzliche Anmeldung.","f1t":"SOQL- &amp; SOSL-Konsole","f1d":"Schreibe, führe aus und speichere SOQL- oder SOSL-Abfragen für jede verbundene Org — Objekte, die nur über die Tooling API laufen, wechseln automatisch die API, mit einem Verlauf, den du später erneut aufrufen kannst.","f2t":"Inline-API-Namen","f2d":"Sieh API-Namen von Feldern und Objekten direkt auf Datensatz- und Setup-Seiten — kein Umweg mehr über Rechtsklick → Untersuchen.","f3t":"Profile- &amp; Permission-Set-Vergleich","f3d":"Vergleiche zwei Profile oder Permission Sets nebeneinander und erkenne Zugriffsunterschiede in Sekunden.","f4t":"Cache-Aktualisierung mit einem Klick","f4d":"Leere veralteten Lightning- und Setup-Cache ohne kompletten Neuladevorgang und ohne deine Position zu verlieren.","f5t":"Dark Mode für Salesforce","f5d":"Ein dunkles Stylesheet, direkt in Setup- und Lightning-Seiten injiziert, für Augen, die es verdient haben.","f6t":"Lightning ⇄ Classic wechseln","f6d":"Wechsle sofort zwischen den Oberflächen, ohne den versteckten Schalter im Profilmenü zu suchen.","f7t":"Gespeicherte Orgs &amp; Sitzungen","f7d":"Öffne eine gespeicherte Org-Sitzung sofort erneut, auch für über OAuth verbundene Orgs — keine wiederholten Anmeldungen.","f8t":"Optionale Cloud-Synchronisierung","f8d":"Halte deine Abfragen, gespeicherten Orgs und Einstellungen über Chrome Sync oder dein eigenes Google Drive zwischen deinen Geräten synchron — standardmäßig deaktiviert.","f9t":"Lokale Verschlüsselung","f9d":"Lege ein Master-Passwort fest oder nutze einen Passkey, um gespeicherte Anmeldedaten und TOTP-Geheimnisse auf deinem Gerät zu verschlüsseln.","f10t":"Verknüpfte Datensätze erkunden","f10d":"Klicke auf ein Lookup-Feld, um den verknüpften Datensatz zu öffnen, kehre über die Breadcrumbs zurück, oder drehe die Karte um, um alle verknüpften Datensätze nach Objekt gruppiert zu sehen — ganz ohne die Seite zu verlassen.","f11t":"Debug-Log-Explorer","f11d":"Durchsuche das Rohprotokoll, um direkt zum Wichtigen zu springen, und klappe den Apex-Ausführungsbaum auf oder zu, um dem Call-Stack zu folgen, ohne den Überblick zu verlieren.","f12t":"Massen-Datenübertragung","f12d":"Füge ein CSV ein und führe Insert, Update, Upsert, Delete oder Undelete über die REST-, Tooling- oder Metadata-API aus — mit einstellbarer Batch-Größe und einem Klick, um nur die fehlgeschlagenen Zeilen erneut zu versuchen.","f13t":"Integrierter TOTP-Authenticator","f13d":"Erzeuge 2FA-Codes, ohne den Browser zu verlassen — füge Konten manuell hinzu, importiere ein QR-Bild, oder scanne es direkt vom Bildschirm.","f14t":"Anpassbare Akzentfarben","f14d":"Wähle aus mehreren Akzentpaletten, um das Panel zu deinem zu machen — Hell- und Dunkelmodus bleiben unverändert, nur der Akzent passt sich an.","shotsEyebrow":"In Aktion","shotsH2":"Ein echtes Toolkit, kein weiterer Tab zum Überwachen.","shotsP":"Ein Blick auf die Palette in der Seite und auf die Seitenleiste — von Verknüpfungen und Notizen bis zu Skripten und Logs.","trustEyebrow":"Kein Server, keine Konten, kein Tracking","trustH2":"Deine Org, dein Browser, deine Daten.","trustP":"ForceKIT hat keinen eigenen Server. Der einzige Netzwerkverkehr, den es erzeugt, geht direkt von deinem Browser zu deiner eigenen Salesforce-Org oder zu Google Chrome Sync bzw. deinem eigenen Google Drive, falls du eines dieser Angebote selbst aktivierst. Es wird nichts an uns gesendet, weil es kein „uns“ gibt, an das man etwas senden könnte.","trustLink1":"Datenschutzerklärung lesen →","trustLink2":"Nutzungsbedingungen lesen →","footerCopyright":"© 2026 ForceKIT. Nicht mit Salesforce, Inc. verbunden, von ihr unterstützt oder gesponsert.","footerContact":"Kontakt","heroNew":"Neu: Befehlspalette · Notizen · Seiten-Skripte · Blasen","uniqEyebrow":"Nur in ForceKIT","uniqH2":"Was du in anderen Salesforce-Erweiterungen nicht findest.","uniqP":"Die Alltagswerkzeuge, die wir nirgends gefunden haben — also haben wir sie direkt in die Seiten gebaut, die du ohnehin nutzt.","u1t":"Eine Befehlspalette auf jeder Salesforce-Seite","u1d":"Drücke überall in Salesforce Strg+K: springe zu Setup-Seiten, Apps, Datensätzen und gespeicherten Links, starte deine Skripte, öffne deine Notizen. Suche Datensätze beim Tippen und ordne deine Lieblingsziele in farbigen Gruppen.","u1b1":"Verknüpfungen in Gruppen, gleich in all deinen Orgs","u1b2":"Datensatzsuche mit sofortigen Ergebnissen","u1b3":"In einer Org fehlende Apps werden markiert, nicht kaputt","u2t":"Notizen, die deine Arbeit zusammenhalten","u2d":"Schreibe Notizen direkt auf der Seite und hänge an, woran du arbeitest — gespeicherte Abfragen, Apex-Skripte, Debug-Logs, Org-Zugänge und Screenshots — jeweils an ihrer Stelle im Text. Checklisten, Prioritäten, Gruppen und Erinnerungen inklusive.","u2b1":"Nimm einen Seitenbereich direkt in die Notiz auf","u2b2":"Export als PDF oder Word","u2b3":"Per Link teilen, optional mit Passwort — ohne Server","u3t":"Apex-Skripte mit echtem Eingabeformular","u3d":"Mach anonymes Apex zu einem Werkzeug fürs ganze Team: {{Felder}} werden zu Textfeldern, Auswahlen und Kontrollkästchen, ein Skript lässt sich in geordnete Schritte oder unabhängige Aktionen teilen, und System.debug-Werte erscheinen als Ergebnisse, die du mit einem Klick kopierst. Führe sie auf dem Datensatz aus, den du gerade ansiehst — direkt in der Seite.","u3b1":"Schritte der Reihe nach oder Aktionen nach Bedarf","u3b2":"Suchen & Ersetzen, Formatierung und Syntaxfarben im Editor","u3b3":"{{$SessionId}} für Aufrufe an dieselbe Org, nie im Skript gespeichert","u4t":"Blasen, die dich begleiten","u4d":"Zieh ein Skript, eine Notiz oder eine Verknüpfung aus der Palette — oder klick mit dem Mausrad — und es wird zu einer schwebenden Blase, die beim Seitenwechsel bleibt. Blasen rasten zu einer Spalte zusammen, fächern sich beim Überfahren auf und verschwinden gemeinsam im Papierkorb.","u4b1":"Skripte, Notizen und Verknüpfungen","u4b2":"Sie bleiben beim Seitenwechsel im selben Tab","u4b3":"Doppelklick auf eine Notiz-Blase öffnet sie wieder in der Palette","u5t":"Zeichne auf, was du auf einer Seite tust","u5d":"Starte Aktionen aufzeichnen, nutze die Seite wie gewohnt, und ForceKIT macht aus deinen Klicks und Eingaben ein Skript, das du erneut ausführen, bearbeiten und behalten kannst — praktisch für wiederkehrende Eingaben und Testvorbereitungen.","u5b1":"Aus der Seitenleiste oder als Paletten-Verknüpfung","u5b2":"Prüfe die aufgezeichneten Schritte vor dem Speichern","u5b3":"Läuft erneut auf der Seite, wie jedes andere Skript","u6t":"Debug-Logs, auch zu Tausenden","u6d":"Filtere Logs nach Datum, Größe und Benutzer, mit echten Zählungen auch bei Tausenden von Logs, lösche alles, was zu einem Filter passt, mit Fortschritt und Stopp, hänge ein Log an eine Notiz und öffne das vollständige Log jedes Skripts im Viewer, mit Suche und Ausführungsbaum.","u6b1":"Datums- und Größenfilter nebeneinander","u6b2":"Speicher voll? ForceKIT bietet an, Platz zu schaffen und es erneut zu versuchen","u6b3":"Log-Level und Benutzer im Debug an einem Ort","f15t":"Meine Aktivitäten","f15d":"Sieh, was du kürzlich in der Org erstellt, geändert oder gelöscht hast, dazu deine Setup-Änderungen — und öffne alles in den Details.","f16t":"Apex-Tests und Abdeckung","f16d":"Führe Apex-Tests aus gespeicherten Sets aus, verfolge sie live und prüfe die Codeabdeckung Klasse für Klasse.","f17t":"Bereitstellungsstatus","f17d":"Verfolge Bereitstellungen mit Komponenten, Fehlern und Testergebnissen und filtere sie mit einem Klick.","g1":"Befehlspalette mit gruppierten Verknüpfungen","g2":"Datensätze, Verknüpfungen und Notizen beim Tippen","g3":"Notizen mit Gruppen, Prioritäten, Checklisten und Erinnerungen","g4":"Eine Notiz mit Screenshot, Abfrage und Debug-Log","g5":"Der Notizeditor: Formatierung, Aufnahme, Anhänge","g6":"Ein Skript auf dem aktuellen Datensatz, Schritt für Schritt","g7":"Unabhängige Aktionen mit kopierbaren Ergebnissen","g8":"Skripte, Notizen und Verknüpfungen als Blasen","g9":"Skripte in der Seitenleiste, gruppiert und farbig","g10":"Skripteditor mit Suchen & Ersetzen und Feldern","g11":"Debug-Log-Liste mit Datums- und Größenfiltern","g12":"SOQL-Konsole mit bearbeit- und exportierbaren Ergebnissen","g13":"Alle Felder eines Datensatzes mit API-Namen und Typen","trustP2":"Links zu geteilten Notizen tragen die Notiz im Link selbst, nach dem #, den Browser nie an einen Server senden.","navFeatures":"Funktionen","navNew":"Neuheiten","navShots":"Screenshots","navCta":"Zu Chrome hinzufügen","heroH1a":"Das Salesforce-Toolkit","heroH1b":"das in deinen Seiten lebt.","newEyebrow":"Neuheiten","newH2":"Vier neue Werkzeuge, direkt auf jeder Salesforce-Seite.","newTag":"Neu","newMore":"So funktioniert's →","n1t":"Befehlspalette","n1d":"Strg+K auf jeder Seite: Setup, Apps, Datensätze, Skripte und Notizen in einer Suche.","n2t":"Notizen","n2d":"Mit angehängten Abfragen, Logs, Org-Zugängen und Screenshots. Export oder Teilen per Link.","n3t":"Skripte in der Seite","n3d":"Anonymes Apex mit Formularen, Schritten oder Aktionen und kopierbaren Ergebnissen.","n4t":"Blasen","n4d":"Behalte Skripte, Notizen und Verknüpfungen beim Surfen auf dem Bildschirm.","toolEyebrow":"Der ganze Werkzeugkasten","toolH2":"Alles andere, was du täglich brauchst.","toolP":"Von der SOQL-Konsole bis zum Authenticator — in Chromes Seitenleiste und auf den Salesforce-Seiten, die du schon offen hast.","bandH2":"Probier es in einer Minute in deiner Org aus.","bandP":"Kostenlos, ohne Konto, funktioniert mit jeder Salesforce-Org, in der du schon angemeldet bist.","shotOpen":"Klick auf einen Screenshot, um ihn in voller Größe zu sehen.","navMenu":"Menü","lbClose":"Schließen","madeBy":"Erstellt von CreativeApp"}}</script>
 
-<header class="masthead">
-  <a class="brand" href="index.html">
-    <img src="assets/logo.png" alt="" />
-    <span class="brand-name">ForceKIT</span>
-  </a>
-  <div class="nav-group">
-    <nav class="sitenav" aria-label="Site">
-      <a href="index.html" class="active" data-i18n="navHome">Home</a>
-      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
-      <a href="terms.html" data-i18n="navTerms">Terms</a>
-      <a href="support.html" data-i18n="navSupport">Support</a>
-      <a href="docs.html" data-i18n="navDocs">Docs</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="" />ForceKIT</a>
+    <nav class="nav" aria-label="Site">
+        <a href="#new" data-i18n="navNew">What's new</a>
+        <a href="#tools" data-i18n="navFeatures">Features</a>
+        <a href="#shots" data-i18n="navShots">Screenshots</a>
+        <a href="docs.html" data-i18n="navDocs">Docs</a>
+        <a href="support.html" data-i18n="navSupport">Support</a>
+        <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="navTerms">Terms</a>
     </nav>
-    <nav class="langnav" aria-label="Language">
-      <a href="#" data-lang="en" class="active">EN</a>
-      <a href="#" data-lang="it">IT</a>
-      <a href="#" data-lang="fr">FR</a>
-      <a href="#" data-lang="es">ES</a>
-      <a href="#" data-lang="de">DE</a>
-    </nav>
+    <div class="top-right">
+      <nav class="langnav" aria-label="Language">
+        <a href="#" data-lang="en" class="active">EN</a><a href="#" data-lang="it">IT</a><a href="#" data-lang="fr">FR</a><a href="#" data-lang="es">ES</a><a href="#" data-lang="de">DE</a>
+      </nav>
+      <a class="btn btn-primary btn-sm cta-top" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="navCta">Add to Chrome</a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+        <div class="menu-list">
+        <a href="#new" data-i18n="navNew">What's new</a>
+        <a href="#tools" data-i18n="navFeatures">Features</a>
+        <a href="#shots" data-i18n="navShots">Screenshots</a>
+        <a href="docs.html" data-i18n="navDocs">Docs</a>
+        <a href="support.html" data-i18n="navSupport">Support</a>
+        <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+        <a href="terms.html" data-i18n="navTerms">Terms</a>
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="navCta">Add to Chrome</a>
+        </div>
+      </details>
+    </div>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <img class="logo" src="assets/logo.png" alt="ForceKIT logo" />
-    <p class="eyebrow" data-i18n="heroEyebrow">Chrome extension for Salesforce</p>
-    <h1 data-i18n="heroH1">The Salesforce toolkit built for your browser.</h1>
-    <p class="lede serif" data-i18n="heroLede">SOQL console, inline API names, a profile &amp; permission set comparator, dark mode, cache refresh, and session switching — all running locally, with no server of ForceKIT's own in between.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="ctaPrimary">Add to Chrome — it's free</a>
-      <a class="btn btn-secondary" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span data-i18n="ctaSecondary">Support the project</span></a>
-    </div>
-    <p class="free-note" data-i18n="freeNote">Free, no account required. No ads, no tracking.</p>
-  </section>
-
-  <section class="block" id="features">
-    <div class="block-head">
-      <span class="eyebrow" data-i18n="featuresEyebrow">Features</span>
-      <h2 data-i18n="featuresH2">Everything you reach for in Setup, one panel away.</h2>
-      <p data-i18n="featuresP">ForceKIT lives in Chrome's side panel and on the Salesforce pages you're already on — no separate app, no extra login.</p>
-    </div>
-    <div class="feature-grid">
-      <div class="feature">
-        <div class="icon">⌘</div>
-        <h3 data-i18n="f1t" data-i18n-html>SOQL &amp; SOSL Console</h3>
-        <p data-i18n="f1d">Write, run, and save SOQL or SOSL queries against any connected org — Tooling-only objects switch API automatically, with history you can revisit later.</p>
+    <div class="wrap hero-grid">
+      <div>
+        <a class="pill" href="#new"><b data-i18n="newTag">New</b><span data-i18n="heroNew">New: command palette · notes · page scripts · bubbles</span></a>
+        <p class="eyebrow" data-i18n="heroEyebrow">Chrome extension for Salesforce</p>
+        <h1><span data-i18n="heroH1a">The Salesforce toolkit</span> <span class="grad" data-i18n="heroH1b">that lives in your pages.</span></h1>
+        <p class="lede" data-i18n="heroLede">A command palette on every Salesforce page, notes that keep queries, logs and screenshots together, Apex scripts with real input forms — plus SOQL console, debug logs, profile comparator and much more. All running locally, with no server of ours in between.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="ctaPrimary">Add to Chrome — it's free</a>
+          <a class="btn btn-ghost" href="https://buymeacoffee.com/creativeapp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span data-i18n="ctaSecondary">Support the project</span></a>
+        </div>
+        <p class="free" data-i18n="freeNote">Free, no account required. No ads, no tracking.</p>
       </div>
-      <div class="feature">
-        <div class="icon">🏷</div>
-        <h3 data-i18n="f2t">Inline API Names</h3>
-        <p data-i18n="f2d">See field and object API names directly on record and Setup pages — no more right-click-inspect detours.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">⇄</div>
-        <h3 data-i18n="f3t" data-i18n-html>Profile &amp; Permission Set Comparator</h3>
-        <p data-i18n="f3d">Diff two profiles or permission sets side by side and spot access differences in seconds.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">↻</div>
-        <h3 data-i18n="f4t">One-Click Cache Refresh</h3>
-        <p data-i18n="f4d">Clear stale Lightning and Setup cache without a full reload or a lost place in what you were doing.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🌙</div>
-        <h3 data-i18n="f5t">Dark Mode for Salesforce</h3>
-        <p data-i18n="f5d">A dark stylesheet injected straight into Setup and Lightning pages, for the eyes that deserve it.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">⇆</div>
-        <h3 data-i18n="f6t">Lightning ⇄ Classic Switch</h3>
-        <p data-i18n="f6d">Jump between UIs instantly, without hunting for the toggle buried in your profile menu.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔑</div>
-        <h3 data-i18n="f7t" data-i18n-html>Saved Orgs &amp; Sessions</h3>
-        <p data-i18n="f7d">Reopen a saved org session instantly, including orgs connected via OAuth — no repeated logins.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">☁</div>
-        <h3 data-i18n="f8t">Optional Cloud Sync</h3>
-        <p data-i18n="f8d">Keep queries, saved orgs, and preferences in sync across your own devices via Chrome Sync or your own Google Drive — off by default.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔒</div>
-        <h3 data-i18n="f9t">Local Encryption</h3>
-        <p data-i18n="f9d">Set a master password or use a passkey to encrypt saved credentials and TOTP secrets on your device.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔗</div>
-        <h3 data-i18n="f10t">Drill Into Related Records</h3>
-        <p data-i18n="f10d">Click a lookup to open its record, jump back with breadcrumbs, or flip the card to see every related record grouped by object — all without leaving the page.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🪵</div>
-        <h3 data-i18n="f11t">Debug Log Explorer</h3>
-        <p data-i18n="f11d">Search inside the raw log to jump straight to what matters, and expand or collapse the Apex execution tree to follow the call stack without getting lost.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">📤</div>
-        <h3 data-i18n="f12t">Bulk Data Transfer</h3>
-        <p data-i18n="f12d">Paste a CSV and insert, update, upsert, delete, or undelete records against the REST, Tooling, or Metadata API — with configurable batch size and one-click retry for failed rows.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">⏱</div>
-        <h3 data-i18n="f13t">Built-in TOTP Authenticator</h3>
-        <p data-i18n="f13d">Generate 2FA codes without leaving the browser — add accounts manually, import a QR image, or capture one straight off your screen.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🎨</div>
-        <h3 data-i18n="f14t">Custom Accent Colors</h3>
-        <p data-i18n="f14d">Pick from a handful of accent palettes to make the panel your own — light and dark mode stay untouched, only the accent adapts.</p>
+      <div class="stage">
+        <img data-zoom class="main" src="assets/screenshots/palette.webp" alt="Command palette with grouped shortcuts" data-i18n-attr="alt:g1" width="984" height="647" />
+        <img data-zoom class="float f1" src="assets/screenshots/script-actions.webp" alt="Independent actions with copyable outputs" data-i18n-attr="alt:g7" width="464" height="487" loading="lazy" />
+        <img data-zoom class="float f2" src="assets/screenshots/bubbles.webp" alt="Scripts, notes and shortcuts as floating bubbles" data-i18n-attr="alt:g8" width="424" height="224" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <section class="block" id="screenshots">
-    <div class="block-head">
-      <span class="eyebrow" data-i18n="shotsEyebrow">See it in action</span>
-      <h2 data-i18n="shotsH2">A real toolkit, not another tab to babysit.</h2>
-      <p data-i18n="shotsP">A look at the side panel — from running queries to comparing permissions.</p>
-    </div>
-    <div class="gallery-scroll">
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/profile-compare.png" alt="Comparing a Profile and a Permission Set side by side in ForceKIT" data-i18n-attr="alt:s1alt" /></div>
-        <p data-i18n="s1cap">Compare Profiles &amp; Permission Sets side by side</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/soql-console.png" alt="Running a SOQL query and browsing results in ForceKIT" data-i18n-attr="alt:s2alt" /></div>
-        <p data-i18n="s2cap">Run SOQL queries and browse results instantly</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/debug-logs.png" alt="Reading a categorized Salesforce debug log in ForceKIT" data-i18n-attr="alt:s3alt" /></div>
-        <p data-i18n="s3cap">Read debug logs with color-coded categories</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/saved-orgs.png" alt="Saved Salesforce org credentials in ForceKIT" data-i18n-attr="alt:s4alt" /></div>
-        <p data-i18n="s4cap">Save orgs and switch between sessions instantly</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/record-details.png" alt="Viewing record field details and API names in ForceKIT" data-i18n-attr="alt:s5alt" /></div>
-        <p data-i18n="s5cap">Inspect record fields and API names inline</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/authenticator.png" alt="Built-in TOTP authenticator in ForceKIT" data-i18n-attr="alt:s6alt" /></div>
-        <p data-i18n="s6cap">Generate 2FA codes with the built-in authenticator</p>
-      </figure>
-      <figure class="shot wide">
-        <div class="frame"><img src="assets/screenshots/settings-wide.png" alt="ForceKIT settings panel showing sync and session options in full-width layout" data-i18n-attr="alt:s7alt" /></div>
-        <p data-i18n="s7cap">Fine-tune panel, sync, and session behavior</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/debug_list.png" alt="Managing debug log levels and browsing the debug log list in ForceKIT" data-i18n-attr="alt:s8alt" /></div>
-        <p data-i18n="s8cap">Manage debug log levels and browse the log list</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/detail_filter.png" alt="Filtering record fields by type in ForceKIT's Detail view" data-i18n-attr="alt:s9alt" /></div>
-        <p data-i18n="s9cap">Filter record fields by type in Detail</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/query-history.png" alt="Recently run and saved SOQL queries in ForceKIT" data-i18n-attr="alt:s10alt" /></div>
-        <p data-i18n="s10cap">Revisit recent and saved queries anytime</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/record-related_list.png" alt="Viewing every related record grouped by object in ForceKIT" data-i18n-attr="alt:s11alt" /></div>
-        <p data-i18n="s11cap">See every related record grouped by object</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/settings-narrow.png" alt="ForceKIT settings panel with sync options in the side panel" data-i18n-attr="alt:s12alt" /></div>
-        <p data-i18n="s12cap">Configure sync and panel settings</p>
-      </figure>
-      <figure class="shot">
-        <div class="frame"><img src="assets/screenshots/users.png" alt="Searching Salesforce org users with configurable columns in ForceKIT" data-i18n-attr="alt:s13alt" /></div>
-        <p data-i18n="s13cap">Search org users, pick which columns to show</p>
-      </figure>
+  <section id="new">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="newEyebrow">What's new</p>
+        <h2 data-i18n="newH2">Four new tools, right on every Salesforce page.</h2>
+      </div>
+      <div class="new-grid">
+        <a class="new-card" href="#palette">
+          <span class="new-ic"><svg viewBox="0 0 24 24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></span>
+          <span class="new-tag" data-i18n="newTag">New</span>
+          <h3 data-i18n="n1t">Command palette</h3>
+          <p data-i18n="n1d">Ctrl+K on any page: Setup, apps, records, scripts and notes in one search.</p>
+          <span class="new-more" data-i18n="newMore">See how it works →</span>
+        </a>
+        <a class="new-card" href="#notes">
+          <span class="new-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+          <span class="new-tag" data-i18n="newTag">New</span>
+          <h3 data-i18n="n2t">Notes</h3>
+          <p data-i18n="n2d">With queries, logs, org access and screenshots attached. Export or share by link.</p>
+          <span class="new-more" data-i18n="newMore">See how it works →</span>
+        </a>
+        <a class="new-card" href="#scripts">
+          <span class="new-ic"><svg viewBox="0 0 24 24"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg></span>
+          <span class="new-tag" data-i18n="newTag">New</span>
+          <h3 data-i18n="n3t">Scripts on the page</h3>
+          <p data-i18n="n3d">Anonymous Apex with input forms, steps or actions, and copyable outputs.</p>
+          <span class="new-more" data-i18n="newMore">See how it works →</span>
+        </a>
+        <a class="new-card" href="#bubbles">
+          <span class="new-ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="5"/><circle cx="17" cy="15" r="4"/><circle cx="7.5" cy="18.5" r="2.5"/></svg></span>
+          <span class="new-tag" data-i18n="newTag">New</span>
+          <h3 data-i18n="n4t">Bubbles</h3>
+          <p data-i18n="n4d">Keep scripts, notes and shortcuts floating on screen as you browse.</p>
+          <span class="new-more" data-i18n="newMore">See how it works →</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="block" id="privacy-trust">
-    <div class="trust">
-      <span class="eyebrow" data-i18n="trustEyebrow">No server, no accounts, no tracking</span>
-      <h2 data-i18n="trustH2">Your org, your browser, your data.</h2>
-      <p class="serif" data-i18n="trustP">ForceKIT has no server of its own. The only network traffic it makes goes directly from your browser to your own Salesforce org, or to Google's Chrome Sync or your own Google Drive if you turn one of those on yourself. Nothing is sent to us, because there is no "us" to send it to.</p>
-      <div class="trust-links">
-        <a href="privacy.html" data-i18n="trustLink1">Read the Privacy Policy →</a>
-        <a href="terms.html" data-i18n="trustLink2">Read the Terms →</a>
+  <section class="only" id="only">
+    <div class="wrap">
+      <div class="head">
+        <span class="badge" data-i18n="uniqEyebrow">Only in ForceKIT</span>
+        <h2 data-i18n="uniqH2">What you won't find in other Salesforce extensions.</h2>
+        <p data-i18n="uniqP">The everyday tools we couldn't find anywhere else — so we built them right into the pages you already use.</p>
+      </div>
+      <article class="spot" id="palette">
+        <div class="spot-text">
+          <span class="spot-num">01</span>
+          <h3 data-i18n="u1t">A command palette on every Salesforce page</h3>
+          <p data-i18n="u1d">Press Ctrl+K anywhere in Salesforce: jump to Setup pages, apps, records and saved links, run your scripts, open your notes. Search records as you type and keep your favourite destinations in colored groups.</p>
+          <ul>
+          <li data-i18n="u1b1">Shortcuts in groups, the same in all your orgs</li>
+          <li data-i18n="u1b2">Record search with instant results</li>
+          <li data-i18n="u1b3">Apps missing from an org are flagged, not broken</li>
+          </ul>
+        </div>
+        <div class="spot-media"><img data-zoom src="assets/screenshots/palette-search.webp" alt="Records, shortcuts and notes as you type" data-i18n-attr="alt:g2" width="984" height="647" loading="lazy" /></div>
+      </article>
+      <article class="spot flip" id="notes">
+        <div class="spot-text">
+          <span class="spot-num">02</span>
+          <h3 data-i18n="u2t">Notes that keep your work together</h3>
+          <p data-i18n="u2d">Write notes right on the page and attach what you're working on — saved queries, Apex scripts, debug logs, org access and screenshots — each in its place in the text. Checklists, priorities, groups and reminders included.</p>
+          <ul>
+          <li data-i18n="u2b1">Capture an area of the page straight into the note</li>
+          <li data-i18n="u2b2">Export to PDF or Word</li>
+          <li data-i18n="u2b3">Share by link, optionally password-protected — no server involved</li>
+          </ul>
+        </div>
+        <div class="spot-media"><img data-zoom src="assets/screenshots/note-attachments.webp" alt="A note with screenshot, query and debug log attached" data-i18n-attr="alt:g4" width="984" height="677" loading="lazy" /></div>
+      </article>
+      <article class="spot" id="scripts">
+        <div class="spot-text">
+          <span class="spot-num">03</span>
+          <h3 data-i18n="u3t">Apex scripts with a real input form</h3>
+          <p data-i18n="u3d">Turn anonymous Apex into a tool for the whole team: {{fields}} become text boxes, choices and checkboxes, a script can be split into ordered steps or independent actions, and System.debug values show up as outputs you copy with one click. Run them on the record you're looking at, right inside the page.</p>
+          <ul>
+          <li data-i18n="u3b1">Steps in order, or actions to use when you need them</li>
+          <li data-i18n="u3b2">Find &amp; replace, formatting and syntax colors in the editor</li>
+          <li data-i18n="u3b3">{{$SessionId}} for callouts to the same org, never saved in the script</li>
+          </ul>
+        </div>
+        <div class="spot-media"><div class="duo"><img data-zoom src="assets/screenshots/script-runner.webp" alt="A script on the current record, step by step" data-i18n-attr="alt:g6" width="464" height="618" loading="lazy" /><img data-zoom src="assets/screenshots/script-actions.webp" alt="Independent actions with copyable outputs" data-i18n-attr="alt:g7" width="464" height="487" loading="lazy" /></div></div>
+      </article>
+      <article class="spot flip" id="bubbles">
+        <div class="spot-text">
+          <span class="spot-num">04</span>
+          <h3 data-i18n="u4t">Bubbles that follow you around</h3>
+          <p data-i18n="u4d">Drag a script, note or shortcut out of the palette — or middle-click it — and it becomes a floating bubble that stays while you move between pages. Bubbles snap together into a column, fan out on hover, and go away together when you drop them on the trash.</p>
+          <ul>
+          <li data-i18n="u4b1">Scripts, notes and shortcuts</li>
+          <li data-i18n="u4b2">They stay across page changes in the same tab</li>
+          <li data-i18n="u4b3">Double-click a note bubble to reopen it in the palette</li>
+          </ul>
+        </div>
+        <div class="spot-media"><img data-zoom class="small" src="assets/screenshots/bubbles.webp" alt="Scripts, notes and shortcuts as floating bubbles" data-i18n-attr="alt:g8" width="424" height="224" loading="lazy" /></div>
+      </article>
+      <article class="spot" id="recorder">
+        <div class="spot-text">
+          <span class="spot-num">05</span>
+          <h3 data-i18n="u5t">Record what you do on a page</h3>
+          <p data-i18n="u5d">Start Record actions, use the page as usual, and ForceKIT turns your clicks and inputs into a script you can replay, edit and keep — handy for repetitive data entry and test setups.</p>
+          <ul>
+          <li data-i18n="u5b1">From the side panel, or as a palette shortcut</li>
+          <li data-i18n="u5b2">Review the recorded steps before saving</li>
+          <li data-i18n="u5b3">Runs again on the page, like any other script</li>
+          </ul>
+        </div>
+        <div class="spot-media"><div class="rec-card" aria-hidden="true"><div class="rec-head"><span class="rec-dot"></span>Record actions</div><code><span class="k">await</span> fk.click("New Contact");
+<span class="k">await</span> fk.fill("Last Name", "Carter");
+<span class="k">await</span> fk.fill("Email", "olivia.carter@example.com");
+<span class="k">await</span> fk.check("Do not call");
+<span class="k">await</span> fk.click("Save");</code></div></div>
+      </article>
+      <article class="spot flip" id="logs">
+        <div class="spot-text">
+          <span class="spot-num">06</span>
+          <h3 data-i18n="u6t">Debug logs, even by the thousand</h3>
+          <p data-i18n="u6d">Filter logs by date, size and user, get true counts even with thousands of logs, delete everything that matches a filter with progress and stop, attach a log to a note, and open any script's full log in the viewer with search and the execution tree.</p>
+          <ul>
+          <li data-i18n="u6b1">Date and size filters side by side</li>
+          <li data-i18n="u6b2">Full storage? ForceKIT offers to free space and retry</li>
+          <li data-i18n="u6b3">Log levels and users under debug in one place</li>
+          </ul>
+        </div>
+        <div class="spot-media"><img data-zoom class="tall" src="assets/screenshots/debug-log-list.webp" alt="Debug log list with date and size filters" data-i18n-attr="alt:g11" width="560" height="940" loading="lazy" /></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="toolEyebrow">The full toolbox</p>
+        <h2 data-i18n="toolH2">Everything else you reach for, every day.</h2>
+        <p data-i18n="toolP">From the SOQL console to the authenticator — in Chrome's side panel and on the Salesforce pages you're already on.</p>
+      </div>
+      <div class="tools">
+        <div class="tool">
+          <span class="tool-ic">⌘</span>
+          <div><h3 data-i18n="f1t" data-i18n-html>SOQL &amp; SOSL Console</h3><p data-i18n="f1d">Write, run, and save SOQL or SOSL queries against any connected org — Tooling-only objects switch API automatically, with history you can revisit later.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🏷</span>
+          <div><h3 data-i18n="f2t">Inline API Names</h3><p data-i18n="f2d">See field and object API names directly on record and Setup pages — no more right-click-inspect detours.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">⇄</span>
+          <div><h3 data-i18n="f3t" data-i18n-html>Profile &amp; Permission Set Comparator</h3><p data-i18n="f3d">Diff two profiles or permission sets side by side and spot access differences in seconds.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">↻</span>
+          <div><h3 data-i18n="f4t">One-Click Cache Refresh</h3><p data-i18n="f4d">Clear stale Lightning and Setup cache without a full reload or a lost place in what you were doing.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🌙</span>
+          <div><h3 data-i18n="f5t">Dark Mode for Salesforce</h3><p data-i18n="f5d">A dark stylesheet injected straight into Setup and Lightning pages, for the eyes that deserve it.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">⇆</span>
+          <div><h3 data-i18n="f6t">Lightning ⇄ Classic Switch</h3><p data-i18n="f6d">Jump between UIs instantly, without hunting for the toggle buried in your profile menu.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🔑</span>
+          <div><h3 data-i18n="f7t" data-i18n-html>Saved Orgs &amp; Sessions</h3><p data-i18n="f7d">Reopen a saved org session instantly, including orgs connected via OAuth — no repeated logins.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">☁</span>
+          <div><h3 data-i18n="f8t">Optional Cloud Sync</h3><p data-i18n="f8d">Keep queries, saved orgs, and preferences in sync across your own devices via Chrome Sync or your own Google Drive — off by default.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🔒</span>
+          <div><h3 data-i18n="f9t">Local Encryption</h3><p data-i18n="f9d">Set a master password or use a passkey to encrypt saved credentials and TOTP secrets on your device.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🔗</span>
+          <div><h3 data-i18n="f10t">Drill Into Related Records</h3><p data-i18n="f10d">Click a lookup to open its record, jump back with breadcrumbs, or flip the card to see every related record grouped by object — all without leaving the page.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🪵</span>
+          <div><h3 data-i18n="f11t">Debug Log Explorer</h3><p data-i18n="f11d">Search inside the raw log to jump straight to what matters, and expand or collapse the Apex execution tree to follow the call stack without getting lost.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">📤</span>
+          <div><h3 data-i18n="f12t">Bulk Data Transfer</h3><p data-i18n="f12d">Paste a CSV and insert, update, upsert, delete, or undelete records against the REST, Tooling, or Metadata API — with configurable batch size and one-click retry for failed rows.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">⏱</span>
+          <div><h3 data-i18n="f13t">Built-in TOTP Authenticator</h3><p data-i18n="f13d">Generate 2FA codes without leaving the browser — add accounts manually, import a QR image, or capture one straight off your screen.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🎨</span>
+          <div><h3 data-i18n="f14t">Custom Accent Colors</h3><p data-i18n="f14d">Pick from a handful of accent palettes to make the panel your own — light and dark mode stay untouched, only the accent adapts.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🕘</span>
+          <div><h3 data-i18n="f15t">My activity</h3><p data-i18n="f15d">See what you recently created, edited or deleted in the org, plus your Setup changes — and open any of them in Details.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🧪</span>
+          <div><h3 data-i18n="f16t">Apex tests and coverage</h3><p data-i18n="f16d">Run Apex tests from saved sets, follow them as they run, and check code coverage class by class.</p></div>
+        </div>
+        <div class="tool">
+          <span class="tool-ic">🚀</span>
+          <div><h3 data-i18n="f17t">Deployment status</h3><p data-i18n="f17d">Follow deployments with their components, errors and test results, and filter them in a click.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shots">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="shotsEyebrow">See it in action</p>
+        <h2 data-i18n="shotsH2">A real toolkit, not another tab to babysit.</h2>
+        <p data-i18n="shotsP">A look at the palette on the page and at the side panel — from shortcuts and notes to scripts and logs.</p>
+      </div>
+      <div class="gallery">
+        <a class="g g-w" href="assets/screenshots/palette.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/palette.webp" alt="Command palette with grouped shortcuts" data-i18n-attr="alt:g1" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g1">Command palette with grouped shortcuts</span>
+        </a>
+        <a class="g g-w" href="assets/screenshots/notes.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/notes.webp" alt="Notes with groups, priorities, checklists and reminders" data-i18n-attr="alt:g3" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g3">Notes with groups, priorities, checklists and reminders</span>
+        </a>
+        <a class="g g-w" href="assets/screenshots/note-editor.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/note-editor.webp" alt="The note editor: formatting, capture, attachments" data-i18n-attr="alt:g5" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g5">The note editor: formatting, capture, attachments</span>
+        </a>
+        <a class="g g-w" href="assets/screenshots/palette-search.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/palette-search.webp" alt="Records, shortcuts and notes as you type" data-i18n-attr="alt:g2" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g2">Records, shortcuts and notes as you type</span>
+        </a>
+        <a class="g g-p" href="assets/screenshots/script-runner.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/script-runner.webp" alt="A script on the current record, step by step" data-i18n-attr="alt:g6" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g6">A script on the current record, step by step</span>
+        </a>
+        <a class="g g-t" href="assets/screenshots/panel-scripts.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/panel-scripts.webp" alt="Scripts in the side panel, grouped and colored" data-i18n-attr="alt:g9" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g9">Scripts in the side panel, grouped and colored</span>
+        </a>
+        <a class="g g-t" href="assets/screenshots/script-editor.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/script-editor.webp" alt="Script editor with find &amp; replace and input fields" data-i18n-attr="alt:g10" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g10">Script editor with find &amp; replace and input fields</span>
+        </a>
+        <a class="g g-t" href="assets/screenshots/soql-console.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/soql-console.webp" alt="SOQL console with results you can edit and export" data-i18n-attr="alt:g12" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g12">SOQL console with results you can edit and export</span>
+        </a>
+        <a class="g g-t" href="assets/screenshots/record-detail.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/record-detail.webp" alt="Every field of a record, with API names and types" data-i18n-attr="alt:g13" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g13">Every field of a record, with API names and types</span>
+        </a>
+        <a class="g g-t" href="assets/screenshots/debug-log-list.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/debug-log-list.webp" alt="Debug log list with date and size filters" data-i18n-attr="alt:g11" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g11">Debug log list with date and size filters</span>
+        </a>
+        <a class="g g-p" href="assets/screenshots/script-actions.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/script-actions.webp" alt="Independent actions with copyable outputs" data-i18n-attr="alt:g7" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g7">Independent actions with copyable outputs</span>
+        </a>
+        <a class="g g-w" href="assets/screenshots/note-attachments.webp" data-zoom>
+          <span class="g-frame"><img src="assets/screenshots/note-attachments.webp" alt="A note with screenshot, query and debug log attached" data-i18n-attr="alt:g4" width="600" height="400" loading="lazy" /></span>
+          <span class="g-cap" data-i18n="g4">A note with screenshot, query and debug log attached</span>
+        </a>
+      </div>
+      <p class="hint" data-i18n="shotOpen">Click a screenshot to see it full size.</p>
+    </div>
+  </section>
+
+  <section id="privacy-trust">
+    <div class="wrap">
+      <div class="trust">
+        <p class="eyebrow" data-i18n="trustEyebrow">No server, no accounts, no tracking</p>
+        <h2 data-i18n="trustH2">Your org, your browser, your data.</h2>
+        <p data-i18n="trustP">ForceKIT has no server of its own. The only network traffic it makes goes directly from your browser to your own Salesforce org, or to Google's Chrome Sync or your own Google Drive if you turn one of those on yourself. Nothing is sent to us, because there is no "us" to send it to.</p>
+        <p data-i18n="trustP2">Shared note links carry the note inside the link itself, after the #, which browsers never send to any server.</p>
+        <div class="trust-links">
+          <a href="privacy.html" data-i18n="trustLink1">Read the Privacy Policy →</a>
+          <a href="terms.html" data-i18n="trustLink2">Read the Terms →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <h2 data-i18n="bandH2">Try it on your org in a minute.</h2>
+        <p data-i18n="bandP">Free, no account, works with any Salesforce org you're already logged into.</p>
+        <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer" data-i18n="ctaPrimary">Add to Chrome — it's free</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <span data-i18n="footerCopyright">&copy; 2026 ForceKIT. Not affiliated with, endorsed by, or sponsored by Salesforce, Inc.</span>
-  <div class="links">
-    <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
-    <a href="terms.html" data-i18n="navTerms">Terms</a>
-    <a href="support.html" data-i18n="navSupport">Support</a>
-    <a href="docs.html" data-i18n="navDocs">Docs</a>
-    <a href="support.html#contact" data-i18n="footerContact">Contact</a>
-  </div>
-</footer>
+<div class="wrap">
+  <footer>
+    <span data-i18n="footerCopyright">© 2026 ForceKIT. Not affiliated with, endorsed by, or sponsored by Salesforce, Inc.</span>
+    <div class="links">
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="terms.html" data-i18n="navTerms">Terms</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="docs.html" data-i18n="navDocs">Docs</a>
+      <a href="support.html#contact" data-i18n="footerContact">Contact</a>
+      <a href="https://pellegrinoluigi.github.io/creativeapp/" data-i18n="madeBy">Made by CreativeApp</a>
+    </div>
+  </footer>
+</div>
 
 <script src="assets/i18n.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>
