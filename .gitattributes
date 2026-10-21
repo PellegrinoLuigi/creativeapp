@@ -1,0 +1,4 @@
+# Script del ForceKIT Marketplace: sempre LF, anche su Windows (core.autocrlf).
+# size e sha256 in catalog.json devono corrispondere ai file pubblicati da
+# GitHub Pages, che sono quelli salvati da git (LF).
+forcekit/marketplace/scripts/** text eol=lf

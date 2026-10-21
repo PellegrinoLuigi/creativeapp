@@ -113,8 +113,8 @@
               "Nuovo campo \"Min percent\" (0, 50, 80) per nascondere i limiti lontani dal pieno."
             ]
           },
-          "size": 965,
-          "sha256": "d5cb1b86a62d6a7b99a13214549740f4d9b37ae6067678f44a2a4c38653e7bc5"
+          "size": 946,
+          "sha256": "3e2c58a3af56d31ec6700a7098807d3e0f01b73c852a5c3a8733fd8c40a11bbd"
         },
         {
           "version": "1.0.0",
@@ -131,8 +131,8 @@
               "Prima versione."
             ]
           },
-          "size": 378,
-          "sha256": "93691d3e0879d90629f60b6b74b15bc32cf8be38ffcba0f120313a7cfb8d70b8"
+          "size": 369,
+          "sha256": "556c84b6f041de30aeb920dc3ca3687578326443cad5d72ac135b7c9ad2a6d0f"
         }
       ]
     },
@@ -180,8 +180,8 @@
               "Prima versione."
             ]
           },
-          "size": 486,
-          "sha256": "c6304c20325587357e1c81f9eaaf29f99e95824ac6522bdb2fb8f3c1774460ab"
+          "size": 478,
+          "sha256": "796302223929cacfaf7bffd8eceb96efc4dd636a1c3781b554c776e3c8032df6"
         }
       ]
     },
@@ -229,8 +229,8 @@
               "Prima versione."
             ]
           },
-          "size": 1006,
-          "sha256": "651512e00cb8e1ed5b67d76150947d47c5c7cbb1c647d34ed550cca9420f4f0c"
+          "size": 990,
+          "sha256": "8c6b9b5fc661210d3dd4eb243945921d0b643afa16e7c9b2e37c1d9315655776"
         }
       ]
     },
@@ -278,8 +278,8 @@
               "Prima versione."
             ]
           },
-          "size": 786,
-          "sha256": "e0fa33ee746c7e1fe48f8f45467ff36722b3a57f5c329ab546b2cb100d52d8b7"
+          "size": 771,
+          "sha256": "d05814e4510ae1e253d530c016c343e18c31b9be472ca0d2251decc0ebb3cd04"
         }
       ]
     },
@@ -327,8 +327,8 @@
               "Prima versione."
             ]
           },
-          "size": 694,
-          "sha256": "04d2107a325560bfbd491a3f139f15cf9d79bcc361cf0ad9a396c1a0258ae09e"
+          "size": 681,
+          "sha256": "3780a34fc28ed261bacd2ada3a7e80c0dd139a819808f454b83bb642d8dee5ce"
         }
       ]
     },
@@ -377,8 +377,8 @@
               "Prima versione."
             ]
           },
-          "size": 1023,
-          "sha256": "a41cd64807851b9aa6c56510f9081fb4866f1c6102ba2e8717107e6d7044e92c"
+          "size": 1006,
+          "sha256": "3147920f78f67f50713ba92b84b76c790fdd3ba0a5c299c796103634cf80d7b4"
         }
       ]
     },
@@ -427,8 +427,8 @@
               "Prima versione."
             ]
           },
-          "size": 866,
-          "sha256": "58eeb2d35c2842d8d87df8f211f29b4bc1fb440954cc917adda62b3fe930c0b9"
+          "size": 847,
+          "sha256": "4041d7e4a1e155ec776f7286fa0e4de91fb2e1f57224a37c1075b45dbbb64a37"
         }
       ]
     },
@@ -477,8 +477,8 @@
               "Prima versione."
             ]
           },
-          "size": 999,
-          "sha256": "b294bb648e6ada795dfb8de378247df6bbba872824476657aa70c21887029d14"
+          "size": 976,
+          "sha256": "5b15c5873cedb07761370fa2e002d57ae027278f27b6239a8246d298b7054f80"
         }
       ]
     },

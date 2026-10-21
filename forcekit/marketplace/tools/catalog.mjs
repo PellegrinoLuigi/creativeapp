@@ -109,6 +109,13 @@ export function validateCatalog(catalog, readFile, { fix = false } = {}) {
         continue;
       }
       if (buf.length === 0 || buf.length > MAX_FILE_BYTES) err(vw, `file size must be 1..${MAX_FILE_BYTES} bytes`);
+      // Su Windows (git core.autocrlf) la copia locale puo' avere CRLF, ma GitHub
+      // Pages pubblica il file come lo salva git (LF): size e sha256 calcolati sul
+      // CRLF non corrisponderebbero mai a quello che l'estensione scarica.
+      if (buf.includes(13)) {
+        err(vw, `${v.file} has Windows line endings (CRLF), the published file has LF: keep .gitattributes (eol=lf) and run  git add --renormalize forcekit/marketplace/scripts`);
+        continue;
+      }
       const hash = sha256(buf);
       if (fix) {
         v.size = buf.length;
