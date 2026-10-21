@@ -76,11 +76,11 @@
         "de": "Org-Limits"
       },
       "description": {
-        "en": "Lists the org limits with usage, maximum and percentage, most used first. Choose a threshold to see only the limits that are filling up.",
-        "it": "Elenca i limiti dell'org con uso, massimo e percentuale, dal più usato. Scegli una soglia per vedere solo i limiti che si stanno riempiendo.",
-        "fr": "Liste les limites de l'org avec utilisation, maximum et pourcentage, les plus utilisées d'abord. Choisissez un seuil pour ne voir que celles qui se remplissent.",
-        "es": "Lista los límites de la org con uso, máximo y porcentaje, primero los más usados. Elige un umbral para ver solo los que se están llenando.",
-        "de": "Listet die Org-Limits mit Nutzung, Maximum und Prozentsatz, die am stärksten genutzten zuerst. Wähle eine Schwelle, um nur die fast vollen zu sehen."
+        "en": "How much of each org limit you're using (API calls, storage, email…), fullest first.",
+        "it": "Quanto stai usando di ogni limite dell'org (API, spazio, email…), dal più pieno.",
+        "fr": "Votre consommation de chaque limite de l'org (API, stockage, e-mails…), la plus pleine d'abord.",
+        "es": "Cuánto usas de cada límite de la org (API, almacenamiento, emails…), el más lleno primero.",
+        "de": "Wie viel du von jedem Org-Limit nutzt (API, Speicher, E-Mails…), das vollste zuerst."
       },
       "author": {
         "name": "ForceKIT",
@@ -146,11 +146,11 @@
         "de": "Datensätze zählen"
       },
       "description": {
-        "en": "Counts the records of any object, with an optional WHERE condition, without the 2,000-row limit of a normal query.",
-        "it": "Conta i record di qualsiasi oggetto, con una condizione WHERE facoltativa, senza il limite di 2.000 righe di una query normale.",
-        "fr": "Compte les enregistrements de n'importe quel objet, avec une condition WHERE facultative, sans la limite de 2 000 lignes d'une requête normale.",
-        "es": "Cuenta los registros de cualquier objeto, con una condición WHERE opcional, sin el límite de 2.000 filas de una consulta normal.",
-        "de": "Zählt die Datensätze eines beliebigen Objekts, mit optionaler WHERE-Bedingung, ohne das 2.000-Zeilen-Limit einer normalen Abfrage."
+        "en": "How many records an object has, optionally with a filter.",
+        "it": "Quanti record ha un oggetto, anche con un filtro.",
+        "fr": "Combien d'enregistrements contient un objet, avec un filtre si besoin.",
+        "es": "Cuántos registros tiene un objeto, con un filtro si quieres.",
+        "de": "Wie viele Datensätze ein Objekt hat, auf Wunsch mit Filter."
       },
       "author": {
         "name": "ForceKIT",
@@ -188,18 +188,18 @@
     {
       "id": "fk.apex.record-access",
       "name": {
-        "en": "Record access of a user",
-        "it": "Accesso di un utente a un record",
-        "fr": "Accès d'un utilisateur à un enregistrement",
-        "es": "Acceso de un usuario a un registro",
-        "de": "Zugriff eines Benutzers auf einen Datensatz"
+        "en": "Access to a record",
+        "it": "Accesso a un record",
+        "fr": "Accès à un enregistrement",
+        "es": "Acceso a un registro",
+        "de": "Zugriff auf einen Datensatz"
       },
       "description": {
-        "en": "Shows what a user can do on a record (read, edit, delete, transfer, full access) as Salesforce computes it from sharing, roles and profiles.",
-        "it": "Mostra cosa può fare un utente su un record (lettura, modifica, eliminazione, trasferimento, accesso completo) come lo calcola Salesforce da condivisione, ruoli e profili.",
-        "fr": "Affiche ce qu'un utilisateur peut faire sur un enregistrement (lecture, modification, suppression, transfert, accès complet) tel que Salesforce le calcule.",
-        "es": "Muestra qué puede hacer un usuario en un registro (leer, editar, eliminar, transferir, acceso total) tal como lo calcula Salesforce.",
-        "de": "Zeigt, was ein Benutzer mit einem Datensatz tun darf (lesen, bearbeiten, löschen, übertragen, Vollzugriff), wie Salesforce es berechnet."
+        "en": "What a user can do on a record: see it, edit it, delete it.",
+        "it": "Cosa può fare un utente su un record: vederlo, modificarlo, cancellarlo.",
+        "fr": "Ce qu'un utilisateur peut faire sur un enregistrement : le voir, le modifier, le supprimer.",
+        "es": "Qué puede hacer un usuario con un registro: verlo, editarlo, borrarlo.",
+        "de": "Was ein Benutzer mit einem Datensatz darf: sehen, bearbeiten, löschen."
       },
       "author": {
         "name": "ForceKIT",
@@ -241,14 +241,14 @@
         "it": "Valori di una picklist",
         "fr": "Valeurs d'une liste de sélection",
         "es": "Valores de una lista de selección",
-        "de": "Picklist-Werte"
+        "de": "Werte einer Auswahlliste"
       },
       "description": {
-        "en": "Lists the values of a picklist field: API name, label, active or inactive and default value.",
-        "it": "Elenca i valori di un campo picklist: nome API, etichetta, attivo o no e valore predefinito.",
-        "fr": "Liste les valeurs d'un champ de liste de sélection : nom API, libellé, actif ou non et valeur par défaut.",
-        "es": "Lista los valores de un campo de lista de selección: nombre API, etiqueta, activo o no y valor predeterminado.",
-        "de": "Listet die Werte eines Picklist-Felds: API-Name, Bezeichnung, aktiv oder inaktiv und Standardwert."
+        "en": "Every value of a picklist field, with its label and whether it's active.",
+        "it": "Tutti i valori di un campo picklist, con l'etichetta e quali sono attivi.",
+        "fr": "Toutes les valeurs d'une liste de sélection, avec leur libellé et si elles sont actives.",
+        "es": "Todos los valores de una lista de selección, con su etiqueta y si están activos.",
+        "de": "Alle Werte einer Auswahlliste mit Bezeichnung und ob sie aktiv sind."
       },
       "author": {
         "name": "ForceKIT",
@@ -293,11 +293,11 @@
         "de": "Geplante Jobs"
       },
       "description": {
-        "en": "Lists the scheduled jobs of the org with type, state, cron expression, next and last run and who scheduled them.",
-        "it": "Elenca i job pianificati dell'org con tipo, stato, espressione cron, prossima e ultima esecuzione e chi li ha pianificati.",
-        "fr": "Liste les tâches planifiées de l'org avec type, état, expression cron, prochaine et dernière exécution et leur auteur.",
-        "es": "Lista los trabajos programados de la org con tipo, estado, expresión cron, próxima y última ejecución y quién los programó.",
-        "de": "Listet die geplanten Jobs der Org mit Typ, Status, Cron-Ausdruck, nächster und letzter Ausführung und wer sie geplant hat."
+        "en": "Which jobs are scheduled, when they run next and who created them.",
+        "it": "Quali job sono pianificati, quando partono e chi li ha creati.",
+        "fr": "Les tâches planifiées, leur prochaine exécution et qui les a créées.",
+        "es": "Qué trabajos están programados, cuándo se ejecutan y quién los creó.",
+        "de": "Welche Jobs geplant sind, wann sie laufen und wer sie erstellt hat."
       },
       "author": {
         "name": "ForceKIT",
@@ -335,18 +335,18 @@
     {
       "id": "fk.apex.failed-async-jobs",
       "name": {
-        "en": "Failed async jobs",
-        "it": "Job asincroni falliti",
-        "fr": "Tâches asynchrones en échec",
-        "es": "Trabajos asíncronos fallidos",
-        "de": "Fehlgeschlagene Async-Jobs"
+        "en": "Failed jobs",
+        "it": "Job in errore",
+        "fr": "Tâches en erreur",
+        "es": "Trabajos con errores",
+        "de": "Fehlgeschlagene Jobs"
       },
       "description": {
-        "en": "Batch, Queueable, Future and scheduled Apex jobs that failed or ended with errors in the last 1, 7 or 30 days, with the error message.",
-        "it": "Job Apex Batch, Queueable, Future e pianificati falliti o finiti con errori negli ultimi 1, 7 o 30 giorni, con il messaggio d'errore.",
-        "fr": "Tâches Apex Batch, Queueable, Future et planifiées en échec ou terminées avec des erreurs ces 1, 7 ou 30 derniers jours, avec le message d'erreur.",
-        "es": "Trabajos Apex Batch, Queueable, Future y programados que fallaron o terminaron con errores en los últimos 1, 7 o 30 días, con el mensaje de error.",
-        "de": "Batch-, Queueable-, Future- und geplante Apex-Jobs, die in den letzten 1, 7 oder 30 Tagen fehlgeschlagen sind oder Fehler hatten, mit Fehlermeldung."
+        "en": "Apex jobs that failed in the last days, with the error message.",
+        "it": "I job Apex andati in errore negli ultimi giorni, con il messaggio d'errore.",
+        "fr": "Les tâches Apex en échec ces derniers jours, avec le message d'erreur.",
+        "es": "Los trabajos Apex que fallaron en los últimos días, con el mensaje de error.",
+        "de": "Apex-Jobs, die in den letzten Tagen fehlgeschlagen sind, mit Fehlermeldung."
       },
       "author": {
         "name": "ForceKIT",
@@ -385,18 +385,18 @@
     {
       "id": "fk.js.page-info",
       "name": {
-        "en": "Page info",
-        "it": "Informazioni sulla pagina",
-        "fr": "Infos sur la page",
-        "es": "Información de la página",
-        "de": "Seiteninfo"
+        "en": "Where am I",
+        "it": "Dove mi trovo",
+        "fr": "Où suis-je",
+        "es": "Dónde estoy",
+        "de": "Wo bin ich"
       },
       "description": {
-        "en": "Tells you where you are: object, record Id, app, Lightning or Classic and URL of the Salesforce page. Changes nothing on the page.",
-        "it": "Ti dice dove sei: oggetto, Id del record, app, Lightning o Classic e indirizzo della pagina Salesforce. Non cambia nulla nella pagina.",
-        "fr": "Vous dit où vous êtes : objet, Id de l'enregistrement, application, Lightning ou Classic et URL de la page Salesforce. Ne modifie rien.",
-        "es": "Te dice dónde estás: objeto, Id del registro, app, Lightning o Classic y URL de la página de Salesforce. No cambia nada en la página.",
-        "de": "Zeigt, wo du bist: Objekt, Datensatz-Id, App, Lightning oder Classic und URL der Salesforce-Seite. Ändert nichts an der Seite."
+        "en": "Object, record Id and app of the page you're looking at.",
+        "it": "Oggetto, Id del record e app della pagina che stai guardando.",
+        "fr": "Objet, Id de l'enregistrement et application de la page affichée.",
+        "es": "Objeto, Id del registro y app de la página que estás viendo.",
+        "de": "Objekt, Datensatz-Id und App der Seite, die du gerade ansiehst."
       },
       "author": {
         "name": "ForceKIT",
@@ -435,18 +435,18 @@
     {
       "id": "fk.js.ids-on-page",
       "name": {
-        "en": "Record Ids on the page",
-        "it": "Id dei record nella pagina",
-        "fr": "Id des enregistrements de la page",
-        "es": "Id de los registros de la página",
-        "de": "Datensatz-Ids auf der Seite"
+        "en": "Ids on the page",
+        "it": "Id nella pagina",
+        "fr": "Id de la page",
+        "es": "Id de la página",
+        "de": "Ids auf der Seite"
       },
       "description": {
-        "en": "Collects the record Ids linked from the current page (lists, related lists, lookups), also inside Lightning components, ready to copy.",
-        "it": "Raccoglie gli Id dei record collegati dalla pagina (elenchi, elenchi correlati, lookup), anche dentro i componenti Lightning, pronti da copiare.",
-        "fr": "Rassemble les Id des enregistrements liés depuis la page (listes, listes associées, recherches), même dans les composants Lightning.",
-        "es": "Recoge los Id de los registros enlazados desde la página (listas, listas relacionadas, búsquedas), también dentro de componentes Lightning.",
-        "de": "Sammelt die auf der Seite verlinkten Datensatz-Ids (Listen, Themenlisten, Lookups), auch in Lightning-Komponenten."
+        "en": "Collects the Ids of every record linked on the page, ready to copy.",
+        "it": "Raccoglie gli Id di tutti i record collegati nella pagina, pronti da copiare.",
+        "fr": "Rassemble les Id de tous les enregistrements liés dans la page, prêts à copier.",
+        "es": "Recoge los Id de todos los registros enlazados en la página, listos para copiar.",
+        "de": "Sammelt die Ids aller auf der Seite verlinkten Datensätze, bereit zum Kopieren."
       },
       "author": {
         "name": "ForceKIT",
@@ -485,18 +485,18 @@
     {
       "id": "fk.apex.permission-explainer",
       "name": {
-        "en": "Why can a user…?",
-        "it": "Perché un utente può…?",
-        "fr": "Pourquoi un utilisateur peut…?",
-        "es": "¿Por qué un usuario puede…?",
-        "de": "Warum darf ein Benutzer…?"
+        "en": "Where a permission comes from",
+        "it": "Da dove arriva un permesso",
+        "fr": "D'où vient une autorisation",
+        "es": "De dónde viene un permiso",
+        "de": "Woher eine Berechtigung kommt"
       },
       "description": {
-        "en": "Tells which profile, permission set or permission set group gives a user read, create, edit or delete on an object — and read or edit on one of its fields. Also flags View/Modify All Data. Read only.",
-        "it": "Dice quale profilo, permission set o gruppo di permission set dà a un utente lettura, creazione, modifica o cancellazione su un oggetto — e lettura o modifica su un suo campo. Segnala anche View/Modify All Data. Solo lettura.",
-        "fr": "Indique quel profil, ensemble ou groupe d'autorisations donne à un utilisateur la lecture, la création, la modification ou la suppression sur un objet — et la lecture ou la modification d'un de ses champs. Signale aussi View/Modify All Data. Lecture seule.",
-        "es": "Indica qué perfil, conjunto o grupo de permisos da a un usuario lectura, creación, edición o eliminación sobre un objeto — y lectura o edición sobre uno de sus campos. También señala View/Modify All Data. Solo lectura.",
-        "de": "Zeigt, welches Profil, welcher Berechtigungssatz oder welche Gruppe einem Benutzer Lesen, Erstellen, Bearbeiten oder Löschen für ein Objekt gibt — und Lesen oder Bearbeiten für eines seiner Felder. Meldet auch View/Modify All Data. Nur Lesen."
+        "en": "Which profile or permission set gives a user access to an object or a field.",
+        "it": "Quale profilo o permission set dà a un utente l'accesso a un oggetto o a un campo.",
+        "fr": "Quel profil ou ensemble d'autorisations donne à un utilisateur l'accès à un objet ou un champ.",
+        "es": "Qué perfil o conjunto de permisos da a un usuario acceso a un objeto o un campo.",
+        "de": "Welches Profil oder welcher Berechtigungssatz einem Benutzer Zugriff auf ein Objekt oder Feld gibt."
       },
       "author": {
         "name": "ForceKIT",
@@ -544,18 +544,18 @@
     {
       "id": "fk.apex.object-automations",
       "name": {
-        "en": "Automations on an object",
-        "it": "Automazioni su un oggetto",
-        "fr": "Automatisations d'un objet",
-        "es": "Automatizaciones de un objeto",
-        "de": "Automatisierungen eines Objekts"
+        "en": "What runs on an object",
+        "it": "Cosa scatta su un oggetto",
+        "fr": "Ce qui s'exécute sur un objet",
+        "es": "Qué se ejecuta en un objeto",
+        "de": "Was auf einem Objekt läuft"
       },
       "description": {
-        "en": "Everything that runs when a record of an object is saved: Apex triggers and their events, record-triggered flows, approval processes, duplicate and assignment rules. Read only.",
-        "it": "Tutto quello che parte quando si salva un record di un oggetto: trigger Apex e i loro eventi, flow su record, processi di approvazione, regole duplicati e di assegnazione. Solo lettura.",
-        "fr": "Tout ce qui s'exécute à l'enregistrement d'un objet : déclencheurs Apex et leurs événements, flux déclenchés par un enregistrement, processus d'approbation, règles de doublons et d'attribution. Lecture seule.",
-        "es": "Todo lo que se ejecuta al guardar un registro de un objeto: triggers Apex y sus eventos, flujos desencadenados por registro, procesos de aprobación, reglas de duplicados y de asignación. Solo lectura.",
-        "de": "Alles, was beim Speichern eines Datensatzes läuft: Apex-Trigger und ihre Ereignisse, datensatzgesteuerte Flows, Genehmigungsprozesse, Duplikat- und Zuweisungsregeln. Nur Lesen."
+        "en": "Triggers, flows and other automations that run when you save a record of that object.",
+        "it": "Trigger, flow e altre automazioni che partono quando salvi un record di quell'oggetto.",
+        "fr": "Déclencheurs, flux et autres automatisations lancés à l'enregistrement de cet objet.",
+        "es": "Triggers, flujos y otras automatizaciones que se ejecutan al guardar un registro de ese objeto.",
+        "de": "Trigger, Flows und andere Automatisierungen, die beim Speichern eines Datensatzes laufen."
       },
       "author": {
         "name": "ForceKIT",
@@ -603,18 +603,18 @@
     {
       "id": "fk.apex.field-fill-rate",
       "name": {
-        "en": "How much fields are used",
-        "it": "Quanto sono usati i campi",
-        "fr": "Utilisation des champs",
-        "es": "Cuánto se usan los campos",
-        "de": "Wie stark Felder genutzt werden"
+        "en": "Unused fields",
+        "it": "Campi poco usati",
+        "fr": "Champs peu utilisés",
+        "es": "Campos poco usados",
+        "de": "Wenig genutzte Felder"
       },
       "description": {
-        "en": "For every field of an object, the share of records where it is filled in (checkboxes: checked), least used first. The quickest way to find fields to clean up. Optional WHERE to look at a subset. Read only.",
-        "it": "Per ogni campo di un oggetto, la percentuale di record in cui è compilato (caselle: spuntate), dal meno usato. Il modo più rapido per trovare campi da ripulire. WHERE facoltativo per guardare un sottoinsieme. Solo lettura.",
-        "fr": "Pour chaque champ d'un objet, la part des enregistrements où il est renseigné (cases : cochées), du moins utilisé au plus utilisé. Le moyen le plus rapide de trouver les champs à nettoyer. WHERE facultatif. Lecture seule.",
-        "es": "Para cada campo de un objeto, el porcentaje de registros en los que está rellenado (casillas: marcadas), del menos usado al más usado. La forma más rápida de encontrar campos que limpiar. WHERE opcional. Solo lectura.",
-        "de": "Für jedes Feld eines Objekts der Anteil der Datensätze, in denen es ausgefüllt ist (Kontrollkästchen: aktiviert), am wenigsten genutzte zuerst. Der schnellste Weg, Felder zum Aufräumen zu finden. Optionales WHERE. Nur Lesen."
+        "en": "For each field, how many records have it filled in: spot the ones to remove.",
+        "it": "Per ogni campo, in quanti record è compilato: trovi subito quelli da eliminare.",
+        "fr": "Pour chaque champ, combien d'enregistrements le remplissent : repérez ceux à supprimer.",
+        "es": "Para cada campo, en cuántos registros está rellenado: encuentra los que sobran.",
+        "de": "Für jedes Feld, in wie vielen Datensätzen es ausgefüllt ist: so findest du überflüssige."
       },
       "author": {
         "name": "ForceKIT",
@@ -669,11 +669,11 @@
         "de": "Duplikate finden"
       },
       "description": {
-        "en": "Values of a field that appear on more than one record (e.g. Accounts with the same name, Contacts with the same email), most repeated first, with how many extra records they make. Read only.",
-        "it": "I valori di un campo presenti su più record (es. Account con lo stesso nome, Contact con la stessa email), dai più ripetuti, con quanti record in più generano. Solo lettura.",
-        "fr": "Les valeurs d'un champ présentes sur plusieurs enregistrements (comptes avec le même nom, contacts avec le même e-mail…), les plus répétées d'abord. Lecture seule.",
-        "es": "Los valores de un campo que aparecen en más de un registro (cuentas con el mismo nombre, contactos con el mismo email…), los más repetidos primero. Solo lectura.",
-        "de": "Werte eines Felds, die in mehreren Datensätzen vorkommen (z. B. Accounts mit gleichem Namen, Kontakte mit gleicher E-Mail), die häufigsten zuerst. Nur Lesen."
+        "en": "Repeated values in a field, like Accounts with the same name.",
+        "it": "Valori ripetuti in un campo, ad esempio Account con lo stesso nome.",
+        "fr": "Les valeurs répétées d'un champ, comme des comptes avec le même nom.",
+        "es": "Valores repetidos en un campo, como cuentas con el mismo nombre.",
+        "de": "Wiederholte Werte in einem Feld, z. B. Accounts mit gleichem Namen."
       },
       "author": {
         "name": "ForceKIT",
@@ -720,18 +720,18 @@
     {
       "id": "fk.apex.inactive-licensed-users",
       "name": {
-        "en": "Licensed users who don't log in",
-        "it": "Utenti con licenza che non entrano",
-        "fr": "Utilisateurs sous licence inactifs",
-        "es": "Usuarios con licencia que no entran",
-        "de": "Lizenzierte Benutzer ohne Login"
+        "en": "Users who don't log in",
+        "it": "Utenti che non entrano",
+        "fr": "Utilisateurs inactifs",
+        "es": "Usuarios que no entran",
+        "de": "Benutzer ohne Login"
       },
       "description": {
-        "en": "Active users who haven't logged in for 30–180 days (or never), with profile and license, plus a count per license: licenses you can take back. Read only.",
-        "it": "Utenti attivi che non entrano da 30–180 giorni (o mai), con profilo e licenza, più un conteggio per licenza: licenze che puoi recuperare. Solo lettura.",
-        "fr": "Utilisateurs actifs qui ne se sont pas connectés depuis 30 à 180 jours (ou jamais), avec profil et licence, et un total par licence : des licences à récupérer. Lecture seule.",
-        "es": "Usuarios activos que no inician sesión desde hace 30–180 días (o nunca), con perfil y licencia, y un total por licencia: licencias que puedes recuperar. Solo lectura.",
-        "de": "Aktive Benutzer ohne Login seit 30–180 Tagen (oder nie), mit Profil und Lizenz sowie einer Summe pro Lizenz: Lizenzen, die du zurückholen kannst. Nur Lesen."
+        "en": "Active users who haven't logged in for months: licenses you can free up.",
+        "it": "Utenti attivi che non accedono da mesi: licenze che puoi liberare.",
+        "fr": "Utilisateurs actifs qui ne se connectent plus depuis des mois : des licences à libérer.",
+        "es": "Usuarios activos que no inician sesión desde hace meses: licencias que puedes liberar.",
+        "de": "Aktive Benutzer, die sich seit Monaten nicht anmelden: Lizenzen, die du freigeben kannst."
       },
       "author": {
         "name": "ForceKIT",
@@ -779,18 +779,18 @@
     {
       "id": "fk.apex.record-fields",
       "name": {
-        "en": "All fields of a record",
+        "en": "Every field of a record",
         "it": "Tutti i campi di un record",
         "fr": "Tous les champs d'un enregistrement",
         "es": "Todos los campos de un registro",
         "de": "Alle Felder eines Datensatzes"
       },
       "description": {
-        "en": "Given a record Id, prints every field you can read with label, API name and value — also the ones that aren't on the page layout. Empty fields on request. Read only.",
-        "it": "Dato l'Id di un record, stampa ogni campo che puoi leggere con etichetta, nome API e valore — anche quelli che non sono nel layout. Campi vuoti su richiesta. Solo lettura.",
-        "fr": "À partir de l'Id d'un enregistrement, affiche chaque champ lisible avec libellé, nom d'API et valeur — même ceux absents de la présentation. Champs vides sur demande. Lecture seule.",
-        "es": "Dado el Id de un registro, muestra cada campo que puedes leer con etiqueta, nombre de API y valor — también los que no están en el diseño. Campos vacíos a petición. Solo lectura.",
-        "de": "Gibt zu einer Datensatz-Id jedes lesbare Feld mit Bezeichnung, API-Namen und Wert aus — auch die, die nicht im Layout sind. Leere Felder auf Wunsch. Nur Lesen."
+        "en": "Shows every field of a record with its value, even those not on the layout.",
+        "it": "Mostra ogni campo di un record con il suo valore, anche quelli fuori dal layout.",
+        "fr": "Affiche chaque champ d'un enregistrement avec sa valeur, même hors présentation.",
+        "es": "Muestra cada campo de un registro con su valor, también los que no están en el diseño.",
+        "de": "Zeigt jedes Feld eines Datensatzes mit Wert, auch die außerhalb des Layouts."
       },
       "author": {
         "name": "ForceKIT",
@@ -838,18 +838,18 @@
     {
       "id": "fk.apex.email-check",
       "name": {
-        "en": "Can this org send email?",
-        "it": "Quest'org può inviare email?",
-        "fr": "Cette org peut-elle envoyer des e-mails ?",
-        "es": "¿Esta org puede enviar emails?",
-        "de": "Kann diese Org E-Mails senden?"
+        "en": "Email sending test",
+        "it": "Prova invio email",
+        "fr": "Test d'envoi d'e-mails",
+        "es": "Prueba de envío de emails",
+        "de": "E-Mail-Versand testen"
       },
       "description": {
-        "en": "Checks whether Apex can send email (sandboxes start with deliverability set to system email only), shows today's single and mass email usage and can send you a test email.",
-        "it": "Controlla se Apex può inviare email (le sandbox partono con l'accesso alle email solo di sistema), mostra l'uso giornaliero di email singole e massive e può inviarti un'email di prova.",
-        "fr": "Vérifie si Apex peut envoyer des e-mails (les sandbox démarrent en e-mails système uniquement), affiche l'usage du jour des e-mails individuels et en masse et peut vous envoyer un e-mail de test.",
-        "es": "Comprueba si Apex puede enviar emails (los sandbox empiezan solo con emails del sistema), muestra el uso diario de emails individuales y masivos y puede enviarte un email de prueba.",
-        "de": "Prüft, ob Apex E-Mails senden kann (Sandboxes starten mit „nur System-E-Mails“), zeigt die heutige Nutzung von Einzel- und Massen-E-Mails und kann dir eine Test-E-Mail senden."
+        "en": "Checks whether the org can send email and, if you like, sends you a test email.",
+        "it": "Controlla se l'org può inviare email e, se vuoi, ti manda un'email di prova.",
+        "fr": "Vérifie si l'org peut envoyer des e-mails et, si vous voulez, vous envoie un e-mail de test.",
+        "es": "Comprueba si la org puede enviar emails y, si quieres, te envía un email de prueba.",
+        "de": "Prüft, ob die Org E-Mails senden kann, und schickt dir auf Wunsch eine Test-E-Mail."
       },
       "author": {
         "name": "ForceKIT",
@@ -897,18 +897,18 @@
     {
       "id": "fk.apex.sandbox-fix-emails",
       "name": {
-        "en": "Sandbox: restore user emails",
-        "it": "Sandbox: ripristina le email",
-        "fr": "Sandbox : rétablir les e-mails",
-        "es": "Sandbox: restaurar los emails",
-        "de": "Sandbox: E-Mails wiederherstellen"
+        "en": "Sandbox: fix user emails",
+        "it": "Sandbox: sistema le email",
+        "fr": "Sandbox : corriger les e-mails",
+        "es": "Sandbox: arreglar los emails",
+        "de": "Sandbox: E-Mails korrigieren"
       },
       "description": {
-        "en": "After a sandbox refresh: removes \".invalid\" from the email of the users you choose (by profile and/or username) and can reset their passwords. Preview first, then Apply. Only runs in sandboxes.",
-        "it": "Dopo il refresh di una sandbox: toglie \".invalid\" dalle email degli utenti scelti (per profilo e/o username) e può reimpostarne la password. Prima Anteprima, poi Applica. Gira solo nelle sandbox.",
-        "fr": "Après l'actualisation d'une sandbox : retire « .invalid » de l'e-mail des utilisateurs choisis (par profil et/ou nom d'utilisateur) et peut réinitialiser leur mot de passe. Aperçu, puis Appliquer. Sandbox uniquement.",
-        "es": "Tras refrescar un sandbox: quita \".invalid\" del email de los usuarios elegidos (por perfil y/o nombre de usuario) y puede restablecer su contraseña. Primero Vista previa, luego Aplicar. Solo en sandbox.",
-        "de": "Nach einer Sandbox-Aktualisierung: entfernt „.invalid“ aus der E-Mail der gewählten Benutzer (nach Profil und/oder Benutzername) und kann ihre Passwörter zurücksetzen. Erst Vorschau, dann Anwenden. Nur in Sandboxes."
+        "en": "After a refresh, removes “.invalid” from user emails. Shows you what will change first.",
+        "it": "Dopo il refresh toglie «.invalid» dalle email degli utenti. Prima ti mostra cosa cambierà.",
+        "fr": "Après une actualisation, retire « .invalid » des e-mails des utilisateurs. Montre d'abord les changements.",
+        "es": "Tras un refresh, quita «.invalid» de los emails de los usuarios. Antes te muestra qué cambiará.",
+        "de": "Entfernt nach einer Aktualisierung „.invalid“ aus Benutzer-E-Mails. Zeigt dir vorher, was sich ändert."
       },
       "author": {
         "name": "ForceKIT",
@@ -959,16 +959,16 @@
       "name": {
         "en": "Stop scheduled jobs",
         "it": "Ferma i job pianificati",
-        "fr": "Arrêter les tâches planifiées",
+        "fr": "Arrêter des tâches planifiées",
         "es": "Detener trabajos programados",
         "de": "Geplante Jobs stoppen"
       },
       "description": {
-        "en": "Stops the scheduled jobs whose name contains a text (\"*\" for all), e.g. before a deploy that touches scheduled Apex. Preview lists them, Apply stops them.",
-        "it": "Ferma i job pianificati il cui nome contiene un testo (\"*\" per tutti), ad esempio prima di un deploy che tocca Apex pianificato. Anteprima li elenca, Applica li ferma.",
-        "fr": "Arrête les tâches planifiées dont le nom contient un texte (« * » pour toutes), par exemple avant un déploiement. Aperçu les liste, Appliquer les arrête.",
-        "es": "Detiene los trabajos programados cuyo nombre contiene un texto (\"*\" para todos), por ejemplo antes de un despliegue. Vista previa los lista, Aplicar los detiene.",
-        "de": "Stoppt geplante Jobs, deren Name einen Text enthält („*“ für alle), z. B. vor einem Deployment. Vorschau listet sie auf, Anwenden stoppt sie."
+        "en": "Stops the scheduled jobs you choose, e.g. before a release. Shows you which first.",
+        "it": "Ferma i job pianificati che scegli, ad esempio prima di un rilascio. Prima ti mostra quali.",
+        "fr": "Arrête les tâches planifiées choisies, par exemple avant une livraison. Montre d'abord lesquelles.",
+        "es": "Detiene los trabajos programados que elijas, por ejemplo antes de un despliegue. Antes te muestra cuáles.",
+        "de": "Stoppt die gewählten geplanten Jobs, z. B. vor einem Release. Zeigt dir vorher welche."
       },
       "author": {
         "name": "ForceKIT",
@@ -1016,18 +1016,18 @@
     {
       "id": "fk.apex.transfer-ownership",
       "name": {
-        "en": "Transfer record ownership",
-        "it": "Trasferisci la proprietà dei record",
-        "fr": "Transférer la propriété",
-        "es": "Transferir la propiedad",
-        "de": "Datensatzinhaber übertragen"
+        "en": "Change record owner",
+        "it": "Cambia proprietario",
+        "fr": "Changer de propriétaire",
+        "es": "Cambiar el propietario",
+        "de": "Inhaber ändern"
       },
       "description": {
-        "en": "Moves the records of an object from one user to another (e.g. someone leaving the company), optionally only those matching a WHERE. Preview counts them, Apply transfers up to 9,000 per run.",
-        "it": "Sposta i record di un oggetto da un utente a un altro (es. chi lascia l'azienda), facoltativamente solo quelli che rispettano un WHERE. Anteprima li conta, Applica ne trasferisce fino a 9.000 per esecuzione.",
-        "fr": "Déplace les enregistrements d'un objet d'un utilisateur à un autre (départ d'un collaborateur…), éventuellement selon un WHERE. Aperçu les compte, Appliquer en transfère jusqu'à 9 000 par exécution.",
-        "es": "Pasa los registros de un objeto de un usuario a otro (por ejemplo, alguien que deja la empresa), opcionalmente solo los que cumplen un WHERE. Vista previa los cuenta, Aplicar transfiere hasta 9.000 por ejecución.",
-        "de": "Überträgt die Datensätze eines Objekts von einem Benutzer auf einen anderen (z. B. bei Austritt), optional nur die passenden zu einem WHERE. Vorschau zählt sie, Anwenden überträgt bis zu 9.000 pro Lauf."
+        "en": "Moves a user's records to someone else, e.g. when they leave. Shows you how many first.",
+        "it": "Passa i record di un utente a un altro, ad esempio quando lascia l'azienda. Prima ti mostra quanti.",
+        "fr": "Transfère les enregistrements d'un utilisateur à un autre, par exemple à son départ. Montre d'abord combien.",
+        "es": "Pasa los registros de un usuario a otro, por ejemplo cuando se va. Antes te muestra cuántos.",
+        "de": "Überträgt die Datensätze eines Benutzers auf einen anderen, z. B. bei Austritt. Zeigt dir vorher wie viele."
       },
       "author": {
         "name": "ForceKIT",
@@ -1075,18 +1075,18 @@
     {
       "id": "fk.apex.delete-records",
       "name": {
-        "en": "Delete test records",
-        "it": "Cancella record di test",
+        "en": "Delete test data",
+        "it": "Cancella dati di test",
         "fr": "Supprimer les données de test",
-        "es": "Borrar registros de prueba",
-        "de": "Testdatensätze löschen"
+        "es": "Borrar datos de prueba",
+        "de": "Testdaten löschen"
       },
       "description": {
-        "en": "Deletes the records of an object that match a WHERE (e.g. test data), and can empty them from the recycle bin. Preview counts and shows them, Apply deletes. Only in sandboxes and Developer Edition orgs.",
-        "it": "Cancella i record di un oggetto che rispettano un WHERE (es. dati di test) e può svuotarli dal cestino. Anteprima li conta e li mostra, Applica li cancella. Solo in sandbox e org Developer Edition.",
-        "fr": "Supprime les enregistrements d'un objet correspondant à un WHERE (données de test…) et peut vider la corbeille. Aperçu les compte et les montre, Appliquer supprime. Sandbox et Developer Edition uniquement.",
-        "es": "Borra los registros de un objeto que cumplen un WHERE (datos de prueba…) y puede vaciarlos de la papelera. Vista previa los cuenta y muestra, Aplicar los borra. Solo en sandbox y Developer Edition.",
-        "de": "Löscht die Datensätze eines Objekts, die einem WHERE entsprechen (z. B. Testdaten), und kann sie aus dem Papierkorb entfernen. Vorschau zählt und zeigt sie, Anwenden löscht. Nur in Sandboxes und Developer Edition."
+        "en": "Deletes the records matching a condition. Shows you which first; never in production.",
+        "it": "Cancella i record che rispettano una condizione. Prima ti mostra quali; mai in produzione.",
+        "fr": "Supprime les enregistrements qui répondent à une condition. Montre d'abord lesquels ; jamais en production.",
+        "es": "Borra los registros que cumplen una condición. Antes te muestra cuáles; nunca en producción.",
+        "de": "Löscht Datensätze, die einer Bedingung entsprechen. Zeigt dir vorher welche; nie in Produktion."
       },
       "author": {
         "name": "ForceKIT",
@@ -1134,18 +1134,18 @@
     {
       "id": "fk.js.copy-record-fields",
       "name": {
-        "en": "Copy the record's fields",
-        "it": "Copia i campi del record",
-        "fr": "Copier les champs de l'enregistrement",
-        "es": "Copiar los campos del registro",
-        "de": "Felder des Datensatzes kopieren"
+        "en": "Copy the record",
+        "it": "Copia il record",
+        "fr": "Copier l'enregistrement",
+        "es": "Copiar el registro",
+        "de": "Datensatz kopieren"
       },
       "description": {
-        "en": "Copies labels and values of the record open on the page (Lightning or Classic) as a two-column table, ready to paste into a ticket, an email or a spreadsheet. Read only.",
-        "it": "Copia etichette e valori del record aperto nella pagina (Lightning o Classic) come tabella a due colonne, pronta da incollare in un ticket, un'email o un foglio di calcolo. Solo lettura.",
-        "fr": "Copie libellés et valeurs de l'enregistrement ouvert (Lightning ou Classic) en tableau à deux colonnes, prêt à coller dans un ticket, un e-mail ou un tableur. Lecture seule.",
-        "es": "Copia etiquetas y valores del registro abierto (Lightning o Classic) como tabla de dos columnas, lista para pegar en un ticket, un email o una hoja de cálculo. Solo lectura.",
-        "de": "Kopiert Bezeichnungen und Werte des geöffneten Datensatzes (Lightning oder Classic) als zweispaltige Tabelle für Tickets, E-Mails oder Tabellen. Nur Lesen."
+        "en": "Copies field names and values of the open record, ready to paste into a ticket or Excel.",
+        "it": "Copia nomi e valori dei campi del record aperto, pronti da incollare in un ticket o in Excel.",
+        "fr": "Copie noms et valeurs des champs de l'enregistrement ouvert, prêts à coller dans un ticket ou Excel.",
+        "es": "Copia nombres y valores de los campos del registro abierto, listos para pegar en un ticket o en Excel.",
+        "de": "Kopiert Feldnamen und Werte des geöffneten Datensatzes für Tickets oder Excel."
       },
       "author": {
         "name": "ForceKIT",
@@ -1194,18 +1194,18 @@
     {
       "id": "fk.js.list-view-csv",
       "name": {
-        "en": "Export the list to CSV",
-        "it": "Esporta l'elenco in CSV",
-        "fr": "Exporter la liste en CSV",
-        "es": "Exportar la lista a CSV",
-        "de": "Liste als CSV exportieren"
+        "en": "List to CSV",
+        "it": "Lista in CSV",
+        "fr": "Liste en CSV",
+        "es": "Lista a CSV",
+        "de": "Liste als CSV"
       },
       "description": {
-        "en": "Downloads the rows of the list view (or related list) open on the page as a CSV file, with the visible columns. Only the rows already loaded: scroll down first to include more. Read only.",
-        "it": "Scarica in un file CSV le righe della list view (o elenco correlato) aperta nella pagina, con le colonne visibili. Solo le righe già caricate: scorri prima in basso per includerne altre. Solo lettura.",
-        "fr": "Télécharge en CSV les lignes de la vue de liste (ou liste associée) ouverte, avec les colonnes visibles. Seulement les lignes déjà chargées : faites défiler d'abord. Lecture seule.",
-        "es": "Descarga en CSV las filas de la vista de lista (o lista relacionada) abierta, con las columnas visibles. Solo las filas ya cargadas: desplázate antes para incluir más. Solo lectura.",
-        "de": "Lädt die Zeilen der geöffneten Listenansicht (oder Themenliste) mit den sichtbaren Spalten als CSV herunter. Nur bereits geladene Zeilen: vorher nach unten scrollen. Nur Lesen."
+        "en": "Downloads the rows of the list you're looking at as a CSV file.",
+        "it": "Scarica in un file CSV le righe della lista che stai guardando.",
+        "fr": "Télécharge en CSV les lignes de la liste affichée.",
+        "es": "Descarga en un archivo CSV las filas de la lista que estás viendo.",
+        "de": "Lädt die Zeilen der angezeigten Liste als CSV-Datei herunter."
       },
       "author": {
         "name": "ForceKIT",
@@ -1261,11 +1261,11 @@
         "de": "Objekt im Setup öffnen"
       },
       "description": {
-        "en": "From a Lightning record or list page, opens the object's fields, page layouts, validation rules, record types or triggers in Object Manager, in a new tab.",
-        "it": "Da un record o un elenco in Lightning, apre in una nuova scheda campi, layout, regole di convalida, tipi di record o trigger dell'oggetto in Object Manager.",
-        "fr": "Depuis un enregistrement ou une liste Lightning, ouvre dans un nouvel onglet les champs, présentations, règles de validation, types d'enregistrement ou déclencheurs de l'objet.",
-        "es": "Desde un registro o una lista en Lightning, abre en una pestaña nueva los campos, diseños, reglas de validación, tipos de registro o triggers del objeto.",
-        "de": "Öffnet von einem Lightning-Datensatz oder einer Liste aus Felder, Layouts, Validierungsregeln, Datensatztypen oder Trigger des Objekts im Objekt-Manager in einem neuen Tab."
+        "en": "Opens the fields, layouts or rules of the object you're on, without searching Setup.",
+        "it": "Apre campi, layout o regole dell'oggetto che stai guardando, senza cercarlo in Setup.",
+        "fr": "Ouvre les champs, présentations ou règles de l'objet affiché, sans le chercher.",
+        "es": "Abre los campos, diseños o reglas del objeto que estás viendo, sin buscarlo.",
+        "de": "Öffnet Felder, Layouts oder Regeln des aktuellen Objekts, ohne im Setup zu suchen."
       },
       "author": {
         "name": "ForceKIT",
@@ -1314,18 +1314,18 @@
     {
       "id": "fk.js.expand-all",
       "name": {
-        "en": "Expand all sections",
-        "it": "Espandi tutte le sezioni",
-        "fr": "Développer toutes les sections",
-        "es": "Expandir todas las secciones",
-        "de": "Alle Abschnitte aufklappen"
+        "en": "Expand everything",
+        "it": "Espandi tutto",
+        "fr": "Tout développer",
+        "es": "Expandir todo",
+        "de": "Alles aufklappen"
       },
       "description": {
-        "en": "Opens in one click every collapsed section and accordion of the page (Lightning record layouts and Classic detail pages), so nothing stays hidden.",
-        "it": "Apre in un clic tutte le sezioni e gli accordion chiusi della pagina (layout dei record Lightning e pagine di dettaglio Classic), così non resta nulla nascosto.",
-        "fr": "Ouvre en un clic toutes les sections et accordéons repliés de la page (présentations Lightning et pages de détail Classic).",
-        "es": "Abre en un clic todas las secciones y acordeones cerrados de la página (diseños de registro Lightning y páginas de detalle Classic).",
-        "de": "Öffnet mit einem Klick alle zugeklappten Abschnitte und Akkordeons der Seite (Lightning-Layouts und Classic-Detailseiten)."
+        "en": "Opens every collapsed section of the record page in one click.",
+        "it": "Apre con un clic tutte le sezioni chiuse della pagina del record.",
+        "fr": "Ouvre en un clic toutes les sections repliées de la page.",
+        "es": "Abre con un clic todas las secciones cerradas de la página del registro.",
+        "de": "Öffnet mit einem Klick alle zugeklappten Abschnitte der Datensatzseite."
       },
       "author": {
         "name": "ForceKIT",
