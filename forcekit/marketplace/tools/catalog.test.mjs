@@ -2,14 +2,14 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { dirname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateCatalog, compareVersions, sha256 } from "./catalog.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const readReal = (rel) => {
   const p = resolve(root, rel);
-  return p.startsWith(root + "/") && existsSync(p) ? readFileSync(p) : null;
+  return p.startsWith(root + sep) && existsSync(p) ? readFileSync(p) : null;
 };
 
 function sample() {

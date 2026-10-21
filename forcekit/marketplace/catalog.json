@@ -53,6 +53,16 @@
         "es": "Página",
         "de": "Seite"
       }
+    },
+    {
+      "id": "sandbox",
+      "label": {
+        "en": "Sandbox & cleanup",
+        "it": "Sandbox e pulizia",
+        "fr": "Sandbox et nettoyage",
+        "es": "Sandbox y limpieza",
+        "de": "Sandbox und Bereinigung"
+      }
     }
   ],
   "scripts": [
@@ -103,8 +113,8 @@
               "Nuovo campo \"Min percent\" (0, 50, 80) per nascondere i limiti lontani dal pieno."
             ]
           },
-          "size": 946,
-          "sha256": "3e2c58a3af56d31ec6700a7098807d3e0f01b73c852a5c3a8733fd8c40a11bbd"
+          "size": 965,
+          "sha256": "d5cb1b86a62d6a7b99a13214549740f4d9b37ae6067678f44a2a4c38653e7bc5"
         },
         {
           "version": "1.0.0",
@@ -121,8 +131,8 @@
               "Prima versione."
             ]
           },
-          "size": 369,
-          "sha256": "556c84b6f041de30aeb920dc3ca3687578326443cad5d72ac135b7c9ad2a6d0f"
+          "size": 378,
+          "sha256": "93691d3e0879d90629f60b6b74b15bc32cf8be38ffcba0f120313a7cfb8d70b8"
         }
       ]
     },
@@ -170,8 +180,8 @@
               "Prima versione."
             ]
           },
-          "size": 478,
-          "sha256": "796302223929cacfaf7bffd8eceb96efc4dd636a1c3781b554c776e3c8032df6"
+          "size": 486,
+          "sha256": "c6304c20325587357e1c81f9eaaf29f99e95824ac6522bdb2fb8f3c1774460ab"
         }
       ]
     },
@@ -219,8 +229,8 @@
               "Prima versione."
             ]
           },
-          "size": 990,
-          "sha256": "8c6b9b5fc661210d3dd4eb243945921d0b643afa16e7c9b2e37c1d9315655776"
+          "size": 1006,
+          "sha256": "651512e00cb8e1ed5b67d76150947d47c5c7cbb1c647d34ed550cca9420f4f0c"
         }
       ]
     },
@@ -268,8 +278,8 @@
               "Prima versione."
             ]
           },
-          "size": 771,
-          "sha256": "d05814e4510ae1e253d530c016c343e18c31b9be472ca0d2251decc0ebb3cd04"
+          "size": 786,
+          "sha256": "e0fa33ee746c7e1fe48f8f45467ff36722b3a57f5c329ab546b2cb100d52d8b7"
         }
       ]
     },
@@ -317,8 +327,8 @@
               "Prima versione."
             ]
           },
-          "size": 681,
-          "sha256": "3780a34fc28ed261bacd2ada3a7e80c0dd139a819808f454b83bb642d8dee5ce"
+          "size": 694,
+          "sha256": "04d2107a325560bfbd491a3f139f15cf9d79bcc361cf0ad9a396c1a0258ae09e"
         }
       ]
     },
@@ -367,8 +377,8 @@
               "Prima versione."
             ]
           },
-          "size": 1006,
-          "sha256": "3147920f78f67f50713ba92b84b76c790fdd3ba0a5c299c796103634cf80d7b4"
+          "size": 1023,
+          "sha256": "a41cd64807851b9aa6c56510f9081fb4866f1c6102ba2e8717107e6d7044e92c"
         }
       ]
     },
@@ -417,8 +427,8 @@
               "Prima versione."
             ]
           },
-          "size": 847,
-          "sha256": "4041d7e4a1e155ec776f7286fa0e4de91fb2e1f57224a37c1075b45dbbb64a37"
+          "size": 866,
+          "sha256": "58eeb2d35c2842d8d87df8f211f29b4bc1fb440954cc917adda62b3fe930c0b9"
         }
       ]
     },
@@ -467,8 +477,896 @@
               "Prima versione."
             ]
           },
-          "size": 976,
-          "sha256": "5b15c5873cedb07761370fa2e002d57ae027278f27b6239a8246d298b7054f80"
+          "size": 999,
+          "sha256": "b294bb648e6ada795dfb8de378247df6bbba872824476657aa70c21887029d14"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.permission-explainer",
+      "name": {
+        "en": "Why can a user…?",
+        "it": "Perché un utente può…?",
+        "fr": "Pourquoi un utilisateur peut…?",
+        "es": "¿Por qué un usuario puede…?",
+        "de": "Warum darf ein Benutzer…?"
+      },
+      "description": {
+        "en": "Tells which profile, permission set or permission set group gives a user read, create, edit or delete on an object — and read or edit on one of its fields. Also flags View/Modify All Data. Read only.",
+        "it": "Dice quale profilo, permission set o gruppo di permission set dà a un utente lettura, creazione, modifica o cancellazione su un oggetto — e lettura o modifica su un suo campo. Segnala anche View/Modify All Data. Solo lettura.",
+        "fr": "Indique quel profil, ensemble ou groupe d'autorisations donne à un utilisateur la lecture, la création, la modification ou la suppression sur un objet — et la lecture ou la modification d'un de ses champs. Signale aussi View/Modify All Data. Lecture seule.",
+        "es": "Indica qué perfil, conjunto o grupo de permisos da a un usuario lectura, creación, edición o eliminación sobre un objeto — y lectura o edición sobre uno de sus campos. También señala View/Modify All Data. Solo lectura.",
+        "de": "Zeigt, welches Profil, welcher Berechtigungssatz oder welche Gruppe einem Benutzer Lesen, Erstellen, Bearbeiten oder Löschen für ein Objekt gibt — und Lesen oder Bearbeiten für eines seiner Felder. Meldet auch View/Modify All Data. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "security",
+      "icon": "🔐",
+      "tags": [
+        "permissions",
+        "profile",
+        "permission set"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.permission-explainer/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 4617,
+          "sha256": "8b7936b07ad73ecb5d97880bfafc9458ba7dd5a41991b7e36496bf8d95f5f147"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.object-automations",
+      "name": {
+        "en": "Automations on an object",
+        "it": "Automazioni su un oggetto",
+        "fr": "Automatisations d'un objet",
+        "es": "Automatizaciones de un objeto",
+        "de": "Automatisierungen eines Objekts"
+      },
+      "description": {
+        "en": "Everything that runs when a record of an object is saved: Apex triggers and their events, record-triggered flows, approval processes, duplicate and assignment rules. Read only.",
+        "it": "Tutto quello che parte quando si salva un record di un oggetto: trigger Apex e i loro eventi, flow su record, processi di approvazione, regole duplicati e di assegnazione. Solo lettura.",
+        "fr": "Tout ce qui s'exécute à l'enregistrement d'un objet : déclencheurs Apex et leurs événements, flux déclenchés par un enregistrement, processus d'approbation, règles de doublons et d'attribution. Lecture seule.",
+        "es": "Todo lo que se ejecuta al guardar un registro de un objeto: triggers Apex y sus eventos, flujos desencadenados por registro, procesos de aprobación, reglas de duplicados y de asignación. Solo lectura.",
+        "de": "Alles, was beim Speichern eines Datensatzes läuft: Apex-Trigger und ihre Ereignisse, datensatzgesteuerte Flows, Genehmigungsprozesse, Duplikat- und Zuweisungsregeln. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "org",
+      "icon": "⚙️",
+      "tags": [
+        "triggers",
+        "flows",
+        "automation"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.object-automations/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 4098,
+          "sha256": "df63aed1b9c1434301646477fa97b9c8b3d6354e1cb745e57a2f07fc943e2101"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.field-fill-rate",
+      "name": {
+        "en": "How much fields are used",
+        "it": "Quanto sono usati i campi",
+        "fr": "Utilisation des champs",
+        "es": "Cuánto se usan los campos",
+        "de": "Wie stark Felder genutzt werden"
+      },
+      "description": {
+        "en": "For every field of an object, the share of records where it is filled in (checkboxes: checked), least used first. The quickest way to find fields to clean up. Optional WHERE to look at a subset. Read only.",
+        "it": "Per ogni campo di un oggetto, la percentuale di record in cui è compilato (caselle: spuntate), dal meno usato. Il modo più rapido per trovare campi da ripulire. WHERE facoltativo per guardare un sottoinsieme. Solo lettura.",
+        "fr": "Pour chaque champ d'un objet, la part des enregistrements où il est renseigné (cases : cochées), du moins utilisé au plus utilisé. Le moyen le plus rapide de trouver les champs à nettoyer. WHERE facultatif. Lecture seule.",
+        "es": "Para cada campo de un objeto, el porcentaje de registros en los que está rellenado (casillas: marcadas), del menos usado al más usado. La forma más rápida de encontrar campos que limpiar. WHERE opcional. Solo lectura.",
+        "de": "Für jedes Feld eines Objekts der Anteil der Datensätze, in denen es ausgefüllt ist (Kontrollkästchen: aktiviert), am wenigsten genutzte zuerst. Der schnellste Weg, Felder zum Aufräumen zu finden. Optionales WHERE. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "📈",
+      "tags": [
+        "fields",
+        "data quality",
+        "cleanup"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.field-fill-rate/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2309,
+          "sha256": "e1079a40a499c04e84be4b4f94491e7c960fb82b12323e3473b30729ac8609d5"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.find-duplicates",
+      "name": {
+        "en": "Find duplicates",
+        "it": "Trova duplicati",
+        "fr": "Trouver les doublons",
+        "es": "Buscar duplicados",
+        "de": "Duplikate finden"
+      },
+      "description": {
+        "en": "Values of a field that appear on more than one record (e.g. Accounts with the same name, Contacts with the same email), most repeated first, with how many extra records they make. Read only.",
+        "it": "I valori di un campo presenti su più record (es. Account con lo stesso nome, Contact con la stessa email), dai più ripetuti, con quanti record in più generano. Solo lettura.",
+        "fr": "Les valeurs d'un champ présentes sur plusieurs enregistrements (comptes avec le même nom, contacts avec le même e-mail…), les plus répétées d'abord. Lecture seule.",
+        "es": "Los valores de un campo que aparecen en más de un registro (cuentas con el mismo nombre, contactos con el mismo email…), los más repetidos primero. Solo lectura.",
+        "de": "Werte eines Felds, die in mehreren Datensätzen vorkommen (z. B. Accounts mit gleichem Namen, Kontakte mit gleicher E-Mail), die häufigsten zuerst. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "👯",
+      "tags": [
+        "duplicates",
+        "data quality"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.find-duplicates/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 1803,
+          "sha256": "4cc312140e0ff493961a796b7d3661dbce807fe2253ac0685df6c95fd2d2aede"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.inactive-licensed-users",
+      "name": {
+        "en": "Licensed users who don't log in",
+        "it": "Utenti con licenza che non entrano",
+        "fr": "Utilisateurs sous licence inactifs",
+        "es": "Usuarios con licencia que no entran",
+        "de": "Lizenzierte Benutzer ohne Login"
+      },
+      "description": {
+        "en": "Active users who haven't logged in for 30–180 days (or never), with profile and license, plus a count per license: licenses you can take back. Read only.",
+        "it": "Utenti attivi che non entrano da 30–180 giorni (o mai), con profilo e licenza, più un conteggio per licenza: licenze che puoi recuperare. Solo lettura.",
+        "fr": "Utilisateurs actifs qui ne se sont pas connectés depuis 30 à 180 jours (ou jamais), avec profil et licence, et un total par licence : des licences à récupérer. Lecture seule.",
+        "es": "Usuarios activos que no inician sesión desde hace 30–180 días (o nunca), con perfil y licencia, y un total por licencia: licencias que puedes recuperar. Solo lectura.",
+        "de": "Aktive Benutzer ohne Login seit 30–180 Tagen (oder nie), mit Profil und Lizenz sowie einer Summe pro Lizenz: Lizenzen, die du zurückholen kannst. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "security",
+      "icon": "💤",
+      "tags": [
+        "users",
+        "licenses",
+        "login"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.inactive-licensed-users/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 1288,
+          "sha256": "64377edffb1dc93c8726039b1062cd9ca29990d6690d2e1b18bde1bf476d3b26"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.record-fields",
+      "name": {
+        "en": "All fields of a record",
+        "it": "Tutti i campi di un record",
+        "fr": "Tous les champs d'un enregistrement",
+        "es": "Todos los campos de un registro",
+        "de": "Alle Felder eines Datensatzes"
+      },
+      "description": {
+        "en": "Given a record Id, prints every field you can read with label, API name and value — also the ones that aren't on the page layout. Empty fields on request. Read only.",
+        "it": "Dato l'Id di un record, stampa ogni campo che puoi leggere con etichetta, nome API e valore — anche quelli che non sono nel layout. Campi vuoti su richiesta. Solo lettura.",
+        "fr": "À partir de l'Id d'un enregistrement, affiche chaque champ lisible avec libellé, nom d'API et valeur — même ceux absents de la présentation. Champs vides sur demande. Lecture seule.",
+        "es": "Dado el Id de un registro, muestra cada campo que puedes leer con etiqueta, nombre de API y valor — también los que no están en el diseño. Campos vacíos a petición. Solo lectura.",
+        "de": "Gibt zu einer Datensatz-Id jedes lesbare Feld mit Bezeichnung, API-Namen und Wert aus — auch die, die nicht im Layout sind. Leere Felder auf Wunsch. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "🗂️",
+      "tags": [
+        "record",
+        "fields",
+        "debug"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.record-fields/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 1161,
+          "sha256": "13ea3fc125620c33db6836be5f4ec5d1f262de5266373b1f36980da46c200759"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.email-check",
+      "name": {
+        "en": "Can this org send email?",
+        "it": "Quest'org può inviare email?",
+        "fr": "Cette org peut-elle envoyer des e-mails ?",
+        "es": "¿Esta org puede enviar emails?",
+        "de": "Kann diese Org E-Mails senden?"
+      },
+      "description": {
+        "en": "Checks whether Apex can send email (sandboxes start with deliverability set to system email only), shows today's single and mass email usage and can send you a test email.",
+        "it": "Controlla se Apex può inviare email (le sandbox partono con l'accesso alle email solo di sistema), mostra l'uso giornaliero di email singole e massive e può inviarti un'email di prova.",
+        "fr": "Vérifie si Apex peut envoyer des e-mails (les sandbox démarrent en e-mails système uniquement), affiche l'usage du jour des e-mails individuels et en masse et peut vous envoyer un e-mail de test.",
+        "es": "Comprueba si Apex puede enviar emails (los sandbox empiezan solo con emails del sistema), muestra el uso diario de emails individuales y masivos y puede enviarte un email de prueba.",
+        "de": "Prüft, ob Apex E-Mails senden kann (Sandboxes starten mit „nur System-E-Mails“), zeigt die heutige Nutzung von Einzel- und Massen-E-Mails und kann dir eine Test-E-Mail senden."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "org",
+      "icon": "✉️",
+      "tags": [
+        "email",
+        "deliverability",
+        "sandbox"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.email-check/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 1495,
+          "sha256": "c4010ce10b8e0e2c1ab49f3e1cefeb72d40ffbfed164ad3c306b932a3268276b"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.sandbox-fix-emails",
+      "name": {
+        "en": "Sandbox: restore user emails",
+        "it": "Sandbox: ripristina le email",
+        "fr": "Sandbox : rétablir les e-mails",
+        "es": "Sandbox: restaurar los emails",
+        "de": "Sandbox: E-Mails wiederherstellen"
+      },
+      "description": {
+        "en": "After a sandbox refresh: removes \".invalid\" from the email of the users you choose (by profile and/or username) and can reset their passwords. Preview first, then Apply. Only runs in sandboxes.",
+        "it": "Dopo il refresh di una sandbox: toglie \".invalid\" dalle email degli utenti scelti (per profilo e/o username) e può reimpostarne la password. Prima Anteprima, poi Applica. Gira solo nelle sandbox.",
+        "fr": "Après l'actualisation d'une sandbox : retire « .invalid » de l'e-mail des utilisateurs choisis (par profil et/ou nom d'utilisateur) et peut réinitialiser leur mot de passe. Aperçu, puis Appliquer. Sandbox uniquement.",
+        "es": "Tras refrescar un sandbox: quita \".invalid\" del email de los usuarios elegidos (por perfil y/o nombre de usuario) y puede restablecer su contraseña. Primero Vista previa, luego Aplicar. Solo en sandbox.",
+        "de": "Nach einer Sandbox-Aktualisierung: entfernt „.invalid“ aus der E-Mail der gewählten Benutzer (nach Profil und/oder Benutzername) und kann ihre Passwörter zurücksetzen. Erst Vorschau, dann Anwenden. Nur in Sandboxes."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "sandbox",
+      "icon": "🧯",
+      "tags": [
+        "sandbox",
+        "refresh",
+        "users",
+        "email"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.sandbox-fix-emails/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2957,
+          "sha256": "f83c8319ac186d075a5cebcaa11c55254469ce19e608b96a41463394d80a8c39"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.abort-scheduled-jobs",
+      "name": {
+        "en": "Stop scheduled jobs",
+        "it": "Ferma i job pianificati",
+        "fr": "Arrêter les tâches planifiées",
+        "es": "Detener trabajos programados",
+        "de": "Geplante Jobs stoppen"
+      },
+      "description": {
+        "en": "Stops the scheduled jobs whose name contains a text (\"*\" for all), e.g. before a deploy that touches scheduled Apex. Preview lists them, Apply stops them.",
+        "it": "Ferma i job pianificati il cui nome contiene un testo (\"*\" per tutti), ad esempio prima di un deploy che tocca Apex pianificato. Anteprima li elenca, Applica li ferma.",
+        "fr": "Arrête les tâches planifiées dont le nom contient un texte (« * » pour toutes), par exemple avant un déploiement. Aperçu les liste, Appliquer les arrête.",
+        "es": "Detiene los trabajos programados cuyo nombre contiene un texto (\"*\" para todos), por ejemplo antes de un despliegue. Vista previa los lista, Aplicar los detiene.",
+        "de": "Stoppt geplante Jobs, deren Name einen Text enthält („*“ für alle), z. B. vor einem Deployment. Vorschau listet sie auf, Anwenden stoppt sie."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "jobs",
+      "icon": "⏹️",
+      "tags": [
+        "CronTrigger",
+        "schedule",
+        "deploy"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.abort-scheduled-jobs/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 1716,
+          "sha256": "401895667103f1db80bee80d4eed8133af94a8281561e0df89be3d31bb8b0a3d"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.transfer-ownership",
+      "name": {
+        "en": "Transfer record ownership",
+        "it": "Trasferisci la proprietà dei record",
+        "fr": "Transférer la propriété",
+        "es": "Transferir la propiedad",
+        "de": "Datensatzinhaber übertragen"
+      },
+      "description": {
+        "en": "Moves the records of an object from one user to another (e.g. someone leaving the company), optionally only those matching a WHERE. Preview counts them, Apply transfers up to 9,000 per run.",
+        "it": "Sposta i record di un oggetto da un utente a un altro (es. chi lascia l'azienda), facoltativamente solo quelli che rispettano un WHERE. Anteprima li conta, Applica ne trasferisce fino a 9.000 per esecuzione.",
+        "fr": "Déplace les enregistrements d'un objet d'un utilisateur à un autre (départ d'un collaborateur…), éventuellement selon un WHERE. Aperçu les compte, Appliquer en transfère jusqu'à 9 000 par exécution.",
+        "es": "Pasa los registros de un objeto de un usuario a otro (por ejemplo, alguien que deja la empresa), opcionalmente solo los que cumplen un WHERE. Vista previa los cuenta, Aplicar transfiere hasta 9.000 por ejecución.",
+        "de": "Überträgt die Datensätze eines Objekts von einem Benutzer auf einen anderen (z. B. bei Austritt), optional nur die passenden zu einem WHERE. Vorschau zählt sie, Anwenden überträgt bis zu 9.000 pro Lauf."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "🔁",
+      "tags": [
+        "owner",
+        "users",
+        "offboarding"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.transfer-ownership/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2712,
+          "sha256": "bf2b4cf7fb6f73f38f9cbe49150b94c7aa7fc9e150d91299b26bce659d385abc"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.delete-records",
+      "name": {
+        "en": "Delete test records",
+        "it": "Cancella record di test",
+        "fr": "Supprimer les données de test",
+        "es": "Borrar registros de prueba",
+        "de": "Testdatensätze löschen"
+      },
+      "description": {
+        "en": "Deletes the records of an object that match a WHERE (e.g. test data), and can empty them from the recycle bin. Preview counts and shows them, Apply deletes. Only in sandboxes and Developer Edition orgs.",
+        "it": "Cancella i record di un oggetto che rispettano un WHERE (es. dati di test) e può svuotarli dal cestino. Anteprima li conta e li mostra, Applica li cancella. Solo in sandbox e org Developer Edition.",
+        "fr": "Supprime les enregistrements d'un objet correspondant à un WHERE (données de test…) et peut vider la corbeille. Aperçu les compte et les montre, Appliquer supprime. Sandbox et Developer Edition uniquement.",
+        "es": "Borra los registros de un objeto que cumplen un WHERE (datos de prueba…) y puede vaciarlos de la papelera. Vista previa los cuenta y muestra, Aplicar los borra. Solo en sandbox y Developer Edition.",
+        "de": "Löscht die Datensätze eines Objekts, die einem WHERE entsprechen (z. B. Testdaten), und kann sie aus dem Papierkorb entfernen. Vorschau zählt und zeigt sie, Anwenden löscht. Nur in Sandboxes und Developer Edition."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "sandbox",
+      "icon": "🗑️",
+      "tags": [
+        "delete",
+        "test data",
+        "cleanup"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.delete-records/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2599,
+          "sha256": "1089846b8744d2fd2b2da6232d0aa4af63c08ad9a9a88df57c42f8a1e2669749"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.copy-record-fields",
+      "name": {
+        "en": "Copy the record's fields",
+        "it": "Copia i campi del record",
+        "fr": "Copier les champs de l'enregistrement",
+        "es": "Copiar los campos del registro",
+        "de": "Felder des Datensatzes kopieren"
+      },
+      "description": {
+        "en": "Copies labels and values of the record open on the page (Lightning or Classic) as a two-column table, ready to paste into a ticket, an email or a spreadsheet. Read only.",
+        "it": "Copia etichette e valori del record aperto nella pagina (Lightning o Classic) come tabella a due colonne, pronta da incollare in un ticket, un'email o un foglio di calcolo. Solo lettura.",
+        "fr": "Copie libellés et valeurs de l'enregistrement ouvert (Lightning ou Classic) en tableau à deux colonnes, prêt à coller dans un ticket, un e-mail ou un tableur. Lecture seule.",
+        "es": "Copia etiquetas y valores del registro abierto (Lightning o Classic) como tabla de dos columnas, lista para pegar en un ticket, un email o una hoja de cálculo. Solo lectura.",
+        "de": "Kopiert Bezeichnungen und Werte des geöffneten Datensatzes (Lightning oder Classic) als zweispaltige Tabelle für Tickets, E-Mails oder Tabellen. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "📋",
+      "tags": [
+        "record",
+        "copy",
+        "ticket"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.copy-record-fields/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2126,
+          "sha256": "960dbe1374e18e8261eaaff39a4a790ddd3e0e7deaee9eb3b4165b2e151dc384"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.list-view-csv",
+      "name": {
+        "en": "Export the list to CSV",
+        "it": "Esporta l'elenco in CSV",
+        "fr": "Exporter la liste en CSV",
+        "es": "Exportar la lista a CSV",
+        "de": "Liste als CSV exportieren"
+      },
+      "description": {
+        "en": "Downloads the rows of the list view (or related list) open on the page as a CSV file, with the visible columns. Only the rows already loaded: scroll down first to include more. Read only.",
+        "it": "Scarica in un file CSV le righe della list view (o elenco correlato) aperta nella pagina, con le colonne visibili. Solo le righe già caricate: scorri prima in basso per includerne altre. Solo lettura.",
+        "fr": "Télécharge en CSV les lignes de la vue de liste (ou liste associée) ouverte, avec les colonnes visibles. Seulement les lignes déjà chargées : faites défiler d'abord. Lecture seule.",
+        "es": "Descarga en CSV las filas de la vista de lista (o lista relacionada) abierta, con las columnas visibles. Solo las filas ya cargadas: desplázate antes para incluir más. Solo lectura.",
+        "de": "Lädt die Zeilen der geöffneten Listenansicht (oder Themenliste) mit den sichtbaren Spalten als CSV herunter. Nur bereits geladene Zeilen: vorher nach unten scrollen. Nur Lesen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "📤",
+      "tags": [
+        "list views",
+        "CSV",
+        "export"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.list-view-csv/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 2536,
+          "sha256": "0c7c246bc44d1e7811d46cff1fc73c51fce438c8dfc50a0fcb44c36d92306906"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.open-object-manager",
+      "name": {
+        "en": "Open the object in Setup",
+        "it": "Apri l'oggetto in Setup",
+        "fr": "Ouvrir l'objet dans la configuration",
+        "es": "Abrir el objeto en Configuración",
+        "de": "Objekt im Setup öffnen"
+      },
+      "description": {
+        "en": "From a Lightning record or list page, opens the object's fields, page layouts, validation rules, record types or triggers in Object Manager, in a new tab.",
+        "it": "Da un record o un elenco in Lightning, apre in una nuova scheda campi, layout, regole di convalida, tipi di record o trigger dell'oggetto in Object Manager.",
+        "fr": "Depuis un enregistrement ou une liste Lightning, ouvre dans un nouvel onglet les champs, présentations, règles de validation, types d'enregistrement ou déclencheurs de l'objet.",
+        "es": "Desde un registro o una lista en Lightning, abre en una pestaña nueva los campos, diseños, reglas de validación, tipos de registro o triggers del objeto.",
+        "de": "Öffnet von einem Lightning-Datensatz oder einer Liste aus Felder, Layouts, Validierungsregeln, Datensatztypen oder Trigger des Objekts im Objekt-Manager in einem neuen Tab."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🧭",
+      "tags": [
+        "Setup",
+        "Object Manager",
+        "navigation"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.open-object-manager/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 898,
+          "sha256": "55ac919b4e0b94f85c537b10ac1686a4777ebcfd127ca3e6c95282979f3e797d"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.expand-all",
+      "name": {
+        "en": "Expand all sections",
+        "it": "Espandi tutte le sezioni",
+        "fr": "Développer toutes les sections",
+        "es": "Expandir todas las secciones",
+        "de": "Alle Abschnitte aufklappen"
+      },
+      "description": {
+        "en": "Opens in one click every collapsed section and accordion of the page (Lightning record layouts and Classic detail pages), so nothing stays hidden.",
+        "it": "Apre in un clic tutte le sezioni e gli accordion chiusi della pagina (layout dei record Lightning e pagine di dettaglio Classic), così non resta nulla nascosto.",
+        "fr": "Ouvre en un clic toutes les sections et accordéons repliés de la page (présentations Lightning et pages de détail Classic).",
+        "es": "Abre en un clic todas las secciones y acordeones cerrados de la página (diseños de registro Lightning y páginas de detalle Classic).",
+        "de": "Öffnet mit einem Klick alle zugeklappten Abschnitte und Akkordeons der Seite (Lightning-Layouts und Classic-Detailseiten)."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "↕️",
+      "tags": [
+        "record page",
+        "sections"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.expand-all/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ],
+            "fr": [
+              "Première version."
+            ],
+            "es": [
+              "Primera versión."
+            ],
+            "de": [
+              "Erste Version."
+            ]
+          },
+          "size": 943,
+          "sha256": "645c1bd044bdb69b101cfd880390c93fbae32d9597127b8af72cf0c1c86dee86"
         }
       ]
     }

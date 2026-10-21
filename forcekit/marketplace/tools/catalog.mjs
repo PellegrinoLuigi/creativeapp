@@ -8,7 +8,7 @@
 // controlli (lib/marketplace.js nel repo dell'estensione) prima di installare.
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const SCHEMA_VERSION = 1;
@@ -130,7 +130,8 @@ function main() {
   const catalog = JSON.parse(readFileSync(path, "utf8"));
   const readFile = (rel) => {
     const p = resolve(root, rel);
-    if (!p.startsWith(root + "/") || !existsSync(p)) return null;
+    // sep: "\\" su Windows, "/" altrove (con "/" fisso su Windows nessun file risultava valido)
+    if (!p.startsWith(root + sep) || !existsSync(p)) return null;
     return readFileSync(p);
   };
   const { errors } = validateCatalog(catalog, readFile, { fix });
