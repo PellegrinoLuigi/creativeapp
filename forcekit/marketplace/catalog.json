@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "name": "ForceKIT Marketplace",
+  "updatedAt": "2026-10-21",
+  "homepage": "https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/",
+  "categories": [
+    {
+      "id": "org",
+      "label": {
+        "en": "Org health",
+        "it": "Stato dell'org",
+        "fr": "Santé de l'org",
+        "es": "Estado de la org",
+        "de": "Org-Zustand"
+      }
+    },
+    {
+      "id": "data",
+      "label": {
+        "en": "Data",
+        "it": "Dati",
+        "fr": "Données",
+        "es": "Datos",
+        "de": "Daten"
+      }
+    },
+    {
+      "id": "security",
+      "label": {
+        "en": "Security",
+        "it": "Sicurezza",
+        "fr": "Sécurité",
+        "es": "Seguridad",
+        "de": "Sicherheit"
+      }
+    },
+    {
+      "id": "jobs",
+      "label": {
+        "en": "Jobs",
+        "it": "Job",
+        "fr": "Tâches",
+        "es": "Trabajos",
+        "de": "Jobs"
+      }
+    },
+    {
+      "id": "page",
+      "label": {
+        "en": "Page",
+        "it": "Pagina",
+        "fr": "Page",
+        "es": "Página",
+        "de": "Seite"
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "id": "fk.apex.org-limits",
+      "name": {
+        "en": "Org limits",
+        "it": "Limiti dell'org",
+        "fr": "Limites de l'org",
+        "es": "Límites de la org",
+        "de": "Org-Limits"
+      },
+      "description": {
+        "en": "Lists the org limits with usage, maximum and percentage, most used first. Choose a threshold to see only the limits that are filling up.",
+        "it": "Elenca i limiti dell'org con uso, massimo e percentuale, dal più usato. Scegli una soglia per vedere solo i limiti che si stanno riempiendo.",
+        "fr": "Liste les limites de l'org avec utilisation, maximum et pourcentage, les plus utilisées d'abord. Choisissez un seuil pour ne voir que celles qui se remplissent.",
+        "es": "Lista los límites de la org con uso, máximo y porcentaje, primero los más usados. Elige un umbral para ver solo los que se están llenando.",
+        "de": "Listet die Org-Limits mit Nutzung, Maximum und Prozentsatz, die am stärksten genutzten zuerst. Wähle eine Schwelle, um nur die fast vollen zu sehen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "org",
+      "icon": "📊",
+      "tags": [
+        "limits",
+        "OrgLimits",
+        "monitoring"
+      ],
+      "versions": [
+        {
+          "version": "1.1.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.org-limits/1.1.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "Percentage of every limit, most used first.",
+              "New \"Min percent\" field (0, 50, 80) to hide the limits that are far from full."
+            ],
+            "it": [
+              "Percentuale di ogni limite, dal più usato.",
+              "Nuovo campo \"Min percent\" (0, 50, 80) per nascondere i limiti lontani dal pieno."
+            ]
+          },
+          "size": 946,
+          "sha256": "3e2c58a3af56d31ec6700a7098807d3e0f01b73c852a5c3a8733fd8c40a11bbd"
+        },
+        {
+          "version": "1.0.0",
+          "date": "2026-10-20",
+          "file": "scripts/fk.apex.org-limits/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 369,
+          "sha256": "556c84b6f041de30aeb920dc3ca3687578326443cad5d72ac135b7c9ad2a6d0f"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.count-records",
+      "name": {
+        "en": "Count records",
+        "it": "Conta i record",
+        "fr": "Compter les enregistrements",
+        "es": "Contar registros",
+        "de": "Datensätze zählen"
+      },
+      "description": {
+        "en": "Counts the records of any object, with an optional WHERE condition, without the 2,000-row limit of a normal query.",
+        "it": "Conta i record di qualsiasi oggetto, con una condizione WHERE facoltativa, senza il limite di 2.000 righe di una query normale.",
+        "fr": "Compte les enregistrements de n'importe quel objet, avec une condition WHERE facultative, sans la limite de 2 000 lignes d'une requête normale.",
+        "es": "Cuenta los registros de cualquier objeto, con una condición WHERE opcional, sin el límite de 2.000 filas de una consulta normal.",
+        "de": "Zählt die Datensätze eines beliebigen Objekts, mit optionaler WHERE-Bedingung, ohne das 2.000-Zeilen-Limit einer normalen Abfrage."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "🔢",
+      "tags": [
+        "COUNT",
+        "SOQL"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.count-records/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 478,
+          "sha256": "796302223929cacfaf7bffd8eceb96efc4dd636a1c3781b554c776e3c8032df6"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.record-access",
+      "name": {
+        "en": "Record access of a user",
+        "it": "Accesso di un utente a un record",
+        "fr": "Accès d'un utilisateur à un enregistrement",
+        "es": "Acceso de un usuario a un registro",
+        "de": "Zugriff eines Benutzers auf einen Datensatz"
+      },
+      "description": {
+        "en": "Shows what a user can do on a record (read, edit, delete, transfer, full access) as Salesforce computes it from sharing, roles and profiles.",
+        "it": "Mostra cosa può fare un utente su un record (lettura, modifica, eliminazione, trasferimento, accesso completo) come lo calcola Salesforce da condivisione, ruoli e profili.",
+        "fr": "Affiche ce qu'un utilisateur peut faire sur un enregistrement (lecture, modification, suppression, transfert, accès complet) tel que Salesforce le calcule.",
+        "es": "Muestra qué puede hacer un usuario en un registro (leer, editar, eliminar, transferir, acceso total) tal como lo calcula Salesforce.",
+        "de": "Zeigt, was ein Benutzer mit einem Datensatz tun darf (lesen, bearbeiten, löschen, übertragen, Vollzugriff), wie Salesforce es berechnet."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "security",
+      "icon": "🔐",
+      "tags": [
+        "sharing",
+        "UserRecordAccess"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.record-access/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 990,
+          "sha256": "8c6b9b5fc661210d3dd4eb243945921d0b643afa16e7c9b2e37c1d9315655776"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.picklist-values",
+      "name": {
+        "en": "Picklist values",
+        "it": "Valori di una picklist",
+        "fr": "Valeurs d'une liste de sélection",
+        "es": "Valores de una lista de selección",
+        "de": "Picklist-Werte"
+      },
+      "description": {
+        "en": "Lists the values of a picklist field: API name, label, active or inactive and default value.",
+        "it": "Elenca i valori di un campo picklist: nome API, etichetta, attivo o no e valore predefinito.",
+        "fr": "Liste les valeurs d'un champ de liste de sélection : nom API, libellé, actif ou non et valeur par défaut.",
+        "es": "Lista los valores de un campo de lista de selección: nombre API, etiqueta, activo o no y valor predeterminado.",
+        "de": "Listet die Werte eines Picklist-Felds: API-Name, Bezeichnung, aktiv oder inaktiv und Standardwert."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "data",
+      "icon": "📋",
+      "tags": [
+        "describe",
+        "picklist"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.picklist-values/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 771,
+          "sha256": "d05814e4510ae1e253d530c016c343e18c31b9be472ca0d2251decc0ebb3cd04"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.scheduled-jobs",
+      "name": {
+        "en": "Scheduled jobs",
+        "it": "Job pianificati",
+        "fr": "Tâches planifiées",
+        "es": "Trabajos programados",
+        "de": "Geplante Jobs"
+      },
+      "description": {
+        "en": "Lists the scheduled jobs of the org with type, state, cron expression, next and last run and who scheduled them.",
+        "it": "Elenca i job pianificati dell'org con tipo, stato, espressione cron, prossima e ultima esecuzione e chi li ha pianificati.",
+        "fr": "Liste les tâches planifiées de l'org avec type, état, expression cron, prochaine et dernière exécution et leur auteur.",
+        "es": "Lista los trabajos programados de la org con tipo, estado, expresión cron, próxima y última ejecución y quién los programó.",
+        "de": "Listet die geplanten Jobs der Org mit Typ, Status, Cron-Ausdruck, nächster und letzter Ausführung und wer sie geplant hat."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "jobs",
+      "icon": "⏰",
+      "tags": [
+        "CronTrigger",
+        "schedule"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.scheduled-jobs/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 681,
+          "sha256": "3780a34fc28ed261bacd2ada3a7e80c0dd139a819808f454b83bb642d8dee5ce"
+        }
+      ]
+    },
+    {
+      "id": "fk.apex.failed-async-jobs",
+      "name": {
+        "en": "Failed async jobs",
+        "it": "Job asincroni falliti",
+        "fr": "Tâches asynchrones en échec",
+        "es": "Trabajos asíncronos fallidos",
+        "de": "Fehlgeschlagene Async-Jobs"
+      },
+      "description": {
+        "en": "Batch, Queueable, Future and scheduled Apex jobs that failed or ended with errors in the last 1, 7 or 30 days, with the error message.",
+        "it": "Job Apex Batch, Queueable, Future e pianificati falliti o finiti con errori negli ultimi 1, 7 o 30 giorni, con il messaggio d'errore.",
+        "fr": "Tâches Apex Batch, Queueable, Future et planifiées en échec ou terminées avec des erreurs ces 1, 7 ou 30 derniers jours, avec le message d'erreur.",
+        "es": "Trabajos Apex Batch, Queueable, Future y programados que fallaron o terminaron con errores en los últimos 1, 7 o 30 días, con el mensaje de error.",
+        "de": "Batch-, Queueable-, Future- und geplante Apex-Jobs, die in den letzten 1, 7 oder 30 Tagen fehlgeschlagen sind oder Fehler hatten, mit Fehlermeldung."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "apex",
+      "category": "jobs",
+      "icon": "🚨",
+      "tags": [
+        "AsyncApexJob",
+        "batch",
+        "errors"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.apex.failed-async-jobs/1.0.0.apex",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 1006,
+          "sha256": "3147920f78f67f50713ba92b84b76c790fdd3ba0a5c299c796103634cf80d7b4"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.page-info",
+      "name": {
+        "en": "Page info",
+        "it": "Informazioni sulla pagina",
+        "fr": "Infos sur la page",
+        "es": "Información de la página",
+        "de": "Seiteninfo"
+      },
+      "description": {
+        "en": "Tells you where you are: object, record Id, app, Lightning or Classic and URL of the Salesforce page. Changes nothing on the page.",
+        "it": "Ti dice dove sei: oggetto, Id del record, app, Lightning o Classic e indirizzo della pagina Salesforce. Non cambia nulla nella pagina.",
+        "fr": "Vous dit où vous êtes : objet, Id de l'enregistrement, application, Lightning ou Classic et URL de la page Salesforce. Ne modifie rien.",
+        "es": "Te dice dónde estás: objeto, Id del registro, app, Lightning o Classic y URL de la página de Salesforce. No cambia nada en la página.",
+        "de": "Zeigt, wo du bist: Objekt, Datensatz-Id, App, Lightning oder Classic und URL der Salesforce-Seite. Ändert nichts an der Seite."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🧭",
+      "tags": [
+        "record Id",
+        "URL"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.page-info/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 847,
+          "sha256": "4041d7e4a1e155ec776f7286fa0e4de91fb2e1f57224a37c1075b45dbbb64a37"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.ids-on-page",
+      "name": {
+        "en": "Record Ids on the page",
+        "it": "Id dei record nella pagina",
+        "fr": "Id des enregistrements de la page",
+        "es": "Id de los registros de la página",
+        "de": "Datensatz-Ids auf der Seite"
+      },
+      "description": {
+        "en": "Collects the record Ids linked from the current page (lists, related lists, lookups), also inside Lightning components, ready to copy.",
+        "it": "Raccoglie gli Id dei record collegati dalla pagina (elenchi, elenchi correlati, lookup), anche dentro i componenti Lightning, pronti da copiare.",
+        "fr": "Rassemble les Id des enregistrements liés depuis la page (listes, listes associées, recherches), même dans les composants Lightning.",
+        "es": "Recoge los Id de los registros enlazados desde la página (listas, listas relacionadas, búsquedas), también dentro de componentes Lightning.",
+        "de": "Sammelt die auf der Seite verlinkten Datensatz-Ids (Listen, Themenlisten, Lookups), auch in Lightning-Komponenten."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🆔",
+      "tags": [
+        "Ids",
+        "list views"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-21",
+          "file": "scripts/fk.js.ids-on-page/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.2.0"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 976,
+          "sha256": "5b15c5873cedb07761370fa2e002d57ae027278f27b6239a8246d298b7054f80"
+        }
+      ]
+    }
+  ]
+}
