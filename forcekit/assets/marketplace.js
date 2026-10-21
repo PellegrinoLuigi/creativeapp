@@ -92,7 +92,7 @@
       (rows.length
         ? '<div class="mk-grid">' + rows.map(card).join("") + "</div>"
         : '<div class="mk-state">' + esc(t("mkEmpty", "No script matches your search.")) + "</div>") +
-      '<div class="mk-note">' + t("mkHow", "<b>How to install:</b> open the ForceKIT side panel, go to <b>Marketplace</b>, pick the scripts and confirm. Installed scripts are read-only and appear in <b>Scripts</b> with the Marketplace badge; you can make an editable copy at any time.") + "</div>";
+      '<div class="mk-note">' + t("mkHow", "<b>How to install:</b> in the ForceKIT side panel go to <b>Scripts › + New › Marketplace</b>, pick the scripts and confirm. Installed scripts are read-only and appear in <b>Scripts</b> with the Marketplace badge; you can make an editable copy at any time.") + "</div>";
   }
   function card(s) {
     var v = latest(s);
@@ -142,9 +142,9 @@
         ? (tooOld
           ? '<p class="hint">' + esc(t("mkTooOld", "This version needs ForceKIT {v} or later: update the extension from chrome://extensions.", { v: comp.minExtensionVersion })) + "</p>"
           : '<button type="button" class="btn btn-primary" data-fk-open="' + esc(s.id) + '">' + esc(t("mkOpenInFk", "Open in ForceKIT")) + "</button>" +
-            '<p class="hint">' + t("mkOpenHint", "The <b>Marketplace</b> tab of the side panel opens on this script: check origin and version, then confirm the installation.") + "</p>")
+            '<p class="hint">' + t("mkOpenHint", "The <b>Marketplace</b> of the side panel opens on this script: check origin and version, then confirm the installation.") + "</p>")
         : '<a class="btn btn-primary" href="https://chromewebstore.google.com/detail/forcekit/gilmnacbmadobfhnedbolnnnhecfjlna" target="_blank" rel="noopener noreferrer">' + esc(t("mkGetFk", "Get ForceKIT for Chrome")) + "</a>" +
-          '<p class="hint">' + t("mkNoExt", "Then open the ForceKIT side panel › <b>Marketplace</b> and install the script from there.") + "</p>") +
+          '<p class="hint">' + t("mkNoExt", "Then in the ForceKIT side panel go to <b>Scripts › + New › Marketplace</b> and install the script from there.") + "</p>") +
       "</div></aside></div>";
     loadCode(s, v);
   }
