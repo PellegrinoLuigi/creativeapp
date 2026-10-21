@@ -1,0 +1,29 @@
+# Controlla il catalogo del ForceKIT Marketplace (metadati, file, SHA-256)
+# a ogni push e pull request che lo tocca: un catalogo rotto non arriva su
+# GitHub Pages, e quindi neanche all'estensione.
+name: Marketplace catalog
+
+on:
+  push:
+    paths:
+      - "forcekit/marketplace/**"
+  pull_request:
+    paths:
+      - "forcekit/marketplace/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate catalog
+        run: node forcekit/marketplace/tools/catalog.mjs
+      - name: Tests
+        run: node --test forcekit/marketplace/tools/*.test.mjs
