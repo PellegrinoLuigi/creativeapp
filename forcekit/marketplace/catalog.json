@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "name": "ForceKIT Marketplace",
-  "updatedAt": "2026-10-21",
+  "updatedAt": "2026-10-23",
   "homepage": "https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/",
   "categories": [
     {
@@ -1367,6 +1367,159 @@
           },
           "size": 943,
           "sha256": "645c1bd044bdb69b101cfd880390c93fbae32d9597127b8af72cf0c1c86dee86"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.view-template",
+      "name": {
+        "en": "Template: graphic script",
+        "it": "Modello: script grafico",
+        "fr": "Modèle : script graphique",
+        "es": "Plantilla: script gráfico",
+        "de": "Vorlage: grafisches Skript"
+      },
+      "description": {
+        "en": "A starting point for scripts with graphics: numbers, list, table and tree with data from the page. Copy it and keep what you need.",
+        "it": "Base per script con grafica: numeri, elenco, tabella e albero con i dati della pagina. Copialo e tieni quello che ti serve.",
+        "fr": "Point de départ pour des scripts graphiques : chiffres, liste, tableau et arbre avec les données de la page. Copiez-le et gardez l'utile.",
+        "es": "Base para scripts con gráficos: números, lista, tabla y árbol con los datos de la página. Cópialo y quédate con lo que necesites.",
+        "de": "Ausgangspunkt für grafische Skripte: Zahlen, Liste, Tabelle und Baum mit Daten der Seite. Kopieren und Nötiges behalten."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🧩",
+      "tags": [
+        "template",
+        "fk.view",
+        "graphic"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-23",
+          "file": "scripts/fk.js.view-template/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.5.3"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 2647,
+          "sha256": "81a9bff0058fcec4e4ea5ba1eff47e46eb7d39bd6ea0ba8931849e2396f27671"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.record-fields-view",
+      "name": {
+        "en": "Record fields (table)",
+        "it": "Campi del record (tabella)",
+        "fr": "Champs de l'enregistrement (tableau)",
+        "es": "Campos del registro (tabla)",
+        "de": "Datensatzfelder (Tabelle)"
+      },
+      "description": {
+        "en": "The fields of the open record in a table you can search, sort and copy as CSV, with how many are empty.",
+        "it": "I campi del record aperto in una tabella da cercare, ordinare e copiare in CSV, con quanti sono vuoti.",
+        "fr": "Les champs de l'enregistrement ouvert dans un tableau à filtrer, trier et copier en CSV, avec le nombre de vides.",
+        "es": "Los campos del registro abierto en una tabla para buscar, ordenar y copiar en CSV, con cuántos están vacíos.",
+        "de": "Die Felder des geöffneten Datensatzes als durchsuchbare, sortierbare Tabelle (CSV kopierbar), mit Anzahl leerer Felder."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🗂️",
+      "tags": [
+        "fields",
+        "table",
+        "CSV"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-23",
+          "file": "scripts/fk.js.record-fields-view/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.5.3"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 2529,
+          "sha256": "54257ba1dc0483af9488691db22d3cc9cd7277591446b166db8e4d7aff61beac"
+        }
+      ]
+    },
+    {
+      "id": "fk.js.page-variable-explorer",
+      "name": {
+        "en": "Explore a page variable",
+        "it": "Esplora una variabile della pagina",
+        "fr": "Explorer une variable de la page",
+        "es": "Explorar una variable de la página",
+        "de": "Seitenvariable erkunden"
+      },
+      "description": {
+        "en": "Shows a JavaScript variable of the page (e.g. history.state) as a searchable tree; reopening it highlights what changed.",
+        "it": "Mostra una variabile JavaScript della pagina (es. history.state) come albero da cercare; riaprendolo evidenzia cosa è cambiato.",
+        "fr": "Affiche une variable JavaScript de la page (ex. history.state) en arbre consultable ; en le rouvrant, les changements ressortent.",
+        "es": "Muestra una variable JavaScript de la página (p. ej. history.state) como árbol con búsqueda; al reabrirlo resalta lo que cambió.",
+        "de": "Zeigt eine JavaScript-Variable der Seite (z. B. history.state) als durchsuchbaren Baum; beim erneuten Öffnen sind Änderungen markiert."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "type": "javascript",
+      "category": "page",
+      "icon": "🔬",
+      "tags": [
+        "debug",
+        "JavaScript",
+        "tree"
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-23",
+          "file": "scripts/fk.js.page-variable-explorer/1.0.0.js",
+          "compatibility": {
+            "minExtensionVersion": "7.5.3"
+          },
+          "match": "*.force.com/*, *.salesforce.com/*",
+          "changelog": {
+            "en": [
+              "First version."
+            ],
+            "it": [
+              "Prima versione."
+            ]
+          },
+          "size": 1320,
+          "sha256": "f609fc816e899091b31d082839a37736706da82070567a52664a8c9ebc3a8b00"
         }
       ]
     }
