@@ -64,5 +64,19 @@
       menu.addEventListener("click", function (e) { if (e.target.closest(".menu-list a")) menu.open = false; });
       document.addEventListener("click", function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
     }
+    // video: YouTube si carica solo al click, nella lingua corrente (data-video viene da i18n)
+    document.querySelectorAll("button.video[data-video]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var box = document.createElement("div");
+        box.className = "video";
+        var frame = document.createElement("iframe");
+        frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(btn.getAttribute("data-video")) + "?autoplay=1&rel=0";
+        frame.title = btn.getAttribute("aria-label") || "ForceKIT";
+        frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        frame.allowFullscreen = true;
+        box.appendChild(frame);
+        btn.replaceWith(box);
+      });
+    });
   });
 })();
