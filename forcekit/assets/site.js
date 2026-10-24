@@ -64,19 +64,37 @@
       menu.addEventListener("click", function (e) { if (e.target.closest(".menu-list a")) menu.open = false; });
       document.addEventListener("click", function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
     }
-    // video: YouTube si carica solo al click, nella lingua corrente (data-video viene da i18n)
+    // video: YouTube si carica solo al click, nella lingua corrente (data-video viene da i18n).
+    // Su touch l'autoplay dopo il tap viene bloccato: il player vero si carica quando la sezione
+    // si avvicina, cosi' il tap arriva direttamente a YouTube.
+    var touch = window.matchMedia && matchMedia("(pointer: coarse)").matches && "IntersectionObserver" in window;
     document.querySelectorAll("button.video[data-video]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
+      var load = function (autoplay) {
+        if (!btn.isConnected) return;
         var box = document.createElement("div");
         box.className = "video";
         var frame = document.createElement("iframe");
-        frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(btn.getAttribute("data-video")) + "?autoplay=1&rel=0";
+        frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(btn.getAttribute("data-video")) + "?rel=0&playsinline=1" + (autoplay ? "&autoplay=1" : "");
         frame.title = btn.getAttribute("aria-label") || "ForceKIT";
         frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
         frame.allowFullscreen = true;
         box.appendChild(frame);
+        // il box eredita data-video/i18n: se si cambia lingua dopo, il player segue
+        box.setAttribute("data-video", btn.getAttribute("data-video"));
+        box.setAttribute("data-i18n-attr", "data-video:videoId");
+        new MutationObserver(function () {
+          if (frame.src.indexOf("embed/" + encodeURIComponent(box.getAttribute("data-video")) + "?") !== -1) return;
+          frame.src = frame.src.replace(/embed\/[^?]+/, "embed/" + encodeURIComponent(box.getAttribute("data-video"))).replace("&autoplay=1", "");
+        }).observe(box, { attributes: true, attributeFilter: ["data-video"] });
         btn.replaceWith(box);
-      });
+      };
+      btn.addEventListener("click", function () { load(true); });
+      if (touch) {
+        var io = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { io.disconnect(); load(false); }
+        }, { rootMargin: "300px 0px" });
+        io.observe(btn);
+      }
     });
   });
 })();
