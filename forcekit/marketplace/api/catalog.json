@@ -1,0 +1,911 @@
+{
+  "schemaVersion": 1,
+  "name": "ForceKIT API calls",
+  "updatedAt": "2026-10-28",
+  "homepage": "https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/",
+  "categories": [
+    {
+      "id": "test",
+      "label": {
+        "it": "Test e prove",
+        "en": "Testing",
+        "fr": "Tests",
+        "es": "Pruebas",
+        "de": "Tests"
+      }
+    },
+    {
+      "id": "data",
+      "label": {
+        "it": "Dati aperti",
+        "en": "Open data",
+        "fr": "Données ouvertes",
+        "es": "Datos abiertos",
+        "de": "Offene Daten"
+      }
+    },
+    {
+      "id": "soap",
+      "label": {
+        "it": "SOAP",
+        "en": "SOAP",
+        "fr": "SOAP",
+        "es": "SOAP",
+        "de": "SOAP"
+      }
+    },
+    {
+      "id": "dev",
+      "label": {
+        "it": "Sviluppo",
+        "en": "Developer",
+        "fr": "Développement",
+        "es": "Desarrollo",
+        "de": "Entwicklung"
+      }
+    }
+  ],
+  "packages": [
+    {
+      "id": "jsonplaceholder",
+      "name": "JSONPlaceholder",
+      "description": {
+        "it": "API finta per provare GET, POST, PUT, PATCH e DELETE: post, commenti e utenti. Le scritture rispondono come se fossero andate a buon fine, ma non salvano nulla.",
+        "en": "Fake API to try GET, POST, PUT, PATCH and DELETE: posts, comments and users. Writes answer as if they succeeded but save nothing.",
+        "fr": "API factice pour essayer GET, POST, PUT, PATCH et DELETE : posts, commentaires et utilisateurs. Les écritures répondent comme si elles avaient réussi, sans rien enregistrer.",
+        "es": "API falsa para probar GET, POST, PUT, PATCH y DELETE: posts, comentarios y usuarios. Las escrituras responden como si hubieran funcionado, pero no guardan nada.",
+        "de": "Fake-API zum Testen von GET, POST, PUT, PATCH und DELETE: Posts, Kommentare und Benutzer. Schreibvorgänge antworten erfolgreich, speichern aber nichts."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "test",
+      "tags": [
+        "REST",
+        "JSON",
+        "CRUD"
+      ],
+      "site": "https://jsonplaceholder.typicode.com",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "JP_URL",
+          "v": "https://jsonplaceholder.typicode.com"
+        },
+        {
+          "k": "postId",
+          "v": "1"
+        }
+      ],
+      "requests": [
+        {
+          "id": "posts",
+          "name": "List posts",
+          "url": "{{JP_URL}}/posts",
+          "params": [
+            {
+              "k": "_limit",
+              "v": "5",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "post",
+          "name": "Get post",
+          "url": "{{JP_URL}}/posts/{{postId}}"
+        },
+        {
+          "id": "comments",
+          "name": "Comments of a post",
+          "url": "{{JP_URL}}/comments",
+          "params": [
+            {
+              "k": "postId",
+              "v": "{{postId}}",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "create",
+          "name": "Create post",
+          "method": "POST",
+          "url": "{{JP_URL}}/posts",
+          "bodyType": "json",
+          "body": "{\n  \"title\": \"ForceKIT\",\n  \"body\": \"Hello from ForceKIT\",\n  \"userId\": 1\n}"
+        },
+        {
+          "id": "update",
+          "name": "Update post",
+          "method": "PUT",
+          "url": "{{JP_URL}}/posts/{{postId}}",
+          "bodyType": "json",
+          "body": "{\n  \"id\": 1,\n  \"title\": \"Updated\",\n  \"body\": \"New text\",\n  \"userId\": 1\n}"
+        },
+        {
+          "id": "patch",
+          "name": "Patch post",
+          "method": "PATCH",
+          "url": "{{JP_URL}}/posts/{{postId}}",
+          "bodyType": "json",
+          "body": "{\n  \"title\": \"Only the title\"\n}"
+        },
+        {
+          "id": "delete",
+          "name": "Delete post",
+          "method": "DELETE",
+          "url": "{{JP_URL}}/posts/{{postId}}"
+        }
+      ]
+    },
+    {
+      "id": "httpbin",
+      "name": "httpbin",
+      "description": {
+        "it": "Rimanda indietro quello che riceve: header, parametri, corpo. Utile per controllare cosa parte davvero, provare l'autenticazione Basic e Bearer, codici di stato, ritardi e immagini.",
+        "en": "Echoes back what it receives: headers, parameters, body. Handy to check what is really sent and to try Basic and Bearer auth, status codes, delays and images.",
+        "fr": "Renvoie ce qu'il reçoit : en-têtes, paramètres, corps. Pratique pour vérifier ce qui part vraiment et tester l'authentification Basic et Bearer, les codes d'état, les délais et les images.",
+        "es": "Devuelve lo que recibe: cabeceras, parámetros, cuerpo. Útil para comprobar lo que se envía de verdad y probar la autenticación Basic y Bearer, códigos de estado, retrasos e imágenes.",
+        "de": "Gibt zurück, was ankommt: Header, Parameter, Body. Praktisch, um zu prüfen, was wirklich gesendet wird, und Basic- und Bearer-Authentifizierung, Statuscodes, Verzögerungen und Bilder zu testen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "test",
+      "tags": [
+        "REST",
+        "Auth",
+        "Debug"
+      ],
+      "site": "https://httpbin.org",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "HTTPBIN_URL",
+          "v": "https://httpbin.org"
+        }
+      ],
+      "requests": [
+        {
+          "id": "get",
+          "name": "Echo GET",
+          "url": "{{HTTPBIN_URL}}/get",
+          "params": [
+            {
+              "k": "from",
+              "v": "ForceKIT",
+              "on": true
+            },
+            {
+              "k": "id",
+              "v": "{{$guid}}",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "post",
+          "name": "Echo POST JSON",
+          "method": "POST",
+          "url": "{{HTTPBIN_URL}}/post",
+          "bodyType": "json",
+          "body": "{\n  \"sentAt\": \"{{$isoTimestamp}}\",\n  \"n\": \"{{$randomInt}}\"\n}"
+        },
+        {
+          "id": "form",
+          "name": "Echo form",
+          "method": "POST",
+          "url": "{{HTTPBIN_URL}}/post",
+          "bodyType": "form",
+          "form": [
+            {
+              "k": "name",
+              "v": "ForceKIT",
+              "on": true
+            },
+            {
+              "k": "kind",
+              "v": "test",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "headers",
+          "name": "Request headers",
+          "url": "{{HTTPBIN_URL}}/headers",
+          "headers": [
+            {
+              "k": "X-Demo",
+              "v": "ForceKIT",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "basic",
+          "name": "Basic auth (user / passwd)",
+          "url": "{{HTTPBIN_URL}}/basic-auth/user/passwd",
+          "auth": {
+            "type": "basic",
+            "user": "user",
+            "pass": "passwd"
+          }
+        },
+        {
+          "id": "bearer",
+          "name": "Bearer token",
+          "url": "{{HTTPBIN_URL}}/bearer",
+          "auth": {
+            "type": "bearer",
+            "token": "demo-token"
+          }
+        },
+        {
+          "id": "status",
+          "name": "Status 418",
+          "url": "{{HTTPBIN_URL}}/status/418"
+        },
+        {
+          "id": "delay",
+          "name": "Delay 2 s",
+          "url": "{{HTTPBIN_URL}}/delay/2"
+        },
+        {
+          "id": "xml",
+          "name": "XML response",
+          "url": "{{HTTPBIN_URL}}/xml"
+        },
+        {
+          "id": "image",
+          "name": "PNG image",
+          "url": "{{HTTPBIN_URL}}/image/png"
+        }
+      ]
+    },
+    {
+      "id": "open-meteo",
+      "name": "Open-Meteo",
+      "description": {
+        "it": "Meteo attuale e previsioni per coordinate, e ricerca delle città per nome (geocoding). Gratuito per uso non commerciale.",
+        "en": "Current weather and forecasts by coordinates, plus city search by name (geocoding). Free for non-commercial use.",
+        "fr": "Météo actuelle et prévisions par coordonnées, et recherche de villes par nom (géocodage). Gratuit pour un usage non commercial.",
+        "es": "Tiempo actual y previsiones por coordenadas, y búsqueda de ciudades por nombre (geocodificación). Gratis para uso no comercial.",
+        "de": "Aktuelles Wetter und Vorhersagen nach Koordinaten sowie Ortssuche nach Namen (Geocoding). Kostenlos für nicht-kommerzielle Nutzung."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "data",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://open-meteo.com",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "city",
+          "v": "Milano"
+        },
+        {
+          "k": "lat",
+          "v": "45.4643"
+        },
+        {
+          "k": "lon",
+          "v": "9.1895"
+        }
+      ],
+      "requests": [
+        {
+          "id": "geocoding",
+          "name": "Find a city",
+          "url": "https://geocoding-api.open-meteo.com/v1/search",
+          "params": [
+            {
+              "k": "name",
+              "v": "{{city}}",
+              "on": true
+            },
+            {
+              "k": "count",
+              "v": "3",
+              "on": true
+            },
+            {
+              "k": "language",
+              "v": "it",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "current",
+          "name": "Current weather",
+          "url": "https://api.open-meteo.com/v1/forecast",
+          "params": [
+            {
+              "k": "latitude",
+              "v": "{{lat}}",
+              "on": true
+            },
+            {
+              "k": "longitude",
+              "v": "{{lon}}",
+              "on": true
+            },
+            {
+              "k": "current",
+              "v": "temperature_2m,relative_humidity_2m,wind_speed_10m",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "forecast",
+          "name": "7-day forecast",
+          "url": "https://api.open-meteo.com/v1/forecast",
+          "params": [
+            {
+              "k": "latitude",
+              "v": "{{lat}}",
+              "on": true
+            },
+            {
+              "k": "longitude",
+              "v": "{{lon}}",
+              "on": true
+            },
+            {
+              "k": "daily",
+              "v": "temperature_2m_max,temperature_2m_min,precipitation_sum",
+              "on": true
+            },
+            {
+              "k": "timezone",
+              "v": "auto",
+              "on": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restcountries",
+      "name": "REST Countries",
+      "description": {
+        "it": "Dati sui paesi del mondo: nome, capitale, valuta, lingue, bandiera. Ricerca per nome, codice o regione.",
+        "en": "Data about the world's countries: name, capital, currency, languages, flag. Search by name, code or region.",
+        "fr": "Données sur les pays du monde : nom, capitale, monnaie, langues, drapeau. Recherche par nom, code ou région.",
+        "es": "Datos de los países del mundo: nombre, capital, moneda, idiomas, bandera. Búsqueda por nombre, código o región.",
+        "de": "Daten zu den Ländern der Welt: Name, Hauptstadt, Währung, Sprachen, Flagge. Suche nach Name, Code oder Region."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "data",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://restcountries.com",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "country",
+          "v": "italy"
+        },
+        {
+          "k": "countryCode",
+          "v": "IT"
+        }
+      ],
+      "requests": [
+        {
+          "id": "name",
+          "name": "Country by name",
+          "url": "https://restcountries.com/v3.1/name/{{country}}",
+          "params": [
+            {
+              "k": "fields",
+              "v": "name,capital,currencies,languages,flags",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "code",
+          "name": "Country by code",
+          "url": "https://restcountries.com/v3.1/alpha/{{countryCode}}"
+        },
+        {
+          "id": "region",
+          "name": "Countries of a region",
+          "url": "https://restcountries.com/v3.1/region/europe",
+          "params": [
+            {
+              "k": "fields",
+              "v": "name,capital",
+              "on": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "openlibrary",
+      "name": "Open Library",
+      "description": {
+        "it": "Catalogo aperto dei libri dell'Internet Archive: ricerca per titolo o autore, scheda di un libro dall'ISBN.",
+        "en": "The Internet Archive's open book catalogue: search by title or author, book details by ISBN.",
+        "fr": "Le catalogue ouvert de livres de l'Internet Archive : recherche par titre ou auteur, fiche d'un livre par ISBN.",
+        "es": "El catálogo abierto de libros de Internet Archive: búsqueda por título o autor, ficha de un libro por ISBN.",
+        "de": "Der offene Buchkatalog des Internet Archive: Suche nach Titel oder Autor, Buchdetails per ISBN."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "data",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://openlibrary.org",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "book",
+          "v": "the lord of the rings"
+        },
+        {
+          "k": "isbn",
+          "v": "9780140328721"
+        }
+      ],
+      "requests": [
+        {
+          "id": "search",
+          "name": "Search books",
+          "url": "https://openlibrary.org/search.json",
+          "params": [
+            {
+              "k": "q",
+              "v": "{{book}}",
+              "on": true
+            },
+            {
+              "k": "limit",
+              "v": "5",
+              "on": true
+            },
+            {
+              "k": "fields",
+              "v": "title,author_name,first_publish_year,isbn",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "isbn",
+          "name": "Book by ISBN",
+          "url": "https://openlibrary.org/isbn/{{isbn}}.json"
+        }
+      ]
+    },
+    {
+      "id": "pokeapi",
+      "name": "PokéAPI",
+      "description": {
+        "it": "Tutto sui Pokémon: elenchi con paginazione e schede complete. Buona per provare risposte JSON grandi e annidate.",
+        "en": "Everything about Pokémon: paginated lists and full details. Good for trying large, nested JSON responses.",
+        "fr": "Tout sur les Pokémon : listes paginées et fiches complètes. Idéal pour tester des réponses JSON volumineuses et imbriquées.",
+        "es": "Todo sobre los Pokémon: listas paginadas y fichas completas. Útil para probar respuestas JSON grandes y anidadas.",
+        "de": "Alles über Pokémon: Listen mit Seiten und vollständige Details. Gut, um große, verschachtelte JSON-Antworten zu testen."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "data",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://pokeapi.co",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "pokemon",
+          "v": "pikachu"
+        }
+      ],
+      "requests": [
+        {
+          "id": "list",
+          "name": "List (paginated)",
+          "url": "https://pokeapi.co/api/v2/pokemon",
+          "params": [
+            {
+              "k": "limit",
+              "v": "10",
+              "on": true
+            },
+            {
+              "k": "offset",
+              "v": "0",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "one",
+          "name": "Pokémon details",
+          "url": "https://pokeapi.co/api/v2/pokemon/{{pokemon}}"
+        }
+      ]
+    },
+    {
+      "id": "fun",
+      "name": "Dog CEO · Cat facts · Agify",
+      "description": {
+        "it": "Piccole API divertenti per le prime prove: una foto di cane a caso, una curiosità sui gatti, l'età stimata da un nome, il proprio indirizzo IP pubblico.",
+        "en": "Small fun APIs for first tries: a random dog photo, a cat fact, the age guessed from a name, your public IP address.",
+        "fr": "Petites API amusantes pour débuter : une photo de chien au hasard, une anecdote sur les chats, l'âge estimé d'après un prénom, votre adresse IP publique.",
+        "es": "Pequeñas API divertidas para empezar: una foto de perro al azar, un dato sobre gatos, la edad estimada por un nombre, tu dirección IP pública.",
+        "de": "Kleine, lustige APIs für die ersten Versuche: ein zufälliges Hundefoto, ein Katzenfakt, das geschätzte Alter zu einem Namen, die eigene öffentliche IP-Adresse."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "test",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://dog.ceo/dog-api/",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "firstName",
+          "v": "luigi"
+        }
+      ],
+      "requests": [
+        {
+          "id": "dog",
+          "name": "Random dog photo",
+          "url": "https://dog.ceo/api/breeds/image/random"
+        },
+        {
+          "id": "cat",
+          "name": "Cat fact",
+          "url": "https://catfact.ninja/fact"
+        },
+        {
+          "id": "agify",
+          "name": "Age from a name",
+          "url": "https://api.agify.io",
+          "params": [
+            {
+              "k": "name",
+              "v": "{{firstName}}",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "ip",
+          "name": "My public IP",
+          "url": "https://api.ipify.org",
+          "params": [
+            {
+              "k": "format",
+              "v": "json",
+              "on": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub REST (public)",
+      "description": {
+        "it": "Dati pubblici di GitHub senza token: repository, utenti, ricerca. Limite di 60 chiamate l'ora per indirizzo IP.",
+        "en": "Public GitHub data without a token: repositories, users, search. Limited to 60 calls per hour per IP address.",
+        "fr": "Données publiques de GitHub sans jeton : dépôts, utilisateurs, recherche. Limité à 60 appels par heure et par adresse IP.",
+        "es": "Datos públicos de GitHub sin token: repositorios, usuarios, búsqueda. Límite de 60 llamadas por hora por dirección IP.",
+        "de": "Öffentliche GitHub-Daten ohne Token: Repositorys, Benutzer, Suche. Begrenzt auf 60 Aufrufe pro Stunde und IP-Adresse."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "dev",
+      "tags": [
+        "REST",
+        "JSON"
+      ],
+      "site": "https://docs.github.com/rest",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "ghOwner",
+          "v": "forcedotcom"
+        },
+        {
+          "k": "ghRepo",
+          "v": "cli"
+        }
+      ],
+      "requests": [
+        {
+          "id": "repo",
+          "name": "Repository",
+          "url": "https://api.github.com/repos/{{ghOwner}}/{{ghRepo}}",
+          "headers": [
+            {
+              "k": "Accept",
+              "v": "application/vnd.github+json",
+              "on": true
+            },
+            {
+              "k": "X-GitHub-Api-Version",
+              "v": "2022-11-28",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "releases",
+          "name": "Latest releases",
+          "url": "https://api.github.com/repos/{{ghOwner}}/{{ghRepo}}/releases",
+          "params": [
+            {
+              "k": "per_page",
+              "v": "5",
+              "on": true
+            }
+          ],
+          "headers": [
+            {
+              "k": "Accept",
+              "v": "application/vnd.github+json",
+              "on": true
+            },
+            {
+              "k": "X-GitHub-Api-Version",
+              "v": "2022-11-28",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "user",
+          "name": "User or organization",
+          "url": "https://api.github.com/users/{{ghOwner}}",
+          "headers": [
+            {
+              "k": "Accept",
+              "v": "application/vnd.github+json",
+              "on": true
+            },
+            {
+              "k": "X-GitHub-Api-Version",
+              "v": "2022-11-28",
+              "on": true
+            }
+          ]
+        },
+        {
+          "id": "search",
+          "name": "Search repositories",
+          "url": "https://api.github.com/search/repositories",
+          "params": [
+            {
+              "k": "q",
+              "v": "salesforce topic:apex",
+              "on": true
+            },
+            {
+              "k": "sort",
+              "v": "stars",
+              "on": true
+            },
+            {
+              "k": "per_page",
+              "v": "5",
+              "on": true
+            }
+          ],
+          "headers": [
+            {
+              "k": "Accept",
+              "v": "application/vnd.github+json",
+              "on": true
+            },
+            {
+              "k": "X-GitHub-Api-Version",
+              "v": "2022-11-28",
+              "on": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphql-countries",
+      "name": "Countries GraphQL",
+      "description": {
+        "it": "API GraphQL pubblica sui paesi: la query va nel corpo JSON come in qualsiasi chiamata GraphQL (POST con query e variabili).",
+        "en": "Public GraphQL API about countries: the query goes in the JSON body like any GraphQL call (POST with query and variables).",
+        "fr": "API GraphQL publique sur les pays : la requête va dans le corps JSON comme pour tout appel GraphQL (POST avec query et variables).",
+        "es": "API GraphQL pública sobre países: la consulta va en el cuerpo JSON como en cualquier llamada GraphQL (POST con query y variables).",
+        "de": "Öffentliche GraphQL-API zu Ländern: Die Abfrage steht im JSON-Body wie bei jedem GraphQL-Aufruf (POST mit query und variables)."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "dev",
+      "tags": [
+        "GraphQL",
+        "JSON"
+      ],
+      "site": "https://countries.trevorblades.com",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "countryCode",
+          "v": "IT"
+        }
+      ],
+      "requests": [
+        {
+          "id": "country",
+          "name": "Country (query + variables)",
+          "method": "POST",
+          "url": "https://countries.trevorblades.com/",
+          "bodyType": "json",
+          "body": "{\n  \"query\": \"query ($code: ID!) { country(code: $code) { name native capital currency languages { name } } }\",\n  \"variables\": {\n    \"code\": \"{{countryCode}}\"\n  }\n}"
+        },
+        {
+          "id": "continents",
+          "name": "Continents",
+          "method": "POST",
+          "url": "https://countries.trevorblades.com/",
+          "bodyType": "json",
+          "body": "{\n  \"query\": \"{ continents { code name } }\"\n}"
+        }
+      ]
+    },
+    {
+      "id": "soap-public",
+      "name": "Public SOAP services",
+      "description": {
+        "it": "Servizi SOAP di esempio molto usati per le prove: numeri in lettere (DataAccess), calcolatrice (DNE Online, solo http) e informazioni sui paesi (Oorsprong). Ognuno ha il suo WSDL da importare.",
+        "en": "SOAP sample services widely used for testing: numbers to words (DataAccess), calculator (DNE Online, http only) and country info (Oorsprong). Each has its own WSDL to import.",
+        "fr": "Services SOAP d'exemple très utilisés pour les tests : nombres en lettres (DataAccess), calculatrice (DNE Online, http uniquement) et infos pays (Oorsprong). Chacun a son WSDL à importer.",
+        "es": "Servicios SOAP de ejemplo muy usados para pruebas: números en letras (DataAccess), calculadora (DNE Online, solo http) e información de países (Oorsprong). Cada uno tiene su WSDL para importar.",
+        "de": "Viel genutzte SOAP-Beispieldienste zum Testen: Zahlen in Worten (DataAccess), Taschenrechner (DNE Online, nur http) und Länderinfos (Oorsprong). Jeder hat eine eigene WSDL zum Importieren."
+      },
+      "author": {
+        "name": "ForceKIT",
+        "url": "https://pellegrinoluigi.github.io/creativeapp/forcekit/"
+      },
+      "official": true,
+      "category": "soap",
+      "tags": [
+        "SOAP 1.1",
+        "XML"
+      ],
+      "site": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+      "version": "1.0.0",
+      "date": "2026-10-28",
+      "compatibility": {
+        "minExtensionVersion": "7.7.8"
+      },
+      "vars": [
+        {
+          "k": "number",
+          "v": "42"
+        },
+        {
+          "k": "countryCode",
+          "v": "IT"
+        }
+      ],
+      "requests": [
+        {
+          "id": "words",
+          "name": "NumberToWords",
+          "kind": "soap",
+          "url": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.dataaccess.com/webservicesserver/\">\n  <soapenv:Header></soapenv:Header>\n  <soapenv:Body>\n    <web:NumberToWords>\n      <web:ubiNum>{{number}}</web:ubiNum>\n    </web:NumberToWords>\n  </soapenv:Body>\n</soapenv:Envelope>"
+        },
+        {
+          "id": "dollars",
+          "name": "NumberToDollars",
+          "kind": "soap",
+          "url": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.dataaccess.com/webservicesserver/\">\n  <soapenv:Header></soapenv:Header>\n  <soapenv:Body>\n    <web:NumberToDollars>\n      <web:dNum>{{number}}.50</web:dNum>\n    </web:NumberToDollars>\n  </soapenv:Body>\n</soapenv:Envelope>"
+        },
+        {
+          "id": "add",
+          "name": "Calculator · Add",
+          "kind": "soap",
+          "url": "http://www.dneonline.com/calculator.asmx",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\">\n  <soapenv:Header></soapenv:Header>\n  <soapenv:Body>\n    <tem:Add>\n      <tem:intA>{{number}}</tem:intA>\n      <tem:intB>8</tem:intB>\n    </tem:Add>\n  </soapenv:Body>\n</soapenv:Envelope>",
+          "soapAction": "http://tempuri.org/Add"
+        },
+        {
+          "id": "capital",
+          "name": "CountryInfo · CapitalCity",
+          "kind": "soap",
+          "url": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.oorsprong.org/websamples.countryinfo\">\n  <soapenv:Header></soapenv:Header>\n  <soapenv:Body>\n    <web:CapitalCity>\n      <web:sCountryISOCode>{{countryCode}}</web:sCountryISOCode>\n    </web:CapitalCity>\n  </soapenv:Body>\n</soapenv:Envelope>"
+        },
+        {
+          "id": "currency",
+          "name": "CountryInfo · CountryCurrency",
+          "kind": "soap",
+          "url": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.oorsprong.org/websamples.countryinfo\">\n  <soapenv:Header></soapenv:Header>\n  <soapenv:Body>\n    <web:CountryCurrency>\n      <web:sCountryISOCode>{{countryCode}}</web:sCountryISOCode>\n    </web:CountryCurrency>\n  </soapenv:Body>\n</soapenv:Envelope>"
+        }
+      ]
+    }
+  ]
+}
