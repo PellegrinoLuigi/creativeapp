@@ -330,4 +330,59 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/?lang=de" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/" />
   </url>
+  <url>
+    <loc>https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+  </url>
+  <url>
+    <loc>https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+  </url>
+  <url>
+    <loc>https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+  </url>
+  <url>
+    <loc>https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+  </url>
+  <url>
+    <loc>https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=it" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/" />
+  </url>
 </urlset>
