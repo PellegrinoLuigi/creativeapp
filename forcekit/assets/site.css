@@ -124,3 +124,18 @@ footer a:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) { .maker:hover svg { animation: none; } }
 @media (min-width: 1420px) { .maker { display: inline-flex; } .maker span { display: none; } }
 @media (min-width: 1580px) { .maker span { display: inline; } }
+
+/* Varianti di ForceKIT accanto al marchio: ognuna nel suo colore (blu ForceKIT, bordeaux Space), la pagina corrente piena */
+.variants { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.variant { --v: #0176d3; --v-soft: rgba(1, 118, 211, 0.1); display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 11px 0 6px; border: 1px solid transparent; border-radius: 9px; color: var(--text-dim); font-size: 14px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+.variant img { width: 22px; height: 22px; border-radius: 6px; }
+.variant b { font-weight: inherit; }
+.variant.v-space { --v: #a8202b; --v-soft: rgba(168, 32, 43, 0.1); }
+.variant:hover { color: var(--v); border-color: color-mix(in srgb, var(--v) 35%, transparent); }
+.variant.on { background: var(--v-soft); border-color: color-mix(in srgb, var(--v) 45%, transparent); color: var(--text); }
+.variant.on b, .variant.v-space:hover b { color: var(--v); }
+.variant:not(.on) img { filter: saturate(.6); opacity: .85; }
+:root[data-theme="dark"] .variant { --v: #1b96ff; --v-soft: rgba(27, 150, 255, 0.16); }
+:root[data-theme="dark"] .variant.v-space { --v: #ef6b73; --v-soft: rgba(239, 107, 115, 0.16); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .variant { --v: #1b96ff; --v-soft: rgba(27, 150, 255, 0.16); } :root:not([data-theme="light"]) .variant.v-space { --v: #ef6b73; --v-soft: rgba(239, 107, 115, 0.16); } }
+@media (max-width: 720px) { .variant:not(.on) span { display: none; } .variant:not(.on) { padding: 0 5px; } }
