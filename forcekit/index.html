@@ -68,6 +68,13 @@
   h2 { margin: 0 0 12px; font-size: clamp(26px, 3.6vw, 40px); font-weight: 850; line-height: 1.1; letter-spacing: -0.03em; }
   .head p { margin: 0; color: var(--text-dim); font-size: 17px; }
   #new { padding-top: 96px; }
+  /* video */
+  #video { padding-top: 96px; padding-bottom: 0; }
+  .video { position: relative; display: block; width: 100%; max-width: 960px; margin: 0 auto; aspect-ratio: 16 / 9; padding: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: #000; box-shadow: var(--shadow-lg); cursor: pointer; }
+  .video img, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+  .video-play { position: absolute; left: 50%; top: 50%; display: flex; align-items: center; justify-content: center; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: var(--grad); color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .18s ease; }
+  .video-play svg { width: 30px; height: 30px; margin-left: 4px; fill: currentColor; }
+  .video:hover .video-play, .video:focus-visible .video-play { transform: scale(1.08); }
   .new-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
   .new-card { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); color: var(--text); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .new-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
@@ -235,6 +242,19 @@
         <img data-zoom class="float f1" src="assets/screenshots/script-actions.webp" alt="Independent actions with copyable outputs" data-i18n-attr="alt:g7" width="464" height="487" loading="lazy" />
         <img data-zoom class="float f2" src="assets/screenshots/bubbles.webp" alt="Scripts, notes and shortcuts as floating bubbles" data-i18n-attr="alt:g8" width="424" height="224" loading="lazy" />
       </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-i18n="videoEyebrow">Video</p>
+        <h2 data-i18n="videoH2">See ForceKIT in action.</h2>
+      </div>
+      <button type="button" class="video" data-video="x5B0alOYAVQ" data-i18n-attr="data-video:videoId,aria-label:videoPlay" aria-label="Play the ForceKIT video">
+        <img src="https://i.ytimg.com/vi/x5B0alOYAVQ/hqdefault.jpg" alt="" data-i18n-attr="src:videoThumb" width="480" height="360" loading="lazy" />
+        <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
     </div>
   </section>
 

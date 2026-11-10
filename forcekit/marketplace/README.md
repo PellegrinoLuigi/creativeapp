@@ -17,6 +17,10 @@ forcekit/marketplace/
   scripts/<id>/<versione>.js     codice JavaScript di ogni versione
   tools/catalog.mjs              controllo del catalogo e calcolo di size/sha256 (Node, nessuna dipendenza)
   tools/catalog.test.mjs         test dello strumento
+  api/index.html                 chiamate API pronte, assets/api-market.js
+  api/catalog.json               il catalogo delle chiamate API (schemaVersion 1)
+  tools/api-catalog.mjs          controllo del catalogo delle chiamate API
+  tools/api-catalog.test.mjs     test dello strumento
 ```
 
 Le versioni vecchie restano nella cartella: chi ha un'estensione meno recente riceve la versione più nuova compatibile.
@@ -75,3 +79,44 @@ L'estensione controlla il catalogo ogni 6 ore (se ci sono script del Marketplace
 ## Rimuovere uno script
 
 Togli la voce da `catalog.json` (i file possono restare per lo storico). Chi l'ha già installato lo tiene, ma non riceve più aggiornamenti; può rimuoverlo dal Marketplace o da Scripts.
+
+## Chiamate API (`api/catalog.json`)
+
+Raccolte di API **pubbliche, gratuite e senza chiavi** per il client API di ForceKIT (Strumenti › API › Raccolte › ⋯ › Marketplace chiamate). Sono solo dati (richieste HTTP), nessun codice: per questo non ci sono file separati né SHA-256, il catalogo contiene tutto.
+
+- pagina: <https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/>
+- catalogo letto dall'estensione: <https://pellegrinoluigi.github.io/creativeapp/forcekit/marketplace/api/catalog.json>
+
+```jsonc
+{
+  "id": "open-meteo",                      // unico, minuscole/cifre separate da . o - (max 60); "salesforce" e' riservato
+  "name": "Open-Meteo",
+  "description": { "en": "…", "it": "…" }, // "en" obbligatorio, poi it/fr/es/de
+  "author": { "name": "ForceKIT" },
+  "official": true,
+  "category": "data",                      // uno degli id in "categories"
+  "tags": ["REST", "JSON"],
+  "site": "https://open-meteo.com",        // documentazione (https)
+  "version": "1.0.0",                      // x.y.z: alzala quando cambi le richieste
+  "date": "2026-10-28",
+  "compatibility": { "minExtensionVersion": "7.7.8" },
+  "vars": [{ "k": "city", "v": "Milano" }],              // variabili della raccolta
+  "requests": [
+    { "id": "current", "name": "Current weather", "url": "https://api.open-meteo.com/v1/forecast",
+      "params": [{ "k": "latitude", "v": "{{lat}}", "on": true }] }
+  ]
+}
+```
+
+Una richiesta ha gli stessi campi del client API: `id` (fisso), `name`, `kind` (`rest` di base o `soap`), `method` (di base GET; POST per SOAP), `url`, `params`, `headers`, `form`, `bodyType` (`none`, `json`, `xml`, `text`, `form`), `body` (per SOAP la busta completa), `auth` (`none`, `bearer`, `basic`, `apikey`: niente autenticazione Salesforce), `soapVersion`, `soapAction`. Altri campi non sono ammessi.
+
+Gli Id non si cambiano mai: l'estensione li usa (`mkt:<pacchetto>:<richiesta>`) per riconoscere una raccolta già importata e aggiornare solo le differenze, senza toccare le richieste e le variabili aggiunte dall'utente. Il pacchetto `salesforce` (chiamate verso l'org attiva) resta dentro l'estensione perché dipende dalla sua versione API; l'estensione ha anche una copia di riserva del catalogo, usata se il sito non è raggiungibile.
+
+Controllo:
+
+```sh
+node forcekit/marketplace/tools/api-catalog.mjs
+node --test forcekit/marketplace/tools/*.test.mjs
+```
+
+Prima di pubblicare, prova le chiamate nuove dal client API di ForceKIT: devono rispondere senza chiavi né account.

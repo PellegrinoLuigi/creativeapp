@@ -1,4 +1,5 @@
-# Controlla il catalogo del ForceKIT Marketplace (metadati, file, SHA-256)
+# Controlla i cataloghi del ForceKIT Marketplace (script: metadati, file,
+# SHA-256; chiamate API: struttura delle raccolte)
 # a ogni push e pull request che lo tocca: un catalogo rotto non arriva su
 # GitHub Pages, e quindi neanche all'estensione.
 name: Marketplace catalog
@@ -25,5 +26,7 @@ jobs:
           node-version: 22
       - name: Validate catalog
         run: node forcekit/marketplace/tools/catalog.mjs
+      - name: Validate API calls catalog
+        run: node forcekit/marketplace/tools/api-catalog.mjs
       - name: Tests
         run: node --test forcekit/marketplace/tools/*.test.mjs
