@@ -53,6 +53,14 @@ header.top { position: sticky; top: 0; z-index: 30; background: var(--bg);
 .nav { display: flex; gap: 18px; margin-left: 6px; font-size: 14px; font-weight: 600; }
 .nav a { color: var(--text-dim); white-space: nowrap; }
 .nav a:hover, .nav a.active { color: var(--accent); }
+/* Marketplace: non e' una pagina del sito ma il catalogo degli script e delle API, quindi in fondo,
+   dopo una riga sottile, come capsula con l'icona del negozio (anche nel menu del telefono) */
+.nav { align-items: center; }
+.nav-sep { width: 1px; height: 18px; background: var(--border); }
+.nav-market { display: inline-flex; align-items: center; gap: 6px; }
+.nav-market svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.nav a.nav-market { margin-left: -4px; padding: 4px 11px 4px 9px; border: 1px solid var(--accent-line); border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.nav a.nav-market:hover, .nav a.nav-market.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 .top-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 .langnav { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--bg-2); }
 .langnav a { padding: 3px 7px; border-radius: 7px; color: var(--text-dim); font-size: 11px; font-weight: 800; }
