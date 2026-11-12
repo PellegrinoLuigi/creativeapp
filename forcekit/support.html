@@ -282,77 +282,6 @@
   }
   .ways li strong { display: block; color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 14px; margin-bottom: 2px; }
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    padding: 24px;
-  }
-
-  .cf-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .cf-field input,
-  .cf-field select,
-  .cf-field textarea {
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 12px;
-  }
-
-  .cf-field textarea { resize: vertical; min-height: 110px; }
-
-  .cf-field input:focus,
-  .cf-field select:focus,
-  .cf-field textarea:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 1px;
-    border-color: var(--accent);
-  }
-
-  .btn-cf {
-    align-self: flex-start;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-cf:hover { filter: brightness(1.06); }
-  .btn-cf:disabled { opacity: 0.6; cursor: default; }
-
-  /* nota sulla privacy sotto l'email */
-  .cf-hint {
-    margin: -8px 0 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--text-dimmer);
-  }
-
-  .cf-hint a { color: var(--accent); }
-
-  .cf-status {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
   footer {
     max-width: 720px;
     margin: 0 auto;
@@ -370,6 +299,7 @@
   ::selection { background: var(--accent-soft); color: var(--text); }
 </style>
 <link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/contact-form.css" />
 </head>
 <body>
 

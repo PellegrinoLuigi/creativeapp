@@ -32,6 +32,11 @@
 
       submitBtn.disabled = true;
 
+      // Stesso Google Form per ForceKIT e ForceKIT Space: il prodotto (data-product sul modulo) va
+      // davanti al titolo. Il tipo resta uno dei valori del modulo, che altrimenti potrebbe scartarlo.
+      var product = (form.dataset.product || "").trim();
+      if (product) title = "[" + product + "] " + title;
+
       fetch(FORM_RESPONSE_URL, {
         method: "POST",
         mode: "no-cors",
